@@ -1,0 +1,157 @@
+\documentclass[11pt,a4paper,faculty=we,language=en,doctype=report]{cls/ugent-doc}
+
+% Optional: margins and spacing
+%-------------------------------
+% Uncomment and adjust to change the default values set by the template
+% Note: the defaults are suggested values by Ghent University
+%\geometry{bottom=2.5cm,top=2.5cm,left=3cm,right=2cm} 
+%\renewcommand{\baselinestretch}{1.15} % line spacing
+
+% Font
+%------
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} % allows non-ascii input characters
+% Comment or remove the two lines below to use the default Computer Modern font
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+\usepackage[sc]{mathpazo} %font or smth
+\linespread{1.05}
+\usepackage{microtype}
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers e.g contents above contents (except new ones)
+\usepackage[Rejne]{fncychap} %fancy chapters
+%options for chapters: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+
+% NOTE: because the UGent font Panno is proprietary, it is not possible to use it
+% in Overleaf. But UGent does not suggest to use Panno for documents (or maybe only for
+% the titlepage). For the body, the UGent suggestion is to use a good serif font (for
+% LaTeX this could be libertine or Computer Modern).
+
+% Proper word splitting
+%-----------------------
+\usepackage[english]{babel} 
+
+% Mathematics
+%-------------
+\usepackage{amsmath}
+
+% Figures
+%---------
+%\usepackage{graphicx} % optional: the package is already loaded by the template
+\graphicspath{{./figures/}}
+
+% Bibliography settings
+%-----------------------
+\usepackage{cite}
+
+% Hyperreferences
+%-----------------
+\usepackage[colorlinks=true, allcolors=ugentblue]{hyperref}
+
+% Whitespace between paragraphs and no indentation
+%--------------------------------------------------
+\usepackage[parfill]{parskip} 
+
+% Input for title page
+%----------------------
+
+% The title
+\thetitle{Radio detection of high energy neutrinos in the Greenland icecap}
+\thesubtitle{Arthur Adriaens}
+
+%% Note: a stricter UGent style could be achieved with, e.g.:
+\usepackage{ulem} % for colored underline
+\renewcommand{\ULthickness}{2pt} % adjust thickness of underline
+\thetitle{\uline{\color{ugentblue}Radio detection of high energy neutrinos in the Greenland icecap}}
+% Note: do not forget to reset the \ULthickness to 1pt after invoking \maketitle
+% (otherwise all underlines in the rest of your document will be too thick):
+%\renewcommand{\ULthickness}{1pt}
+
+% The first (top) infobox at bottom of titlepage
+\infoboxa{\bfseries\large Department of Physics and Astronomy}
+
+% The second infobox at bottom of titlepage
+\infoboxb{Promotor: 
+\begin{tabular}[t]{ll}
+    Prof. dr. Dirk Ryckbosch & Dirk.Ryckbosch@ugent.be\\ % note syntax 'short space'
+\end{tabular}
+}
+
+% The third infobox at bottom of titlepage
+\infoboxc{Accompanist: 
+\begin{tabular}[t]{ll}
+    Bob Oeyen &  Bob.Oeyen@ugent.be\\
+\end{tabular}
+}
+
+% The last (bottom) infobox at bottom of titlepage
+\infoboxd{Academic year: 2022--2023} % note dash, not hyphen
+\infoboxd{Master’s dissertation submitted in partial fulfilment of the requirements for the degree of master in Physics and Astronomy}
+
+\begin{document}
+
+% =====================================================================
+% Cover
+% =====================================================================
+
+% ------------ TITLE PAGE ---------
+\maketitle
+\renewcommand{\ULthickness}{1pt}
+
+% =====================================================================
+% Front matter
+% =====================================================================
+
+% ------------ TABLE OF CONTENTS ---------
+{\hypersetup{hidelinks}\tableofcontents} % hide link color in toc
+\newpage
+
+
+% =====================================================================
+% Main matter
+% =====================================================================
+\chapter{Neutrinos}
+\section{Discovery}
+\section{Standard model}
+\section{Outside sources}
+\subsection{Cosmic neutrinos}
+To estimate the temperature of the neutrinos who decoupled at the start of the universe, we can take a look at conservation of entropy \cite{Dodelson}
+(...)
+The entropy before and after decoupling are:
+\begin{align}
+	s(a_1) &= \frac{2\pi^2}{45}(2 + \frac{7}{8}(2+2+3+3))T_1^3\\
+	&= \frac{2\pi^2}{45}\frac{86}{8}T_1^3\\
+	s(a_2) &= \frac{2\pi^2}{45}(2T_\gamma^3 + \frac{7}{8}(6)T_\nu^3)\\
+\end{align}
+Conservation of entropy:
+\begin{align}
+	s(a_1)a_1^3 &= s(a_2)a_2^3\\
+	\frac{86}{8}(T_1 a_1)^3 &= \left(2\left(\frac{T_\gamma}{T_\nu}\right)^3 + \frac{42}{8}\right)(T_\nu a_2)^3\\
+	\frac{86}{8} &= 2\left(\frac{T_\gamma}{T_\nu}\right)^3 + \frac{42}{8}\\
+	\frac{44}{16} &= \left(\frac{T_\gamma}{T_\nu}\right)^3\\
+	\left(\frac{T_\gamma}{T_\nu}\right) &= \left(\frac{11}{4}\right)^{1/3}
+\end{align}
+i.e
+\begin{equation}
+	T_\nu = \left(\frac{4}{11}\right)^{1/3}T_\gamma
+\end{equation}
+$\Phi$
+\subsection{Oscillations}
+\subsection{Majorana}
+\newpage
+\chapter{Radio detection}
+
+
+% =====================================================================
+% End matter
+% =====================================================================
+\newpage
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+\bibliography{sources}
+\bibliographystyle{plain}
+
+\end{document}
