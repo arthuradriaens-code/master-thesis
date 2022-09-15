@@ -113,10 +113,17 @@
 % =====================================================================
 % Main matter
 % =====================================================================
+\chapter{Abstract}
+The Radio Neutrino Observatory - RNO-G - is under construction at Summit Station in Greenland to search for neutrinos of several PeV energy up to the Eev range. It's a mid-scale, discovery phase, extremely high-energy neutrino telescope that will probe the astrophysical neutrino flux at energies beyond the reach of IceCube.
+More particularly if will make it possible to reach the next major milestone in astroparticle physics: the discovery of cosmogenic neutrinos.
+% =====================================================================
+
 \chapter{Neutrinos}
+Neutrinos are ideal messengers to identify the UHE (Ultra High Energy) sources in the universe. Unlike cosmic rays, which are deflected by magnetic fields and interact with matter and radiation on their way to us, neutrinos point back to sources and can reach Earth unperturbed from the most distant corners of the universe.
 \section{Discovery}
 \section{Standard model}
 \section{Outside sources}
+The radio detection of neutrinos targets the energy range 10PeV to 100EeV\cite{Anguilar_2021}, here we'll see diffuse neutrino fluxes both directly from sources (\textit{astrophysical neutrinos}) i.e created directly in (or very close to) the sources of ultra-high energy cosmic rays (UHECRs), as well as from the interaction of UHECRs with photon backgrounds (e.g the CMB) (\textit{cosmogenic neutrinos}).
 \subsection{Cosmic neutrinos}
 To estimate the temperature of the neutrinos who decoupled at the start of the universe, we can take a look at conservation of entropy \cite{Dodelson}
 (...)
@@ -143,7 +150,8 @@ $\Phi$
 \subsection{Majorana}
 \newpage
 \chapter{Radio detection}
-Here I'll first give a short overview of the equations governing radiation emitted by moving charges, more specifically of Cherenkov radiation. The reader who wants a thorough explanation and derivation is advised to check out \textit{Chapter 14: Radiation by Moving Charges} from the book \textit{Classical Electrodynamics} by Jackson. 
+The radio emisson following a neutrino interaction stems from the \textit{Askaryan} effect\cite{Askaryan}, also known as Askaryan radiation. This is the phenomenon whereby a particle traveling faster than the phase velocity of light in a dense dielectric (such as ice) produces a shower of secondary charged particles which contains a charge anisotropy, this charge imbalance is a result of medium electrons either Compton scattering into the advancing shower or annihilating with shower positrons. You thus get moving charges which move faster than the light speed in the medium, creating Cherenkov radiation.
+Here I'll quickly give a short overview of the equations of Cherenkov radiation. The reader who wants a thorough explanation and derivation is advised to check out \textit{Chapter 14: Radiation by Moving Charges} from the book \textit{Classical Electrodynamics} by Jackson. 
 \section{Spectral distribution of radiation}
 We wish to know the emitted energy per elementary unit solid angle over a certain frequency interval for a moving charge far away from the source. For this we have that the vectorpotential $\mathbf{A}$, defined as
 \begin{equation}
@@ -205,6 +213,18 @@ We see that the energy is proportional to $\omega$, so we expect that most radia
 	\label{figure: Cherenkov illustratie}
 \end{minipage}
 \end{minipage}
+\end{figure}
+\chapter{The Detector}
+The detector is illustrated in figure \ref{fig:detector}, the radio signal from a neutrino often travels along both direct and refracted paths (designated DnR) to the deep array, this happens because the upper ice layer is a non-uniform medium where the signal trajectory is bent. This double pulse characteristic would be a smoking-gun signature of an in-ice source. The two additional 'strings', which house detectors are needed for a full direction reconstruction. Three independent measurements are needed for azimuthal information, which is provided by the Vpol (Vertical polarization) antenaas and placing the Hpol (Horizontal polarization) antennas at different depths on every string, both zentih and zimuth information will be provided for those signals. 2 of the 3 strings house calibration pulsers, these, as well as one on the surface, will ensure regular monitoring of the performance of the station and provide information useful for precise calibration of the antenna geometry.
+\begin{figure}
+	\includegraphics[width=\textwidth]{figures/station-map.png}	
+	\caption{map of the station}
+	\label{fig:station map}
+\end{figure}
+\begin{figure}
+	\includegraphics[width=0.9\textwidth]{figures/detector.pdf}	
+	\caption{illustration of the detector}
+	\label{fig:detector}
 \end{figure}
 % =====================================================================
 % End matter
