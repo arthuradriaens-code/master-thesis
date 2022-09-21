@@ -6,6 +6,7 @@
 % Note: the defaults are suggested values by Ghent University
 %\geometry{bottom=2.5cm,top=2.5cm,left=3cm,right=2cm} 
 %\renewcommand{\baselinestretch}{1.15} % line spacing
+\setlength{\headheight}{13.59999pt}
 
 % Font
 %------
@@ -120,10 +121,11 @@ More particularly if will make it possible to reach the next major milestone in 
 
 \chapter{Neutrinos}
 Neutrinos are ideal messengers to identify the UHE (Ultra High Energy) sources in the universe. Unlike cosmic rays, which are deflected by magnetic fields and interact with matter and radiation on their way to us, neutrinos point back to sources and can reach Earth unperturbed from the most distant corners of the universe.
+Neutrinos can be generated in 2 ways: either they're generated in interactions at the sources, termed \textit{astrophysical neutrinos}. Or they're created through the interaction of ultra-high energy cosmic rays during propagation with the cosmic microwave or other photon backgrounds. 
 \section{Discovery}
 \section{Standard model}
 \section{Outside sources}
-The radio detection of neutrinos targets the energy range 10PeV to 100EeV\cite{Anguilar_2021}, here we'll see diffuse neutrino fluxes both directly from sources (\textit{astrophysical neutrinos}) i.e created directly in (or very close to) the sources of ultra-high energy cosmic rays (UHECRs), as well as from the interaction of UHECRs with photon backgrounds (e.g the CMB) (\textit{cosmogenic neutrinos}).
+The radio detection of neutrinos targets the energy range 10PeV to 100EeV\cite{Aguilar_2021}, here we'll see diffuse neutrino fluxes both directly from sources (\textit{astrophysical neutrinos}) i.e created directly in (or very close to) the sources of ultra-high energy cosmic rays (UHECRs), as well as from the interaction of UHECRs with photon backgrounds (e.g the CMB) (\textit{cosmogenic neutrinos}).
 \subsection{Cosmic neutrinos}
 To estimate the temperature of the neutrinos who decoupled at the start of the universe, we can take a look at conservation of entropy \cite{Dodelson}
 (...)
@@ -196,7 +198,7 @@ I.e if $u>c$ Cherenkov radiation will be emitted along a cone surface with half 
 	\frac{\text{d}^2\mathscr{J}}{\text{d}\omega \text{d}t} = \frac{q^2}{4\pi}\sqrt{\frac{\mu}{\epsilon}}\beta\omega\left(1-\frac{1}{\beta^2}\right)	
 \end{equation}
 We see that the energy is proportional to $\omega$, so we expect that most radiation will be emitted "in blue", as seen in figure \ref{figure: Cherenkov reactor}.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{minipage}{\textwidth}
 \begin{minipage}{0.45\textwidth}
@@ -215,17 +217,42 @@ We see that the energy is proportional to $\omega$, so we expect that most radia
 \end{minipage}
 \end{figure}
 \chapter{The Detector}
-The detector is illustrated in figure \ref{fig:detector}, the radio signal from a neutrino often travels along both direct and refracted paths (designated DnR) to the deep array, this happens because the upper ice layer is a non-uniform medium where the signal trajectory is bent. This double pulse characteristic would be a smoking-gun signature of an in-ice source. The two additional 'strings', which house detectors are needed for a full direction reconstruction. Three independent measurements are needed for azimuthal information, which is provided by the Vpol (Vertical polarization) antenaas and placing the Hpol (Horizontal polarization) antennas at different depths on every string, both zentih and zimuth information will be provided for those signals. 2 of the 3 strings house calibration pulsers, these, as well as one on the surface, will ensure regular monitoring of the performance of the station and provide information useful for precise calibration of the antenna geometry.
-\begin{figure}
-	\includegraphics[width=\textwidth]{figures/station-map.png}	
-	\caption{map of the station}
-	\label{fig:station map}
-\end{figure}
+The detector is illustrated in figure \ref{fig:detector}.
+
+The deep component of the detector can be split up in three parts: Two \textit{helper strings}, one \textit{power string} and the surface components. The helper strings are the 2 vertical cables shown on the right of the figure and house 2 vertically polarized antennas (Vpols), one quadslot antenna for the horizontal polarization component (Hpol) and one radio pulser on each helper string which can be used to generate calibration signals.
+
+The power string (the leftmost vertical cable) is more densely instrumented: At the bottom it houses a set of four Vpol and two Hpol antennas with a spacing of 1m and further up the string, with a spacing of 20m are three more Vpol antennas.
+
+The signal from each of these antennae are fed into a low-noise amplifier directly above it, from there the signal is send to the data acquisition (DAQ) system at the surface via a Radio Frequency over Fiber (RFoF). There it's again amplified, digitized and saved onto an SD card. This data is then transmitted via a Long Term Evolution (LTE) telecommunications network to a local server\footnote{There is additionally a Long Range Wide Area Network (LoRaWAN) antenna as backup in case of problems with the LTE network}, from where it is sent via a sattelite link.
+
+There are solar panels as a power source who charge up battery banks, but as there is't enough light during the Greenland winters, there're plans to build wind turbines (with the problem being the possibly detectable RF noise the 'engine' produces)
+
 \begin{figure}
 	\includegraphics[width=0.9\textwidth]{figures/detector.pdf}	
 	\caption{illustration of the detector}
 	\label{fig:detector}
 \end{figure}
+\newpage
+The radio signal from a neutrino often travels along both direct and refracted paths (designated DnR) to the deep array, this happens because the upper ice layer is a non-uniform medium where the signal trajectory is bent, as illustrated by a simulation in figure \ref{fig:path_illustration}. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/path_illustration.png}	
+	\caption{illustration of a neutrino signal path}
+	\label{fig:path_illustration}
+\end{figure}
+
+
+This double pulse characteristic would be a smoking-gun signature of an in-ice source. The two helper strings are needed for a full direction reconstruction. Three independent measurements are needed for azimuthal information, which is provided by the Vpol (Vertical polarization) antennas and placing the Hpol (Horizontal polarization) antennas at different depths on every string, both zentih and azimuth information will be provided for those signals. The helper strings' calibration pulsers, as well as one on the surface, will ensure regular monitoring of the performance of the station and provide information useful for precise calibration of the antenna geometry.
+
+
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{figures/station-map.png}	
+	\caption{map of the station}
+	\label{fig:station map}
+\end{figure}
+
 % =====================================================================
 % End matter
 % =====================================================================
