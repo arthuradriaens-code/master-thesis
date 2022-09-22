@@ -121,12 +121,12 @@ More particularly if will make it possible to reach the next major milestone in 
 
 \chapter{Neutrinos}
 Neutrinos are ideal messengers to identify the UHE (Ultra High Energy) sources in the universe. Unlike cosmic rays, which are deflected by magnetic fields and interact with matter and radiation on their way to us, neutrinos point back to sources and can reach Earth unperturbed from the most distant corners of the universe.
-Neutrinos can be generated in 2 ways: either they're generated in interactions at the sources, termed \textit{astrophysical neutrinos}. Or they're created through the interaction of ultra-high energy cosmic rays during propagation with the cosmic microwave or other photon backgrounds. 
+Neutrinos can be generated in 2 ways: either they're generated in interactions at the sources, termed \textit{astrophysical neutrinos}. Or they're created through the interaction of ultra-high energy cosmic rays during propagation with the cosmic microwave or other photon backgrounds termed \textit{cosmogenic neutrinos}. 
 \section{Discovery}
 \section{Standard model}
 \section{Outside sources}
 The radio detection of neutrinos targets the energy range 10PeV to 100EeV\cite{Aguilar_2021}, here we'll see diffuse neutrino fluxes both directly from sources (\textit{astrophysical neutrinos}) i.e created directly in (or very close to) the sources of ultra-high energy cosmic rays (UHECRs), as well as from the interaction of UHECRs with photon backgrounds (e.g the CMB) (\textit{cosmogenic neutrinos}).
-\subsection{Cosmic neutrinos}
+\subsection{primordial neutrinos}
 To estimate the temperature of the neutrinos who decoupled at the start of the universe, we can take a look at conservation of entropy \cite{Dodelson}
 (...)
 The entropy before and after decoupling are:
@@ -147,7 +147,6 @@ i.e
 \begin{equation}
 	T_\nu = \left(\frac{4}{11}\right)^{1/3}T_\gamma
 \end{equation}
-$\Phi$
 \subsection{Oscillations}
 \subsection{Majorana}
 \newpage
@@ -165,9 +164,9 @@ takes the form
 \end{equation}
 with q the charge, r the distance from the charge to the observer and 
 \begin{equation}
-	\boldsymbol{\alpha} = \int_\infty^\infty \boldsymbol{\beta}(t) e^{i\omega(t-\boldsymbol{e}_r\cdot \boldsymbol{r}_0(t)/c)}\text{d}t
+	\boldsymbol{\alpha} = \int_\infty^\infty \boldsymbol{\beta}(t) e^{i\omega(t-\boldsymbol{e}_r\cdot \boldsymbol{r}_0(t)/c')}\text{d}t
 \end{equation}
-With $\boldsymbol{\beta}:= \boldsymbol{u}/c$ and $\boldsymbol{u}$ the speed of the particle, the integration is along the path of the moving charged particle. 
+With $\boldsymbol{\beta}:= \boldsymbol{u}/c'$ wherein $\boldsymbol{u}$ is the speed of the particle, $c'$ is the local speed of light and the integration is along the path of the moving charged particle. 
 The energy emitted per unit solid angle is given by
 \begin{equation}
 	\frac{\text{d} \mathscr{P}}{\text{d} \Omega} = R'^2\mathbf{S}(t)\cdot\mathbf{n}'
@@ -191,14 +190,15 @@ Cherenkov radiation is like the elektromagnetic equivalent of a sonic boom, a so
 \end{equation}
 or, in spherical coordinates, $1-\beta \mathbf{e}_r\cdot\mathbf{e}_z = 1-\beta\cos(\theta_c)$ in the delta function. We thus only expect radiation if
 \begin{equation}
-	\cos(\theta_c) = \frac{1}{\beta} = \frac{c}{u}
+\cos(\theta_c) = \frac{1}{\beta} = \frac{c'}{u} = \frac{c}{n}\cdot\frac{1}{u}
 \end{equation}
-I.e if $u>c$ Cherenkov radiation will be emitted along a cone surface with half angle $\frac{\pi}{2}-\theta_c$ as illustrated in figure \ref{figure: Cherenkov illustratie}. Integrating equation \ref{equation: 4.128 in elektromagnetisme} over the solid angle and formally deviding by the time interval we get:
+I.e if $u>\frac{c}{n}$ with n the index of refraction, Cherenkov radiation will be emitted along a cone surface with half angle $\frac{\pi}{2}-\theta_c$ as illustrated in figure \ref{figure: Cherenkov illustratie}. Integrating equation \ref{equation: 4.128 in elektromagnetisme} over the solid angle and formally deviding by the time interval we get:
 \begin{equation}
 	\frac{\text{d}^2\mathscr{J}}{\text{d}\omega \text{d}t} = \frac{q^2}{4\pi}\sqrt{\frac{\mu}{\epsilon}}\beta\omega\left(1-\frac{1}{\beta^2}\right)	
 \end{equation}
 We see that the energy is proportional to $\omega$, so we expect that most radiation will be emitted "in blue", as seen in figure \ref{figure: Cherenkov reactor}.
-\begin{figure}[ht]
+For ice the index of refraction is roughly 1.75, so we expect an ultra-relativistic particle to produce the most radiation at around 55° opening as $\cos\left(\frac{1}{1.75}\right)\approx 55$° (generally we take 56°).
+\begin{figure}
 \centering
 \begin{minipage}{\textwidth}
 \begin{minipage}{0.45\textwidth}
@@ -219,11 +219,11 @@ We see that the energy is proportional to $\omega$, so we expect that most radia
 \chapter{The Detector}
 The detector is illustrated in figure \ref{fig:detector}.
 
-The deep component of the detector can be split up in three parts: Two \textit{helper strings}, one \textit{power string} and the surface components. The helper strings are the 2 vertical cables shown on the right of the figure and house 2 vertically polarized antennas (Vpols), one quadslot antenna for the horizontal polarization component (Hpol) and one radio pulser on each helper string which can be used to generate calibration signals.
+The deep component of the detector can be split up in three parts: Two \textit{helper strings}, one \textit{power string} and the surface components. The helper strings are the 2 vertical cables shown on the right of the figure and each house 2 vertically polarized antennas (Vpols), one quadslot antenna for the horizontal polarization component (Hpol) and one radio pulser on each helper string which can be used to generate calibration signals.
 
 The power string (the leftmost vertical cable) is more densely instrumented: At the bottom it houses a set of four Vpol and two Hpol antennas with a spacing of 1m and further up the string, with a spacing of 20m are three more Vpol antennas.
 
-The signal from each of these antennae are fed into a low-noise amplifier directly above it, from there the signal is send to the data acquisition (DAQ) system at the surface via a Radio Frequency over Fiber (RFoF). There it's again amplified, digitized and saved onto an SD card. This data is then transmitted via a Long Term Evolution (LTE) telecommunications network to a local server\footnote{There is additionally a Long Range Wide Area Network (LoRaWAN) antenna as backup in case of problems with the LTE network}, from where it is sent via a sattelite link.
+The signal from each of these antennae are fed into a low-noise amplifier directly above it, from there the signal is send to the data acquisition (DAQ) system at the surface via a Radio Frequency over Fiber (RFoF) cable. There it's again amplified, digitized and saved onto an SD card. This data is then transmitted via a Long Term Evolution (LTE) telecommunications network to a local server\footnote{There is additionally a Long Range Wide Area Network (LoRaWAN) antenna as backup in case of problems with the LTE network}, from where it is sent via a sattelite link.
 
 There are solar panels as a power source who charge up battery banks, but as there is't enough light during the Greenland winters, there're plans to build wind turbines (with the problem being the possibly detectable RF noise the 'engine' produces)
 

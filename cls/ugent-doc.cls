@@ -135,13 +135,13 @@
             \mystrut[1]
         \end{minipage}%}
 		
-		\vspace{2cm}
+		\vspace{0.2cm}
 		
-		\begin{minipage}{\subpaperwidth-2\gridunit} % tile minipage, right margin of 1
+	\begin{minipage}{\subpaperwidth}%-2\gridunit} % tile minipage, right margin of 1
 			\centering
-			\includegraphics[width=0.8\textwidth]{detector-paragraph.png}
-		\end{minipage}
-		
+			\includegraphics[width=0.7\textwidth]{detector-illustration2.png}
+	\end{minipage}
+	\vspace{0.8cm}		
         \vskip\fill % Push down to bottom of minipage
 
         \ifx\@infoboxa\empty\else % ony put box if not empty

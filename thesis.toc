@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {2.1}Discovery}{3}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Standard model}{3}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Outside sources}{3}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Cosmic neutrinos}{3}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}primordial neutrinos}{3}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Oscillations}{4}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Majorana}{4}{subsection.2.3.3}%
 \contentsline {chapter}{\numberline {3}Radio detection}{5}{chapter.3}%
