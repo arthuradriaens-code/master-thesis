@@ -1,16 +1,7 @@
 \begin{thebibliography}{1}
 
 \bibitem{Aguilar_2021}
-J.A. Aguilar, P.~Allison, J.J. Beatty, H.~Bernhoff, D.~Besson, N.~Bingefors,
-  O.~Botner, S.~Buitink, K.~Carter, B.A. Clark, A.~Connolly, P.~Dasgupta,
-  S.~de~Kockere, K.D. de~Vries, C.~Deaconu, M.A. DuVernois, N.~Feigl,
-  D.~Garc{\'{\i} }a-Fern{\'{a}}ndez, C.~Glaser, A.~Hallgren, S.~Hallmann, J.C.
-  Hanson, B.~Hendricks, B.~Hokanson-Fasig, C.~Hornhuber, K.~Hughes, A.~Karle,
-  J.L. Kelley, S.R. Klein, R.~Krebs, R.~Lahmann, M.~Magnuson, T.~Meures, Z.S.
-  Meyers, A.~Nelles, A.~Novikov, E.~Oberla, B.~Oeyen, H.~Pandya, I.~Plaisier,
-  L.~Pyras, D.~Ryckbosch, O.~Scholten, D.~Seckel, D.~Smith, D.~Southall,
-  J.~Torres, S.~Toscano, D.J. Van~Den Broeck, N.~van Eijndhoven, A.G. Vieregg,
-  C.~Welling, S.~Wissel, R.~Young, and A.~Zink.
+J.A. Aguilar, P.~Allison, J.J. Beatty, et~al.
 \newblock Design and sensitivity of the radio neutrino observatory in greenland
   ({RNO}-g).
 \newblock {\em Journal of Instrumentation}, 16(03):P03025, mar 2021.
@@ -25,5 +16,24 @@ G~A Askaryan.
 Scott Dodelson.
 \newblock {\em {Modern Cosmology}}.
 \newblock Academic Press, Amsterdam, 2003.
+
+\bibitem{Hiller_2017}
+R.~Hiller, P.~A. Bezyazeekov, N.~M. Budnev, et~al.
+\newblock Tunka-rex: energy reconstruction with a single antenna station.
+\newblock {\em {EPJ} Web of Conferences}, 135:01004, 2017.
+
+\bibitem{Welling_2021}
+C.~Welling, P.~Frank, T.~En{\ss}lin, and A.~Nelles.
+\newblock Reconstructing non-repeating radio pulses with information field
+  theory.
+\newblock {\em Journal of Cosmology and Astroparticle Physics}, 2021(04):071,
+  apr 2021.
+
+\bibitem{Welling_2019}
+C.~Welling, C.~Glaser, and A.~Nelles.
+\newblock Reconstructing the cosmic-ray energy from the radio signal measured
+  in one single station.
+\newblock {\em Journal of Cosmology and Astroparticle Physics}, 10:075--075,
+  oct 2019.
 
 \end{thebibliography}
