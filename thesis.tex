@@ -114,7 +114,8 @@
 % =====================================================================
 % Main matter
 % =====================================================================
-\chapter{Abstract}
+\chapter{Foreword}
+\section{Abstract: English}
 The Radio Neutrino Observatory - RNO-G - is under construction at Summit Station in Greenland to search for neutrinos of several PeV energy up to the Eev range. It's a mid-scale, discovery phase, extremely high-energy neutrino telescope that will probe the astrophysical neutrino flux at energies beyond the reach of IceCube.
 More particularly if will make it possible to reach the next major milestone in astroparticle physics: the discovery of cosmogenic neutrinos.
 \vspace{0.5cm}
@@ -125,10 +126,54 @@ All simulations carried out within this work were made with the three programs
 	\item RadioPropa
 \end{itemize}
 whom are free to download on \href{https://github.com/nu-radio}{github}
+\section{Abstract: Nederlands}
 % =====================================================================
-\chapter{Neutrinos}
-Neutrinos are ideal messengers to identify the UHE (Ultra High Energy) sources in the universe. Unlike cosmic rays, which are deflected by magnetic fields and interact with matter and radiation on their way to us, neutrinos point back to sources and can reach Earth unperturbed from the most distant corners of the universe.
-Neutrinos can be generated in 2 ways: either they're generated in interactions at the sources, termed \textit{astrophysical neutrinos}. Or they're created through the interaction of ultra-high energy cosmic rays during propagation with the cosmic microwave or other photon backgrounds termed \textit{cosmogenic neutrinos}. 
+\chapter{Background}
+\section{Why?}
+Neutrinos are ideal messengers to identify the UHE (Ultra High Energy) sources
+in the universe. Unlike cosmic rays, which are deflected by magnetic fields and
+interact with matter and radiation on their way to us, neutrinos point back to
+sources and can reach Earth unperturbed from the most distant corners of the
+universe.  Neutrinos can be generated in 2 ways: either they're generated in
+interactions at the sources, termed \textit{astrophysical neutrinos}. Or
+they're created through the interaction of ultra-high energy cosmic rays during
+propagation with the cosmic microwave or other photon backgrounds termed
+\textit{cosmogenic neutrinos}. 
+Supernovae are a source for \textit{astrophysical neutrinos}:
+\subsection{Supernovae}
+A star starts its life as a ball of pure hydrogen, at the core due to the
+gravitational pressure of the outside plasma fusion of hydrogen into deuterium
+and helium happens, converting mass into energy. The pressure of this energy
+counteracts the pressure of gravity and the star is stable.
+
+When the hydrogen at the core runs out no more hydrogen can be fused and the
+fusion of heavier elements starts, this can't keep going on however as at some
+point the star starts to form the most stable element: iron.  It costs energy
+to both make lighter elements than iron and heavier ones.  As the iron core
+builds up the outside pressure from the core starts to decrease as no new
+energy is released. This goes on until the inwards pressure becomes too large
+and the electrons surrounding the iron core fuse with the protons, 
+creating neutrons and neutrino's.
+
+This last part happens in a split second, creating a very dense neutron star
+and up to $10^{52}$ ultra-relativistic neutrinos. As the density has suddenly
+increased so much there's a huge distance of pure vaccuum between the plasma
+outer layer and the (now) neutron star, this plasma starts falling in as these
+neutrinos carrying tremendous amounts of energy start going outwards the neutron
+stars core.
+
+These then collide resulting in what we observe as a "supernova", wrongly
+thought of by Kepler as being a "new (nova) star" rather being a violent death
+of an old star.
+
+Not all the neutrinos collide with matter of course as neutrinos rarely
+interact, it's only as the incoming plasma is so dense and due to the
+tremendous amount of neutrinos that collissions happen at all. The ones that
+escape, however, will be visible on earth in our neutrino detectors, far before
+the light escapes the exploding star.
+
+Neutrino observatories are thus useful to know where to point our various
+telescopes before the supernova is actually visible in the night sky.
 \section{Discovery}
 \section{Standard model}
 \subsection{Oscillations}
@@ -167,8 +212,9 @@ For a particle shower to emit strong radio signals, two conditions have to be me
 \end{itemize}
 The first item, seperation of positive and negative charges, can be caused by 2 mechanisms: The \textit{Askaryan} effect\cite{Askaryan}, also known as Askaryan radiation. This is the phenomenon whereby a particle traveling faster than the phase velocity of light in a dense dielectric (such as ice) produces a shower of secondary charged particles which contains a charge anisotropy (net negative charge), this charge imbalance is a result of medium electrons either Compton scattering into the advancing shower or annihilating with shower positrons. You thus get moving charges which move faster than the light speed in the medium, creating Cherenkov radiation.
 The other effect, called \textit{geomagnetic emission} is the seperation of charges by the Lorentz force from the geomagnetic field, however, because of its relatively high density, in ice the Askaryan effect is dominant.
+It's possible to distinguish between the two with polarization as with Askaryan emission, the light is polarized in the radial direction towards the shower axis contrary to geomagnetic emission where it's polarized in the Lorentz force direction.
 
-In the following two sections I'll quickly give a short overview of the equations of Cherenkov radiation to determine the viewing angle of an incoming neutrino particle. The reader who wants a thorough explanation and derivation is advised to check out \textit{Chapter 14: Radiation by Moving Charges} from the book \textit{Classical Electrodynamics} by Jackson. 
+In the following two sections I'll quickly give a short overview of the equations of Cherenkov radiation to determine the viewing angle of an incoming neutrino particle, this is relevant to the second condition which I'll explain afterwards. The reader who wants a thorough explanation and derivation is advised to check out \textit{Chapter 14: Radiation by Moving Charges} from the book \textit{Classical Electrodynamics} by Jackson. 
 \section{Spectral distribution of radiation}
 We wish to know the emitted energy per elementary unit solid angle over a certain frequency interval for a moving charge far away from the source. For this we have that the vectorpotential $\mathbf{A}$, defined as
 \begin{equation}
@@ -216,7 +262,6 @@ We see that the energy is proportional to $\omega$, so we expect that most radia
 For ice the index of refraction is roughly 1.75, so we expect an ultra-relativistic particle to produce the most radiation at around 55° opening as $\cos\left(\frac{1}{1.75}\right)\approx 55$° (generally we take 56°).
 \begin{figure}
 \centering
-\begin{minipage}{\textwidth}
 \begin{minipage}{0.45\textwidth}
 	\centering
 	\copyrightbox[r]{\includegraphics[height = 0.8\textwidth]{Cherenkov-reactor.jpg}}{\textcopyright Argonne National Laboratory\\Advanced Test Reactor core, Idaho National Laboratory}
@@ -230,8 +275,8 @@ For ice the index of refraction is roughly 1.75, so we expect an ultra-relativis
 	\caption{Diagrammatic representation of Cherenkov radiation}
 	\label{figure: Cherenkov illustratie}
 \end{minipage}
-\end{minipage}
 \end{figure}
+Now if an observer is positioned at this Cherenkov angle all radio emission produced during the shower development reaches him/it at the same time, leading to constructive interference, hence the second condition is satisfied in ice for signals of $\approx 56^\deg$
 \section{Reconstruction}
 It can pose a challenge to reconstruct the radio signals produced by the Cherenkov radiation as they are often obscured by background noise. A solution used in RadioReco is Information Field Theory (IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021} which uses Bayesian inference to calculate the most likely radio signal, given recorded data.
 \chapter{The Detector}

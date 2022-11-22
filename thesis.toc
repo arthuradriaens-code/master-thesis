@@ -1,15 +1,19 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Abstract}{2}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Neutrinos}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Discovery}{3}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Standard model}{3}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Oscillations}{3}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Majorana}{3}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Outside sources}{3}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}primordial neutrinos}{3}{subsection.2.3.1}%
-\contentsline {section}{\numberline {2.4}Why look for them?}{4}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Radio detection}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Spectral distribution of radiation}{5}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Cherenkov radiation}{6}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Reconstruction}{7}{section.3.3}%
-\contentsline {chapter}{\numberline {4}The Detector}{8}{chapter.4}%
+\contentsline {chapter}{\numberline {1}Foreword}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Abstract: English}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Abstract: Nederlands}{2}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Why?}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Supernovae}{3}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Discovery}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Standard model}{4}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Oscillations}{4}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Majorana}{4}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Outside sources}{4}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}primordial neutrinos}{4}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Why look for them?}{5}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Radio detection}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Spectral distribution of radiation}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Cherenkov radiation}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Reconstruction}{8}{section.3.3}%
+\contentsline {chapter}{\numberline {4}The Detector}{9}{chapter.4}%
