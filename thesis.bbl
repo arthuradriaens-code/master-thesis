@@ -22,6 +22,13 @@ R.~Hiller, P.~A. Bezyazeekov, N.~M. Budnev, et~al.
 \newblock Tunka-rex: energy reconstruction with a single antenna station.
 \newblock {\em {EPJ} Web of Conferences}, 135:01004, 2017.
 
+\bibitem{2022icrc.confE1027O}
+B.~{Oeyen}, I.~{Plaisier}, A.~{Nelles}, C.~{Glaser}, and T.~{Winchen}.
+\newblock {Effects of firn ice models on radio neutrino simulations using a
+  RadioPropa ray tracer}.
+\newblock In {\em 37th International Cosmic Ray Conference. 12-23 July 2021.
+  Berlin}, page 1027, March 2022.
+
 \bibitem{Welling_2021}
 C.~Welling, P.~Frank, T.~En{\ss}lin, and A.~Nelles.
 \newblock Reconstructing non-repeating radio pulses with information field
@@ -35,5 +42,11 @@ C.~Welling, C.~Glaser, and A.~Nelles.
   in one single station.
 \newblock {\em Journal of Cosmology and Astroparticle Physics}, 10:075--075,
   oct 2019.
+
+\bibitem{Winchen_2019}
+Tobias Winchen.
+\newblock {RadioPropa} {\textemdash} a modular raytracer for in-matter radio
+  propagation.
+\newblock {\em {EPJ} Web of Conferences}, 216:03002, 2019.
 
 \end{thebibliography}

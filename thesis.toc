@@ -1,21 +1,30 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Foreword}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Abstract: English}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Abstract: Nederlands}{2}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Standard model}{3}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}V-A theory}{3}{subsection.2.1.1}%
-\contentsline {section}{\numberline {2.2}Discovery}{3}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}See-saw mechanism}{3}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}Why?}{6}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Supernovae}{6}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Oscillations}{7}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Majorana}{7}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Outside sources}{7}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}primordial neutrinos}{7}{subsection.2.4.1}%
-\contentsline {section}{\numberline {2.5}Why look for them?}{8}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Radio detection}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Spectral distribution of radiation}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Cherenkov radiation}{10}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Reconstruction}{11}{section.3.3}%
-\contentsline {chapter}{\numberline {4}The Detector}{12}{chapter.4}%
+\contentsline {chapter}{\numberline {1}Foreword}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Abstract: English}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Abstract: Nederlands}{3}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Background}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Electroweak interaction}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}History}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}$SU(2) \rightarrow SU(2)_L \times U(1)_Y$}{5}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Discovery}{5}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}See-saw mechanism}{5}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Why?}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Supernovae}{8}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Oscillations}{8}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Majorana}{8}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Outside sources}{8}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}primordial neutrinos}{9}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Why look for them?}{9}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Radio detection}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Spectral distribution of radiation}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Cherenkov radiation}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Reconstruction}{12}{section.3.3}%
+\contentsline {chapter}{\numberline {4}The Detector}{13}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduction}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}How it works}{17}{section.5.2}%
+\contentsline {section}{\numberline {5.3}random number generator}{18}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Performance Optimalisation}{18}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Length of the normal vector}{18}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}ztol}{18}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Sphere Size \& Step Size}{19}{subsection.5.4.3}%

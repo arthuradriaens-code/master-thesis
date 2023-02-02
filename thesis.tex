@@ -131,44 +131,67 @@ whom are free to download on \href{https://github.com/nu-radio}{github}
 \section{Abstract: Nederlands}
 % =====================================================================
 \chapter{Background}
-\section{Standard model}
+\section{Electroweak interaction}
 \begin{align*}
   \mathcal{L}_{SM} &= -\frac{1}{4}F^a_{\mu\nu}F^{\mu\nu a} - \frac{1}{4}G^a_ {\mu\nu}G^{\mu\nu a} - \frac{1}{4}B^a_ {\mu\nu}B^{\mu\nu a}\\
                    & + \sum_q \bar{\psi}_{q,L}(i\slashed{\mathcal{D}})\psi_{q,L} + \sum_l \bar{\psi}_{l,L}(i\slashed{\mathcal{D}})\psi_{l,L} + \sum_l \bar{\psi}_{q,R}(i\slashed{\mathcal{D}})\psi_{q,R} + \sum_l \bar{\psi}_{l,R}(i\slashed{\mathcal{D}})\psi_{l,R} \\
                    &+ \mathcal{D}_\mu \phi(\mathcal{D}^\mu \phi)^\dagger - u^2\phi\phi^\dagger - \lambda (\phi \phi^\dagger)^2\\
                    &+ g_Y^{(e)} \bar{\psi}_{e,L}\phi e_R + g_Y^{(u)}\bar{\psi}_{q,L}\tilde{\phi}u_R + g_Y^{(d)}\bar{\psi}_{q,L}\phi d_R+ h.c
 \end{align*}
-\subsection{V-A theory}
+\subsection{History}
 Fermi realised a quantitatively good local field theory for the $\beta$-decay in 1934 based on the idea of the following
 interaction:
 \begin{equation}
   n \rightarrow p + e^- + \bar{\nu}
 \end{equation}
 i.e
-\begin{figure}
-  \centering
-  \begin{tikzpicture}
-  \begin{feynman}
-  \vertex (a0) {n};
-  \vertex[right=1cm of a0] (ai);
-  \vertex[right=1cm of ai] (a1) {\nu};
-  \vertex[above=1cm of ai] (ii);
-  \vertex[above=1cm of ii] (bi);
-  \vertex[left=1cm of bi] (b0) {p};
-  \vertex[right=1cm of bi] (b1) {$e^-$};
-  \diagram* {
-    {[edges=fermion]
-      (a0) -- (ii) -- (b1)
-    },
-    {[edges=fermion]
-      (a1) -- (ii) -- (b0)
-    },
-  };
-  \end{feynman}
-  \end{tikzpicture}
-\end{figure}
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){n};
+	\vertex[right=2cm of a0] (ah) ;
+	\vertex[right=4cm of a0] (a1) {$\nu$};
+	\vertex[above=4cm of a0] (a3){p};
+	\vertex[right=4cm of a3] (a2){$e^-$};
+	\vertex[above=2cm of ah] (am);
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (am) -- (a3)
+		},
+		{[edges=fermion]
+			(a1) -- (am) -- (a2)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+\end{figure}\\
+This 4-fermion interaction is however not renormalizable, meaning that it will be incorrect for sufficiently high
+energies. As the lagrangian would look like
+\begin{equation}
+	\mathcal{L}^F_{int} = -G_F (\bar{\psi}_p\gamma_\mu \psi_n) (\bar{\psi}_e\gamma^\mu\psi_\nu) + h.c
+\end{equation}\\
+And indeed, from dimensionality analysis we see that, as $[\psi]=[L]^{-3/2}$, we get that from $[\mathcal{L}_{int}] = [L]^{-4}$, $[G_F] = [L]^2 = [\Lambda]^{-2}$
+
+This interaction lagrangian also doens't explain how this weak interaction violates parity as it couples only
+to the left handed part of lepton- and baryon fields. Everything was finally ex
+
+\subsection{$SU(2) \rightarrow SU(2)_L \times U(1)_Y$}
+We'll only concern ourselves with leptons and lepton decay, defining the operators
+\begin{equation}
+	P_R = \frac{1}{2}(1+\gamma_5)\quad P_L = \frac{1}{2}(1-\gamma_5)
+\end{equation}
+with
+\begin{equation}
+	\gamma_5 = i\gamma_0\gamma_1\gamma_2\gamma_3
+\end{equation}
+And with this defining 
+\begin{equation}
+	\psi_R := P_R\psi \quad \psi_L := P_L\psi
+\end{equation}
 
 \section{Discovery}
+
 \subsection{See-saw mechanism}
 Given a spinor $\psi$ with the following Lagrange density:
 \begin{equation}
@@ -502,6 +525,159 @@ Note that this is for air showers, the radio signal from neutrinos show addition
 	\includegraphics[width=\textwidth]{figures/station-map.png}	
 	\caption{map of the station}
 	\label{fig:station map}
+\end{figure}
+
+\chapter{Hybrid Ray tracer}
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+\section{Introduction}
+It has become apparent [citation needed] that complex ice models will be nescessary moving forward 
+as the exponential ice model fails to fit the density curve. 
+The ideal software for radio wave propagation through
+ice is radiopropa\cite{Winchen_2019}, but due to the way it works you'll have
+to know the start point , the end point and the launch angle of your ray to
+work out the path. With the exponential model the launch angle is known from solving a simple 
+equation.
+However for a more difficult ice model the launch angle can't be know a priori.
+Work has been done on this by B. Oeyen et al. \cite{2022icrc.confE1027O}, 
+where they created a ray tracer which iteratively finds the solution, 
+called the "iterative ray tracer".
+The full explanation of how their algorithm works can be found in the mentioned paper. 
+This is however a sub-optimal solution in python as an optimalisation library 
+will generally work faster, work
+had been done on trying to implement such an algorithm but this attempt failed.
+As I saw this work I had an idea to combine the iterative ray tracer and the code using the 
+optimisation libraries (a so called "minimizer"), to come up with the algorithm that will 
+be discussed in this chapter: The hybrid ray tracer, in the source code called the "hybrid
+minimizer".
+
+It succeeds in more rapidly tracing the path from the event
+to the detector, is more accurate and also arrives closer to the detector as the final result is
+not limited by the final drawn sphere size but by a given tolerence.
+
+\section{How it works}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{figures/explanation.png}
+	\caption{explanation of the hybrid method}
+	\label{fig:explanation}
+\end{figure}
+The hybrid minimizer can be seen as an extension of the iterative raytracer, it
+checks after the first loop (as explained in the paper by B. Oeyen et al.
+\cite{2022icrc.confE1027O}) if there are 2 distinct launch regions, if this is
+the case it breaks out of the loop 
+as is visually explained using a modified version of B. Oeyen et al. their figure in the top
+part of figure \ref{fig:explanation}. 
+It then goes on to use the scipy.optimize.minimize module
+to find the solutions in the respective angle intervals
+as shown in the bottom part of figure \ref{fig:explanation} (minimizing $\Delta z$). If it doesn't find 2
+distinct regions after the first loop, it falls back on the iterative ray tracer. 
+\section{random number generator}
+To test the hybrid minimizer the numpy random module was used to generate
+random coördinates, the considered square (as there is only a z component to the
+ice model the 3D problem is essentially only a 2D problem) is x:0.1km,4km and
+z:-0.1km,-3km.\footnote{This start at 100m depth was to get around issues concerning events that 
+won't even trigger in a full simulation}
+\section{Performance Optimalisation}
+\subsection{Length of the normal vector}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/PrincipleNormIllu.pdf}
+	\caption{how normal vector size influences the stepsize}
+	\label{fig:normexpl}
+\end{figure}
+As visually explained in figure \ref{fig:normexpl}, the size of the normal vector seems to
+influence how big the ray tracer's step size is taken close to the detector. This
+thus influences the convergence and time taken. The results of varying this are shown
+in figures \ref{fig:norminfl} and \ref{fig:norminfl2}.
+Looking at these figures the first optimization conclusion is as expected: 
+take the normal vector length to be 1 meter.
+\subsection{ztol}
+We'll now change the tolerence on the vertical distance away from the detector which is deemed
+accepted i.e in figure \ref{fig:normexpl} if $\Delta z$ is below this threshold it's accepted.
+The results are shown in figures \ref{fig:ztolinfl} and \ref{fig:ztolinfl2}.
+From which we can conclude the second optimization conclusion: take ztol to be 0.05 m.
+\subsection{Sphere Size \& Step Size}
+As explained in Oeyen et al.'s work, the initial rays are sent out in steps of a
+certain angle and with a sphere around the detector (as can also be seen at the top of
+figure \ref{fig:explanation}, but for clarification I again refer to their
+paper). The sphere size and step size weren't jet optimized. But as
+this is the slowest step in the hybrid ray tracer this was optimized here (only
+the initial sphere and step size as those are relevant for the hybrid
+raytracer) as seen in figures \ref{fig:SphereStepInfl} and \ref{fig:SphereStepFinal}.
+
+\begin{figure*}
+	\centering
+\begin{minipage}{0.49\textwidth}
+	\includegraphics[width=1.1\textwidth]{figures/hybrid_comparison_N_1000.pdf}
+	\caption{Hybrid}
+	\label{fig:acchyb}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+	\includegraphics[width=1.1\textwidth]{figures/iterative_comparison_N_1000.pdf}
+	\caption{Iterative}
+	\label{fig:accit}
+\end{minipage}
+\end{figure*}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=0.8\textwidth]{figures/NormVsTime.pdf}
+	\end{minipage}
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=0.8\textwidth]{figures/NormVsSigmaTime.pdf}
+	\end{minipage}
+\caption{influence of the length of the normal vector}
+\label{fig:norminfl}
+\end{figure}
+\begin{figure}
+	\centering
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=0.8\textwidth]{figures/NormVsTime.pdf}
+	\end{minipage}
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=0.8\textwidth]{figures/NormVsSigmaAZ.pdf}
+	\end{minipage}
+\caption{influence of the length of the normal vector}
+\label{fig:norminfl2}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=0.8\textwidth]{figures/ZtolVsTime2.pdf}
+	\end{minipage}
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=0.8\textwidth]{figures/ZtolVsSigmaTime.pdf}
+	\end{minipage}
+\caption{influence of the tolerence on vertical distance}
+\label{fig:ztolinfl}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=0.8\textwidth]{figures/ZtolVsTime2.pdf}
+	\end{minipage}
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=0.8\textwidth]{figures/ZtolVsSigmaAZ.pdf}
+	\end{minipage}
+\caption{influence of the tolerence on vertical distance}
+\label{fig:ztolinfl2}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{figures/subplotofallstepsphere.pdf}
+	\caption{Variation in Sphere and angle step size with report on relative time.}
+	\label{fig:SphereStepInfl}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{figures/SphereAndStepFinal.pdf}
+	\caption{Green values in variation in sphere and angle step size with report on relative time.}
+	\label{fig:SphereStepFinal}
 \end{figure}
 
 % =====================================================================
