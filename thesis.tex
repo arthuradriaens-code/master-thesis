@@ -12,6 +12,7 @@
 %------
 %\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc} % allows non-ascii input characters
+\usepackage{tikz-feynman}
 % Comment or remove the two lines below to use the default Computer Modern font
 %\usepackage{libertine}
 %\usepackage{libertinust1math}
@@ -29,6 +30,7 @@
 % in Overleaf. But UGent does not suggest to use Panno for documents (or maybe only for
 % the titlepage). For the body, the UGent suggestion is to use a good serif font (for
 % LaTeX this could be libertine or Computer Modern).
+\usepackage{slashed}
 
 % Proper word splitting
 %-----------------------
@@ -129,6 +131,191 @@ whom are free to download on \href{https://github.com/nu-radio}{github}
 \section{Abstract: Nederlands}
 % =====================================================================
 \chapter{Background}
+\section{Standard model}
+\begin{align*}
+  \mathcal{L}_{SM} &= -\frac{1}{4}F^a_{\mu\nu}F^{\mu\nu a} - \frac{1}{4}G^a_ {\mu\nu}G^{\mu\nu a} - \frac{1}{4}B^a_ {\mu\nu}B^{\mu\nu a}\\
+                   & + \sum_q \bar{\psi}_{q,L}(i\slashed{\mathcal{D}})\psi_{q,L} + \sum_l \bar{\psi}_{l,L}(i\slashed{\mathcal{D}})\psi_{l,L} + \sum_l \bar{\psi}_{q,R}(i\slashed{\mathcal{D}})\psi_{q,R} + \sum_l \bar{\psi}_{l,R}(i\slashed{\mathcal{D}})\psi_{l,R} \\
+                   &+ \mathcal{D}_\mu \phi(\mathcal{D}^\mu \phi)^\dagger - u^2\phi\phi^\dagger - \lambda (\phi \phi^\dagger)^2\\
+                   &+ g_Y^{(e)} \bar{\psi}_{e,L}\phi e_R + g_Y^{(u)}\bar{\psi}_{q,L}\tilde{\phi}u_R + g_Y^{(d)}\bar{\psi}_{q,L}\phi d_R+ h.c
+\end{align*}
+\subsection{V-A theory}
+Fermi realised a quantitatively good local field theory for the $\beta$-decay in 1934 based on the idea of the following
+interaction:
+\begin{equation}
+  n \rightarrow p + e^- + \bar{\nu}
+\end{equation}
+i.e
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+  \begin{feynman}
+  \vertex (a0) {n};
+  \vertex[right=1cm of a0] (ai);
+  \vertex[right=1cm of ai] (a1) {\nu};
+  \vertex[above=1cm of ai] (ii);
+  \vertex[above=1cm of ii] (bi);
+  \vertex[left=1cm of bi] (b0) {p};
+  \vertex[right=1cm of bi] (b1) {$e^-$};
+  \diagram* {
+    {[edges=fermion]
+      (a0) -- (ii) -- (b1)
+    },
+    {[edges=fermion]
+      (a1) -- (ii) -- (b0)
+    },
+  };
+  \end{feynman}
+  \end{tikzpicture}
+\end{figure}
+
+\section{Discovery}
+\subsection{See-saw mechanism}
+Given a spinor $\psi$ with the following Lagrange density:
+\begin{equation}
+	\mathcal{L} = i\bar{\psi}\slashed{\partial}\psi - m\bar{\psi}\psi - \frac{M}{2} (\bar{\psi}_R\psi_{Rc} + \bar{\psi}_{Rc}\psi_R)
+\end{equation}
+We can re-write this Lagrangian in terms of
+\begin{align}
+	\chi &:= \frac{1}{\sqrt{2}} (\psi_R + \psi_{Rc})\\
+	\omega &:= \frac{1}{\sqrt{2}} (\psi_L + \psi_{Lc})
+\end{align}
+by first identifying that
+\begin{equation}
+	- \frac{M}{2} (\bar{\psi}_R\psi_{Rc} + \bar{\psi}_{Rc}\psi_R)
+\end{equation}
+is equal to
+\begin{equation}
+	-M\bar{\chi} \chi = -\frac{M}{2} (\bar{\psi}_R + \bar{\psi}_{Rc}) (\psi_R + \psi_{Rc}) = -\frac{M}{2} (\bar{\psi}_R\psi_{Rc} + \bar{\psi}_{Rc}\psi_R)
+\end{equation}
+Where we've used
+\begin{equation}
+	\bar{\psi}_R\psi_{R} \equiv \psi_R^\dagger\gamma^0\psi_{R} \equiv P_R\psi^\dagger\gamma^0P_R\psi = P_RP_L\psi^\dagger\gamma^0\psi = 0
+\end{equation}
+And next that in
+\begin{equation}
+	i\bar{\psi}\slashed{\partial}\psi - m\bar{\psi}\psi = i\bar{\psi}_R\slashed{\partial}\psi_{R} + i\bar{\psi}_L\slashed{\partial}\psi_{L} - m\bar{\psi}_R\psi_{L} - m\bar{\psi}_L\psi_{R}
+\end{equation}
+We can identify that
+\begin{align}
+	\bar{\chi}\slashed{\partial}\chi &= \frac{1}{2}(\bar{\psi}_R\slashed{\partial}\psi_{R} + \bar{\psi}_{Rc}\slashed{\partial}\psi_{Rc}) = \bar{\psi}_R \slashed{\partial} \psi_{R}\\
+	\bar{\omega}\slashed{\partial}\omega &= \bar{\psi}_L \slashed{\partial} \psi_{L}
+\end{align}
+Where we've done an integration by parts and used $\bar{\psi}_c\gamma_\mu\chi_c = -\bar{\chi}\gamma_\mu\psi$. We thus get:
+\begin{equation}
+	\mathcal{L} = i\bar{\chi}\slashed{\partial}\chi +i\bar{\omega}\slashed{\partial}\omega - m\bar{\psi}_R\psi_{L} - m\bar{\psi}_L\psi_{R} -M\bar{\chi} \chi 
+\end{equation}
+And finally we notice that
+\begin{align}
+	\bar{\chi}\omega &= \frac{1}{2} \left(\bar{\psi}_R\psi_L + \bar{\psi}_R\psi_{Lc} + \bar{\psi}_{Rc}\psi_{L} + \bar{\psi}_{Rc}\psi_{Lc}\right)\\
+	&=  \frac{1}{2} \left(\bar{\psi}_R\psi_L + \bar{\psi}_R\psi_{Lc} + \bar{\psi}_{Rc}\psi_{L} + \bar{\psi}_{L}\psi_{R}\right)\\
+	\bar{\omega}\chi &= \frac{1}{2} \left(\bar{\psi}_L \psi_{R} + \bar{\psi}_{Lc}\psi_{R} + \bar{\psi}_L\psi_{Rc} + \bar{\psi}_{Lc}\psi_{Rc}\right)\\
+	&= \frac{1}{2} \left(\bar{\psi}_L \psi_{R} + \bar{\psi}_{Lc}\psi_{R} + \bar{\psi}_L\psi_{Rc} + \bar{\psi}_{R}\psi_{L}\right)
+\end{align}
+As $\bar{\psi}_c\chi_c = \bar{\chi}\psi$. Summing these, we get:
+\begin{align}
+	\bar{\chi}\omega + \bar{\omega}\chi &= \bar{\psi}_L \psi_R + \bar{\psi}_R \psi_{L}\\
+	&\quad + \frac{1}{2}\left(\bar{\psi}_R\psi_{Lc} + \bar{\psi}_{Rc} \psi_{L} + \bar{\psi}_{Lc}\psi_R + \bar{\psi}_L\psi_{Rc}\right)\\
+	&= \bar{\psi}_L \psi_R + \bar{\psi}_R \psi_{L}
+\end{align}
+Where we've used the handedness flips a charge conjugation entails, at last we now have:
+\begin{equation}
+	\mathcal{L} = i\bar{\chi}\slashed{\partial}\chi +i\bar{\omega}\slashed{\partial}\omega - m(\bar{\chi}\omega + \bar{\omega}\chi) -M\bar{\chi} \chi 
+\end{equation}
+Now to determine the mass eigenstates we'll re-write this equation into the form
+\begin{equation}
+	\mathcal{L} = i\bar{\chi}\slashed{\partial}\chi +i\bar{\omega}\slashed{\partial}\omega 
+	-\left(\begin{array}{cc}
+		\bar{\chi} &\bar{\omega}
+	\end{array}\right)\cdot
+	\left(\begin{array}{cc}
+		M & m \\
+		m & 0
+	\end{array}\right) \cdot \left(\begin{array}{c}
+	\chi \\ \omega
+\end{array}\right)
+\end{equation}
+lets now find the eigenvalues:
+\begin{equation}
+	\left| \begin{array}{cc}
+		M-\lambda & m \\
+		m & -\lambda
+	\end{array} \right| = (\lambda-M)\lambda - m^2 = 0 \implies \lambda_\pm  = \frac{M\pm \sqrt{M^2 + 4m^2}}{2} \label{eigenvalues}
+\end{equation}
+i.e
+\begin{equation}
+	\lambda_\pm = \frac{M}{2}\left( 1 \pm \sqrt{1 + 4m^2/M^2}\right)
+\end{equation}
+Now we'll determine the eigenvectors:
+\begin{equation}
+\left[\begin{array}{cc}
+	M-\lambda_\pm & m \\
+	m & -\lambda_\pm
+\end{array}\right] \left(\begin{array}{c}
+x_\pm \\
+y_\pm
+\end{array}\right) = \vec{0}
+\end{equation}
+this gives
+\begin{align}
+	Mx_\pm - \lambda_\pm x_\pm + my_\pm &= 0\\
+	m x_\pm - \lambda_\pm y_\pm &= 0 \implies \frac{m x_\pm}{\lambda_\pm} = y_\pm
+\end{align}
+inserting the second equation in the first we get:
+\begin{align}
+	Mx_\pm - \lambda_\pm x_\pm + m \frac{m x_\pm}{\lambda_\pm} = 0 &= M\lambda_\pm x_\pm - \lambda_\pm^2 x_\pm + m^2 x_\pm\\
+	&= x_\pm(\lambda_\pm^2 -M\lambda_\pm + m^2)
+\end{align}
+which is true for every $x_\pm$ (see equation \ref{eigenvalues}) i.e we can freely choose $x_\pm$ so let's opt for $x_\pm^2 + y_\pm^2 = 1$:
+\begin{align}
+	x_\pm^2(1+\frac{m^2}{\lambda_\pm^2}) = 1 \implies x^2_\pm = \frac{1}{1+\frac{m^2}{\lambda_\pm^2}} \implies x_\pm &= \frac{\lambda_\pm}{\sqrt{\lambda_\pm^2 + m^2}}\\
+	\& \quad y_\pm &= \frac{m}{\sqrt{\lambda_\pm^2 + m^2}}
+\end{align}
+And thus, summing up, we get the eigenvectors $\phi_\pm$ with eigenvalues $m_\pm$:
+\begin{equation}
+	\phi_\pm := \left(\begin{array}{c}
+		x_\pm\\
+		y_\pm
+	\end{array}\right) = \left(\begin{array}{c}
+		\frac{\lambda_\pm}{\sqrt{\lambda_\pm^2 + m^2}}\\
+		\frac{m}{\sqrt{\lambda_\pm^2 + m^2}}
+	\end{array}\right) \quad \text{ and }\quad m_\pm := \lambda_\pm =  \frac{M}{2}\left( 1 \pm \sqrt{1 + 4m^2/M^2}\right)
+\end{equation}
+Now we'll consider the limit $M \gg m$:
+\begin{equation}
+	m_\pm =  \frac{M}{2}\left( 1 \pm \sqrt{1 + 4m^2/M^2}\right) \approx \frac{M}{2}\left(1\pm1\pm\frac{2m^2}{M^2}\right)
+\end{equation}
+Which gives:
+\begin{align}
+	m_+ &\approx M\\
+	m_- &\approx -\frac{m^2}{M}
+\end{align}
+and:
+\begin{align}
+	\phi_+&\approx \left(\begin{array}{c}
+		\frac{M}{M}\\
+		\frac{m}{M}
+	\end{array}\right) = \left(\begin{array}{c}
+	1\\
+	m/M
+	\end{array}\right)\\
+	\phi_-&\approx \left(\begin{array}{c}
+		-\frac{m}{M}\\
+		\frac{m}{m}
+	\end{array}\right) = \left(\begin{array}{c}
+		-m/M\\
+		1
+	\end{array}\right)
+\end{align}
+i.e, in the $\chi,\omega$ basis:
+\begin{align}
+	m_+\approx M \quad &\text{with eigenstate} \quad \chi + \frac{m}{M}\omega\\
+	m_-\approx -\frac{m^2}{M} \quad &\text{with eigenstate} \quad  \omega - \frac{m}{M}\chi\\
+\end{align}
+Here we can clearly see the See-Saw mechanism at work, for a certain $m$ if we choose a big $M$ we'll get a big $m_+$ and small $m_-$ (and vice versa). We also see that there's only a very small mixing of states, i.e the $m_-$ mass state is almost purely $\omega$ (and $m_+$ almost purely $\chi$). The parameter $m$ in the original matrix is forbidden by electroweak gauge symmetry, and can only appear after the symmetry has been spontaneous broken by a Higgs mechanism; for this reason a good estimate of the order of $m$ is the vaccuum expectation energy: $m\approx v = 246 \approx 10^2$GeV. In grand unified theories it's theorised that $M\approx 10^{15}$GeV after symmetry breaking, using these values we get
+\begin{align}
+	m_- \approx 10^{-11}\text{GeV} \approx 10^{-2} \text{eV}
+\end{align}
+which is an appropriate mass size for the observed neutrinos
 \section{Why?}
 Neutrinos are ideal messengers to identify the UHE (Ultra High Energy) sources
 in the universe. Unlike cosmic rays, which are deflected by magnetic fields and
@@ -174,8 +361,6 @@ the light escapes the exploding star.
 
 Neutrino observatories are thus useful to know where to point our various
 telescopes before the supernova is actually visible in the night sky.
-\section{Discovery}
-\section{Standard model}
 \subsection{Oscillations}
 \subsection{Majorana}
 \section{Outside sources}
@@ -276,7 +461,7 @@ For ice the index of refraction is roughly 1.75, so we expect an ultra-relativis
 	\label{figure: Cherenkov illustratie}
 \end{minipage}
 \end{figure}
-Now if an observer is positioned at this Cherenkov angle all radio emission produced during the shower development reaches him/it at the same time, leading to constructive interference, hence the second condition is satisfied in ice for signals of $\approx 56^\deg$
+Now if an observer is positioned at this Cherenkov angle all radio emission produced during the shower development reaches him/it at the same time, leading to constructive interference, hence the second condition is satisfied in ice for signals of $\approx 56°$
 \section{Reconstruction}
 It can pose a challenge to reconstruct the radio signals produced by the Cherenkov radiation as they are often obscured by background noise. A solution used in RadioReco is Information Field Theory (IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021} which uses Bayesian inference to calculate the most likely radio signal, given recorded data.
 \chapter{The Detector}
