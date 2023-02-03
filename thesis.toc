@@ -5,26 +5,27 @@
 \contentsline {chapter}{\numberline {2}Background}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Electroweak interaction}{4}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}History}{4}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}$SU(2) \rightarrow SU(2)_L \times U(1)_Y$}{5}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}Discovery}{5}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}See-saw mechanism}{5}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.1.2}Chiral gauge theories}{5}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}$SU(2) \rightarrow SU(2)_L \times U(1)_Y$}{6}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Discovery}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}See-saw mechanism}{6}{subsection.2.2.1}%
 \contentsline {section}{\numberline {2.3}Why?}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Supernovae}{8}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Oscillations}{8}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Majorana}{8}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Outside sources}{8}{section.2.4}%
+\contentsline {subsection}{\numberline {2.3.1}Supernovae}{9}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Oscillations}{9}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Majorana}{9}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Outside sources}{9}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}primordial neutrinos}{9}{subsection.2.4.1}%
-\contentsline {section}{\numberline {2.5}Why look for them?}{9}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Radio detection}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Spectral distribution of radiation}{10}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Cherenkov radiation}{11}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Reconstruction}{12}{section.3.3}%
-\contentsline {chapter}{\numberline {4}The Detector}{13}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{17}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction}{17}{section.5.1}%
-\contentsline {section}{\numberline {5.2}How it works}{17}{section.5.2}%
-\contentsline {section}{\numberline {5.3}random number generator}{18}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Performance Optimalisation}{18}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Length of the normal vector}{18}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}ztol}{18}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Sphere Size \& Step Size}{19}{subsection.5.4.3}%
+\contentsline {section}{\numberline {2.5}Why look for them?}{10}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Radio detection}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Spectral distribution of radiation}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Cherenkov radiation}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Reconstruction}{13}{section.3.3}%
+\contentsline {chapter}{\numberline {4}The Detector}{14}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{18}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduction}{18}{section.5.1}%
+\contentsline {section}{\numberline {5.2}How it works}{18}{section.5.2}%
+\contentsline {section}{\numberline {5.3}random number generator}{19}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Performance Optimalisation}{19}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Length of the normal vector}{19}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}ztol}{19}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Sphere Size \& Step Size}{20}{subsection.5.4.3}%
