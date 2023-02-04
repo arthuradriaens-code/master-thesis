@@ -31,6 +31,7 @@
 % the titlepage). For the body, the UGent suggestion is to use a good serif font (for
 % LaTeX this could be libertine or Computer Modern).
 \usepackage{slashed}
+\usepackage{braket}
 
 % Proper word splitting
 %-----------------------
@@ -130,7 +131,7 @@ All simulations carried out within this work were made with the three programs
 whom are free to download on \href{https://github.com/nu-radio}{github}
 \section{Abstract: Nederlands}
 % =====================================================================
-\chapter{Background}
+\chapter{Background: Neutrinos}
 \section{Electroweak interaction}
 \begin{align*}
   \mathcal{L}_{SM} &= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}\\
@@ -138,15 +139,15 @@ whom are free to download on \href{https://github.com/nu-radio}{github}
                    & + \psi_iy_{ij}\psi_j\phi + h.c\\
                    &+|\mathcal{D}_\mu\phi|^2 - V(\phi)
 \end{align*}
-Above we see the standard model lagrangian, consisting of the following parts: at the top the Generalized maxwell lagrangian,
+Above we see the standard model lagrangian density, consisting of the following parts: at the top the Generalized maxwell lagrangian,
 the second line being the generlaized lorentz force, the third line the yukawa couplings and the last line responsible for
-the mass of the W\&Z bozons via the Brout Englert Higgs mechanism. The parts we concern ourselves with in this chapter
-are the second and last parts.
+the mass of the W\&Z bozons via the Brout Englert Higgs mechanism. We'll mostly concern ourselves with 
+the second part.
 \subsection{History}
 Fermi realised a quantitatively good local field theory for the $\beta$-decay in 1934 based on the idea of the following
 interaction:
 \begin{equation}
-  n \rightarrow p + e^- + \bar{\nu}
+	n \rightarrow p + e^- + \bar{\nu} \label{eqn:neutron decay}
 \end{equation}
 i.e
 \begin{figure}[h!]
@@ -171,14 +172,15 @@ i.e
 	\end{tikzpicture}
 \end{figure}\\
 This 4-fermion interaction is however not renormalizable, meaning that it will be incorrect for sufficiently high
-energies. As the lagrangian would look like
+energies. As the lagrangian density would look like
 \begin{equation}
 	\mathcal{L}^F_{int} = -G_F (\bar{\psi}_p\gamma_\mu \psi_n) (\bar{\psi}_e\gamma^\mu\psi_\nu) + h.c
 \end{equation}\\
 And indeed, from dimensionality analysis we see that, as $[\psi]=[L]^{-3/2}$, we get that from $[\mathcal{L}_{int}] = [L]^{-4}$, $[G_F] = [L]^2 = [\Lambda]^{-2}$
 
-This interaction lagrangian also doens't explain how this weak interaction violates parity as it couples only
-to the left handed part of lepton- and baryon fields. Everything was finally ex
+This interaction lagrangian density also doens't explain how this weak interaction violates parity, as was observed in the $\tau-\theta$ puzzle where it has become apparent that the weak interaction only couples
+to the left handed part of lepton- and baryon fields. Everything was finally explained using
+the V-A model, which we'll get to shortly.
 
 \subsection{Chiral gauge theories}
 Let's first give a quick example on how parity can be broken in a gauge theory; let's define the operators
@@ -193,7 +195,7 @@ And with this defining
 \begin{equation}
 	\psi_R := P_R\psi \quad \psi_L := P_L\psi
 \end{equation}
-Now starting from the simple kinetic lagrangian
+Now starting from the simple kinetic lagrangian density:
 \begin{equation}
   \mathcal{L} = i\bar{\psi}\slashed{\partial}\psi - m\bar{\psi}\psi
 \end{equation}
@@ -201,7 +203,7 @@ We can re-write this as follows:
 \begin{equation}
   \mathcal{L} = i\bar{\psi}_R\slashed{\partial}\psi_R + i\bar{\psi}_L\slashed{\partial}\psi_L - m\bar{\psi}_R\psi_L - m\bar{\psi}_L\psi_R
 \end{equation}
-Now we wish to have gauge invariance over the whole lagrangian, 
+Now we wish to have gauge invariance over the whole lagrangian density, 
 i.e having
 \begin{align}
   &\psi_R(x) \rightarrow \psi_R'(x) = e^{iq_R f(x)}\psi_R(x)\\
@@ -213,14 +215,14 @@ Now in the maxwellian term of the standard model, as
 \end{equation}
 The A field has a gauge transform of the form
 \begin{equation}
-  A_\mu(x) \rightarrow A_\mu'(x) = A_\mu(x) - \partial_\mu f(x)
+	A_\mu(x) \rightarrow A_\mu'(x) = A_\mu(x) - \partial_\mu f(x) \label{eqn:U(1) gauge transform}
 \end{equation}
 Thus if we define the covariant derivatives
 \begin{align}
   \mathcal{D}_\mu\psi_R &= \partial_\mu\psi_R + iq_RA_\mu\psi_R\\
   \mathcal{D}_\mu\psi_L &= \partial_\mu\psi_L + iq_LA_\mu\psi_L
 \end{align}
-We see that our lagrangian 
+We see that our lagrangian density
 \begin{equation}
   \mathcal{L} = i\bar{\psi}_R\slashed{\mathcal{D}}\psi_R + i\bar{\psi}_L\slashed{\mathcal{D}}\psi_L
 \end{equation}
@@ -228,14 +230,226 @@ Is gauge invariant. If you write this out you get
 \begin{equation}
   i\bar{\psi}\slashed{\partial}\psi - \frac{q_R + q_L}{2}\bar{\psi}\slashed{A}\psi - \frac{q_R - q_L}{2}\bar{\psi}\slashed{A}\gamma_5\psi
 \end{equation}
-The rightmost term is a pseudoscalar, we thus see that this system breaks parity invariance if $ q_L \neq q_R$ .
+The rightmost term is a pseudoscalar, we thus see that this system breaks
+parity invariance if $ q_L \neq q_R$. This is a crude form of the V-A theory.
 
 \subsection{$SU(2) \rightarrow SU(2)_L \times U(1)_Y$}
 We'll now quickly derive and discuss the weak interaction
-
-
-\section{Discovery}
-
+looking at a 2x2 constant $\mathbb{C}$ transformation
+\begin{align}
+	\Psi(x) &\rightarrow M\Psi(x)\\
+\bar{\Psi}(x) &\rightarrow \bar{\Psi}(x)M^\dagger
+\end{align}
+We want the lagrangian density to be gauge invariant meaning that we wish them to obey
+\begin{equation}
+	M^\dagger M = \mathbb{1}_{2x2}
+\end{equation}
+i.e we want them to be unitary, aside from this we also choose $det(M)=1$ restricting ourselves to
+the special unitary 2D matrices (the SU(2) group), we get that if we take a look at the kinetic lagrangian
+density:
+\begin{equation}
+	\mathcal{L} = i\bar{\Psi}\slashed{\partial}\Psi - m\bar{\Psi}\Psi
+\end{equation}
+requiring invariance under the previously mentioned transformation, calculating we have that:
+\begin{equation}
+	\partial_\mu \Psi \rightarrow \partial_\mu(M \Psi) = M(\partial_\mu \Psi + M^{-1}\partial_\mu M \Psi)
+\end{equation}
+Now
+\begin{equation}
+	(M^{-1}\partial_\mu M)^\dagger = \partial_\mu M^\dagger (M^{-1})^\dagger = \partial_\mu M^{-1}M
+\end{equation}
+Due to them being from the SU(2) group, now as $M^{-1}M = \mathbb{1}_{2x2}$:
+\begin{equation}
+	\partial_\mu (M^{-1}M) = 0 \implies \partial_\mu M^{-1}M = -M^{-1}\partial_\mu M
+\end{equation}
+i.e $M^{-1}\partial_\mu M$  is anti-hermitian, now 
+\begin{align}
+	\frac{\delta det(M)}{det(M)} &= tr(M^{-1}\delta M)\\
+	\frac{\partial_\mu det(M)}{det(M)} &= tr(M^{-1}\delta M)
+\end{align}
+The left side is zero as $det(M)=0$, thus $M^{-1}\partial_\mu M$ is traceless and anti-hermitian,
+meaning that to make the lagrangian density gauge invariant under $SU(2)$, we can define
+the covariant derivative
+\begin{equation}
+	\mathcal{D}_\mu\Psi = \partial_\mu\Psi + igW_\mu\Psi
+\end{equation}
+With $W_\mu$ a traceless hermitian 2x2 matrix of gauge fields and $g\in\mathbb{R}$ a coupling constant.
+Now as is well know the complete basis of 2x2 hermitian traceless matrices are the Pauli matrices
+\begin{equation}
+	\sigma_1 = \left(\begin{matrix}0&1\\1&0\end{matrix}\right)\quad \sigma_2 = \left(\begin{matrix}0&-i\\i&0\end{matrix}\right)\quad \sigma_3 = \left(\begin{matrix}1&0\\0&-1\end{matrix}\right)
+\end{equation}
+meaning we can construct the gauge fields as
+\begin{equation}
+	W_\mu = \frac{1}{2}\sum^3_{a=1} W_\mu^a(x) \sigma_a = \frac{1}{2}\left(\begin{matrix}W_\mu^3&W_\mu^1-iW_\mu^2\\W_\mu^1+iW_\mu^2&-W_\mu^3\end{matrix}\right)
+\end{equation}
+The lagrangian density then becomes
+\begin{equation}
+	\mathcal{L} = i\bar{\Psi}\slashed{\partial}\Psi - m\bar{\Psi}\Psi - g\bar{\Psi}\slashed{W}\Psi := \mathcal{L}_0 + \mathcal{L}_I
+\end{equation}
+I.e we get an extra interaction term.
+Now defining 
+\begin{align}
+	W_\mu &:= \frac{1}{\sqrt{2}}(W_\mu^1 - iW_\mu^2)\\
+	W_\mu^\dagger &:= \frac{1}{\sqrt{2}}(W_\mu^1 + iW_\mu^2)
+\end{align}
+The interaction lagrangian density becomes 
+\begin{align}
+	\mathcal{L}_I &= -\frac{g}{2}(\bar{\psi}_1,\bar{\psi}_2)\left(\begin{matrix}\slashed{W}^3&\sqrt{2}\slashed{W}\\\sqrt{2}\slashed{W}^\dagger&-\slashed{W}^3\end{matrix}\right)\left(\begin{matrix}\psi_1\\\psi_2\end{matrix}\right)\\
+		      &= -\frac{g}{2}\bar{\psi}_1\slashed{W}^3\psi_1 + \frac{g}{2}\bar{\psi}_2\slashed{W}^3\psi_2\\
+		      &\qquad-\frac{g}{\sqrt{2}}\bar{\psi}_1\slashed{W}\psi_2 + \frac{g}{\sqrt{2}}\bar{\psi}_2\slashed{W}^\dagger\psi_1
+\end{align}
+I.e a flavour changing part and a non-flavour changing part. If we now set up this system with the vector
+\begin{equation}
+	\Psi_\ell^L = \left(\begin{matrix}\nu_l^L\\\ell^L\end{matrix}\right)
+\end{equation}
+With also a U(1) transformation:
+\begin{equation}
+	\Psi_\ell^L \rightarrow \Psi_\ell^{L'}(x) = M(x) e^{ig'q\beta(x)}\Psi_\ell^L(x)
+\end{equation}
+Introducing the U(1) gauge field $B_\mu$ that transforms as in equation \ref{eqn:U(1) gauge transform}
+we see that the covariant derivative needs to be defined as 
+\begin{equation}
+	\mathcal{D}_\mu \Psi_\ell^L = \partial_\mu \Psi_\ell^L + ig\hat{W}_\mu \Psi_\ell^L + ig'qB_\mu\Psi_\ell^L
+\end{equation}
+Yielding an interaction lagrange density of the form
+\begin{equation}
+	\mathcal{L}_I = \sum_\ell - g\bar{\Psi}^L_\ell \hat{\slashed{W}}\Psi^L_\ell - g'q\bar{\Psi}_\ell^L\slashed{B}\Psi^L_\ell
+\end{equation}
+And after introducing the weak mixing angle (Glashow):
+\begin{align}
+	W_\mu^3 &= \sin(\theta_W)A_\mu + \cos{(\theta_W)}Z_\mu\\
+	B_\mu &= \cos{(\theta_W)}A_\mu + \sin{(\theta_W)}Z_\mu
+\end{align}
+We can go ahead and find our interaction lagrangian density for the
+photon field $A_\mu$, the W-boson field $W_\mu$ and the Z-boson field $Z_\mu$.
+Then an analogous analysis can be done for the quark sector and we have fully 
+developed the electroweak theory\footnote{note that this can be further generalized to arrive at
+cubic and quartic couplings e.g WWWW couplings which I won't go into here as it isn't relevant 
+for this discussion, the symmetry breaking needed to give mass to the bosons also won't be 
+discussed}
+, thus in part finding the possible interactions that can happen with neutrinos:
+\begin{equation}
+	\mathcal{L}_{I}^{\nu} =\sum_l-\frac{g}{2 \sqrt{2}} \bar{\nu}_l \slashed{W}\left(1-\gamma_5\right)l - \frac{g}{2 \sqrt{2}} \bar{l}\slashed{W}^\dagger\left(1-\gamma_5\right) \nu_l
+\end{equation}
+i.e
+\begin{figure}[h!]
+	\begin{minipage}{0.49\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){l};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {$\nu_l$};
+	\vertex[above=2cm of am] (ah) {W};
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (am) -- (a1)
+		},
+		{[edges=boson]
+			(am) -- (ah)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){$\bar{l}$};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {$\bar{\nu}_l$};
+	\vertex[above=2cm of am] (ah) {$W^\dagger$};
+	\diagram* {
+		{[edges=fermion]
+			(a1) -- (am) -- (a0)
+		},
+		{[edges=boson]
+			(am) -- (ah)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{minipage}
+\end{figure}\\
+%\subsection{Majorana}
+\section{Do neutrinos have mass?}
+Neutrinos get produced through the following ways in the nucleus of our star:\\
+$\bold{pp-cycle}$
+\begin{align}
+	\mathrm{p} + \mathrm{p} &\rightarrow \mathrm{D} + e^+ + \nu_e\\
+	\mathrm{D} + \mathrm{p} &\rightarrow {}^3\mathrm{He} + \gamma\\
+	{}^3\mathrm{He} + {}^3\mathrm{He} &\rightarrow {}^4\mathrm{He} + \mathrm{p} + \mathrm{p}
+\end{align}\\
+$\bold{boron-cycle}$
+\begin{align}
+{ }^4 \mathrm{He}+{ }^3 \mathrm{He} & \rightarrow{ }^7 \mathrm{Be}+\gamma \\
+{ }^7 \mathrm{Be}+p & \rightarrow { }^8\mathrm{B} + \gamma \\
+{ }^8 \mathrm{B} & \rightarrow{ }^8 \mathrm{Be}^*+e^{+}+\nu_e \\
+{ }^8 \mathrm{Be}^* & \rightarrow{ }^4 \mathrm{He}+{ }^4 \mathrm{He}
+\end{align}\\
+$\bold{Be-capture}$
+\begin{align}
+	^7\mathrm{Be} + e^- \rightarrow {}^7\mathrm{Li} + \nu_e
+\end{align}
+$\bold{pep}$
+\begin{align}
+	\mathrm{p} + e^- + \mathrm{p} \rightarrow \mathrm{D} + \nu_e
+\end{align}\\
+Now with this and some information about the sun like the pressure and mass, 
+the so-called "standard solar model" was
+made. This model predicted a certain amount of neutrinos to be hitting the earth from the previously
+mentioned thermonuclear fusion, it was however 3 times higher than the observed amount of neutrinos back
+at our planet. Through various experiments it became apparent that this was due to the various kind of
+neutrinos oscillating into each other, i.e 2/3 of the original electron 
+neutrinos had oscillated into mu and tau neutrinos
+but for them to oscillate into eachother, they require mass
+\subsection{neutrino oscillations}
+Let's only discuss this in 2D (this can easily be extended to 3D but we wish to be 
+concise and only show the principle), define the mass-eigenstates as 
+\begin{equation}
+	\ket{\nu_i(t)} = \ket{\nu_i}\exp\{i(\mathbf{p}_i\cdot\mathbf{x} - E_i t)\} = \ket{\nu_i}e^{-i\phi}
+\end{equation}
+Now let's say these are related to the *originals* as:
+\begin{equation}
+	\left(\begin{matrix}\nu_e\\\nu_\mu\end{matrix}\right)=\left(\begin{matrix}\cos{\theta}&\sin{\theta}\\-\sin{\theta}&\cos{\theta}\end{matrix}\right)\left(\begin{matrix}\nu_1\\\nu_2\end{matrix}\right)
+\end{equation}
+Assume at $t=0$ pure $\nu_e$ (starting at the sun core):
+\begin{equation}
+	\ket{\psi(0)} = cos{\theta} \ket{\nu_1} + \sin{\theta}\ket{\nu_2}
+\end{equation}
+At time $T$, at distance $L$
+\begin{align}
+	\ket{\psi(L, T)} &= \cos{\theta} \ket{\nu_1}e^{-i \phi_1}+\sin{\theta}\ket{\nu_2}e^{-i \phi_2}\\
+			 &= (e^{-i\phi_1}\cos^2{\theta} + e^{-i\phi_2}\sin^2{\theta})\ket{\nu_e} 
+			 - (e^{-i\phi_1} - e^{-\phi_2})\cos{\theta}\sin{\theta}\ket{\nu_\mu}
+\end{align}
+\begin{align}
+&\quad=e^{-i \phi_1} {\left[\left(\cos ^2 \theta+e^{i \Delta \phi_{12}} \sin ^2 \theta\right) \mid \nu_e>\right.} \\
+&\qquad\left.-\left(1-e^{i \Delta \phi_{12}}\right) \cos \theta \sin \theta \mid \nu_\mu>\right]\\
+&\quad:=c_e\ket{\nu_e} c_\mu\ket{\nu_\mu}
+\end{align}
+With
+\begin{equation}
+	\Delta \phi_{12}=\left(E_1-E_2\right) T-\left(p_1-p_2\right) L
+\end{equation}
+So the transition probability is
+\begin{equation}
+	P(\nu_e\rightarrow\nu_\mu) = |\braket{\nu_\mu|\psi(L,T)}|^2 = c_\mu c_\mu^* = \sin ^2(2 \theta) \sin ^2\left(\frac{\Delta \phi_{12}}{2}\right)
+\end{equation}
+If you then proceed to do a full wave-packet propagation calculation you'll find
+\begin{equation}
+	\Delta \phi_{12} \approx \frac{m_1^2 - m_2^2}{2p}L
+\end{equation}
+I.e not only mass but difference in mass of the eigenstates is a requirement for oscillations to occur.
+In general
+\begin{equation}
+	\ket{\nu_\alpha} = \sum_iU_{\alpha i} \ket{\nu_i}
+\end{equation}
+With $U_{\alpha i}$ e.g the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix. 
+This phenomenon has been observed e.g from the descrepency from the observed
+and expected neutrino events coming from a nuclear reactor \cite{Eguchi_2003}.
+Now the question remains, how do neutrinos get their mass (theoretically)?
 \subsection{See-saw mechanism}
 Given a spinor $\psi$ with the following Lagrange density:
 \begin{equation}
@@ -378,12 +592,25 @@ i.e, in the $\chi,\omega$ basis:
 	m_+\approx M \quad &\text{with eigenstate} \quad \chi + \frac{m}{M}\omega\\
 	m_-\approx -\frac{m^2}{M} \quad &\text{with eigenstate} \quad  \omega - \frac{m}{M}\chi\\
 \end{align}
-Here we can clearly see the See-Saw mechanism at work, for a certain $m$ if we choose a big $M$ we'll get a big $m_+$ and small $m_-$ (and vice versa). We also see that there's only a very small mixing of states, i.e the $m_-$ mass state is almost purely $\omega$ (and $m_+$ almost purely $\chi$). The parameter $m$ in the original matrix is forbidden by electroweak gauge symmetry, and can only appear after the symmetry has been spontaneous broken by a Higgs mechanism; for this reason a good estimate of the order of $m$ is the vaccuum expectation energy: $m\approx v = 246 \approx 10^2$GeV. In grand unified theories it's theorised that $M\approx 10^{15}$GeV after symmetry breaking, using these values we get
+This is what's called the See-Saw mechanism, and gives a possible explanation for the
+small mass of the neutrinos.  For a certain $m$ if we choose a big $M$ we'll
+get a big $m_+$ and small $m_-$ (and vice versa). We also see that there's only
+a very small mixing of states, i.e the $m_-$ mass state is almost purely
+$\omega$ (and $m_+$ almost purely $\chi$). The parameter $m$ in the original
+matrix is forbidden by electroweak gauge symmetry, and can only appear after
+the symmetry has been spontaneous broken by a Higgs mechanism; for this reason
+a good estimate of the order of $m$ is the vaccuum expectation energy:
+$m\approx v = 246 \approx 10^2$GeV. In grand unified theories it's theorised
+that $M\approx 10^{15}$GeV after symmetry breaking, using these values we get
 \begin{align}
 	m_- \approx 10^{-11}\text{GeV} \approx 10^{-2} \text{eV}
 \end{align}
-which is an appropriate mass size for the observed neutrinos
-\section{Why?}
+which seems \cite{neutrino-mass} to be a reasonable order of magnitude estimate for the observed neutrino
+mass.
+This mechanism would also lead to supermassive neutrinos, which are a possible dark matter
+candidate.
+\section{Why concern ourselves with neutrinos}
+%The radio detection of neutrinos targets the energy range 10PeV to 100EeV\cite{Aguilar_2021} 
 Neutrinos are ideal messengers to identify the UHE (Ultra High Energy) sources
 in the universe. Unlike cosmic rays, which are deflected by magnetic fields and
 interact with matter and radiation on their way to us, neutrinos point back to
@@ -410,30 +637,30 @@ and the electrons surrounding the iron core fuse with the protons,
 creating neutrons and neutrino's.
 
 This last part happens in a split second, creating a very dense neutron star
-and up to $10^{52}$ ultra-relativistic neutrinos. As the density has suddenly
+and up to $10^{52}$ ultra-relativistic neutrinos, carrying up to 99\% of the
+released energy [citation needed]. As the density has suddenly
 increased so much there's a huge distance of pure vaccuum between the plasma
-outer layer and the (now) neutron star, this plasma starts falling in as these
-neutrinos carrying tremendous amounts of energy start going outwards the neutron
-stars core.
+outer layer and the (now) neutron star, this plasma starts free-falling inwards 
+whilst the neutrinos carrying tremendous amounts of energy start going outwards 
+from the neutron stars core.
 
 These then collide resulting in what we observe as a "supernova", wrongly
 thought of by Kepler as being a "new (nova) star" rather being a violent death
 of an old star.
 
 Not all the neutrinos collide with matter of course as neutrinos rarely
-interact, it's only as the incoming plasma is so dense and due to the
+interact, it's only because the incoming plasma is so dense and due to the
 tremendous amount of neutrinos that collissions happen at all. The ones that
 escape, however, will be visible on earth in our neutrino detectors, far before
 the light escapes the exploding star.
 
 Neutrino observatories are thus useful to know where to point our various
 telescopes before the supernova is actually visible in the night sky.
-\subsection{Oscillations}
-\subsection{Majorana}
-\section{Outside sources}
-The radio detection of neutrinos targets the energy range 10PeV to 100EeV\cite{Aguilar_2021}, here we'll see diffuse neutrino fluxes both directly from sources (\textit{astrophysical neutrinos}) i.e created directly in (or very close to) the sources of ultra-high energy cosmic rays (UHECRs), as well as from the interaction of UHECRs with photon backgrounds (e.g the CMB) (\textit{cosmogenic neutrinos}).
 \subsection{primordial neutrinos}
-To estimate the temperature of the neutrinos who decoupled at the start of the universe, we can take a look at conservation of entropy \cite{Dodelson}
+Aside from all the previously mentioned sources, there's also a less spectacular source of 
+neutrinos: the neutrino version of the CMB.
+We can estimate the temperature of the neutrinos who decoupled at the start of the universe, 
+we can take a look at conservation of entropy \cite{Dodelson}
 (...)
 The entropy before and after decoupling are:
 \begin{align}
@@ -453,20 +680,47 @@ i.e
 \begin{equation}
 	T_\nu = \left(\frac{4}{11}\right)^{1/3}T_\gamma
 \end{equation}
-\section{Why look for them?}
-The origin of the most energetic cosmic rays is still not conclusively identified. One approach to solving this problem is \textit{multi-messenger astrophysics}, where several types of cosmic particles are used to identify the sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously measure gravitational waves (gravitons?) with the Einstein telescope, neutrino's with IceCube (or eventually RNO-G) and muons with a muon detector.
+\subsection{How do they fit into the full detector spectrum?}
+The origin of the most energetic cosmic rays is still not conclusively
+identified. One approach to solving this problem is \textit{multi-messenger
+astrophysics}, where several types of cosmic particles are used to identify the
+sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously
+measure gravitational waves (gravitons?) with the Einstein telescope,
+neutrino's with IceCube (or eventually RNO-G), photons with various telescopes
+and muons with a muon detector.
 \newpage
-\chapter{Radio detection}
+\chapter{Background: Radio detection}
 For a particle shower to emit strong radio signals, two conditions have to be met:
 \begin{itemize}
 	\item There needs to be a speration of positive and negative charges in the shower front 
 	\item The signals produced over the length of the shower profile need to overlap coherently.
 \end{itemize}
-The first item, seperation of positive and negative charges, can be caused by 2 mechanisms: The \textit{Askaryan} effect\cite{Askaryan}, also known as Askaryan radiation. This is the phenomenon whereby a particle traveling faster than the phase velocity of light in a dense dielectric (such as ice) produces a shower of secondary charged particles which contains a charge anisotropy (net negative charge), this charge imbalance is a result of medium electrons either Compton scattering into the advancing shower or annihilating with shower positrons. You thus get moving charges which move faster than the light speed in the medium, creating Cherenkov radiation.
-The other effect, called \textit{geomagnetic emission} is the seperation of charges by the Lorentz force from the geomagnetic field, however, because of its relatively high density, in ice the Askaryan effect is dominant.
-It's possible to distinguish between the two with polarization as with Askaryan emission, the light is polarized in the radial direction towards the shower axis contrary to geomagnetic emission where it's polarized in the Lorentz force direction.
+The first item, seperation of positive and negative charges, can be caused by 2
+mechanisms:\vspace{0.2cm}\\
+The \textit{Askaryan} \cite{Askaryan} effect, also known as Askaryan
+radiation. This is the phenomenon whereby a particle traveling faster than the
+phase velocity of light in a dense dielectric (such as ice) produces a shower
+of secondary charged particles which contains a charge anisotropy (net negative
+charge), this charge imbalance is a result of medium electrons either Compton
+scattering into the advancing shower or annihilating with shower positrons. You
+thus get moving charges which move faster than the light speed in the medium,
+creating Cherenkov radiation.
 
-In the following two sections I'll quickly give a short overview of the equations of Cherenkov radiation to determine the viewing angle of an incoming neutrino particle, this is relevant to the second condition which I'll explain afterwards. The reader who wants a thorough explanation and derivation is advised to check out \textit{Chapter 14: Radiation by Moving Charges} from the book \textit{Classical Electrodynamics} by Jackson. 
+The other possible mechanism, called \textit{geomagnetic emission} is the
+seperation of charges by the Lorentz force from the geomagnetic field, however,
+because of its relatively high density, in ice the Askaryan effect is dominant.
+It's possible to distinguish between the two with polarization as with Askaryan
+emission, the light is polarized in the radial direction towards the shower
+axis contrary to geomagnetic emission where it's polarized in the Lorentz force
+direction.
+
+In the following two sections I'll quickly give a short overview of the
+equations of Cherenkov radiation to determine the viewing angle of an incoming
+neutrino particle, this is relevant to the second condition which I'll explain
+afterwards.\footnote{The reader who wants a thorough explanation and derivation is
+advised to check out \textit{Chapter 14: Radiation by Moving Charges} from the
+book \textit{Classical Electrodynamics} by Jackson.} 
+\newpage
 \section{Spectral distribution of radiation}
 We wish to know the emitted energy per elementary unit solid angle over a certain frequency interval for a moving charge far away from the source. For this we have that the vectorpotential $\mathbf{A}$, defined as
 \begin{equation}
@@ -536,7 +790,7 @@ Both cosmic ray and neutrino detectors face the same main problem at the highest
 
 One such detector is illustrated in figure \ref{fig:detector}.
 
-The deep component of the detector can be split up in three parts: Two \textit{helper strings}, one \textit{power string} and the surface components. The helper strings are the 2 vertical cables shown on the right of the figure and each house 2 vertically polarized antennas (Vpols), one quadslot antenna for the horizontal polarization component (Hpol) and one radio pulser on each helper string which can be used to generate calibration signals.
+The deep component of the detector can be split up in three parts: Two \textit{helper strings}, one \textit{power string} and the surface components. The helper strings are the 2 vertical cables shown on the right of the figure and each one houses 2 vertically polarized antennas (Vpols), one quadslot antenna for the horizontal polarization component (Hpol) and one radio pulser on each helper string which can be used to generate calibration signals.
 
 The power string (the leftmost vertical cable) is more densely instrumented: At the bottom it houses a set of four Vpol and two Hpol antennas with a spacing of 1m and further up the string, with a spacing of 20m are three more Vpol antennas.
 
