@@ -19,7 +19,7 @@
 
 \usepackage[sc]{mathpazo} %font or smth
 \linespread{1.05}
-\usepackage{microtype}
+%\usepackage{microtype}
 
 \usepackage{fancyhdr} % Headers and footers
 \pagestyle{fancy} % All pages have headers and footers e.g contents above contents (except new ones)
@@ -119,7 +119,7 @@
 % =====================================================================
 \chapter{Foreword}
 \section{Abstract: English}
-The Radio Neutrino Observatory - RNO-G - is under construction at Summit Station in Greenland to search for neutrinos of several PeV energy up to the Eev range. It's a mid-scale, discovery phase, extremely high-energy neutrino telescope that will probe the astrophysical neutrino flux at energies beyond the reach of IceCube.
+The Radio Neutrino Observatory in Greenland - RNO-G - is under construction at Summit Station in Greenland to search for neutrinos of several PeV energy up to the Eev range. It's a mid-scale, discovery phase, extremely high-energy neutrino telescope that will probe the astrophysical neutrino flux at energies beyond the reach of IceCube.
 More particularly if will make it possible to reach the next major milestone in astroparticle physics: the discovery of cosmogenic neutrinos.
 \vspace{0.5cm}
 All simulations carried out within this work were made with the three programs 
@@ -128,8 +128,27 @@ All simulations carried out within this work were made with the three programs
 	\item radiotools
 	\item RadioPropa
 \end{itemize}
-whom are free to download on \href{https://github.com/nu-radio}{github}
+whom are free to download on \href{https://github.com/nu-radio}{github}.
+The projects built over the course of this thesis were the "Hybrid minimizer": a new
+algorithm for finding the path of a neutrino interaction to the detector in complex ice models
+and (...)
 \section{Abstract: Nederlands}
+De \textit{Radio Neutrino Observatory in Greenland} - RNO-G - is een detector die momenteel onder constructie is
+in Groenland. Deze detector heeft als doel het vinden van neutrino's met energieën van enkele PeV
+tot in het EeV gebied. Deze extreem hoge energy neutrino telescoop zal astrofysische neutrinos
+zoeken op energieën waar icecube te klein voor is. Het zal ook het vinden van cosmogenische
+neutrinos mogelijk maken.
+Alle simulaties werden mogelijk gemaakt door de volgende programmas:
+\begin{itemize}
+	\item NuRadioMC
+	\item radiotools
+	\item RadioPropa
+\end{itemize}
+Dewelke te downloaden zijn op \href{https://github.com/nu-radio}{github}
+De projecten die tot completie zijn gebracht over deze master thesis waren de
+\textit{Hybrid minimizer}: een algoritme gemaakt met als doel het snel vinden van
+een pad vanuit de interactievertex tot de detector in complexe ijsmodellen en
+(...)
 % =====================================================================
 \chapter{Background: Neutrinos}
 \section{Electroweak interaction}
@@ -234,6 +253,7 @@ The rightmost term is a pseudoscalar, we thus see that this system breaks
 parity invariance if $ q_L \neq q_R$. This is a crude form of the V-A theory.
 
 \subsection{$SU(2) \rightarrow SU(2)_L \times U(1)_Y$}
+\label{chapter:EWTheory}
 We'll now quickly derive and discuss the weak interaction
 looking at a 2x2 constant $\mathbb{C}$ transformation
 \begin{align}
@@ -322,16 +342,15 @@ And after introducing the weak mixing angle (Glashow):
 \end{align}
 We can go ahead and find our interaction lagrangian density for the
 photon field $A_\mu$, the W-boson field $W_\mu$ and the Z-boson field $Z_\mu$.
-Then an analogous analysis can be done for the quark sector and we have fully 
+Then an analogous analysis can be done for the quark sector and with that we'll have fully 
 developed the electroweak theory\footnote{note that this can be further generalized to arrive at
 cubic and quartic couplings e.g WWWW couplings which I won't go into here as it isn't relevant 
 for this discussion, the symmetry breaking needed to give mass to the bosons also won't be 
 discussed}
-, thus in part finding the possible interactions that can happen with neutrinos:
+, thus finding the most important (for our discussion) interactions that can happen with neutrinos:
 \begin{equation}
 	\mathcal{L}_{I}^{\nu} =\sum_l-\frac{g}{2 \sqrt{2}} \bar{\nu}_l \slashed{W}\left(1-\gamma_5\right)l - \frac{g}{2 \sqrt{2}} \bar{l}\slashed{W}^\dagger\left(1-\gamma_5\right) \nu_l
 \end{equation}
-i.e
 \begin{figure}[h!]
 	\begin{minipage}{0.49\textwidth}
 	\centering
@@ -372,6 +391,54 @@ i.e
 	\end{tikzpicture}
 	\end{minipage}
 \end{figure}\\
+And with the production of $W/W^\dagger$ bosons from the quark sector:
+\begin{equation}
+	\mathcal{L}_Q = \sum_j \bar{Q}_j i \slashed{D} Q_j
+\end{equation}
+\begin{figure}[h!]
+	\begin{minipage}{0.49\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){$\bar{d}$};
+	\vertex[above=1cm of a0] (ai);
+	\vertex[right=1cm of ai] (am);
+	\vertex[above=1cm of ai] (a1) {$u$};
+	\vertex[right=1cm of am] (af) {$W^+$};
+	\diagram* {
+		{[edges=fermion]
+			(a1) -- (am) -- (a0)
+		},
+		{[edges=boson]
+			(am) -- (af)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){$d$};
+	\vertex[above=1cm of a0] (ai);
+	\vertex[right=1cm of ai] (am);
+	\vertex[above=1cm of ai] (a1) {$\bar{u}$};
+	\vertex[right=1cm of am] (af) {$W^-$};
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (am) -- (a1)
+		},
+		{[edges=boson]
+			(am) -- (af)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{minipage}
+\end{figure}\\
+And various other interactions, notice that 
+we've equated $W$ with $W^-$ and $W^\dagger$ with $W^+$.
 %\subsection{Majorana}
 \section{Do neutrinos have mass?}
 Neutrinos get produced through the following ways in the nucleus of our star:\\
@@ -403,14 +470,14 @@ mentioned thermonuclear fusion, it was however 3 times higher than the observed 
 at our planet. Through various experiments it became apparent that this was due to the various kind of
 neutrinos oscillating into each other, i.e 2/3 of the original electron 
 neutrinos had oscillated into mu and tau neutrinos
-but for them to oscillate into eachother, they require mass
+but for them to oscillate into eachother, they require mass:
 \subsection{neutrino oscillations}
 Let's only discuss this in 2D (this can easily be extended to 3D but we wish to be 
 concise and only show the principle), define the mass-eigenstates as 
 \begin{equation}
 	\ket{\nu_i(t)} = \ket{\nu_i}\exp\{i(\mathbf{p}_i\cdot\mathbf{x} - E_i t)\} = \ket{\nu_i}e^{-i\phi}
 \end{equation}
-Now let's say these are related to the *originals* as:
+Now let's say these are related to the lepton eigenstates as:
 \begin{equation}
 	\left(\begin{matrix}\nu_e\\\nu_\mu\end{matrix}\right)=\left(\begin{matrix}\cos{\theta}&\sin{\theta}\\-\sin{\theta}&\cos{\theta}\end{matrix}\right)\left(\begin{matrix}\nu_1\\\nu_2\end{matrix}\right)
 \end{equation}
@@ -449,7 +516,7 @@ In general
 With $U_{\alpha i}$ e.g the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix. 
 This phenomenon has been observed e.g from the descrepency from the observed
 and expected neutrino events coming from a nuclear reactor \cite{Eguchi_2003}.
-Now the question remains, how do neutrinos get their mass (theoretically)?
+Now the question remains, how do neutrinos get their mass (theoretically)? [further work needed]
 \subsection{See-saw mechanism}
 Given a spinor $\psi$ with the following Lagrange density:
 \begin{equation}
@@ -620,22 +687,61 @@ interactions at the sources, termed \textit{astrophysical neutrinos}. Or
 they're created through the interaction of ultra-high energy cosmic rays during
 propagation with the cosmic microwave or other photon backgrounds termed
 \textit{cosmogenic neutrinos}. 
-Supernovae are a source for \textit{astrophysical neutrinos}:
+\subsection{astrophysical neutrinos: general}
+As cosmic rays get accelerated they will occasionally interact with matter
+and photon fields near the source. These will then produce new particles,
+of which the most common is pions due to their low mass (a lot of available 
+phase space). As seen in chapter \ref{chapter:EWTheory} pions can decay
+into neutrino's as follows:
+\begin{eqnarray}
+	\pi^- &\rightarrow \mu^- + \bar{\nu}_\mu \rightarrow e^- + \bar{\nu}_e + \nu_\mu + \bar{\nu}_\mu\\
+	\pi^+ &\rightarrow \mu^+ + \nu_\mu \rightarrow e^+ + \nu_e + \bar{\nu}_\mu + \nu_\mu
+\end{eqnarray}
+Another possibility is direct production of neutrino's at the source, of which Supernovae are
+a prime example:
 \subsection{Supernovae}
-A star starts its life as a ball of pure hydrogen, at the core due to the
-gravitational pressure of the outside plasma fusion of hydrogen into deuterium
-and helium happens, converting mass into energy. The pressure of this energy
+A star starts its life as a ball of pure hydrogen. At the core, due to the
+gravitational pressure of the outside plasma, fusion of hydrogen into deuterium
+and helium happens. Thus converting mass into energy. The pressure of this energy
 counteracts the pressure of gravity and the star is stable.
 
 When the hydrogen at the core runs out no more hydrogen can be fused and the
 fusion of heavier elements starts, this can't keep going on however as at some
-point the star starts to form the most stable element: iron.  It costs energy
+point the star starts to form the most stable element: iron. 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Binding_energy_curve.png}
+\end{figure}
+It costs energy
 to both make lighter elements than iron and heavier ones.  As the iron core
 builds up the outside pressure from the core starts to decrease as no new
 energy is released. This goes on until the inwards pressure becomes too large
-and the electrons surrounding the iron core fuse with the protons, 
-creating neutrons and neutrino's.
-
+and the electrons surrounding the iron core fuse with the protons (uud), 
+creating neutrons (udd) and neutrino's, diagramatically:
+\begin{figure}[!ht]
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){u};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {d};
+	\vertex[above=2cm of am] (bm);
+	\vertex[above=2cm of a0] (b0){$e^-$};
+	\vertex[right=2cm of bm] (b1){$\nu_e$};
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (am) -- (a1)
+		},
+		{[edges=fermion]
+			(b0) -- (bm) -- (b1)
+		},
+		{[edges=boson,edge label=$W^+$]
+			(am) -- (bm)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+\end{figure}\\
 This last part happens in a split second, creating a very dense neutron star
 and up to $10^{52}$ ultra-relativistic neutrinos, carrying up to 99\% of the
 released energy [citation needed]. As the density has suddenly
@@ -660,9 +766,8 @@ telescopes before the supernova is actually visible in the night sky.
 Aside from all the previously mentioned sources, there's also a less spectacular source of 
 neutrinos: the neutrino version of the CMB.
 We can estimate the temperature of the neutrinos who decoupled at the start of the universe, 
-we can take a look at conservation of entropy \cite{Dodelson}
-(...)
-The entropy before and after decoupling are:
+for this we can take a look at conservation of entropy \cite{Dodelson}
+The entropy before and after decoupling is:
 \begin{align}
 	s(a_1) &= \frac{2\pi^2}{45}(2 + \frac{7}{8}(2+2+3+3))T_1^3\\
 	&= \frac{2\pi^2}{45}\frac{86}{8}T_1^3\\
@@ -782,11 +887,33 @@ For ice the index of refraction is roughly 1.75, so we expect an ultra-relativis
 	\label{figure: Cherenkov illustratie}
 \end{minipage}
 \end{figure}
-Now if an observer is positioned at this Cherenkov angle all radio emission produced during the shower development reaches him/it at the same time, leading to constructive interference, hence the second condition is satisfied in ice for signals of $\approx 56°$
+Now if an observer is positioned at this Cherenkov angle all radio emission produced during the shower development reaches him/it at the same time, leading to constructive interference, hence the second condition (coherent overlap) is satisfied in ice for signals at $\approx 56$°
 \section{Reconstruction}
-It can pose a challenge to reconstruct the radio signals produced by the Cherenkov radiation as they are often obscured by background noise. A solution used in RadioReco is Information Field Theory (IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021} which uses Bayesian inference to calculate the most likely radio signal, given recorded data.
+It can pose a challenge to reconstruct the radio signals produced by the
+Cherenkov radiation as they are often obscured by background noise. A solution
+used in RadioReco is Information Field Theory (IFT) implemented in RadioReco by
+Welling et al.\cite{Welling_2021} which uses Bayesian inference to calculate
+the most likely radio signal, given recorded data.
+The full reconstruction will then work as follows: events and their propagation
+are generated in a monte-carlo simulation
+using NuRadioMC\cite{Glaser_2019}\cite{Glaser_2020}, how the detector signals would look 
+like is then simulated with RadioReco and saved in a database. 
+If we then detect a neutrino event in the real detector it can
+be compared to the database, thus finding the origin.
 \chapter{The Detector}
-Both cosmic ray and neutrino detectors face the same main problem at the highest energies: the steeply falling flux requires large effective areas, wich leads to the construction of neutrino detectors with volumes on the cubic kilometer scale: IceCube. As we wish to detect neutrino's with even higher energies we turn to look at an array of detectors spanning multiple cubic kilometers: RNO-G.
+\begin{figure}
+	\centering
+	\copyrightbox[r]{\includegraphics[height = 0.3\textheight]{cosmic_ray_flux.pdf}}{\textcopyright Cosmic rays and particle physics by Caiser, Engel and Resconi}
+	\caption{Falling cosmic ray flux with energy}
+	\label{figure:FallingFlux}
+\end{figure}
+Both cosmic ray and neutrino detectors face the same main problem at the
+highest energies: the steeply falling flux (as can be seen on figure \ref{figure:FallingFlux}) 
+requires large effective areas, which
+leads to the construction of neutrino detectors with volumes on the cubic
+kilometer scale: IceCube. As we wish to detect neutrino's with even higher
+energies we turn to look at an array of detectors spanning multiple cubic
+kilometers: RNO-G.
 
 One such detector is illustrated in figure \ref{fig:detector}.
 
@@ -806,18 +933,45 @@ There are solar panels as a power source who charge up battery banks, but as the
 \newpage
 The radio signal from a neutrino often travels along both direct and refracted paths (designated DnR) to the deep array, this happens because the upper ice layer is a non-uniform medium where the signal trajectory is bent, as illustrated by a simulation in figure \ref{fig:path_illustration}. 
 
-\begin{figure}[ht]
+\begin{figure}
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/path_illustration.png}	
-	\caption{illustration of a neutrino signal path}
+	\includegraphics[width=0.8\textwidth]{figures/path_illustration.png}	
+	\caption{illustration of a neutrino signal path, the neutrino interaction 
+	being located at (0,-100) and the detector at (90,-7)}
 	\label{fig:path_illustration}
 \end{figure}
 
 
-This double pulse characteristic would be a smoking-gun signature of an in-ice source. The two helper strings are needed for a full direction reconstruction. Three independent measurements are needed for azimuthal information, which is provided by the Vpol (Vertical polarization) antennas and placing the Hpol (Horizontal polarization) antennas at different depths on every string, both zentih and azimuth information will be provided for those signals. The helper strings' calibration pulsers, as well as one on the surface, will ensure regular monitoring of the performance of the station and provide information useful for precise calibration of the antenna geometry.
+This double pulse characteristic would be a smoking-gun signature of an in-ice
+source. The two helper strings are needed for a full direction reconstruction.
+Three independent measurements are needed for azimuthal information, which is
+provided by the Vpol (Vertical polarization) antennas and placing the Hpol
+(Horizontal polarization) antennas at different depths on every string, both
+zentih and azimuth information will be provided for those signals. The helper
+strings' calibration pulsers, as well as one on the surface, will ensure
+regular monitoring of the performance of the station and provide information
+useful for precise calibration of the antenna geometry.
 
-Christoph Welling did an investigation into energy reconstruction from the received signals\cite{Welling_2019} for air showers in one single station (as the RNO-G stations are so far apart this is the case here aswell) and he noticed that it is nescessary to know if the detector who observes an event falls inside or outside the Cherenkov cone to accurately reconstruct the primary particle energy as most over-estimated energies in his simulations are caused by events viewed from within the Cherenkov ring being mistaken for events outside of it. He went on to show that, if we somehow know if the shower was seen from inside or outside the ring from some extra source, that most outliers in the energy disappeared. It is shown by Hiller et al.\cite{Hiller_2017} that the combination of a muon detector with the radio detector might make the issue of confusion between being within or outside of the Cherenkov-ring disappear. Because of this the RNO-G stations are fitted with surface Log Periodic Dipole Antennas (LPDA), capable of detecting muons.
-Note that this is for air showers, the radio signal from neutrinos show additional complexities.
+The plan is to construct these detectors in an array as shown in figure 
+\ref{fig:station map}, note that all the individual detectors are named after
+various species living in greenland (in the native tongue).
+
+Christoph Welling did an investigation into energy reconstruction from the
+received signals\cite{Welling_2019} for air showers in one single station (as
+the RNO-G stations are so far apart this is the case here aswell) and he
+noticed that it is nescessary to know if the detector who observes an event
+falls inside or outside the Cherenkov cone to accurately reconstruct the
+primary particle energy as most over-estimated energies in his simulations are
+caused by events viewed from within the Cherenkov ring being mistaken for
+events outside of it. He went on to show that, if we somehow know if the shower
+was seen from inside or outside the ring from some extra source, that most
+outliers in the energy disappeared. It is shown by Hiller et
+al.\cite{Hiller_2017} that the combination of a muon detector with the radio
+detector might make the issue of confusion between being within or outside of
+the Cherenkov-ring disappear. Because of this the RNO-G stations are fitted
+with surface Log Periodic Dipole Antennas (LPDA), capable of detecting muons.
+Note that this is for air showers, the radio signal from neutrinos show
+additional complexities.
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{figures/station-map.png}	
@@ -827,7 +981,7 @@ Note that this is for air showers, the radio signal from neutrinos show addition
 
 \chapter{Hybrid Ray tracer}
 %----------------------------------------------------------------------------------------
-%	ARTICLE CONTENTS
+%	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
 \section{Introduction}
 It has become apparent [citation needed] that complex ice models will be nescessary moving forward 
