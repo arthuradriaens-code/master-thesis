@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.8)  14 FEB 2023 16:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.18)  19 FEB 2023 18:56
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **thesis.tex
@@ -706,7 +706,7 @@ LaTeX Info: Redefining \nameref on input line 98.
 
 
 pdfTeX warning: pdflatex (file ./cls/we-en.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<cls/we-en.pdf, id=123, 128.03835pt x 64.01918pt>
+<cls/we-en.pdf, id=127, 128.03835pt x 64.01918pt>
 File: cls/we-en.pdf Graphic file (type pdf)
 <use cls/we-en.pdf>
 Package pdftex.def Info: cls/we-en.pdf  used on input line 106.
@@ -743,7 +743,7 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 106
  (/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<./figures//detector-illustration2.png, id=124, 462.528pt x 346.896pt>
+<./figures//detector-illustration2.png, id=128, 462.528pt x 346.896pt>
 File: ./figures//detector-illustration2.png Graphic file (type png)
 <use ./figures//detector-illustration2.png>
 Package pdftex.def Info: ./figures//detector-illustration2.png  used on input line 106.
@@ -756,7 +756,7 @@ Overfull \hbox (33.65pt too wide) in paragraph at lines 106--106
 
 
 pdfTeX warning: pdflatex (file ./cls/ugent-en.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<cls/ugent-en.pdf, id=126, 106.69862pt x 85.3589pt>
+<cls/ugent-en.pdf, id=130, 106.69862pt x 85.3589pt>
 File: cls/ugent-en.pdf Graphic file (type pdf)
 <use cls/ugent-en.pdf>
 Package pdftex.def Info: cls/ugent-en.pdf  used on input line 106.
@@ -773,7 +773,7 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 113--113
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 ...berline {5.4.2}ztol}{25}{subsection.5.4.2}
+l.29 ...f the normal vector}{27}{subsection.5.4.1}
                                                   % [1
 
 
@@ -800,23 +800,35 @@ File: ts1pplx.fd 2004/09/06 font definitions for TS1/pplx.
 
 ] [4]
 Chapter 2.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 164.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 164.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 164.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 164.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 164.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 164.
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 176.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 178.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 176.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 178.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 176.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 178.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 182.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 184.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 182.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 184.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 182.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 184.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -825,357 +837,395 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ] [6]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 255.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 255.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 255.
+(Font)              scaled to size 12.50409pt on input line 257.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 255.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 255.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 255.
+(Font)              scaled to size 12.50409pt on input line 257.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 255.
+(hyperref)                removing `math shift' on input line 257.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 255.
+(hyperref)                removing `\rightarrow' on input line 257.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 255.
+(hyperref)                removing `subscript' on input line 257.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\times' on input line 255.
+(hyperref)                removing `\times' on input line 257.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 255.
+(hyperref)                removing `subscript' on input line 257.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 255.
+(hyperref)                removing `math shift' on input line 257.
 
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 258.
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 260.
 (/usr/share/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-Overfull \hbox (3.87474pt too wide) in paragraph at lines 262--264
+Overfull \hbox (3.87474pt too wide) in paragraph at lines 264--266
 \OT1/pplx/m/n/10.95 We want the la-grangian den-sity to be gauge in-vari-ant mean-ing that we wish them to obey 
  []
 
-[7]
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 349.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 349.
+[7] [8]
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 367.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 359.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 367.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 359.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 367.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 359.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 371.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 363.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 371.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 363.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 371.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 363.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 386.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 378.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 386.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 378.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 386.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 378.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 390.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 382.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 390.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 382.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 390.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 382.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 407.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[8]
-
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 403.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 407.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 403.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 407.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 403.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 411.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 408.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 411.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 408.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 411.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 408.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 426.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 423.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 426.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 423.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 426.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 423.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 430.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 428.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 430.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 428.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 430.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 428.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 447.
 
 
-Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instead on input line 445.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 447.
 
-[9] [10]
-Overfull \hbox (1.35625pt too wide) in paragraph at lines 567--569
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 447.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 455.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 455.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 455.
+
+
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instead on input line 472.
+
+[9] [10] [11]
+Overfull \hbox (1.35625pt too wide) in paragraph at lines 598--600
 \OT1/pplx/m/n/10.95 Where we've used the hand-ed-ness flips a charge con-ju-ga-tion en-tails, at last we now have: 
  []
 
-[11] [12] [13]
-<./figures//Binding_energy_curve.png, id=348, 673.51625pt x 442.65375pt>
+[12] [13]
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 750.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 750.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 750.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 768.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 768.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 768.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 793.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 793.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 793.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 812.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 812.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 812.
+
+[14]
+<./figures//Binding_energy_curve.png, id=374, 673.51625pt x 442.65375pt>
 File: ./figures//Binding_energy_curve.png Graphic file (type png)
 <use ./figures//Binding_energy_curve.png>
-Package pdftex.def Info: ./figures//Binding_energy_curve.png  used on input line 713.
+Package pdftex.def Info: ./figures//Binding_energy_curve.png  used on input line 872.
 (pdftex.def)             Requested size: 227.62206pt x 149.60194pt.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 725.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 884.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 725.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 884.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 725.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 884.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 731.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node distance' requires LuaTeX. It will be ignored. on input line 890.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 731.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level distance' requires LuaTeX. It will be ignored. on input line 890.
 
 
-Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 731.
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 890.
 
-[14 <./figures//Binding_energy_curve.png>] [15]
+[15 <./figures//Binding_energy_curve.png>] [16] [17]
 Chapter 3.
-[16
+[18
 
 ]
-<./figures//Cherenkov-reactor.jpg, id=383, 1027.84pt x 1350.04375pt>
+<./figures//Cherenkov-reactor.jpg, id=419, 1027.84pt x 1350.04375pt>
 File: ./figures//Cherenkov-reactor.jpg Graphic file (type jpg)
 <use ./figures//Cherenkov-reactor.jpg>
-Package pdftex.def Info: ./figures//Cherenkov-reactor.jpg  used on input line 878.
+Package pdftex.def Info: ./figures//Cherenkov-reactor.jpg  used on input line 1038.
 (pdftex.def)             Requested size: 124.76268pt x 163.88739pt.
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 878.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 1038.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<./figures//Cherenkov.pdf, id=384, 803.0pt x 745.98701pt>
+<./figures//Cherenkov.pdf, id=420, 803.0pt x 745.98701pt>
 File: ./figures//Cherenkov.pdf Graphic file (type pdf)
 <use ./figures//Cherenkov.pdf>
-Package pdftex.def Info: ./figures//Cherenkov.pdf  used on input line 885.
+Package pdftex.def Info: ./figures//Cherenkov.pdf  used on input line 1045.
 (pdftex.def)             Requested size: 176.40323pt x 163.88739pt.
- [17] [18 <./figures//Cherenkov-reactor.jpg> <./figures//Cherenkov.pdf>]
+ [19] [20 <./figures//Cherenkov-reactor.jpg> <./figures//Cherenkov.pdf>]
 Chapter 4.
 
 
 pdfTeX warning: pdflatex (file ./figures//cosmic_ray_flux.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<./figures//cosmic_ray_flux.pdf, id=427, 423.67458pt x 487.32523pt>
+<./figures//cosmic_ray_flux.pdf, id=461, 423.67458pt x 487.32523pt>
 File: ./figures//cosmic_ray_flux.pdf Graphic file (type pdf)
 <use ./figures//cosmic_ray_flux.pdf>
-Package pdftex.def Info: ./figures//cosmic_ray_flux.pdf  used on input line 906.
+Package pdftex.def Info: ./figures//cosmic_ray_flux.pdf  used on input line 1066.
 (pdftex.def)             Requested size: 183.30138pt x 210.83707pt.
-<figures/detector.pdf, id=431, 1031.89519pt x 1626.58693pt>
+<figures/detector.pdf, id=465, 1031.89519pt x 1626.58693pt>
 File: figures/detector.pdf Graphic file (type pdf)
 <use figures/detector.pdf>
-Package pdftex.def Info: figures/detector.pdf  used on input line 929.
+Package pdftex.def Info: figures/detector.pdf  used on input line 1089.
 (pdftex.def)             Requested size: 409.71692pt x 645.83305pt.
-[19
+[21
 
 ]
-<figures/path_illustration.png, id=440, 651.1527pt x 732.8178pt>
+<figures/path_illustration.png, id=474, 651.1527pt x 732.8178pt>
 File: figures/path_illustration.png Graphic file (type png)
 <use figures/path_illustration.png>
-Package pdftex.def Info: figures/path_illustration.png  used on input line 938.
+Package pdftex.def Info: figures/path_illustration.png  used on input line 1098.
 (pdftex.def)             Requested size: 364.19667pt x 409.88316pt.
-<figures/station-map.png, id=444, 614.57953pt x 794.97pt>
+<figures/station-map.png, id=478, 614.57953pt x 794.97pt>
 File: figures/station-map.png Graphic file (type png)
 <use figures/station-map.png>
-Package pdftex.def Info: figures/station-map.png  used on input line 977.
+Package pdftex.def Info: figures/station-map.png  used on input line 1137.
 (pdftex.def)             Requested size: 455.24411pt x 588.8751pt.
- [20 <./figures//cosmic_ray_flux.pdf>] [21 <./figures/detector.pdf>] [22 <./figures/path_illustration.png>] [23 <./figures/station-map.png>]
+ [22 <./figures//cosmic_ray_flux.pdf>] [23 <./figures/detector.pdf>] [24 <./figures/path_illustration.png>] [25 <./figures/station-map.png>]
 Chapter 5.
-<figures/explanation.png, id=520, 974.30667pt x 649.76083pt>
+<figures/explanation.png, id=556, 974.30667pt x 649.76083pt>
 File: figures/explanation.png Graphic file (type png)
 <use figures/explanation.png>
-Package pdftex.def Info: figures/explanation.png  used on input line 1014.
+Package pdftex.def Info: figures/explanation.png  used on input line 1174.
 (pdftex.def)             Requested size: 455.24411pt x 303.60301pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24
+[26
 
 ]
-<figures/PrincipleNormIllu.pdf, id=533, 603.19843pt x 415.41025pt>
+<figures/PrincipleNormIllu.pdf, id=568, 603.19843pt x 415.41025pt>
 File: figures/PrincipleNormIllu.pdf Graphic file (type pdf)
 <use figures/PrincipleNormIllu.pdf>
-Package pdftex.def Info: figures/PrincipleNormIllu.pdf  used on input line 1038.
+Package pdftex.def Info: figures/PrincipleNormIllu.pdf  used on input line 1198.
 (pdftex.def)             Requested size: 318.66948pt x 219.46278pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[25 <./figures/explanation.png>]
-<figures/hybrid_comparison_N_1000.pdf, id=555, 462.52798pt x 346.89601pt>
+[27 <./figures/explanation.png>]
+<figures/hybrid_comparison_N_1000.pdf, id=589, 462.52798pt x 346.89601pt>
 File: figures/hybrid_comparison_N_1000.pdf Graphic file (type pdf)
 <use figures/hybrid_comparison_N_1000.pdf>
-Package pdftex.def Info: figures/hybrid_comparison_N_1000.pdf  used on input line 1065.
+Package pdftex.def Info: figures/hybrid_comparison_N_1000.pdf  used on input line 1225.
 (pdftex.def)             Requested size: 245.38068pt x 184.03926pt.
 
-Overfull \hbox (22.30856pt too wide) in paragraph at lines 1065--1066
+Overfull \hbox (22.30856pt too wide) in paragraph at lines 1225--1226
 [][] 
  []
 
-<figures/iterative_comparison_N_1000.pdf, id=556, 462.52798pt x 346.89601pt>
+<figures/iterative_comparison_N_1000.pdf, id=590, 462.52798pt x 346.89601pt>
 File: figures/iterative_comparison_N_1000.pdf Graphic file (type pdf)
 <use figures/iterative_comparison_N_1000.pdf>
-Package pdftex.def Info: figures/iterative_comparison_N_1000.pdf  used on input line 1070.
+Package pdftex.def Info: figures/iterative_comparison_N_1000.pdf  used on input line 1230.
 (pdftex.def)             Requested size: 245.38068pt x 184.03926pt.
 
-Overfull \hbox (22.30856pt too wide) in paragraph at lines 1070--1071
+Overfull \hbox (22.30856pt too wide) in paragraph at lines 1230--1231
 [][] 
  []
 
 
 
 pdfTeX warning: pdflatex (file ./figures/NormVsTime.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/NormVsTime.pdf, id=557, 1373.13pt x 609.23611pt>
+<figures/NormVsTime.pdf, id=591, 1373.13pt x 609.23611pt>
 File: figures/NormVsTime.pdf Graphic file (type pdf)
 <use figures/NormVsTime.pdf>
-Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 1079.
+Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 1239.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/NormVsSigmaTime.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/NormVsSigmaTime.pdf, id=558, 1373.13pt x 609.23611pt>
+<figures/NormVsSigmaTime.pdf, id=592, 1373.13pt x 609.23611pt>
 File: figures/NormVsSigmaTime.pdf Graphic file (type pdf)
 <use figures/NormVsSigmaTime.pdf>
-Package pdftex.def Info: figures/NormVsSigmaTime.pdf  used on input line 1082.
+Package pdftex.def Info: figures/NormVsSigmaTime.pdf  used on input line 1242.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 File: figures/NormVsTime.pdf Graphic file (type pdf)
 <use figures/NormVsTime.pdf>
-Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 1090.
+Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 1250.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/NormVsSigmaAZ.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/NormVsSigmaAZ.pdf, id=559, 1373.13pt x 609.23611pt>
+<figures/NormVsSigmaAZ.pdf, id=593, 1373.13pt x 609.23611pt>
 File: figures/NormVsSigmaAZ.pdf Graphic file (type pdf)
 <use figures/NormVsSigmaAZ.pdf>
-Package pdftex.def Info: figures/NormVsSigmaAZ.pdf  used on input line 1093.
+Package pdftex.def Info: figures/NormVsSigmaAZ.pdf  used on input line 1253.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsTime2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/ZtolVsTime2.pdf, id=560, 1373.13pt x 609.23611pt>
+<figures/ZtolVsTime2.pdf, id=594, 1373.13pt x 609.23611pt>
 File: figures/ZtolVsTime2.pdf Graphic file (type pdf)
 <use figures/ZtolVsTime2.pdf>
-Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 1102.
+Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 1262.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaTime.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/ZtolVsSigmaTime.pdf, id=561, 1373.13pt x 609.23611pt>
+<figures/ZtolVsSigmaTime.pdf, id=595, 1373.13pt x 609.23611pt>
 File: figures/ZtolVsSigmaTime.pdf Graphic file (type pdf)
 <use figures/ZtolVsSigmaTime.pdf>
-Package pdftex.def Info: figures/ZtolVsSigmaTime.pdf  used on input line 1105.
+Package pdftex.def Info: figures/ZtolVsSigmaTime.pdf  used on input line 1265.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 File: figures/ZtolVsTime2.pdf Graphic file (type pdf)
 <use figures/ZtolVsTime2.pdf>
-Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 1114.
+Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 1274.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaAZ.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/ZtolVsSigmaAZ.pdf, id=562, 1373.13pt x 609.23611pt>
+<figures/ZtolVsSigmaAZ.pdf, id=596, 1373.13pt x 609.23611pt>
 File: figures/ZtolVsSigmaAZ.pdf Graphic file (type pdf)
 <use figures/ZtolVsSigmaAZ.pdf>
-Package pdftex.def Info: figures/ZtolVsSigmaAZ.pdf  used on input line 1117.
+Package pdftex.def Info: figures/ZtolVsSigmaAZ.pdf  used on input line 1277.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
-<figures/subplotofallstepsphere.pdf, id=563, 1040.68805pt x 624.41281pt>
+<figures/subplotofallstepsphere.pdf, id=597, 1040.68805pt x 624.41281pt>
 File: figures/subplotofallstepsphere.pdf Graphic file (type pdf)
 <use figures/subplotofallstepsphere.pdf>
-Package pdftex.def Info: figures/subplotofallstepsphere.pdf  used on input line 1124.
+Package pdftex.def Info: figures/subplotofallstepsphere.pdf  used on input line 1284.
 (pdftex.def)             Requested size: 455.24411pt x 273.15135pt.
-<figures/SphereAndStepFinal.pdf, id=564, 894.34125pt x 570.13pt>
+<figures/SphereAndStepFinal.pdf, id=598, 894.34125pt x 570.13pt>
 File: figures/SphereAndStepFinal.pdf Graphic file (type pdf)
 <use figures/SphereAndStepFinal.pdf>
-Package pdftex.def Info: figures/SphereAndStepFinal.pdf  used on input line 1130.
+Package pdftex.def Info: figures/SphereAndStepFinal.pdf  used on input line 1290.
 (pdftex.def)             Requested size: 455.24411pt x 290.21439pt.
-[26 <./figures/PrincipleNormIllu.pdf> <./figures/hybrid_comparison_N_1000.pdf> <./figures/iterative_comparison_N_1000.pdf>] [27 <./figures/NormVsTime.pdf> <./figures/NormVsSigmaTime.pdf
+[28 <./figures/PrincipleNormIllu.pdf> <./figures/hybrid_comparison_N_1000.pdf> <./figures/iterative_comparison_N_1000.pdf>] [29 <./figures/NormVsTime.pdf> <./figures/NormVsSigmaTime.pdf
 
 pdfTeX warning: pdflatex (file ./figures/NormVsSigmaTime.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./figures/NormVsSigmaAZ.pdf
 
 pdfTeX warning: pdflatex (file ./figures/NormVsSigmaAZ.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [28 <./figures/ZtolVsTime2.pdf> <./figures/ZtolVsSigmaTime.pdf
+>] [30 <./figures/ZtolVsTime2.pdf> <./figures/ZtolVsSigmaTime.pdf
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaTime.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./figures/ZtolVsSigmaAZ.pdf
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaAZ.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [29 <./figures/subplotofallstepsphere.pdf> <./figures/SphereAndStepFinal.pdf>] (./thesis.bbl
+>] [31 <./figures/subplotofallstepsphere.pdf> <./figures/SphereAndStepFinal.pdf>] (./thesis.bbl
 Overfull \hbox (6.0pt too wide) in paragraph at lines 1--1
 [][] 
  []
 
-[30
+[32
 
-]) [31] (./thesis.aux)
+]) [33] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 305D4979E5EDE1CB7B0451D9BC62F89C;4746.
+(rerunfilecheck)             Checksum: BE726C0AEF6196B7548948FF149AB10D;4739.
  ) 
 Here is how much of TeX's memory you used:
- 26149 strings out of 478238
- 514100 string characters out of 5850456
- 838890 words of memory out of 5000000
- 43593 multiletter control sequences out of 15000+600000
+ 26266 strings out of 478238
+ 515790 string characters out of 5850455
+ 858826 words of memory out of 5000000
+ 43692 multiletter control sequences out of 15000+600000
  527111 words of font info for 193 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,18n,94p,1195b,1977s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,18n,94p,1195b,2033s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmbi.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (32 pages, 2410999 bytes).
+Output written on thesis.pdf (34 pages, 2421279 bytes).
 PDF statistics:
- 926 PDF objects out of 1000 (max. 8388607)
- 652 compressed objects within 7 object streams
- 215 named destinations out of 1000 (max. 500000)
- 355 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 966 PDF objects out of 1000 (max. 8388607)
+ 690 compressed objects within 7 object streams
+ 233 named destinations out of 1000 (max. 500000)
+ 363 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -3,6 +3,7 @@
 \bibitem{neutrino-mass}
 M.~Aker, A.~Beglarian, J.~Behrens, A.~Berlev, U.~Besserer, B.~Bieringer,
   F.~Block, S.~Bobien, M.~B{\"o}ttcher, Bornschein, et~al.
+\newblock Direct neutrino-mass measurement with sub-electronvolt sensitivity.
 
 \bibitem{Askaryan}
 G~A Askaryan.
@@ -43,6 +44,13 @@ Christian Glaser, Anna Nelles, Ilse Plaisier, Christoph Welling, Steven~W.
 R.~Hiller, P.~A. Bezyazeekov, N.~M. Budnev, et~al.
 \newblock Tunka-rex: energy reconstruction with a single antenna station.
 \newblock {\em {EPJ} Web of Conferences}, 135:01004, 2017.
+
+\bibitem{Melson_2015}
+Tobias Melson, Hans-Thomas Janka, Robert Bollig, Florian Hanke, Andreas Marek,
+  and Bernhard Müller.
+\newblock Neutrino-driven explosion of a 20 solar-mass star in three dimensions
+  enabled by strange-quark contributions to neutrino–nucleon scattering.
+\newblock {\em The Astrophysical Journal Letters}, 808(2):L42, jul 2015.
 
 \bibitem{2022icrc.confE1027O}
 B.~{Oeyen}, I.~{Plaisier}, A.~{Nelles}, C.~{Glaser}, and T.~{Winchen}.

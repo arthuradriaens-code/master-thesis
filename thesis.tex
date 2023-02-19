@@ -159,9 +159,11 @@ een pad vanuit de interactievertex tot de detector in complexe ijsmodellen en
                    &+|\mathcal{D}_\mu\phi|^2 - V(\phi)
 \end{align*}
 Above we see the standard model lagrangian density, consisting of the following parts: at the top the Generalized maxwell lagrangian,
-the second line being the generlaized lorentz force, the third line the yukawa couplings and the last line responsible for
-the mass of the W\&Z bozons via the Brout Englert Higgs mechanism. We'll mostly concern ourselves with 
-the second part.
+the second line being the generlaized lorentz force, the third line the yukawa
+couplings (rest mass\footnote{nearly all the mass observed in e.g nuclei
+actually comes from binding energy.} via higgs boson and massless quark\&lepton field coupling) 
+and the last line responsible for the spontaneous symmetry breaking giving rise to 
+the rest mass via the Brout Englert Higgs mechanism. We'll mostly concern ourselves with the second part.
 \subsection{History}
 Fermi realised a quantitatively good local field theory for the $\beta$-decay in 1934 based on the idea of the following
 interaction:
@@ -202,7 +204,7 @@ to the left handed part of lepton- and baryon fields. Everything was finally exp
 the V-A model, which we'll get to shortly.
 
 \subsection{Chiral gauge theories}
-Let's first give a quick example on how parity can be broken in a gauge theory; let's define the operators
+Let's first give a quick example on how parity can be violated in a gauge theory; let's define the operators
 \begin{equation}
 	P_R = \frac{1}{2}(1+\gamma_5)\quad P_L = \frac{1}{2}(1-\gamma_5)
 \end{equation}
@@ -351,6 +353,12 @@ discussed}
 \begin{equation}
 	\mathcal{L}_{I}^{\nu} =\sum_l-\frac{g}{2 \sqrt{2}} \bar{\nu}_l \slashed{W}\left(1-\gamma_5\right)l - \frac{g}{2 \sqrt{2}} \bar{l}\slashed{W}^\dagger\left(1-\gamma_5\right) \nu_l
 \end{equation}
+And the production/annihilation mechanisms of $W/W^\dagger$ bosons from the quark sector:
+\begin{equation}
+	\mathcal{L}_Q = \sum_j \bar{Q}_j i \slashed{D} Q_j
+\end{equation}
+We can equate $W$ with $W^-$ and $W^\dagger$ with $W^+$. Here are some diagramattic exaples of possible interactions
+which you can conclude from those interaction lagrangian densities\footnote{with u, up-like quarks is meant, e.g charm, top. Analogously with d, down-like quarks}:
 \begin{figure}[h!]
 	\begin{minipage}{0.49\textwidth}
 	\centering
@@ -359,7 +367,7 @@ discussed}
 	\vertex (a0){l};
 	\vertex[right=2cm of a0] (am) ;
 	\vertex[right=2cm of am] (a1) {$\nu_l$};
-	\vertex[above=2cm of am] (ah) {W};
+	\vertex[above=2cm of am] (ah) {$W^-$};
 	\diagram* {
 		{[edges=fermion]
 			(a0) -- (am) -- (a1)
@@ -378,7 +386,7 @@ discussed}
 	\vertex (a0){$\bar{l}$};
 	\vertex[right=2cm of a0] (am) ;
 	\vertex[right=2cm of am] (a1) {$\bar{\nu}_l$};
-	\vertex[above=2cm of am] (ah) {$W^\dagger$};
+	\vertex[above=2cm of am] (ah) {$W^+$};
 	\diagram* {
 		{[edges=fermion]
 			(a1) -- (am) -- (a0)
@@ -390,27 +398,22 @@ discussed}
 	\end{feynman}
 	\end{tikzpicture}
 	\end{minipage}
-\end{figure}\\
-And with the production of $W/W^\dagger$ bosons from the quark sector:
-\begin{equation}
-	\mathcal{L}_Q = \sum_j \bar{Q}_j i \slashed{D} Q_j
-\end{equation}
+\end{figure}
 \begin{figure}[h!]
 	\begin{minipage}{0.49\textwidth}
 	\centering
 	\begin{tikzpicture}
 	\begin{feynman}
-	\vertex (a0){$\bar{d}$};
-	\vertex[above=1cm of a0] (ai);
-	\vertex[right=1cm of ai] (am);
-	\vertex[above=1cm of ai] (a1) {$u$};
-	\vertex[right=1cm of am] (af) {$W^+$};
+	\vertex (a0){d};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {u};
+	\vertex[above=2cm of am] (ah) {$W^-$};
 	\diagram* {
 		{[edges=fermion]
-			(a1) -- (am) -- (a0)
+			(a0) -- (am) -- (a1)
 		},
 		{[edges=boson]
-			(am) -- (af)
+			(am) -- (ah)
 		}
 	};
 	\end{feynman}
@@ -420,25 +423,49 @@ And with the production of $W/W^\dagger$ bosons from the quark sector:
 	\centering
 	\begin{tikzpicture}
 	\begin{feynman}
-	\vertex (a0){$d$};
-	\vertex[above=1cm of a0] (ai);
-	\vertex[right=1cm of ai] (am);
-	\vertex[above=1cm of ai] (a1) {$\bar{u}$};
-	\vertex[right=1cm of am] (af) {$W^-$};
+	\vertex (a0){u};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {d};
+	\vertex[above=2cm of am] (ah) {$W^+$};
 	\diagram* {
 		{[edges=fermion]
 			(a0) -- (am) -- (a1)
 		},
 		{[edges=boson]
-			(am) -- (af)
+			(am) -- (ah)
 		}
 	};
 	\end{feynman}
 	\end{tikzpicture}
 	\end{minipage}
 \end{figure}\\
-And various other interactions, notice that 
-we've equated $W$ with $W^-$ and $W^\dagger$ with $W^+$.
+Combining some of these diagrams we can re-write Fermi's interaction in a renormalizable interaction:
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+  \vertex (a0){(u$\mathbf{d}$d)};
+	\vertex[above=1cm of a0] (am);
+	\vertex[right=2cm of am] (a1);
+	\vertex[above=1cm of am] (a2){(u$\mathbf{u}$d)};
+	\vertex[right=2cm of a1] (b1);
+	\vertex[right=2cm of b1] (bm);
+  \vertex[above=1cm of bm] (b2){$e^-$};
+  \vertex[below=1cm of bm] (b0){$\bar{\nu}_e$};
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (a1) -- (a2)
+		},
+    {[edges=fermion]
+			(b0) -- (b1) -- (b2)
+		},
+		{[edges=boson,edge label=$W^-$]
+			(a1) -- (b1)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+\end{figure}
 %\subsection{Majorana}
 \section{Do neutrinos have mass?}
 Neutrinos get produced through the following ways in the nucleus of our star:\\
@@ -516,9 +543,13 @@ In general
 With $U_{\alpha i}$ e.g the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix. 
 This phenomenon has been observed e.g from the descrepency from the observed
 and expected neutrino events coming from a nuclear reactor \cite{Eguchi_2003}.
-Now the question remains, how do neutrinos get their mass (theoretically)? [further work needed]
+Now the question remains, how do neutrinos get their mass (theoretically)?
 \subsection{See-saw mechanism}
-Given a spinor $\psi$ with the following Lagrange density:
+We can give neutrino's mass as with any other spinor throught Yukawa couplings and an extra term:
+\begin{equation}
+	\mathcal{L} = i\bar{\nu}\slashed{\partial}\nu - m\bar{\psi}\nu - \frac{M}{2} (\bar{\nu}_R\nu_{Rc} + \bar{\nu}_{Rc}\nu_R)
+\end{equation}
+More general, given a spinor $\psi$ with the following Lagrange density:
 \begin{equation}
 	\mathcal{L} = i\bar{\psi}\slashed{\partial}\psi - m\bar{\psi}\psi - \frac{M}{2} (\bar{\psi}_R\psi_{Rc} + \bar{\psi}_{Rc}\psi_R)
 \end{equation}
@@ -659,8 +690,9 @@ i.e, in the $\chi,\omega$ basis:
 	m_+\approx M \quad &\text{with eigenstate} \quad \chi + \frac{m}{M}\omega\\
 	m_-\approx -\frac{m^2}{M} \quad &\text{with eigenstate} \quad  \omega - \frac{m}{M}\chi\\
 \end{align}
-This is what's called the See-Saw mechanism, and gives a possible explanation for the
-small mass of the neutrinos.  For a certain $m$ if we choose a big $M$ we'll
+This is what's called the See-Saw mechanism, it's both a theory of giving mass to
+neutrinos and explaining their small mass.  
+For a certain $m$ if we choose a big $M$ we'll
 get a big $m_+$ and small $m_-$ (and vice versa). We also see that there's only
 a very small mixing of states, i.e the $m_-$ mass state is almost purely
 $\omega$ (and $m_+$ almost purely $\chi$). The parameter $m$ in the original
@@ -676,7 +708,133 @@ which seems \cite{neutrino-mass} to be a reasonable order of magnitude estimate 
 mass.
 This mechanism would also lead to supermassive neutrinos, which are a possible dark matter
 candidate.
-\section{Why concern ourselves with neutrinos}
+\subsection{Majorana fermions}
+A theory that's also quite interesting is that
+neutrinos are majorana,
+a dirac fermion has the following density:
+\begin{align}
+  \mathcal{L} &= i\bar{\psi}\slashed{\partial}\psi - m\bar{\psi}\psi\\
+              &= i\bar{\psi}_L\slashed{\partial}\psi_L + i\bar{\psi}_R\slashed{\partial}\psi_R - m\bar{\psi}_R\psi_L - m\bar{\psi}_L\psi_R
+\end{align}
+Now assume that we only have right-handed particles:
+\begin{equation}
+  \mathcal{L} = i\bar{\psi}_R\slashed{\partial}\psi_R - \frac{M}{2}\bar{\psi}_R\psi_{Rc} - \frac{M}{2}\bar{\psi}_{Rc}\psi_R
+\label{eqn:right-handed}
+\end{equation}
+A majorana fermion is a fermion which is it's own anti-particle, i.e:
+\begin{align}
+  \chi = \frac{1}{\sqrt{2}}\left( \psi_R + \psi_{Rc}  \right) = \chi_c
+\end{align}
+With this we have that
+\begin{equation}
+  \bar{\chi}\chi = \frac{1}{2}\left(\bar{\psi}_R\psi_{Rc} + \bar{\psi}_{Rc}\psi_R\right)
+\end{equation}
+Which we can recognize in \ref{eqn:right-handed} and
+\begin{align}
+  \bar{\chi}\slashed{\partial}\chi &= \frac{1}{2}(\bar{\psi}_R + \bar{\psi}_{Rc}) \slashed{\partial}(\psi_R + \psi_{Rc})\\
+                                   &= \frac{1}{2} \bar{\psi}_R\slashed{\partial}\psi_R + \frac{1}{2}\bar{\psi}_{Rc}\slashed{\partial}\psi_{Rc}\\
+                                   &= \bar{\psi}_R \slashed{\partial}\psi_R
+\end{align}
+where we've used integration by parts at the end, with these we can re-write \ref{eqn:right-handed} as:
+\begin{equation}
+  \mathcal{L} = i\bar{\chi}\slashed{\partial}\chi - M \bar{\chi}\chi
+\end{equation}
+Thus arriving at a density for Majorana fermions with mass M, a possible detection mechanism
+to find out if neutrinos are Majorana is "Neutrinoless double beta decay":
+\begin{figure}[h!]
+	\begin{minipage}{\textwidth}
+		\begin{minipage}{0.49\textwidth}
+			\centering
+			\begin{tikzpicture}
+				\begin{feynman}
+					\vertex (a0) {\(n\)};
+					\vertex[right=3cm of a0] (a1) {\(p^+\)};
+					\vertex[right=1.5cm of a0] (am);
+					\vertex[right=0.5cm of am] (awi);
+					\vertex[above=1cm of awi] (aw);
+					\vertex[right=1cm of aw] (avm);
+					\vertex[above=0.3cm of avm] (av1) {\(\bar{\nu}_e\)};
+					\vertex[below=0.3cm of avm] (av0) {\(e^-\)};
+					
+					\vertex[above=3.7cm of a0] (b0) {\(n\)};
+					\vertex[right=3cm of b0] (b1) {\(p^+\)};
+					\vertex[right=1.5cm of b0] (bm);
+					\vertex[right=0.5cm of bm] (bwi);
+					\vertex[below=1cm of bwi] (bw);
+					\vertex[right=1cm of bw] (bvm);
+					\vertex[above=0.3cm of bvm] (bv1) {\(\bar{\nu}_e\)};
+					\vertex[below=0.3cm of bvm] (bv0) {\(e^-\)};
+					
+					\diagram* {
+						{[edges=fermion]
+							(a0) -- (am) -- (a1)
+						},
+						{[edges=boson,edge label= W]
+							(am) -- (aw)
+						},
+						{(av1) -- [fermion] (aw) --[fermion] (av0)},
+						
+						{[edges=fermion]
+							(b0) -- (bm) -- (b1)
+						},
+						{[edges=boson,edge label= W]
+							(bm) -- (bw)
+						},
+						(bv1) -- [fermion] (bw) --[fermion] (bv0),
+						
+					};
+				\end{feynman}
+			\end{tikzpicture}
+		\end{minipage}
+		\begin{minipage}{0.49\textwidth}
+			\centering
+			\begin{tikzpicture}
+				\begin{feynman}
+					\vertex (a0) {\(n\)};
+					\vertex[right=3cm of a0] (a1) {\(p^+\)};
+					\vertex[right=1.5cm of a0] (am);
+					\vertex[right=0.5cm of am] (awi);
+					\vertex[above=1cm of awi] (aw);
+					\vertex[right=1cm of aw] (avm);
+					\vertex[above=0.85cm of aw] (av1);
+					\vertex[below=0.3cm of avm] (av0) {\(e^-\)};
+					
+					\vertex[above=3.7cm of a0] (b0) {\(n\)};
+					\vertex[right=3cm of b0] (b1) {\(p^+\)};
+					\vertex[right=1.5cm of b0] (bm);
+					\vertex[right=0.5cm of bm] (bwi);
+					\vertex[below=1cm of bwi] (bw);
+					\vertex[right=1cm of bw] (bvm);
+					\vertex[below=0.85cm of bw] (bv1);
+					\vertex[above=0.3cm of bvm] (bv0) {\(e^-\)};
+					\vertex[below=0.6cm of bw] (ann) {X};
+					
+					\diagram* {
+						{[edges=fermion]
+							(a0) -- (am) -- (a1)
+						},
+						{[edges=boson,edge label= W]
+							(am) -- (aw)
+						},
+						{(av1) -- [fermion] (aw) --[fermion] (av0)},
+						
+						{[edges=fermion]
+							(b0) -- (bm) -- (b1)
+						},
+						{[edges=boson,edge label= W]
+							(bm) -- (bw)
+						},
+						(bv1) -- [fermion] (bw) --[fermion] (bv0),
+						
+					};
+				\end{feynman}
+			\end{tikzpicture}
+		\end{minipage}
+	\end{minipage}
+	\caption{normal and neutrinoless double beta decay}
+\end{figure}\\
+This is (at the time of writing) actively investigated.
+\section{Why study neutrinos?}
 %The radio detection of neutrinos targets the energy range 10PeV to 100EeV\cite{Aguilar_2021} 
 Neutrinos are ideal messengers to identify the UHE (Ultra High Energy) sources
 in the universe. Unlike cosmic rays, which are deflected by magnetic fields and
@@ -705,7 +863,8 @@ gravitational pressure of the outside plasma, fusion of hydrogen into deuterium
 and helium happens. Thus converting mass into energy. The pressure of this energy
 counteracts the pressure of gravity and the star is stable.
 
-When the hydrogen at the core runs out no more hydrogen can be fused and the
+When the hydrogen at the core runs out no more hydrogen can be fused. For
+stars with masses between $8M_\odot$ and $30M_\odot$ the
 fusion of heavier elements starts, this can't keep going on however as at some
 point the star starts to form the most stable element: iron. 
 \begin{figure}[!ht]
@@ -715,9 +874,9 @@ point the star starts to form the most stable element: iron.
 It costs energy
 to both make lighter elements than iron and heavier ones.  As the iron core
 builds up the outside pressure from the core starts to decrease as no new
-energy is released. This goes on until the inwards pressure becomes too large
-and the electrons surrounding the iron core fuse with the protons (uud), 
-creating neutrons (udd) and neutrino's, diagramatically:
+energy is released. This goes on until  the treshold of an iron core with a mass of 1.4$M_\odot$ known as the 
+Chandrasekhar limit and the the inwards pressure becomes too large, making the electrons surrounding the 
+iron core fuse with the protons (uud),  creating neutrons (udd) and neutrino's, diagramatically:
 \begin{figure}[!ht]
 	\centering
 	\begin{tikzpicture}
@@ -742,23 +901,24 @@ creating neutrons (udd) and neutrino's, diagramatically:
 	\end{feynman}
 	\end{tikzpicture}
 \end{figure}\\
-This last part happens in a split second, creating a very dense neutron star
+This last part happens in a split second as the collapse goes at 25\% the speed of light, 
+creating a very dense neutron star (3000km in diameter iron core to 30km in diameter neutron star) 
 and up to $10^{52}$ ultra-relativistic neutrinos, carrying up to 99\% of the
-released energy [citation needed]. As the density has suddenly
+released energy \cite{Melson_2015}\footnote{1\% is released as kinetic energy, only 0.001\% as electromagnetic radiation}.
+As the density has suddenly
 increased so much there's a huge distance of pure vaccuum between the plasma
-outer layer and the (now) neutron star, this plasma starts free-falling inwards 
-whilst the neutrinos carrying tremendous amounts of energy start going outwards 
-from the neutron stars core.
+outer layer and the (now) neutron star, this plasma starts free-falling inwards, 
+also at 25\% the speed of light whilst the neutrinos carrying tremendous amounts 
+of energy start going outwards from the neutron stars core.
 
-These then collide resulting in what we observe as a "supernova", wrongly
+The neutrinos then collide with the plasma resulting in what we observe as a "supernova", wrongly
 thought of by Kepler as being a "new (nova) star" rather being a violent death
 of an old star.
 
-Not all the neutrinos collide with matter of course as neutrinos rarely
-interact, it's only because the incoming plasma is so dense and due to the
-tremendous amount of neutrinos that collissions happen at all. The ones that
-escape, however, will be visible on earth in our neutrino detectors, far before
-the light escapes the exploding star.
+This is quite unexpected as neutrinos rarely interact, they only do becouse the
+incoming plasma is so dense and due to the tremendous amount of neutrinos that 
+collissions happen at all. Some, however, escape and will be visible on earth in 
+our neutrino detectors $\approx$ 18h before the light escapes the exploding star.
 
 Neutrino observatories are thus useful to know where to point our various
 telescopes before the supernova is actually visible in the night sky.
@@ -808,7 +968,7 @@ phase velocity of light in a dense dielectric (such as ice) produces a shower
 of secondary charged particles which contains a charge anisotropy (net negative
 charge), this charge imbalance is a result of medium electrons either Compton
 scattering into the advancing shower or annihilating with shower positrons. You
-thus get moving charges which move faster than the light speed in the medium,
+end up having moving charges which move faster than the speed of light in the medium,
 creating Cherenkov radiation.
 
 The other possible mechanism, called \textit{geomagnetic emission} is the
@@ -826,7 +986,7 @@ afterwards.\footnote{The reader who wants a thorough explanation and derivation 
 advised to check out \textit{Chapter 14: Radiation by Moving Charges} from the
 book \textit{Classical Electrodynamics} by Jackson.} 
 \newpage
-\section{Spectral distribution of radiation}
+\section{Spectral distribution}
 We wish to know the emitted energy per elementary unit solid angle over a certain frequency interval for a moving charge far away from the source. For this we have that the vectorpotential $\mathbf{A}$, defined as
 \begin{equation}
 	\mathbf{B} = \mathbf{\nabla}\times \mathbf{A}
