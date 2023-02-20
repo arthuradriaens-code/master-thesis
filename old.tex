@@ -17,7 +17,7 @@
 %\usepackage{libertine}
 %\usepackage{libertinust1math}
 
-%\usepackage[sc]{mathpazo} %font or smth
+\usepackage[sc]{mathpazo} %font or smth
 \linespread{1.05}
 %\usepackage{microtype}
 
@@ -150,9 +150,323 @@ De projecten die tot completie zijn gebracht over deze master thesis waren de
 een pad vanuit de interactievertex tot de detector in complexe ijsmodellen en
 (...)
 % =====================================================================
-\chapter{Neutrinos}
-\section{Discovery}
-\section{Origins}
+\chapter{Background: Neutrinos}
+\section{Electroweak interaction}
+\begin{align*}
+  \mathcal{L}_{SM} &= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}\\
+                   & + i\bar{\psi}\slashed{\mathcal{D}}\psi + h.c\\
+                   & + \psi_iy_{ij}\psi_j\phi + h.c\\
+                   &+|\mathcal{D}_\mu\phi|^2 - V(\phi)
+\end{align*}
+Above we see the standard model lagrangian density, consisting of the following parts: at the top the Generalized maxwell lagrangian,
+the second line being the generlaized lorentz force, the third line the yukawa
+couplings (rest mass\footnote{nearly all the mass observed in e.g nuclei
+actually comes from binding energy.} via higgs boson and massless quark\&lepton field coupling) 
+and the last line responsible for the spontaneous symmetry breaking giving rise to 
+the rest mass via the Brout Englert Higgs mechanism. We'll mostly concern ourselves with the second part.
+\subsection{History}
+Fermi realised a quantitatively good local field theory for the $\beta$-decay in 1934 based on the idea of the following
+interaction:
+\begin{equation}
+	n \rightarrow p + e^- + \bar{\nu} \label{eqn:neutron decay}
+\end{equation}
+i.e
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){n};
+	\vertex[right=2cm of a0] (ah) ;
+	\vertex[right=4cm of a0] (a1) {$\nu$};
+	\vertex[above=4cm of a0] (a3){p};
+	\vertex[right=4cm of a3] (a2){$e^-$};
+	\vertex[above=2cm of ah] (am);
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (am) -- (a3)
+		},
+		{[edges=fermion]
+			(a1) -- (am) -- (a2)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+\end{figure}\\
+This 4-fermion interaction is however not renormalizable, meaning that it will be incorrect for sufficiently high
+energies. As the lagrangian density would look like
+\begin{equation}
+	\mathcal{L}^F_{int} = -G_F (\bar{\psi}_p\gamma_\mu \psi_n) (\bar{\psi}_e\gamma^\mu\psi_\nu) + h.c
+\end{equation}\\
+And indeed, from dimensionality analysis we see that, as $[\psi]=[L]^{-3/2}$, we get that from $[\mathcal{L}_{int}] = [L]^{-4}$, $[G_F] = [L]^2 = [\Lambda]^{-2}$
+
+This interaction lagrangian density also doens't explain how this weak interaction violates parity, as was observed in the $\tau-\theta$ puzzle where it has become apparent that the weak interaction only couples
+to the left handed part of lepton- and baryon fields. Everything was finally explained using
+the V-A model, which we'll get to shortly.
+
+\subsection{Chiral gauge theories}
+Let's first give a quick example on how parity can be violated in a gauge theory; let's define the operators
+\begin{equation}
+	P_R = \frac{1}{2}(1+\gamma_5)\quad P_L = \frac{1}{2}(1-\gamma_5)
+\end{equation}
+with
+\begin{equation}
+	\gamma_5 = i\gamma_0\gamma_1\gamma_2\gamma_3
+\end{equation}
+And with this defining 
+\begin{equation}
+	\psi_R := P_R\psi \quad \psi_L := P_L\psi
+\end{equation}
+Now starting from the simple kinetic lagrangian density:
+\begin{equation}
+  \mathcal{L} = i\bar{\psi}\slashed{\partial}\psi - m\bar{\psi}\psi
+\end{equation}
+We can re-write this as follows:
+\begin{equation}
+  \mathcal{L} = i\bar{\psi}_R\slashed{\partial}\psi_R + i\bar{\psi}_L\slashed{\partial}\psi_L - m\bar{\psi}_R\psi_L - m\bar{\psi}_L\psi_R
+\end{equation}
+Now we wish to have gauge invariance over the whole lagrangian density, 
+i.e having
+\begin{align}
+  &\psi_R(x) \rightarrow \psi_R'(x) = e^{iq_R f(x)}\psi_R(x)\\
+  &\psi_L(x) \rightarrow \psi_L'(x) = e^{iq_L f(x)}\psi_L(x)
+\end{align}
+Now in the maxwellian term of the standard model, as 
+\begin{equation}
+  F_{\mu\nu} = \partial_\mu A_\nu - \partial_\mu A_\nu
+\end{equation}
+The A field has a gauge transform of the form
+\begin{equation}
+	A_\mu(x) \rightarrow A_\mu'(x) = A_\mu(x) - \partial_\mu f(x) \label{eqn:U(1) gauge transform}
+\end{equation}
+Thus if we define the covariant derivatives
+\begin{align}
+  \mathcal{D}_\mu\psi_R &= \partial_\mu\psi_R + iq_RA_\mu\psi_R\\
+  \mathcal{D}_\mu\psi_L &= \partial_\mu\psi_L + iq_LA_\mu\psi_L
+\end{align}
+We see that our lagrangian density
+\begin{equation}
+  \mathcal{L} = i\bar{\psi}_R\slashed{\mathcal{D}}\psi_R + i\bar{\psi}_L\slashed{\mathcal{D}}\psi_L
+\end{equation}
+Is gauge invariant. If you write this out you get
+\begin{equation}
+  i\bar{\psi}\slashed{\partial}\psi - \frac{q_R + q_L}{2}\bar{\psi}\slashed{A}\psi - \frac{q_R - q_L}{2}\bar{\psi}\slashed{A}\gamma_5\psi
+\end{equation}
+The rightmost term is a pseudoscalar, we thus see that this system breaks
+parity invariance if $ q_L \neq q_R$. This is a crude form of the V-A theory.
+
+\subsection{$SU(2) \rightarrow SU(2)_L \times U(1)_Y$}
+\label{chapter:EWTheory}
+We'll now quickly derive and discuss the weak interaction
+looking at a 2x2 constant $\mathbb{C}$ transformation
+\begin{align}
+	\Psi(x) &\rightarrow M\Psi(x)\\
+\bar{\Psi}(x) &\rightarrow \bar{\Psi}(x)M^\dagger
+\end{align}
+We want the lagrangian density to be gauge invariant meaning that we wish them to obey
+\begin{equation}
+	M^\dagger M = \mathbb{1}_{2x2}
+\end{equation}
+i.e we want them to be unitary, aside from this we also choose $det(M)=1$ restricting ourselves to
+the special unitary 2D matrices (the SU(2) group), we get that if we take a look at the kinetic lagrangian
+density:
+\begin{equation}
+	\mathcal{L} = i\bar{\Psi}\slashed{\partial}\Psi - m\bar{\Psi}\Psi
+\end{equation}
+requiring invariance under the previously mentioned transformation, calculating we have that:
+\begin{equation}
+	\partial_\mu \Psi \rightarrow \partial_\mu(M \Psi) = M(\partial_\mu \Psi + M^{-1}\partial_\mu M \Psi)
+\end{equation}
+Now
+\begin{equation}
+	(M^{-1}\partial_\mu M)^\dagger = \partial_\mu M^\dagger (M^{-1})^\dagger = \partial_\mu M^{-1}M
+\end{equation}
+Due to them being from the SU(2) group, now as $M^{-1}M = \mathbb{1}_{2x2}$:
+\begin{equation}
+	\partial_\mu (M^{-1}M) = 0 \implies \partial_\mu M^{-1}M = -M^{-1}\partial_\mu M
+\end{equation}
+i.e $M^{-1}\partial_\mu M$  is anti-hermitian, now 
+\begin{align}
+	\frac{\delta det(M)}{det(M)} &= tr(M^{-1}\delta M)\\
+	\frac{\partial_\mu det(M)}{det(M)} &= tr(M^{-1}\delta M)
+\end{align}
+The left side is zero as $det(M)=0$, thus $M^{-1}\partial_\mu M$ is traceless and anti-hermitian,
+meaning that to make the lagrangian density gauge invariant under $SU(2)$, we can define
+the covariant derivative
+\begin{equation}
+	\mathcal{D}_\mu\Psi = \partial_\mu\Psi + igW_\mu\Psi
+\end{equation}
+With $W_\mu$ a traceless hermitian 2x2 matrix of gauge fields and $g\in\mathbb{R}$ a coupling constant.
+Now as is well know the complete basis of 2x2 hermitian traceless matrices are the Pauli matrices
+\begin{equation}
+	\sigma_1 = \left(\begin{matrix}0&1\\1&0\end{matrix}\right)\quad \sigma_2 = \left(\begin{matrix}0&-i\\i&0\end{matrix}\right)\quad \sigma_3 = \left(\begin{matrix}1&0\\0&-1\end{matrix}\right)
+\end{equation}
+meaning we can construct the gauge fields as
+\begin{equation}
+	W_\mu = \frac{1}{2}\sum^3_{a=1} W_\mu^a(x) \sigma_a = \frac{1}{2}\left(\begin{matrix}W_\mu^3&W_\mu^1-iW_\mu^2\\W_\mu^1+iW_\mu^2&-W_\mu^3\end{matrix}\right)
+\end{equation}
+The lagrangian density then becomes
+\begin{equation}
+	\mathcal{L} = i\bar{\Psi}\slashed{\partial}\Psi - m\bar{\Psi}\Psi - g\bar{\Psi}\slashed{W}\Psi := \mathcal{L}_0 + \mathcal{L}_I
+\end{equation}
+I.e we get an extra interaction term.
+Now defining 
+\begin{align}
+	W_\mu &:= \frac{1}{\sqrt{2}}(W_\mu^1 - iW_\mu^2)\\
+	W_\mu^\dagger &:= \frac{1}{\sqrt{2}}(W_\mu^1 + iW_\mu^2)
+\end{align}
+The interaction lagrangian density becomes 
+\begin{align}
+	\mathcal{L}_I &= -\frac{g}{2}(\bar{\psi}_1,\bar{\psi}_2)\left(\begin{matrix}\slashed{W}^3&\sqrt{2}\slashed{W}\\\sqrt{2}\slashed{W}^\dagger&-\slashed{W}^3\end{matrix}\right)\left(\begin{matrix}\psi_1\\\psi_2\end{matrix}\right)\\
+		      &= -\frac{g}{2}\bar{\psi}_1\slashed{W}^3\psi_1 + \frac{g}{2}\bar{\psi}_2\slashed{W}^3\psi_2\\
+		      &\qquad-\frac{g}{\sqrt{2}}\bar{\psi}_1\slashed{W}\psi_2 + \frac{g}{\sqrt{2}}\bar{\psi}_2\slashed{W}^\dagger\psi_1
+\end{align}
+I.e a flavour changing part and a non-flavour changing part. If we now set up this system with the vector
+\begin{equation}
+	\Psi_\ell^L = \left(\begin{matrix}\nu_l^L\\\ell^L\end{matrix}\right)
+\end{equation}
+With also a U(1) transformation:
+\begin{equation}
+	\Psi_\ell^L \rightarrow \Psi_\ell^{L'}(x) = M(x) e^{ig'q\beta(x)}\Psi_\ell^L(x)
+\end{equation}
+Introducing the U(1) gauge field $B_\mu$ that transforms as in equation \ref{eqn:U(1) gauge transform}
+we see that the covariant derivative needs to be defined as 
+\begin{equation}
+	\mathcal{D}_\mu \Psi_\ell^L = \partial_\mu \Psi_\ell^L + ig\hat{W}_\mu \Psi_\ell^L + ig'qB_\mu\Psi_\ell^L
+\end{equation}
+Yielding an interaction lagrange density of the form
+\begin{equation}
+	\mathcal{L}_I = \sum_\ell - g\bar{\Psi}^L_\ell \hat{\slashed{W}}\Psi^L_\ell - g'q\bar{\Psi}_\ell^L\slashed{B}\Psi^L_\ell
+\end{equation}
+And after introducing the weak mixing angle (Glashow):
+\begin{align}
+	W_\mu^3 &= \sin(\theta_W)A_\mu + \cos{(\theta_W)}Z_\mu\\
+	B_\mu &= \cos{(\theta_W)}A_\mu + \sin{(\theta_W)}Z_\mu
+\end{align}
+We can go ahead and find our interaction lagrangian density for the
+photon field $A_\mu$, the W-boson field $W_\mu$ and the Z-boson field $Z_\mu$.
+Then an analogous analysis can be done for the quark sector and with that we'll have fully 
+developed the electroweak theory\footnote{note that this can be further generalized to arrive at
+cubic and quartic couplings e.g WWWW couplings which I won't go into here as it isn't relevant 
+for this discussion, the symmetry breaking needed to give mass to the bosons also won't be 
+discussed}
+, thus finding the most important (for our discussion) interactions that can happen with neutrinos:
+\begin{equation}
+	\mathcal{L}_{I}^{\nu} =\sum_l-\frac{g}{2 \sqrt{2}} \bar{\nu}_l \slashed{W}\left(1-\gamma_5\right)l - \frac{g}{2 \sqrt{2}} \bar{l}\slashed{W}^\dagger\left(1-\gamma_5\right) \nu_l
+\end{equation}
+And the production/annihilation mechanisms of $W/W^\dagger$ bosons from the quark sector:
+\begin{equation}
+	\mathcal{L}_Q = \sum_j \bar{Q}_j i \slashed{D} Q_j
+\end{equation}
+We can equate $W$ with $W^-$ and $W^\dagger$ with $W^+$. Here are some diagramattic exaples of possible interactions
+which you can conclude from those interaction lagrangian densities\footnote{with u, up-like quarks is meant, e.g charm, top. Analogously with d, down-like quarks}:
+\begin{figure}[h!]
+	\begin{minipage}{0.49\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){l};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {$\nu_l$};
+	\vertex[above=2cm of am] (ah) {$W^-$};
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (am) -- (a1)
+		},
+		{[edges=boson]
+			(am) -- (ah)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){$\bar{l}$};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {$\bar{\nu}_l$};
+	\vertex[above=2cm of am] (ah) {$W^+$};
+	\diagram* {
+		{[edges=fermion]
+			(a1) -- (am) -- (a0)
+		},
+		{[edges=boson]
+			(am) -- (ah)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{minipage}
+\end{figure}
+\begin{figure}[h!]
+	\begin{minipage}{0.49\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){d};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {u};
+	\vertex[above=2cm of am] (ah) {$W^-$};
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (am) -- (a1)
+		},
+		{[edges=boson]
+			(am) -- (ah)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){u};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {d};
+	\vertex[above=2cm of am] (ah) {$W^+$};
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (am) -- (a1)
+		},
+		{[edges=boson]
+			(am) -- (ah)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{minipage}
+\end{figure}\\
+Combining some of these diagrams we can re-write Fermi's interaction in a renormalizable interaction:
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+  \vertex (a0){(u$\mathbf{d}$d)};
+	\vertex[above=1cm of a0] (am);
+	\vertex[right=2cm of am] (a1);
+	\vertex[above=1cm of am] (a2){(u$\mathbf{u}$d)};
+	\vertex[right=2cm of a1] (b1);
+	\vertex[right=2cm of b1] (bm);
+  \vertex[above=1cm of bm] (b2){$e^-$};
+  \vertex[below=1cm of bm] (b0){$\bar{\nu}_e$};
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (a1) -- (a2)
+		},
+    {[edges=fermion]
+			(b0) -- (b1) -- (b2)
+		},
+		{[edges=boson,edge label=$W^-$]
+			(a1) -- (b1)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+\end{figure}
+%\subsection{Majorana}
 \section{Do neutrinos have mass?}
 Neutrinos get produced through the following ways in the nucleus of our star:\\
 $\bold{pp-cycle}$
@@ -185,11 +499,39 @@ neutrinos oscillating into each other, i.e 2/3 of the original electron
 neutrinos had oscillated into mu and tau neutrinos
 but for them to oscillate into eachother, they require mass:
 \subsection{neutrino oscillations}
+Let's only discuss this in 2D (this can easily be extended to 3D but we wish to be 
+concise and only show the principle), define the mass-eigenstates as 
+\begin{equation}
+	\ket{\nu_i(t)} = \ket{\nu_i}\exp\{i(\mathbf{p}_i\cdot\mathbf{x} - E_i t)\} = \ket{\nu_i}e^{-i\phi}
+\end{equation}
+Now let's say these are related to the lepton eigenstates as:
+\begin{equation}
+	\left(\begin{matrix}\nu_e\\\nu_\mu\end{matrix}\right)=\left(\begin{matrix}\cos{\theta}&\sin{\theta}\\-\sin{\theta}&\cos{\theta}\end{matrix}\right)\left(\begin{matrix}\nu_1\\\nu_2\end{matrix}\right)
+\end{equation}
+Assume at $t=0$ pure $\nu_e$ (starting at the sun core):
+\begin{equation}
+	\ket{\psi(0)} = cos{\theta} \ket{\nu_1} + \sin{\theta}\ket{\nu_2}
+\end{equation}
+At time $T$, at distance $L$
+\begin{align}
+	\ket{\psi(L, T)} &= \cos{\theta} \ket{\nu_1}e^{-i \phi_1}+\sin{\theta}\ket{\nu_2}e^{-i \phi_2}\\
+			 &= (e^{-i\phi_1}\cos^2{\theta} + e^{-i\phi_2}\sin^2{\theta})\ket{\nu_e} 
+			 - (e^{-i\phi_1} - e^{-\phi_2})\cos{\theta}\sin{\theta}\ket{\nu_\mu}
+\end{align}
+\begin{align}
+&\quad=e^{-i \phi_1} {\left[\left(\cos ^2 \theta+e^{i \Delta \phi_{12}} \sin ^2 \theta\right) \mid \nu_e>\right.} \\
+&\qquad\left.-\left(1-e^{i \Delta \phi_{12}}\right) \cos \theta \sin \theta \mid \nu_\mu>\right]\\
+&\quad:=c_e\ket{\nu_e} c_\mu\ket{\nu_\mu}
+\end{align}
+With
+\begin{equation}
+	\Delta \phi_{12}=\left(E_1-E_2\right) T-\left(p_1-p_2\right) L
+\end{equation}
 So the transition probability is
 \begin{equation}
 	P(\nu_e\rightarrow\nu_\mu) = |\braket{\nu_\mu|\psi(L,T)}|^2 = c_\mu c_\mu^* = \sin ^2(2 \theta) \sin ^2\left(\frac{\Delta \phi_{12}}{2}\right)
 \end{equation}
-with
+If you then proceed to do a full wave-packet propagation calculation you'll find
 \begin{equation}
 	\Delta \phi_{12} \approx \frac{m_1^2 - m_2^2}{2p}L
 \end{equation}
@@ -585,6 +927,21 @@ Aside from all the previously mentioned sources, there's also a less spectacular
 neutrinos: the neutrino version of the CMB.
 We can estimate the temperature of the neutrinos who decoupled at the start of the universe, 
 for this we can take a look at conservation of entropy \cite{Dodelson}
+The entropy before and after decoupling is:
+\begin{align}
+	s(a_1) &= \frac{2\pi^2}{45}(2 + \frac{7}{8}(2+2+3+3))T_1^3\\
+	&= \frac{2\pi^2}{45}\frac{86}{8}T_1^3\\
+	s(a_2) &= \frac{2\pi^2}{45}(2T_\gamma^3 + \frac{7}{8}(6)T_\nu^3)\\
+\end{align}
+Conservation of entropy:
+\begin{align}
+	s(a_1)a_1^3 &= s(a_2)a_2^3\\
+	\frac{86}{8}(T_1 a_1)^3 &= \left(2\left(\frac{T_\gamma}{T_\nu}\right)^3 + \frac{42}{8}\right)(T_\nu a_2)^3\\
+	\frac{86}{8} &= 2\left(\frac{T_\gamma}{T_\nu}\right)^3 + \frac{42}{8}\\
+	\frac{44}{16} &= \left(\frac{T_\gamma}{T_\nu}\right)^3\\
+	\left(\frac{T_\gamma}{T_\nu}\right) &= \left(\frac{11}{4}\right)^{1/3}
+\end{align}
+i.e
 \begin{equation}
 	T_\nu = \left(\frac{4}{11}\right)^{1/3}T_\gamma
 \end{equation}
@@ -597,7 +954,7 @@ measure gravitational waves (gravitons?) with the Einstein telescope,
 neutrino's with IceCube (or eventually RNO-G), photons with various telescopes
 and muons with a muon detector.
 \newpage
-\section{Radio detection of neutrinos}
+\chapter{Background: Radio detection}
 For a particle shower to emit strong radio signals, two conditions have to be met:
 \begin{itemize}
 	\item There needs to be a speration of positive and negative charges in the shower front 

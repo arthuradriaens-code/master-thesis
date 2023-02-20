@@ -5,7 +5,7 @@ The style file: plain.bst
 Database file #1: sources.bib
 I was expecting a `,' or a `}'---line 149 of file sources.bib
  :  
- :  title = {First Results from {KamLAND}: Evidence for Reactor Antineutrino Disappearance},
+ :  title = {First Results from KamLAND: Evidence for Reactor Antineutrino Disappearance},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 I was expecting a `,' or a `}'---line 157 of file sources.bib
@@ -19,32 +19,32 @@ Warning--empty title in Eguchi_2003
 Warning--empty journal in Eguchi_2003
 You've used 12 entries,
             2118 wiz_defined-function locations,
-            583 strings with 7091 characters,
-and the built_in function-call counts, 5118 in all, are:
-= -- 430
-> -- 438
+            583 strings with 7055 characters,
+and the built_in function-call counts, 5056 in all, are:
+= -- 426
+> -- 428
 < -- 1
-+ -- 174
-- -- 162
-* -- 465
-:= -- 932
++ -- 170
+- -- 158
+* -- 457
+:= -- 920
 add.period$ -- 34
 call.type$ -- 12
-change.case$ -- 112
+change.case$ -- 110
 chr.to.int$ -- 0
 cite$ -- 16
 duplicate$ -- 140
 empty$ -- 264
-format.name$ -- 162
-if$ -- 969
+format.name$ -- 158
+if$ -- 959
 int.to.chr$ -- 0
 int.to.str$ -- 12
 missing$ -- 13
 newline$ -- 61
 num.names$ -- 24
-pop$ -- 111
+pop$ -- 109
 preamble$ -- 1
-purify$ -- 102
+purify$ -- 100
 quote$ -- 0
 skip$ -- 99
 stack$ -- 0
