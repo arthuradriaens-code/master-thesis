@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.2.15)  20 FEB 2023 20:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.8)  23 FEB 2023 17:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -699,7 +699,7 @@ LaTeX Info: Redefining \nameref on input line 98.
 
 
 pdfTeX warning: pdflatex (file ./cls/we-en.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<cls/we-en.pdf, id=119, 128.03835pt x 64.01918pt>
+<cls/we-en.pdf, id=123, 128.03835pt x 64.01918pt>
 File: cls/we-en.pdf Graphic file (type pdf)
 <use cls/we-en.pdf>
 Package pdftex.def Info: cls/we-en.pdf  used on input line 106.
@@ -716,7 +716,7 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 106
  (/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<./figures//detector-illustration2.png, id=120, 462.528pt x 346.896pt>
+<./figures//detector-illustration2.png, id=124, 462.528pt x 346.896pt>
 File: ./figures//detector-illustration2.png Graphic file (type png)
 <use ./figures//detector-illustration2.png>
 Package pdftex.def Info: ./figures//detector-illustration2.png  used on input line 106.
@@ -729,7 +729,7 @@ Overfull \hbox (33.65pt too wide) in paragraph at lines 106--106
 
 
 pdfTeX warning: pdflatex (file ./cls/ugent-en.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<cls/ugent-en.pdf, id=122, 106.69862pt x 85.3589pt>
+<cls/ugent-en.pdf, id=126, 106.69862pt x 85.3589pt>
 File: cls/ugent-en.pdf Graphic file (type pdf)
 <use cls/ugent-en.pdf>
 Package pdftex.def Info: cls/ugent-en.pdf  used on input line 106.
@@ -742,19 +742,19 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 113--113
 [][] 
  []
 
-(./thesis.toc)
-\tf@toc=\write5
-\openout5 = `thesis.toc'.
-
-
+(./thesis.toc
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.114 \newpage
-               [1
+l.30 ...berline {5}Weather Balloon}{27}{chapter.5}
+                                                  % [1
 
 
-] [2]
+])
+\tf@toc=\write5
+\openout5 = `thesis.toc'.
+
+ [2]
 Chapter 1.
 [3
 
@@ -806,7 +806,7 @@ Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling d
 
 LaTeX Warning: Reference `chapter:EWTheory' on page 10 undefined on input line 529.
 
-<./figures//Binding_energy_curve.png, id=288, 673.51625pt x 442.65375pt>
+<./figures//Binding_energy_curve.png, id=293, 673.51625pt x 442.65375pt>
 File: ./figures//Binding_energy_curve.png Graphic file (type png)
 <use ./figures//Binding_energy_curve.png>
 Package pdftex.def Info: ./figures//Binding_energy_curve.png  used on input line 549.
@@ -830,7 +830,7 @@ Package tikz-feynman Warning: The key you tried to use '/graph drawing/level dis
 Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling distance' requires LuaTeX. It will be ignored. on input line 567.
 
 [10] [11 <./figures//Binding_energy_curve.png>] [12] [13]
-<./figures//Cherenkov-reactor.jpg, id=328, 1027.84pt x 1350.04375pt>
+<./figures//Cherenkov-reactor.jpg, id=333, 1027.84pt x 1350.04375pt>
 File: ./figures//Cherenkov-reactor.jpg Graphic file (type jpg)
 <use ./figures//Cherenkov-reactor.jpg>
 Package pdftex.def Info: ./figures//Cherenkov-reactor.jpg  used on input line 700.
@@ -839,7 +839,7 @@ LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 7
  (/usr/share/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<./figures//Cherenkov.pdf, id=329, 803.0pt x 745.98701pt>
+<./figures//Cherenkov.pdf, id=334, 803.0pt x 745.98701pt>
 File: ./figures//Cherenkov.pdf Graphic file (type pdf)
 <use ./figures//Cherenkov.pdf>
 Package pdftex.def Info: ./figures//Cherenkov.pdf  used on input line 707.
@@ -849,12 +849,12 @@ Chapter 3.
 
 
 pdfTeX warning: pdflatex (file ./figures//cosmic_ray_flux.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<./figures//cosmic_ray_flux.pdf, id=371, 423.67458pt x 487.32523pt>
+<./figures//cosmic_ray_flux.pdf, id=376, 423.67458pt x 487.32523pt>
 File: ./figures//cosmic_ray_flux.pdf Graphic file (type pdf)
 <use ./figures//cosmic_ray_flux.pdf>
 Package pdftex.def Info: ./figures//cosmic_ray_flux.pdf  used on input line 728.
 (pdftex.def)             Requested size: 183.30138pt x 210.83707pt.
-<figures/detector.pdf, id=375, 1031.89519pt x 1626.58693pt>
+<figures/detector.pdf, id=380, 1031.89519pt x 1626.58693pt>
 File: figures/detector.pdf Graphic file (type pdf)
 <use figures/detector.pdf>
 Package pdftex.def Info: figures/detector.pdf  used on input line 751.
@@ -862,19 +862,19 @@ Package pdftex.def Info: figures/detector.pdf  used on input line 751.
 [16
 
 ]
-<figures/path_illustration.png, id=384, 651.1527pt x 732.8178pt>
+<figures/path_illustration.png, id=389, 651.1527pt x 732.8178pt>
 File: figures/path_illustration.png Graphic file (type png)
 <use figures/path_illustration.png>
 Package pdftex.def Info: figures/path_illustration.png  used on input line 760.
 (pdftex.def)             Requested size: 364.19667pt x 409.88316pt.
-<figures/station-map.png, id=388, 614.57953pt x 794.97pt>
+<figures/station-map.png, id=393, 614.57953pt x 794.97pt>
 File: figures/station-map.png Graphic file (type png)
 <use figures/station-map.png>
 Package pdftex.def Info: figures/station-map.png  used on input line 799.
 (pdftex.def)             Requested size: 455.24411pt x 588.8751pt.
  [17 <./figures//cosmic_ray_flux.pdf>] [18 <./figures/detector.pdf>] [19 <./figures/path_illustration.png>] [20 <./figures/station-map.png>]
 Chapter 4.
-<figures/explanation.png, id=466, 974.30667pt x 649.76083pt>
+<figures/explanation.png, id=471, 974.30667pt x 649.76083pt>
 File: figures/explanation.png Graphic file (type png)
 <use figures/explanation.png>
 Package pdftex.def Info: figures/explanation.png  used on input line 836.
@@ -885,7 +885,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [21
 
 ]
-<figures/PrincipleNormIllu.pdf, id=478, 603.19843pt x 415.41025pt>
+<figures/PrincipleNormIllu.pdf, id=483, 603.19843pt x 415.41025pt>
 File: figures/PrincipleNormIllu.pdf Graphic file (type pdf)
 <use figures/PrincipleNormIllu.pdf>
 Package pdftex.def Info: figures/PrincipleNormIllu.pdf  used on input line 860.
@@ -895,7 +895,7 @@ Package pdftex.def Info: figures/PrincipleNormIllu.pdf  used on input line 860.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [22 <./figures/explanation.png>]
-<figures/hybrid_comparison_N_1000.pdf, id=499, 462.52798pt x 346.89601pt>
+<figures/hybrid_comparison_N_1000.pdf, id=504, 462.52798pt x 346.89601pt>
 File: figures/hybrid_comparison_N_1000.pdf Graphic file (type pdf)
 <use figures/hybrid_comparison_N_1000.pdf>
 Package pdftex.def Info: figures/hybrid_comparison_N_1000.pdf  used on input line 887.
@@ -905,7 +905,7 @@ Overfull \hbox (22.30856pt too wide) in paragraph at lines 887--888
 [][] 
  []
 
-<figures/iterative_comparison_N_1000.pdf, id=500, 462.52798pt x 346.89601pt>
+<figures/iterative_comparison_N_1000.pdf, id=505, 462.52798pt x 346.89601pt>
 File: figures/iterative_comparison_N_1000.pdf Graphic file (type pdf)
 <use figures/iterative_comparison_N_1000.pdf>
 Package pdftex.def Info: figures/iterative_comparison_N_1000.pdf  used on input line 892.
@@ -918,7 +918,7 @@ Overfull \hbox (22.30856pt too wide) in paragraph at lines 892--893
 
 
 pdfTeX warning: pdflatex (file ./figures/NormVsTime.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/NormVsTime.pdf, id=501, 1373.13pt x 609.23611pt>
+<figures/NormVsTime.pdf, id=506, 1373.13pt x 609.23611pt>
 File: figures/NormVsTime.pdf Graphic file (type pdf)
 <use figures/NormVsTime.pdf>
 Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 901.
@@ -926,7 +926,7 @@ Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 901.
 
 
 pdfTeX warning: pdflatex (file ./figures/NormVsSigmaTime.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/NormVsSigmaTime.pdf, id=502, 1373.13pt x 609.23611pt>
+<figures/NormVsSigmaTime.pdf, id=507, 1373.13pt x 609.23611pt>
 File: figures/NormVsSigmaTime.pdf Graphic file (type pdf)
 <use figures/NormVsSigmaTime.pdf>
 Package pdftex.def Info: figures/NormVsSigmaTime.pdf  used on input line 904.
@@ -938,7 +938,7 @@ Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 912.
 
 
 pdfTeX warning: pdflatex (file ./figures/NormVsSigmaAZ.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/NormVsSigmaAZ.pdf, id=503, 1373.13pt x 609.23611pt>
+<figures/NormVsSigmaAZ.pdf, id=508, 1373.13pt x 609.23611pt>
 File: figures/NormVsSigmaAZ.pdf Graphic file (type pdf)
 <use figures/NormVsSigmaAZ.pdf>
 Package pdftex.def Info: figures/NormVsSigmaAZ.pdf  used on input line 915.
@@ -946,7 +946,7 @@ Package pdftex.def Info: figures/NormVsSigmaAZ.pdf  used on input line 915.
 
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsTime2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/ZtolVsTime2.pdf, id=504, 1373.13pt x 609.23611pt>
+<figures/ZtolVsTime2.pdf, id=509, 1373.13pt x 609.23611pt>
 File: figures/ZtolVsTime2.pdf Graphic file (type pdf)
 <use figures/ZtolVsTime2.pdf>
 Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 924.
@@ -954,7 +954,7 @@ Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 924.
 
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaTime.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/ZtolVsSigmaTime.pdf, id=505, 1373.13pt x 609.23611pt>
+<figures/ZtolVsSigmaTime.pdf, id=510, 1373.13pt x 609.23611pt>
 File: figures/ZtolVsSigmaTime.pdf Graphic file (type pdf)
 <use figures/ZtolVsSigmaTime.pdf>
 Package pdftex.def Info: figures/ZtolVsSigmaTime.pdf  used on input line 927.
@@ -966,17 +966,17 @@ Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 936.
 
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaAZ.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/ZtolVsSigmaAZ.pdf, id=506, 1373.13pt x 609.23611pt>
+<figures/ZtolVsSigmaAZ.pdf, id=511, 1373.13pt x 609.23611pt>
 File: figures/ZtolVsSigmaAZ.pdf Graphic file (type pdf)
 <use figures/ZtolVsSigmaAZ.pdf>
 Package pdftex.def Info: figures/ZtolVsSigmaAZ.pdf  used on input line 939.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
-<figures/subplotofallstepsphere.pdf, id=507, 1040.68805pt x 624.41281pt>
+<figures/subplotofallstepsphere.pdf, id=512, 1040.68805pt x 624.41281pt>
 File: figures/subplotofallstepsphere.pdf Graphic file (type pdf)
 <use figures/subplotofallstepsphere.pdf>
 Package pdftex.def Info: figures/subplotofallstepsphere.pdf  used on input line 946.
 (pdftex.def)             Requested size: 455.24411pt x 273.15135pt.
-<figures/SphereAndStepFinal.pdf, id=508, 894.34125pt x 570.13pt>
+<figures/SphereAndStepFinal.pdf, id=513, 894.34125pt x 570.13pt>
 File: figures/SphereAndStepFinal.pdf Graphic file (type pdf)
 <use figures/SphereAndStepFinal.pdf>
 Package pdftex.def Info: figures/SphereAndStepFinal.pdf  used on input line 952.
@@ -993,33 +993,79 @@ pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaTime.pdf): PDF inclusion: mu
 > <./figures/ZtolVsSigmaAZ.pdf
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaAZ.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [26 <./figures/subplotofallstepsphere.pdf> <./figures/SphereAndStepFinal.pdf>] (./thesis.bbl
+>] [26 <./figures/subplotofallstepsphere.pdf> <./figures/SphereAndStepFinal.pdf>]
+Chapter 5.
+<./figures//weerballontraject.png, id=743, 462.528pt x 346.896pt>
+File: ./figures//weerballontraject.png Graphic file (type png)
+<use ./figures//weerballontraject.png>
+Package pdftex.def Info: ./figures//weerballontraject.png  used on input line 966.
+(pdftex.def)             Requested size: 318.66948pt x 239.01443pt.
+<./figures//planewave.pdf, id=744, 226.42545pt x 253.46902pt>
+File: ./figures//planewave.pdf Graphic file (type pdf)
+<use ./figures//planewave.pdf>
+Package pdftex.def Info: ./figures//planewave.pdf  used on input line 970.
+(pdftex.def)             Requested size: 318.66948pt x 356.75708pt.
+./thesis.tex:976: You can't use `macro parameter character #' in horizontal mode.
+l.976 #
+        from C. Deaconu, fit to data from Hawley '08, Alley '88
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./thesis.tex:977: You can't use `macro parameter character #' in horizontal mode.
+l.977 #
+        rho(z) = 917 - 602 * exp (-z/37.25), using n = 1 + 0.78 rho(z)/rho_0
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./thesis.tex:977: Missing $ inserted.
+<inserted text> 
+                $
+l.977 ...-z/37.25), using n = 1 + 0.78 rho(z)/rho_
+                                                  0
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./thesis.tex:978: Missing $ inserted.
+<inserted text> 
+                $
+l.978 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[27
+
+] [28 <./figures//weerballontraject.png> <./figures//planewave.pdf>] (./thesis.bbl
 Overfull \hbox (6.0pt too wide) in paragraph at lines 1--1
 [][] 
  []
 
-[27
+[29
 
-]) [28] (./thesis.aux)
+]) [30] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 3B59754AC132BBDD0FE4B7CB91D5EA3A;4314.
+(rerunfilecheck)             Checksum: 458CFE50EA4245B223C3BEDA14B006D4;4436.
  ) 
 Here is how much of TeX's memory you used:
- 25897 strings out of 478238
- 510299 string characters out of 5850456
+ 25919 strings out of 478238
+ 510875 string characters out of 5850456
  857843 words of memory out of 5000000
- 43439 multiletter control sequences out of 15000+600000
+ 43454 multiletter control sequences out of 15000+600000
  488860 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,17n,94p,1195b,2036s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on thesis.pdf (29 pages, 2509596 bytes).
+Output written on thesis.pdf (31 pages, 2551545 bytes).
 PDF statistics:
- 893 PDF objects out of 1000 (max. 8388607)
- 606 compressed objects within 7 object streams
- 165 named destinations out of 1000 (max. 500000)
- 347 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 927 PDF objects out of 1000 (max. 8388607)
+ 632 compressed objects within 7 object streams
+ 170 named destinations out of 1000 (max. 500000)
+ 365 words of extra memory for PDF output out of 10000 (max. 10000000)
 

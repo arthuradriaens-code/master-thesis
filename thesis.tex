@@ -954,6 +954,33 @@ raytracer) as seen in figures \ref{fig:SphereStepInfl} and \ref{fig:SphereStepFi
 	\label{fig:SphereStepFinal}
 \end{figure}
 
+\chapter{Weather Balloon}
+There are some changes that need to be made to the established hybrid minimizer, first off the air observer needs
+to be hard removed as to make the simulation possible, second off the extra air observer needs to be removed that's additionally
+defined for some reason and thirdly, the boundary behind the detector is now no longer vertical but horizontal.
+
+Now having established this the first problem we'll consider is plane wave reconstruction of the original position, an example path to some of the sensors
+is given in figure (...)
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{weerballontraject.png}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{planewave.pdf}
+\end{figure}
+\begin{equation}
+	\Delta t' = \frac{m}{(m/s)} = (s/m)*m = v^{-1} * m = \frac{c}{n} \cos\theta \Delta z
+\end{equation}
+We take n to be 1.78 as 
+# from C. Deaconu, fit to data from Hawley '08, Alley '88
+# rho(z) = 917 - 602 * exp (-z/37.25), using n = 1 + 0.78 rho(z)/rho_0
+
+\begin{equation}
+	Correlation = \Delta t - \frac{\cos\theta \Delta z}{v}
+\end{equation}
+
+
 % =====================================================================
 % End matter
 % =====================================================================
