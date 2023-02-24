@@ -796,34 +796,88 @@ Waves propagating through ice to a detector generally looks something like this:
 \end{figure}\\
 Here the interaction of the neutrino happens somewhere in the neighbourhood of the red cross,
 the orange rays represent the resulting radio wave paths to the detectors which are signaled
-by the blue dot. Notice that reflection at the surface is also a possible path to the detector.
-To figure out how these rays propagate, we can take a look at the eikonal equation:
-a path of a ray $\mathbf{r}(s)$ with path parameter s in a medium with index of
-refraction n($\mathbf{r}$) is described by:
+by the blue dot. Notice that reflection at the surface is also a
+possible path to the detector.
+In a homogeneous dielectric medium a ray propagates straight 
+with it's signal wave-speed determined by the local index of 
+refraction as $v = c/n$, 
+the dependence of the index of refraction on density
+for ice is given by the Schytt equation:
 \begin{equation}
-	\frac{d}{ds}\left(n(\mathbf{r})\frac{d\mathbf{r}}{ds}\right) = \nabla n
+	n(x,y,z) \approx 1 + 0.78\rho(x,y,z)/\rho_0
 \end{equation}
-The module we'll be using for ray reconstruction is called "radiopropa" \cite{radiopropa}
-and in the radiopropa software the local paraxial approximation is used, i.e. assuming 
-that in any individual step of the algorithm the change of the refractive index along the 
-path ds is small (treating boundary effects like reflections on the surface seperately)
-making it possible to re-write the equation as:
+Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the
+density for solid ice (917 kg/m³).
+This isn't the only part of the index of refraction with which we'll
+need to concern ourselves however. If a ray propagates towards a
+boundary dividing 2 media with different indexes of refraction, the
+ray will refract and the refracted angle can be
+found from Snell's law:
 \begin{equation}
-n(\mathbf{r})\frac{d^2\mathbf{r}}{ds^2} \approx \nabla n
+	n_1\sin{\theta_1} = n_2\sin{\theta_2}
+\end{equation}
+Where n is the index of refraction and $\theta$ is the angle
+with respect to the surface.
+The system we'll consider however, isn't 
+homogeneous with some specified boundary, it's continous: ice
+in greenland has a continously varying density. 
+Because of this we can't work with Snell's law but we'll have to 
+take a look at the continuous version
+to figure out how these rays propagate. 
+The "continuous version of Snell's law" is the eikonal equation:
+a path of a ray $\mathbf{r}(s)$ with path parameter s in a medium
+with index of refraction n($\mathbf{r}$) is described by:
+\begin{equation}
+	\frac{d}{ds}\left(n(\mathbf{r})\frac{d\mathbf{r}}{ds}\right) = \mathbf{\nabla} n
+\end{equation}
+The software we'll be using for ray reconstruction is called
+"radiopropa" \cite{Winchen_2019} and in radiopropa the
+local paraxial approximation is used, i.e. if we assume that in any
+individual step of the algorithm the change of the refractive index
+along the path ds is small it's possible to
+re-write the equation as:
+\begin{equation}
+	n(\mathbf{r})\frac{d^2\mathbf{r}}{ds^2} \approx \mathbf{\nabla} n
+	\label{eqn:radiopropaformula}
 \end{equation}
 Which is then easily iteratively solved.
+If there are boundaries (such as defects or the surface)
+these are treated seperately using Snell's law. 
+\section{Ice model}
+Equation \ref{eqn:radiopropaformula}, and thus the path, depends 
+on the index of refraction on a given location. 
+Purely from classical gravity and density considerations
+it can be derived that the index of refraction abides by
+\begin{equation}
+	n(z) = n_{ice} - \Delta n e^{z/z_0}
+\end{equation}
+with $n_{ice}$ the refractive index of solid ice and $\Delta n =
+n_{ice} - n_s$ with $n_s$ the index of refraction of snow. This is
+called
+"the exponential model".
+
+From the measured density with depth variation this seems to
+roughly hold but it could be better (as will be explained in chapter
+(TBC)).
+This exponential model has a huge advantage as it's analytically 
+solvable, meaning that we don't have to iteratively search for the 
+path to the detector but know it instantly after the location of
+the neutrino interaction and the detector are specified, this
+"model" is called the \textit{analytic ray tracer}.
 \section{Reconstruction}
-It can pose a challenge to reconstruct the radio signals produced by the
-Cherenkov radiation as they are often obscured by background noise. A solution
-used in RadioReco is Information Field Theory (IFT) implemented in RadioReco by
-Welling et al.\cite{Welling_2021} which uses Bayesian inference to calculate
-the most likely radio signal, given recorded data.
-The full reconstruction will then work as follows: events and their propagation
-are generated in a monte-carlo simulation
-using NuRadioMC\cite{Glaser_2019}\cite{Glaser_2020}, how the detector signals would look 
-like is then simulated with RadioReco and saved in a database. 
-If we then detect a neutrino event in the real detector it can
-be compared to the database, thus finding the origin.
+It can pose a challenge to reconstruct the radio signals produced by
+the Cherenkov radiation as they are often obscured by background
+noise. A solution used in RadioReco is Information Field Theory
+(IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021}
+which uses Bayesian inference to calculate the most likely radio
+signal, given recorded data.  The full reconstruction will then work
+as follows: events and their propagation are generated in a
+monte-carlo simulation using
+NuRadioMC\cite{Glaser_2019}\cite{Glaser_2020}, how the detector
+signals would look like is then simulated with RadioReco and saved
+in a database.  If we then detect a neutrino event in the real
+detector it can be compared to the database, thus finding the
+origin.
 \chapter{The Detector}
 \begin{figure}
 	\centering
@@ -907,32 +961,32 @@ additional complexities.
 %----------------------------------------------------------------------------------------
 %	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
-\section{Exponential ice model}
-Ice has a 
-\section{Need for other ice models}
-It has become apparent [citation needed] that complex ice models will be nescessary moving forward 
-as the exponential ice model fails to fit the density curve. 
-The ideal software for radio wave propagation through
-ice is radiopropa\cite{Winchen_2019}, but due to the way it works you'll have
-to know the start point , the end point and the launch angle of your ray to
-work out the path. With the exponential model the launch angle is known from solving a simple 
-equation.
-However for a more difficult ice model the launch angle can't be know a priori.
-Work has been done on this by B. Oeyen et al. \cite{2022icrc.confE1027O}, 
-where they created a ray tracer which iteratively finds the solution, 
-called the "iterative ray tracer".
-The full explanation of how their algorithm works can be found in the mentioned paper. 
-This is however a sub-optimal solution in python as an optimalisation library 
-will generally work faster, work
-had been done on trying to implement such an algorithm but this attempt failed.
-As I saw this work I had an idea to combine the iterative ray tracer and the code using the 
-optimisation libraries (a so called "minimizer"), to come up with the algorithm that will 
-be discussed in this chapter: The hybrid ray tracer, in the source code called the "hybrid
-minimizer".
+\section{Shortcomings of the exponential ice model}
+It has become apparent (TBC) that complex ice models
+will be nescessary moving forward as the exponential ice model fails
+to fit the density curve.  The ideal software for radio wave
+propagation through ice is radiopropa\cite{Winchen_2019}, but due to
+the way it works you'll have to know the start point , the end point
+and the launch angle of your ray to work out the path. With the
+exponential model the launch angle is known from solving a simple
+equation.  However for a more difficult ice model the launch angle
+can't be know a priori.  Work has been done on this by B. Oeyen et
+al. \cite{2022icrc.confE1027O}, where they created a ray tracer
+which iteratively finds the solution, called the "iterative ray
+tracer".  The full explanation of how their algorithm works can be
+found in the mentioned paper.  This is however a sub-optimal
+solution in python as an optimalisation library will generally work
+faster, work had been done on trying to implement such an algorithm
+but this attempt failed.  As I saw this work I had an idea to
+combine the iterative ray tracer and the code using the optimisation
+libraries (a so called "minimizer"), to come up with the algorithm
+that will be discussed in this chapter: The hybrid ray tracer, in
+the source code called the "hybrid minimizer".
 
-It succeeds in more rapidly tracing the path from the event
-to the detector, is more accurate and also arrives closer to the detector as the final result is
-not limited by the final drawn sphere size but by a given tolerence.
+It succeeds in more rapidly tracing the path from the event to the
+detector, is more accurate and also arrives closer to the detector
+as the final result is not limited by the final drawn sphere size
+but by a given tolerence.
 
 \section{How it works}
 \begin{figure}[h!]
