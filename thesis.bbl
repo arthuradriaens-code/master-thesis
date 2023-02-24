@@ -1,9 +1,15 @@
 \begin{thebibliography}{10}
 
+\bibitem{elasticity_y}
+Measurement of the multi-{TeV} neutrino interaction cross-section with
+  {IceCube} using earth absorption.
+\newblock {\em Nature}, 551(7682):596--600, nov 2017.
+
 \bibitem{neutrino-mass}
 M.~Aker, A.~Beglarian, J.~Behrens, A.~Berlev, U.~Besserer, B.~Bieringer,
   F.~Block, S.~Bobien, et~al.
 \newblock Direct neutrino-mass measurement with sub-electronvolt sensitivity.
+\newblock {\em Nature Physics}, 18(2):160--166, 2022.
 
 \bibitem{Askaryan}
 G~A Askaryan.
@@ -19,7 +25,21 @@ Scott Dodelson.
 \bibitem{Eguchi_2003}
 K.~Eguchi, S.~Enomoto, K.~Furuno, J.~Goldman, H.~Hanada, H.~Ikeda, K.~Ikeda,
   K.~Inoue, et~al.
-\newblock 90(2), jan 2003.
+\newblock First results from kamland: Evidence for reactor antineutrino
+  disappearance.
+\newblock {\em Physical Review Letters}, 90(2), jan 2003.
+
+\bibitem{NuRadioMc}
+C.~{Glaser}, D.~{Garc{\'\i}a-Fern{\'a}ndez}, A.~{Nelles},
+  J.~{Alvarez-Mu{\~n}iz}, S.~W. {Barwick}, D.~Z. {Besson}, B.~A. {Clark},
+  A.~{Connolly}, C.~{Deaconu}, K.~D. {de Vries}, J.~C. {Hanson},
+  B.~{Hokanson-Fasig}, R.~{Lahmann}, U.~{Latif}, S.~A. {Kleinfelder},
+  C.~{Persichilli}, Y.~{Pan}, C.~{Pfendner}, I.~{Plaisier}, D.~{Seckel},
+  J.~{Torres}, S.~{Toscano}, N.~{van Eijndhoven}, A.~{Vieregg}, C.~{Welling},
+  T.~{Winchen}, and S.~A. {Wissel}.
+\newblock {NuRadioMC: simulating the radio emission of neutrinos from
+  interaction to detector}.
+\newblock {\em European Physical Journal C}, 80(2):77, January 2020.
 
 \bibitem{Glaser_2020}
 C.~Glaser, D.~Garc{\'{\i}}a-Fern{\'{a}}ndez, A.~Nelles, J.~Alvarez-Mu{\~{n}}iz,
@@ -44,6 +64,12 @@ Christian Glaser, Anna Nelles, Ilse Plaisier, Christoph Welling, Steven~W.
 R.~Hiller, P.~A. Bezyazeekov, N.~M. Budnev, et~al.
 \newblock Tunka-rex: energy reconstruction with a single antenna station.
 \newblock {\em {EPJ} Web of Conferences}, 135:01004, 2017.
+
+\bibitem{Huege_2017}
+Tim Huege and Dave Besson.
+\newblock Radio-wave detection of ultra-high-energy neutrinos and cosmic rays.
+\newblock {\em Progress of Theoretical and Experimental Physics}, 2017(12), nov
+  2017.
 
 \bibitem{Melson_2015}
 Tobias Melson, Hans-Thomas Janka, Robert Bollig, Florian Hanke, Andreas Marek,
@@ -72,6 +98,12 @@ C.~Welling, C.~Glaser, and A.~Nelles.
   in one single station.
 \newblock {\em Journal of Cosmology and Astroparticle Physics}, 10:075--075,
   oct 2019.
+
+\bibitem{radiopropa}
+Tobias Winchen.
+\newblock {RadioPropa} {\textemdash} a modular raytracer for in-matter radio
+  propagation.
+\newblock {\em {EPJ} Web of Conferences}, 216:03002, 2019.
 
 \bibitem{Winchen_2019}
 Tobias Winchen.

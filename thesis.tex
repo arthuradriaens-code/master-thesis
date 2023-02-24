@@ -616,74 +616,136 @@ measure gravitational waves (gravitons?) with the Einstein telescope,
 neutrino's with IceCube (or eventually RNO-G), photons with various telescopes
 and muons with a muon detector.
 \newpage
-\section{Radio detection of neutrinos}
+\chapter{Radio detection of neutrinos}
+\section{Neutrino interactions in ice}
+As neutrinos propagate through ice they can interact with nuclei in the following ways\cite{NuRadioMc}:
+\begin{figure}[h!]
+	\begin{minipage}{\textwidth}
+		\begin{minipage}{0.49\textwidth}
+			\centering
+			\begin{tikzpicture}
+				\begin{feynman}
+					\vertex (a0) {quark};
+					\vertex[above=0.5cm of a0] (a1) {quark};
+					\vertex[above=0.5cm of a1] (a2) {quark};
+					\vertex[right=2cm of a0] (b0) {quark};
+					\vertex[right=2cm of a1] (b1) {quark};
+					\vertex[right=2cm of a2] (b2) {quark};
+					\vertex[right=1.0cm of a2] (am);
+					\vertex[above=1cm of am] (c0);
+					\vertex[above=1cm of c0] (c1);
+					\vertex[above=1cm of c1] (cm);
+					\vertex[left=1cm of cm] (a3) {$\nu_l$};
+					\vertex[right=1cm of cm] (b3) {$l$};
+					\diagram* {
+						{[edges=fermion]
+							(a0) -- (b0)
+						},
+						{[edges=fermion]
+							(a1) -- (b1)
+						},
+						{[edges=fermion]
+							(a2) -- (c0) -- (b2)
+						},
+						{[edges=fermion]
+							(a3) -- (c1) -- (b3)
+						},
+						{[edges=boson, edge label=W]
+							(c0) -- (c1)
+						},
+					};
+				\end{feynman}
+			\end{tikzpicture}
+		\end{minipage}
+		\begin{minipage}{0.49\textwidth}
+			\centering
+			\begin{tikzpicture}
+				\begin{feynman}
+					\vertex (a0) {quark};
+					\vertex[above=0.5cm of a0] (a1) {quark};
+					\vertex[above=0.5cm of a1] (a2) {quark};
+					\vertex[right=2cm of a0] (b0) {quark};
+					\vertex[right=2cm of a1] (b1) {quark};
+					\vertex[right=2cm of a2] (b2) {quark};
+					\vertex[right=1.0cm of a2] (am);
+					\vertex[above=1cm of am] (c0);
+					\vertex[above=1cm of c0] (c1);
+					\vertex[above=1cm of c1] (cm);
+					\vertex[left=1cm of cm] (a3) {$\nu$};
+					\vertex[right=1cm of cm] (b3) {$\nu$};
+					\diagram* {
+						{[edges=fermion]
+							(a0) -- (b0)
+						},
+						{[edges=fermion]
+							(a1) -- (b1)
+						},
+						{[edges=fermion]
+							(a2) -- (c0) -- (b2)
+						},
+						{[edges=fermion]
+							(a3) -- (c1) -- (b3)
+						},
+						{[edges=boson, edge label=Z]
+							(c0) -- (c1)
+						},
+					};
+				\end{feynman}
+			\end{tikzpicture}
+		\end{minipage}
+	\end{minipage}
+	\caption{Most prominent ways of neutrino-nucleus interaction}
+\end{figure}\\
+With the produced leptons in the W boson mediated interaction being either electrons,
+resulting in an electromagnetic shower, muons wich typically go undetected as they live
+too long or
+tauons wich will decay via
+\begin{equation}
+	\tau^- \rightarrow e^- + \bar{\nu}_e + \nu_\tau
+\end{equation}
+or, less ideally
+\begin{equation}
+	\tau^- \rightarrow \mu^- + \bar{\nu}_\mu + \nu_\tau
+\end{equation}
+In both of the possible interactions the resulting nucleus will result in a 
+hadronic shower, for the neutral current interaction (mediated by the Z boson) 
+the fraction of the neutrino energy that gets transferred to the nucleon
+is described by the inelasticity $y$ and is heavily shifted towards small
+values of $y$\cite{elasticity_y}. This causes a big, irreducable uncertainty
+when trying to estimate the original
+neutrino energy from these kinds of events. 
+With the charged current interaction (mediated by the $W^\pm$ bosons) this 
+isn't a problem however as the full neutrino energy
+ends up in the resulting cascades.
+\section{Askaryan effect}
 For a particle shower to emit strong radio signals, two conditions have to be met:
 \begin{itemize}
 	\item There needs to be a speration of positive and negative charges in the shower front 
 	\item The signals produced over the length of the shower profile need to overlap coherently.
 \end{itemize}
-The first item, seperation of positive and negative charges, can be caused by 2
-mechanisms:\vspace{0.2cm}\\
 The \textit{Askaryan} \cite{Askaryan} effect, also known as Askaryan
-radiation. This is the phenomenon whereby a particle traveling faster than the
-phase velocity of light in a dense dielectric (such as ice) produces a shower
-of secondary charged particles which contains a charge anisotropy (net negative
-charge), this charge imbalance is a result of medium electrons either Compton
-scattering into the advancing shower or annihilating with shower positrons. You
-end up having moving charges which move faster than the speed of light in the medium,
+radiation describes the effect at radio frequencies which abides by both 
+of these conditions, in general it's a quite difficult effect but we'll give 
+a crude overview. 
+The above described interactions create a shower
+of secondary charged particles containing a charge anisotropy, 
+this charge imbalance is a result of medium electrons either Compton
+scattering into the advancing shower or annihilating with shower positrons. 
+In the end you have a moving charge anisotropy, propagating faster than the speed of 
+light in the medium,
 creating Cherenkov radiation.
-
-The other possible mechanism, called \textit{geomagnetic emission} is the
-seperation of charges by the Lorentz force from the geomagnetic field, however,
-because of its relatively high density, in ice the Askaryan effect is dominant.
-It's possible to distinguish between the two with polarization as with Askaryan
-emission, the light is polarized in the radial direction towards the shower
-axis contrary to geomagnetic emission where it's polarized in the Lorentz force
-direction.
-
-In the following two sections I'll quickly give a short overview of the
-equations of Cherenkov radiation to determine the viewing angle of an incoming
-neutrino particle, this is relevant to the second condition which I'll explain
-afterwards.\footnote{The reader who wants a thorough explanation and derivation is
+Cherenkov radiation is like the elektromagnetic equivalent of a sonic boom, a
+sonic boom happens when something goes faster than the sounds speed in the
+medium; A particle emits Cherenkov radiation if it goes faster than the light
+speed in the medium\footnote{The reader who wants a thorough explanation and derivation is
 advised to check out \textit{Chapter 14: Radiation by Moving Charges} from the
 book \textit{Classical Electrodynamics} by Jackson.} 
-\newpage
-\section{Spectral distribution}
-We wish to know the emitted energy per elementary unit solid angle over a certain frequency interval for a moving charge far away from the source. For this we have that the vectorpotential $\mathbf{A}$, defined as
-\begin{equation}
-	\mathbf{B} = \mathbf{\nabla}\times \mathbf{A}
-\end{equation}
-takes the form
-\begin{equation}
-	\mathbf{A}(\omega) = \frac{q}{4\pi \sqrt{2\pi}} \sqrt{\frac{\mu}{\epsilon}} \frac{e^{ikr}}{r} \boldsymbol{\alpha}
-\end{equation}
-with q the charge, r the distance from the charge to the observer and 
-\begin{equation}
-	\boldsymbol{\alpha} = \int_\infty^\infty \boldsymbol{\beta}(t) e^{i\omega(t-\boldsymbol{e}_r\cdot \boldsymbol{r}_0(t)/c')}\text{d}t
-\end{equation}
-With $\boldsymbol{\beta}:= \boldsymbol{u}/c'$ wherein $\boldsymbol{u}$ is the speed of the particle, $c'$ is the local speed of light and the integration is along the path of the moving charged particle. 
-The energy emitted per unit solid angle is given by
-\begin{equation}
-	\frac{\text{d} \mathscr{P}}{\text{d} \Omega} = R'^2\mathbf{S}(t)\cdot\mathbf{n}'
-\end{equation}
-Defining $\mathscr{E}$ to be the time integral of this, we can reformulate this into (standard practice to integrate over the frequencies)
-\begin{equation}
-	\frac{\text{d} \mathscr{E}}{\text{d} \Omega} = r^2\int_\infty^\infty \text{d}\omega (\mathbf{E}(\omega)\times\mathbf{H}(-\omega))\cdot\mathbf{e}_r  = \int_0^\infty \frac{\text{d}^2 \mathscr{J}(\omega)}{\text{d} \omega \text{d} \Omega}
-\end{equation}
-i.e $\frac{\text{d}^2 \mathscr{J}}{\text{d}\omega \text{d}\Omega}$ is the energy radiated per elementary unit solid angle and per elementary unit frequency interval, re-writing gives
-\begin{equation}
-	\frac{\text{d}^2 \mathscr{J}(\omega)}{\text{d} \omega \text{d} \Omega} = 2r^2 \Re\{\mathbf{E}(\omega)\times\mathbf{H}^*(\omega)\}\cdot\mathbf{e}_r 
-\end{equation}
-up to $\mathcal{O}(r^{-2})$ we get
-\begin{equation}
-	\frac{\text{d}^2 \mathscr{J}(\omega)}{\text{d} \omega \text{d} \Omega} = \frac{q^2\omega^2}{16\pi^3}\sqrt{\frac{\mu}{\epsilon}}|\mathbf{e}_r\times(\mathbf{e}_r\times\boldsymbol{\alpha})|^2\label{equation: 4.123 in elektromagnetisme}
-\end{equation}
-\section{Cherenkov radiation}
-Cherenkov radiation is like the elektromagnetic equivalent of a sonic boom, a sonic boom happens when something goes faster than the sounds speed in the medium; A particle emits Cherenkov radiation if it goes faster than the light speed in the medium. Choosing the particle trajectory to lie along the z axis we can approximate equation \ref{equation: 4.123 in elektromagnetisme} as
+. Choosing the particle trajectory to lie along the z axis
+we can approximately find an equation for $\frac{\text{d}^2 \mathscr{J}}{\text{d}\omega \text{d}\Omega}$: the energy radiated per elementary unit solid angle and per elementary unit frequency interval
 \begin{equation}
 	\frac{\text{d}^2 \mathscr{J}(\omega)}{\text{d} \omega \text{d} \Omega} = \frac{q^2}{4\pi}\sqrt{\frac{\mu}{\epsilon}}\beta^2\omega^2\delta^2[\omega(1-\beta \mathbf{e}_r\cdot\mathbf{e}_z)]|\mathbf{e}_r\times\mathbf{e}_z|^2 \label{equation: 4.128 in elektromagnetisme}
 \end{equation}
-or, in spherical coordinates, $1-\beta \mathbf{e}_r\cdot\mathbf{e}_z = 1-\beta\cos(\theta_c)$ in the delta function. We thus only expect radiation if
+Now we can re-write this equation in spherical coordinates, which gives $1-\beta \mathbf{e}_r\cdot\mathbf{e}_z = 1-\beta\cos(\theta_c)$ in the delta function. We thus only expect radiation if
 \begin{equation}
 \cos(\theta_c) = \frac{1}{\beta} = \frac{c'}{u} = \frac{c}{n}\cdot\frac{1}{u}
 \end{equation}
@@ -691,8 +753,14 @@ I.e if $u>\frac{c}{n}$ with n the index of refraction, Cherenkov radiation will 
 \begin{equation}
 	\frac{\text{d}^2\mathscr{J}}{\text{d}\omega \text{d}t} = \frac{q^2}{4\pi}\sqrt{\frac{\mu}{\epsilon}}\beta\omega\left(1-\frac{1}{\beta^2}\right)	
 \end{equation}
-We see that the energy is proportional to $\omega$, so we expect that most radiation will be emitted "in blue", as seen in figure \ref{figure: Cherenkov reactor}.
-For ice the index of refraction is roughly 1.75, so we expect an ultra-relativistic particle to produce the most radiation at around 55° opening as $\cos\left(\frac{1}{1.75}\right)\approx 55$° (generally we take 56°).
+We see that the energy is proportional to $\omega$, so we expect that most
+radiation will be emitted "in blue", as seen in figure \ref{figure: Cherenkov
+reactor}.  For ice the index of refraction is roughly 1.78 in deep ice, so we
+expect an ultra-relativistic particle to produce the most radiation at around
+56° opening as 
+\begin{equation}
+	\cos(\theta_c) \approx \frac{1}{n} \implies \cos^{-1}\left(\frac{1}{1.78}\right)\approx 56\text{°}
+\end{equation}
 \begin{figure}
 \centering
 \begin{minipage}{0.45\textwidth}
@@ -709,7 +777,41 @@ For ice the index of refraction is roughly 1.75, so we expect an ultra-relativis
 	\label{figure: Cherenkov illustratie}
 \end{minipage}
 \end{figure}
-Now if an observer is positioned at this Cherenkov angle all radio emission produced during the shower development reaches him/it at the same time, leading to constructive interference, hence the second condition (coherent overlap) is satisfied in ice for signals at $\approx 56$°
+Of course this is just an estimate, as the actual index of refraction is depth-dependent which
+we'll get to in section (...).
+Now this explains how the signals get generated but logically, from only knowing this
+we'd expect radio waves to almost be non-existent 
+due to the "in blue" nature of Cherenkov radiation. 
+This isn't the full story however as we'll need to talk about coherent overlap
+to fully understand the Askaryan effect. This can be intuitively explained as
+follows: generally the shower is of length
+$\mathcal{O}$(10cm)\cite{Huege_2017}, over this length the radiation gets
+emitted, most frequencies decoherently interfering, but radio waves with wavelengths of 
+$\approx$ 10cm coherently interfere, and it's these waves we then wish to detect.
+\section{Wave propagation}
+Waves propagating through ice to a detector generally looks something like this:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Path_illu.pdf}
+\end{figure}\\
+Here the interaction of the neutrino happens somewhere in the neighbourhood of the red cross,
+the orange rays represent the resulting radio wave paths to the detectors which are signaled
+by the blue dot. Notice that reflection at the surface is also a possible path to the detector.
+To figure out how these rays propagate, we can take a look at the eikonal equation:
+a path of a ray $\mathbf{r}(s)$ with path parameter s in a medium with index of
+refraction n($\mathbf{r}$) is described by:
+\begin{equation}
+	\frac{d}{ds}\left(n(\mathbf{r})\frac{d\mathbf{r}}{ds}\right) = \nabla n
+\end{equation}
+The module we'll be using for ray reconstruction is called "radiopropa" \cite{radiopropa}
+and in the radiopropa software the local paraxial approximation is used, i.e. assuming 
+that in any individual step of the algorithm the change of the refractive index along the 
+path ds is small (treating boundary effects like reflections on the surface seperately)
+making it possible to re-write the equation as:
+\begin{equation}
+n(\mathbf{r})\frac{d^2\mathbf{r}}{ds^2} \approx \nabla n
+\end{equation}
+Which is then easily iteratively solved.
 \section{Reconstruction}
 It can pose a challenge to reconstruct the radio signals produced by the
 Cherenkov radiation as they are often obscured by background noise. A solution
@@ -805,7 +907,9 @@ additional complexities.
 %----------------------------------------------------------------------------------------
 %	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
-\section{Introduction}
+\section{Exponential ice model}
+Ice has a 
+\section{Need for other ice models}
 It has become apparent [citation needed] that complex ice models will be nescessary moving forward 
 as the exponential ice model fails to fit the density curve. 
 The ideal software for radio wave propagation through
@@ -973,13 +1077,16 @@ is given in figure (...)
 	\Delta t' = \frac{m}{(m/s)} = (s/m)*m = v^{-1} * m = \frac{c}{n} \cos\theta \Delta z
 \end{equation}
 We take n to be 1.78 as 
-# from C. Deaconu, fit to data from Hawley '08, Alley '88
-# rho(z) = 917 - 602 * exp (-z/37.25), using n = 1 + 0.78 rho(z)/rho_0
+%# from C. Deaconu, fit to data from Hawley '08, Alley '88
+%# rho(z) = 917 - 602 * exp (-z/37.25), using n = 1 + 0.78 rho(z)/rho_0
 
 \begin{equation}
 	Correlation = \Delta t - \frac{\cos\theta \Delta z}{v}
 \end{equation}
 
+\begin{figure}
+	\includegraphics[width=\textwidth]{WeatherBalloonPath.png}
+\end{figure}
 
 % =====================================================================
 % End matter

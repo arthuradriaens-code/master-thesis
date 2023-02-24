@@ -14,17 +14,19 @@
 \contentsline {subsection}{\numberline {2.4.2}Supernovae}{10}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}primordial neutrinos}{11}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}How do they fit into the full detector spectrum?}{12}{subsection.2.4.4}%
-\contentsline {section}{\numberline {2.5}Radio detection of neutrinos}{13}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Spectral distribution}{14}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Cherenkov radiation}{14}{section.2.7}%
-\contentsline {section}{\numberline {2.8}Reconstruction}{15}{section.2.8}%
-\contentsline {chapter}{\numberline {3}The Detector}{16}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Hybrid Ray tracer}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction}{21}{section.4.1}%
-\contentsline {section}{\numberline {4.2}How it works}{21}{section.4.2}%
-\contentsline {section}{\numberline {4.3}random number generator}{22}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Performance Optimalisation}{22}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Length of the normal vector}{22}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}ztol}{22}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Sphere Size \& Step Size}{23}{subsection.4.4.3}%
-\contentsline {chapter}{\numberline {5}Weather Balloon}{27}{chapter.5}%
+\contentsline {chapter}{\numberline {3}Radio detection of neutrinos}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Neutrino interactions in ice}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Askaryan effect}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Wave propagation}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Reconstruction}{16}{section.3.4}%
+\contentsline {chapter}{\numberline {4}The Detector}{17}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{22}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Exponential ice model}{22}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Need for other ice models}{22}{section.5.2}%
+\contentsline {section}{\numberline {5.3}How it works}{22}{section.5.3}%
+\contentsline {section}{\numberline {5.4}random number generator}{23}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Performance Optimalisation}{23}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Length of the normal vector}{23}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}ztol}{24}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Sphere Size \& Step Size}{24}{subsection.5.5.3}%
+\contentsline {chapter}{\numberline {6}Weather Balloon}{28}{chapter.6}%
