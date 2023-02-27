@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{position} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{95.5}\PYG{p}{])}
+\PYG{n}{n}\PYG{o}{=}\PYG{n}{medium}\PYG{o}{.}\PYG{n}{greenland\PYGZus{}firn}\PYG{o}{.}\PYG{n}{get\PYGZus{}index\PYGZus{}of\PYGZus{}refraction}\PYG{p}{(}\PYG{n}{medium}\PYG{o}{.}\PYG{n}{greenland\PYGZus{}firn}\PYG{p}{(),}\PYG{n}{position}\PYG{p}{)}
+\end{Verbatim}

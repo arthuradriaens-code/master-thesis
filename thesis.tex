@@ -1213,30 +1213,82 @@ of 45m and a stepsize of 0.7°.
 \end{figure}
 
 \chapter{Weather Balloon}
-There are some changes that need to be made to the established hybrid minimizer, first off the air observer needs
-to be hard removed as to make the simulation possible, second off the extra air observer needs to be removed that's additionally
-defined for some reason and thirdly, the boundary behind the detector is now no longer vertical but horizontal.
+In this chapter we'll simulate radio signals coming from a weather
+balloon flying over the stations. Our goal is to use the plane waves 
+method to reconstruct the position of the weather balloon with the
+timing information inferred from the detected radio signals in the
+detectors.
+If this is somewhat succesfull it can be used (as we'll get to
+shortly) to find out the local index of refraction in the ice.
 
-Now having established this the first problem we'll consider is plane wave reconstruction of the original position, an example path to some of the sensors
-is given in figure (...)
+There's a little change that needs to happen first however for us to
+be able to simulate this: the air observers needs to be hard removed
+as to make a ray tracing possible from within the air to the
+detector.
+Now another problem that seemed to arise after removing the 
+air observer in the radioproparaytracing.py (where the hybrid ray
+tracer is stored) file is that, even though the simulation seems
+to work, only the path IN the ice and the timing for that path
+is recorded, so the timing was later added by drawing a line
+from the balloon to the beginning of the recorded path and 
+setting the speed of radio waves in air to c.
+
+Now having established this the first problem we'll consider is
+plane wave reconstruction of the original position, an example path
+to some of the sensors is given in figure \ref{fig:Example
+trajectory}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{weerballontraject.png}
+	\caption{Example trajectory of rays coming from a weather balloon (blue dot top right) and going through the ice to the various detectors (blue dots bottom left)}
+	\label{fig:Example trajectory}
 \end{figure}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{planewave.pdf}
+	\caption{Illustration of Plane waves}	
+	\label{fig:Plane Wave}
 \end{figure}
+The plane wave reconstruction can easily be understood using figure
+\ref{fig:Plane Wave}, the waves coming in are drawn in blue and
+make a certain angle with the detectors. the top detector (top box)
+detects the wave at a certain time $t_1$, the bottom detector
+detects it at a time $t_2$. In our database, after decoding the
+signal we'd thus see that these two detectors got a signal $\Delta t
+= t_1 - t_2$ seconds apart from eachother. Now ideally this is
+equal to the time $\Delta t'$ which is the time it took the wave
+to propagate that distance which we can calculate from 
+basic trigonometry and dimensional analysis:
 \begin{equation}
-	\Delta t' = \frac{m}{(m/s)} = (s/m)*m = v^{-1} * m = \frac{c}{n} \cos\theta \Delta z
+	\Delta t' = \frac{m}{(m/s)} = (s/m)*m = v^{-1} * m = v^{-1} \cos\theta \Delta z
 \end{equation}
-We take n to be 1.78 as 
-%# from C. Deaconu, fit to data from Hawley '08, Alley '88
-%# rho(z) = 917 - 602 * exp (-z/37.25), using n = 1 + 0.78 rho(z)/rho_0
-
+With $v = c/n$ the local speed of light. As previously discussed
+this n is depth-dependent and we'll be using the local index of
+refraction, say we have 4 detectors, at depths -94,-95,-96,-97
+this thus would mean at position -95.5:
+\begin{mintedbox}{python}
+position = np.array([0,0,-95.5])
+n=medium.greenland_firn.get_index_of_refraction(medium.greenland_firn(),position)
+\end{mintedbox}
+Now in reality we don't know the angle a priori so we'll perform
+a scan by minimizing the correlation function:
 \begin{equation}
-	Correlation = \Delta t - \frac{\cos\theta \Delta z}{v}
+	Correlation(\theta) = \Delta t 
+	- \frac{\cos\theta \Delta z}{v}
 \end{equation}
+If we have more than 1 station however, than we need to specifiy
+various correlation functions.
+E.g if we have four detectors labeled 0 to 3 we'll have to construct
+correlation functions between detectors 0\&1, 0\&2, 0\&3, 1\&2, 1\&3 and 2\&3 . As all of these correlation functions will have different
+sizes we'll norm them as follows:
+\begin{equation}
+	Correlation_{Normed}(\theta) =
+	\frac{Correlation(\theta)}{\int Correlation(\theta)\Delta
+	\theta}
+\end{equation}
+After this we can sum them and take the minimum of the sum, 
+in practice the various correlation functions look like those
+shown in figure
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{WeatherBalloonPath.png}
