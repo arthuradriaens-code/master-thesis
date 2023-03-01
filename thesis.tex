@@ -1265,30 +1265,47 @@ basic trigonometry and dimensional analysis:
 With $v = c/n$ the local speed of light. As previously discussed
 this n is depth-dependent and we'll be using the local index of
 refraction, say we have 4 detectors, at depths -94,-95,-96,-97
-this thus would mean at position -95.5:
+this thus would mean we'll ask for n at some position:
 \begin{mintedbox}{python}
-position = np.array([0,0,-95.5])
-n=medium.greenland_firn.get_index_of_refraction(medium.greenland_firn(),position)
+ice = medium.greenland_simple()
+n = ice.get_index_of_refraction(position)
 \end{mintedbox}
-Now in reality we don't know the angle a priori so we'll perform
-a scan by minimizing the correlation function:
+With the position always being inbetween the specific detectors,
+e.g if we want to reconstruct the plane wave detected by a detector
+at -95 and -97 we'll need to know n at a depth of -96.
+Now in reality we don't know the angle a priori, we'll only have the timing
+information, so we'll perform a scan by minimizing something called 
+"the correlation function":
 \begin{equation}
-	Correlation(\theta) = \Delta t 
+	Correlation(\theta) := \Delta t - \Delta t' = \Delta t
 	- \frac{\cos\theta \Delta z}{v}
 \end{equation}
-If we have more than 1 station however, than we need to specifiy
-various correlation functions.
+If we have more than 1 detector however (which of course will be the case in RNO-G),
+we'll need to specifiy various correlation functions.
 E.g if we have four detectors labeled 0 to 3 we'll have to construct
-correlation functions between detectors 0\&1, 0\&2, 0\&3, 1\&2, 1\&3 and 2\&3 . As all of these correlation functions will have different
+correlation functions between detectors 0\&1, 0\&2, 0\&3, 1\&2, 1\&3 and 2\&3 .
+As all of these correlation functions will have different
 sizes we'll norm them as follows:
 \begin{equation}
 	Correlation_{Normed}(\theta) =
 	\frac{Correlation(\theta)}{\int Correlation(\theta)\Delta
 	\theta}
 \end{equation}
-After this we can sum them and take the minimum of the sum, 
-in practice the various correlation functions look like those
-shown in figure
+An example of these correlation functions is shown in figure \ref{fig:NormedCorrelation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{NormedCorrelation.pdf}
+	\caption{Example normed correlation functions}
+	\label{fig:NormedCorrelation}
+\end{figure}
+After this we can sum them, as shown in figure \ref{fig:SummedCorrelation}, and look
+where it reaches it's minimum.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{SummedCorrelation.pdf}
+	\caption{Example sum of the normed correlation functions}
+	\label{fig:SummedCorrelation}
+\end{figure}
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{WeatherBalloonPath.png}
