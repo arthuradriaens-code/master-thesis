@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{ice} \PYG{o}{=} \PYG{n}{medium}\PYG{o}{.}\PYG{n}{greenland\PYGZus{}simple}\PYG{p}{()}
-\PYG{n}{n} \PYG{o}{=} \PYG{n}{ice}\PYG{o}{.}\PYG{n}{get\PYGZus{}index\PYGZus{}of\PYGZus{}refraction}\PYG{p}{(}\PYG{n}{position}\PYG{p}{)}
-\end{Verbatim}

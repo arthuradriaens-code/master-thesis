@@ -195,19 +195,25 @@ een pad vanuit de interactievertex tot de detector in complexe ijsmodellen en
 % =====================================================================
 \chapter{Neutrinos}
 %\includegraphics[width=0.5\textwidth]{standard_model.png}
+
 When looking outside into the night sky you might see various stars, but invisible to the naked eye
 various kinds of particles are also transversing light-years to end up where you stand.
 
 When looking at phenomena outside our earth the astronomer will turn to electromagnetic radiation, as
 a lot of the most interesting events emit photons in some kind of way this is very useful but he's missing
 out on a big part of the full picture. That's where the astroparticle physicist comes in who takes a 
-look at muons, nuclei,... and even neutrinos.
+look at muons, nuclei,... and neutrinos.
 
-Neutrinos are ideal messengers to identify sources of ultra high energy (UHE) cosmic rays in the universe.
-They also interact very weakly making it possible for them to traverse large distances unhindered. 
-To fully grasp how little they interact consider that
-on average 100 trillion neutrinos pass through your body per second, none of them having any effect.
-You'd also need a light year of lead to give you a 50\% chance of stopping a neutrino.
+Neutrinos are often called “ghost” particles because they very rarely interact
+with matter, on average 100 trillion neutrinos pass through your body per second, none of them having any effect.
+You'd even need a light year of lead to give you just a 50\% chance of stopping a neutrino.
+
+Because they can travel huge distances without getting distorted or
+sidetracked, neutrinos are ideal messengers to identify sources of ultra high energy (UHE) cosmic rays in the universe.
+Neutrinos can serve as unique clues about what’s happening
+elsewhere in the universe including the cosmic collisions, galaxies and black
+holes where they are created.
+
 \section{Discovery}
 When researching beta decay, the decay of a neutron, researcher
 detected a proton and an electron coming from the neutron. However
@@ -837,7 +843,7 @@ expect an ultra-relativistic particle to produce the most radiation at around
 \end{minipage}
 \end{figure}
 Of course this is just an estimate, as the actual index of refraction is depth-dependent which
-we'll get to in section (...).
+we'll get to in section \ref{section:Ice Model}.
 Now this explains how the signals get generated but logically, from only knowing this
 we'd expect radio waves to almost be non-existent 
 due to the "in blue" nature of Cherenkov radiation. 
@@ -903,6 +909,7 @@ Which is then easily iteratively solved.
 If there are boundaries (such as defects or the surface)
 these are treated seperately using Snell's law. 
 \section{Ice model}
+\label{section:Ice Model}
 Equation \ref{eqn:radiopropaformula}, and thus the path, depends 
 on the index of refraction on a given location. 
 Purely from classical gravity and density considerations
@@ -1021,7 +1028,7 @@ additional complexities.
 %	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
 \section{Shortcomings of the exponential ice model}
-It has become apparent (TBC) that complex ice models will be nescessary moving
+It has become apparent [citation needed] that complex ice models will be nescessary moving
 forward as the exponential ice model fails to fit the density curve.  The ideal
 software for radio wave propagation through ice is radiopropa\cite{Winchen_2019}, 
 but due to the way it works you'll have to
@@ -1221,25 +1228,35 @@ detectors.
 If this is somewhat succesfull it can be used (as we'll get to
 shortly) to find out the local index of refraction in the ice.
 
-There's a little change that needs to happen first however for us to
-be able to simulate this: the air observers needs to be hard removed
+There are 2 changes that need to happen first however to our algorithm for us to
+be able to simulate this: The air observers needs to be hard removed
 as to make a ray tracing possible from within the air to the
-detector.
-Now another problem that seemed to arise after removing the 
-air observer in the radioproparaytracing.py (where the hybrid ray
-tracer is stored) file is that, even though the simulation seems
-to work, only the path IN the ice and the timing for that path
-is recorded, so the timing was later added by drawing a line
-from the balloon to the beginning of the recorded path and 
-setting the speed of radio waves in air to c.
+detector and second off, we'll need to implement secondaries.
+The problem is essentially that a ray coming from the balloon 
+propagates to the ice, refracting and reflecting and then one 
+of the refracted rays hits the detector. 
+The "primary" ray is concidered the reflected one 
+so we adjusted the algorithm to look at the secondary that ends
+closest to the detector and return that ray. What this has as
+a consequence is that the "path" you get back is only the path
+from when it "became" a secondary (so only the part below the ice)
+but this can be easily fixed as the radio wave just propagates
+straight from the balloon to the beginning of that ray,  making 
+the full ray reconstructable by just assuming a line from the 
+balloon to the "start" of the ray.
 
-Now having established this the first problem we'll consider is
+From this information the propagation time from the balloon to the ice $t$ 
+can later be added to the time of the path in the ice by measuring the 
+length $d$ of the drawn line from the balloon to the beginning of the recorded path, 
+setting the speed of radio waves in air to c and then just $t = d/c$.
+\section{Plane Wave Reconstruction}
+Now having modified our ray tracer, the first problem we'll consider is
 plane wave reconstruction of the original position, an example path
-to some of the sensors is given in figure \ref{fig:Example
+to some of the deep sensors is given in figure \ref{fig:Example
 trajectory}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{weerballontraject.png}
+	\includegraphics[width=0.7\textwidth]{weerballontraject.pdf}
 	\caption{Example trajectory of rays coming from a weather balloon (blue dot top right) and going through the ice to the various detectors (blue dots bottom left)}
 	\label{fig:Example trajectory}
 \end{figure}
@@ -1264,21 +1281,19 @@ basic trigonometry and dimensional analysis:
 \end{equation}
 With $v = c/n$ the local speed of light. As previously discussed
 this n is depth-dependent and we'll be using the local index of
-refraction, say we have 4 detectors, at depths -94,-95,-96,-97
-this thus would mean we'll ask for n at some position:
+refraction. Say we have 4 detectors at depths -94,-95,-96,-97,
+this then would mean that we'll ask for n at a depth of -95.5, exactly inbetween:
 \begin{mintedbox}{python}
 ice = medium.greenland_simple()
-n = ice.get_index_of_refraction(position)
+n = ice.get_index_of_refraction(np.array[0,0,-95.5])
 \end{mintedbox}
-With the position always being inbetween the specific detectors,
-e.g if we want to reconstruct the plane wave detected by a detector
-at -95 and -97 we'll need to know n at a depth of -96.
 Now in reality we don't know the angle a priori, we'll only have the timing
-information, so we'll perform a scan by minimizing something called 
-"the correlation function":
+information, so we'll perform a scan by minimizing something we define here as 
+\textit{the correlation function}:
 \begin{equation}
 	Correlation(\theta) := \Delta t - \Delta t' = \Delta t
 	- \frac{\cos\theta \Delta z}{v}
+  \label{eqn:PlaneWave}
 \end{equation}
 If we have more than 1 detector however (which of course will be the case in RNO-G),
 we'll need to specifiy various correlation functions.
@@ -1291,25 +1306,88 @@ sizes we'll norm them as follows:
 	\frac{Correlation(\theta)}{\int Correlation(\theta)\Delta
 	\theta}
 \end{equation}
-An example of these correlation functions is shown in figure \ref{fig:NormedCorrelation}
+An example of these correlation functions is shown in figure \ref{fig:NormedCorrelation}, 
+notice how you can't differentiate between the correlation functions, this is only possible
+because of the hybrid ray tracer having that high of a precision.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\textwidth]{NormedCorrelation.pdf}
+	\includegraphics[width=0.8\textwidth]{NormedCorrelation.pdf}
 	\caption{Example normed correlation functions}
 	\label{fig:NormedCorrelation}
 \end{figure}
-After this we can sum them, as shown in figure \ref{fig:SummedCorrelation}, and look
-where it reaches it's minimum.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\textwidth]{SummedCorrelation.pdf}
+	\includegraphics[width=\textwidth]{SummedCorrelation.pdf}
 	\caption{Example sum of the normed correlation functions}
 	\label{fig:SummedCorrelation}
 \end{figure}
+After this we can sum them, as shown in figure \ref{fig:SummedCorrelation}, and look
+where it reaches it's minimum. Using this angle we can then reconstruct a ray and guess 
+where the weather balloon is approximately, this is illustrated in figure 
+\ref{fig:WeatherBalloonPositionReconstruction}. 
+\section{Is the goal feasible?}
+In the example reconstruction illustrated in figure \ref{fig:WeatherBalloonPositionReconstruction} the difference in 
+angle between direct to balloon and plane wave reconstruction is already quite small (0.65329617\%)
+but as the balloon gets closer to the detector this reduces significantly as is shown in figure
+\ref{fig:WeatherBalloonClosePositionReconstruction} where the difference in angle between direct 
+to balloon and plane wave reconstruction is only 0.06788141\%. Our goal is to find the local index
+of refraction n by using the plane wave reconstruction with the recorded timing and the positional data from the weather
+balloon as the plane wave reconstruction is heavily dependent on the index
+of refraction (as can be seen in equation \ref{eqn:PlaneWave}). As was already established we'll consider
+the index of refraction in the middle of all the detectors (instead of a different one for every pair of
+detectors), after experimenting this doesn't seem to have an impact on the accuracy of the plane wave reconstruction. 
+
+Now we need to ask ourselves the question, within which angles should the
+weather balloon fly for the data to be useful?  As was previously stated, the
+further the weather balloon is away (in the x direction) the bigger the zenith
+angle with the detector the less accurate the plane wave reconstruction.  So
+which angles are acceptable? To determine this our method works as follows: 
+
+we vary the position of the weather balloon in the x direction (keeping the
+height constant), reconstruct the ray path and then fit n such that the
+difference between the reconstructed angle and the direct angle is the smallest
+possible.  Then we compare the n we have fit to the one we know from the model
+at that position.  We quantise the discrepency between these two indices of
+refraction using what we here define as the \textit{relative accuracy}:
+\begin{equation}
+  \varepsilon\ (\%) = \frac{n_\text{fit} - n_{\text{actual}}}{n_{\text{actual}}} \times 100
+\end{equation}
+Carrying this out we get figure \ref{fig:EpsilonIFODirect}, i.e it gets
+exponentially less accurate as the balloon moves further away. As we wish our
+accuracy to be within 1\%, the angle the balloon makes with the detector needs
+to be less than 10°.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{EpsilonIFODirect.pdf}
+	\caption{Epsilon in function of the direct angle}
+	\label{fig:EpsilonIFODirect}
+\end{figure}
+An example path of a weather balloon is shown in figure
+\ref{fig:ExampleBalloonPath}, as can be seen the elevation varies between 3228m
+and 22755m. E.g our $<$10° policy would thus require for the ballon to be less
+distant than 586 and 4029 meters away respectively.
+\begin{figure}
+  \centering
+	\includegraphics[width=0.7\textwidth]{WeatherBalloonPath.png}
+  \caption{Path traced out by a weather balloon released by Bob Oeyen}
+  \label{fig:ExampleBalloonPath}
+\end{figure}
 
 \begin{figure}
-	\includegraphics[width=\textwidth]{WeatherBalloonPath.png}
+	\centering
+	\includegraphics[width=\textwidth]{WeatherBalloonPositionReconstruction.pdf}
+	\caption{Example plane wave reconstruction of weather balloon position}
+	\label{fig:WeatherBalloonPositionReconstruction}
 \end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{WeatherBalloonClosePositionReconstruction.pdf}
+	\caption{Example plane wave reconstruction of near-flying weather balloon position}
+	\label{fig:WeatherBalloonClosePositionReconstruction}
+\end{figure}
+\section{Fitting the index}
+Now that we know our goal to be feasible for angles smaller than 10 degrees, let's
+analyse the data.
 
 \appendix
 \chapter{Hybrid minimizer code}
