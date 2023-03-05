@@ -1358,36 +1358,72 @@ accuracy to be within 1\%, the angle the balloon makes with the detector needs
 to be less than 10°.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.6\textwidth]{EpsilonIFODirect.pdf}
+	\includegraphics[width=0.7\textwidth]{EpsilonIFODirect.pdf}
 	\caption{Epsilon in function of the direct angle}
 	\label{fig:EpsilonIFODirect}
 \end{figure}
 An example path of a weather balloon is shown in figure
-\ref{fig:ExampleBalloonPath}, as can be seen the elevation varies between 3228m
-and 22755m. E.g our $<$10° policy would thus require for the ballon to be less
-distant than 586 and 4029 meters away respectively.
+\ref{fig:ExampleBalloonPath}, looking specifically at the height using ROOT\footnote{\url{https://root.cern/}}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{BobsWeatherBalloonHeight.pdf}
+  \label{fig:BobsWeatherBalloonHeight}
+\end{figure}
+we get what is shown in figure \ref{fig:BobsWeatherBalloonHeight}. It can be seen that the elevation varies between 3228m 
+(read the graph as: Over a 1000 data entries at that height)
+and 22755m (entries go to zero after that height). E.g our $<$10° policy would thus require for the ballon to be less
+distant than 586 meters away from the detector at the start of the measurements and less than 4029 meters away at the end.
 \begin{figure}
   \centering
 	\includegraphics[width=0.7\textwidth]{WeatherBalloonPath.png}
-  \caption{Path traced out by a weather balloon released by Bob Oeyen}
+  \caption{Path traced out by a weather balloon released by Bob Oeyen, the checkmark indicating the start and the house mark
+  the end}
   \label{fig:ExampleBalloonPath}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{WeatherBalloonPositionReconstruction.pdf}
+	\includegraphics[width=0.9\textwidth]{WeatherBalloonPositionReconstruction.pdf}
 	\caption{Example plane wave reconstruction of weather balloon position}
 	\label{fig:WeatherBalloonPositionReconstruction}
 \end{figure}
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{WeatherBalloonClosePositionReconstruction.pdf}
+	\includegraphics[width=0.9\textwidth]{WeatherBalloonClosePositionReconstruction.pdf}
 	\caption{Example plane wave reconstruction of near-flying weather balloon position}
 	\label{fig:WeatherBalloonClosePositionReconstruction}
 \end{figure}
 \section{Fitting the index}
 Now that we know our goal to be feasible for angles smaller than 10 degrees, let's
-analyse the data.
+analyse the data. The positional data of the weather balloons was obtained from the \url{ftp1.esrl.noaa.gov} website using
+the rno-g-sonde script Of the official RNO-G github page. We'll be looking at the data recorded in the summer of 2022, more
+particularly 15/06/2022 - 30/09/2022. The detected events can be obtained from the DESY database\footnote{\url{https://rnog-monitor.zeuthen.desy.de/}}.
+
+Let's do an example rundown of how this analysis is going to go: let's start by
+looking at the weather balloon file SMT\_20220820\_111609.root, it was recorded
+the 20th of august 2022 as can be derived from it's name, we have a
+complementary file SMT\_20220820\_111609.gpx this can be graphically displayed
+using the python module gpxplotter resulting in the trajectory shown in figure
+\ref{fig:IntWB} We can see it clearly first coming close to the station Amaroq (station 21) and subsequently very close to 
+Terianniaq (station 12), making this event usable for our analysis.
+If we take a look at this day in the event browser we see quite a lot of activity
+as is shown in figure \ref{fig:20thEvents}. We, however, are only interested in the brief timeframe where the weather balloon
+passes these detectors and only in signals coming from these particular detectors.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{InteractingWeatherBalloonPath.png}
+  \caption{Part of a weather balloon path on the 20th of august, the detectors placed as of 2023 are illustrated with
+  a green info mark}
+  \label{fig:IntWB}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Events20Aug.png}
+  \caption{Event rate recorded on the 20th of august}
+  \label{fig:20thEvents}
+\end{figure}
+
 
 \appendix
 \chapter{Hybrid minimizer code}

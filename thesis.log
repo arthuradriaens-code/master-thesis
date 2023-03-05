@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.18)  2 MAR 2023 23:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.3)  4 MAR 2023 17:38
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1243,24 +1243,44 @@ Package pdftex.def Info: ./figures//SummedCorrelation.pdf  used on input line 13
 File: ./figures//EpsilonIFODirect.pdf Graphic file (type pdf)
 <use ./figures//EpsilonIFODirect.pdf>
 Package pdftex.def Info: ./figures//EpsilonIFODirect.pdf  used on input line 1361.
-(pdftex.def)             Requested size: 273.14923pt x 226.051pt.
-<./figures//WeatherBalloonPath.png, id=982, 739.26187pt x 447.31326pt>
+(pdftex.def)             Requested size: 318.66948pt x 263.72455pt.
+<./figures//BobsWeatherBalloonHeight.pdf, id=984, 1099.10625pt x 571.38469pt>
+File: ./figures//BobsWeatherBalloonHeight.pdf Graphic file (type pdf)
+<use ./figures//BobsWeatherBalloonHeight.pdf>
+Package pdftex.def Info: ./figures//BobsWeatherBalloonHeight.pdf  used on input line 1369.
+(pdftex.def)             Requested size: 318.66948pt x 165.66243pt.
+<./figures//WeatherBalloonPath.png, id=986, 739.26187pt x 447.31326pt>
 File: ./figures//WeatherBalloonPath.png Graphic file (type png)
 <use ./figures//WeatherBalloonPath.png>
-Package pdftex.def Info: ./figures//WeatherBalloonPath.png  used on input line 1371.
+Package pdftex.def Info: ./figures//WeatherBalloonPath.png  used on input line 1378.
 (pdftex.def)             Requested size: 318.66948pt x 192.81873pt.
  [32 <./figures//SummedCorrelation.pdf>]
-<./figures//WeatherBalloonPositionReconstruction.pdf, id=1024, 1628.9658pt x 881.69403pt>
+<./figures//WeatherBalloonPositionReconstruction.pdf, id=1028, 1628.9658pt x 881.69403pt>
 File: ./figures//WeatherBalloonPositionReconstruction.pdf Graphic file (type pdf)
 <use ./figures//WeatherBalloonPositionReconstruction.pdf>
-Package pdftex.def Info: ./figures//WeatherBalloonPositionReconstruction.pdf  used on input line 1378.
-(pdftex.def)             Requested size: 455.24411pt x 246.40176pt.
-<./figures//WeatherBalloonClosePositionReconstruction.pdf, id=1025, 1628.9658pt x 881.69403pt>
+Package pdftex.def Info: ./figures//WeatherBalloonPositionReconstruction.pdf  used on input line 1386.
+(pdftex.def)             Requested size: 409.71692pt x 221.75487pt.
+<./figures//WeatherBalloonClosePositionReconstruction.pdf, id=1029, 1628.9658pt x 881.69403pt>
 File: ./figures//WeatherBalloonClosePositionReconstruction.pdf Graphic file (type pdf)
 <use ./figures//WeatherBalloonClosePositionReconstruction.pdf>
-Package pdftex.def Info: ./figures//WeatherBalloonClosePositionReconstruction.pdf  used on input line 1384.
-(pdftex.def)             Requested size: 455.24411pt x 246.40176pt.
- [33 <./figures//EpsilonIFODirect.pdf> <./figures//WeatherBalloonPath.png>] [34 <./figures//WeatherBalloonPositionReconstruction.pdf> <./figures//WeatherBalloonClosePositionReconstruction.pdf>]
+Package pdftex.def Info: ./figures//WeatherBalloonClosePositionReconstruction.pdf  used on input line 1392.
+(pdftex.def)             Requested size: 409.71692pt x 221.75487pt.
+ [33 <./figures//EpsilonIFODirect.pdf> <./figures//BobsWeatherBalloonHeight.pdf>] [34 <./figures//WeatherBalloonPath.png> <./figures//WeatherBalloonPositionReconstruction.pdf>]
+<./figures//InteractingWeatherBalloonPath.png, id=1133, 651.76833pt x 392.13167pt>
+File: ./figures//InteractingWeatherBalloonPath.png Graphic file (type png)
+<use ./figures//InteractingWeatherBalloonPath.png>
+Package pdftex.def Info: ./figures//InteractingWeatherBalloonPath.png  used on input line 1414.
+(pdftex.def)             Requested size: 227.62206pt x 136.94298pt.
+<./figures//Events20Aug.png, id=1134, 2345.76375pt x 379.4175pt>
+File: ./figures//Events20Aug.png Graphic file (type png)
+<use ./figures//Events20Aug.png>
+Package pdftex.def Info: ./figures//Events20Aug.png  used on input line 1422.
+(pdftex.def)             Requested size: 455.24411pt x 73.63005pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[35 <./figures//WeatherBalloonClosePositionReconstruction.pdf> <./figures//InteractingWeatherBalloonPath.png>] [36 <./figures//Events20Aug.png>]
 Appendix A.
 \openout8 = `thesis.listing'.
 
@@ -1317,16 +1337,16 @@ Overfull \hbox (399.24866pt too wide) in paragraph at lines 230--230
 \OT1/cmtt/m/n/10 optimize[].[]minimize(delta_z_squared,x0[]=[]InitGuess,bounds[]=[]bounds,options[]=[]{[]^^Mxatol^^M[]:[]self[][].[]__xtol[]**[][]2[],[]^^Mfatol^^M[]:[]self[][].[]__ztol[]**[][]2[]},method[]=[][]^^MNelder-Mead^^M[])|  
  []
 
-) [35
+) [37
 
-] [36] [37] [38] [39] [40] [41] (./thesis.bbl
+] [38] [39] [40] [41] [42] [43] (./thesis.bbl
 Overfull \hbox (6.0pt too wide) in paragraph at lines 1--1
 [][] 
  []
 
-[42
+[44
 
-]) [43] (./thesis.aux)
+]) [45] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1334,18 +1354,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: FD52C63867A843A5C16332AA6D2615C6;5328.
  ) 
 Here is how much of TeX's memory you used:
- 32558 strings out of 478238
- 677968 string characters out of 5850455
- 1134499 words of memory out of 5000000
- 49943 multiletter control sequences out of 15000+600000
- 488200 words of font info for 102 fonts, out of 8000000 for 9000
+ 32594 strings out of 478238
+ 679078 string characters out of 5850457
+ 1135002 words of memory out of 5000000
+ 49969 multiletter control sequences out of 15000+600000
+ 488535 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,17n,90p,1195b,2028s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on thesis.pdf (44 pages, 2565262 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
+Output written on thesis.pdf (46 pages, 2727913 bytes).
 PDF statistics:
- 1352 PDF objects out of 1440 (max. 8388607)
- 794 compressed objects within 8 object streams
- 204 named destinations out of 1000 (max. 500000)
- 450 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1392 PDF objects out of 1440 (max. 8388607)
+ 822 compressed objects within 9 object streams
+ 210 named destinations out of 1000 (max. 500000)
+ 465 words of extra memory for PDF output out of 10000 (max. 10000000)
 
