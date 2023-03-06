@@ -161,7 +161,7 @@
 % Main matter
 % =====================================================================
 \chapter{Foreword}
-\section{Abstract: English}
+\section*{English}
 The Radio Neutrino Observatory in Greenland - RNO-G - is under construction at Summit Station in Greenland to search for neutrinos of several PeV energy up to the Eev range. It's a mid-scale, discovery phase, extremely high-energy neutrino telescope that will probe the astrophysical neutrino flux at energies beyond the reach of IceCube.
 More particularly if will make it possible to reach the next major milestone in astroparticle physics: the discovery of cosmogenic neutrinos.
 \vspace{0.5cm}
@@ -175,9 +175,9 @@ whom are free to download on \href{https://github.com/nu-radio}{github}.
 The projects built over the course of this thesis were the "Hybrid minimizer": a new
 algorithm for finding the path of a neutrino interaction to the detector in complex ice models
 and (...)
-\section{Abstract: Nederlands}
+\section*{Nederlands}
 De \textit{Radio Neutrino Observatory in Greenland} - RNO-G - is een detector die momenteel onder constructie is
-in Groenland. Deze detector heeft als doel het vinden van neutrino's met energieën van enkele PeV
+in Groenland. Deze detector heeft als doel het vinden van neutrinos met energieën van enkele PeV
 tot in het EeV gebied. Deze extreem hoge energy neutrino telescoop zal astrofysische neutrinos
 zoeken op energieën waar icecube te klein voor is. Het zal ook het vinden van cosmogenische
 neutrinos mogelijk maken.
@@ -196,35 +196,51 @@ een pad vanuit de interactievertex tot de detector in complexe ijsmodellen en
 \chapter{Neutrinos}
 %\includegraphics[width=0.5\textwidth]{standard_model.png}
 
-When looking outside into the night sky you might see various stars, but invisible to the naked eye
-various kinds of particles are also transversing light-years to end up where you stand.
+When looking outside into the night sky you might see various stars, but
+invisible to the naked eye various kinds of particles are also transversing
+light-years to end up where you stand.
 
-When looking at phenomena outside our earth the astronomer will turn to electromagnetic radiation, as
-a lot of the most interesting events emit photons in some kind of way this is very useful but he's missing
-out on a big part of the full picture. That's where the astroparticle physicist comes in who takes a 
-look at muons, nuclei,... and neutrinos.
+When looking at phenomena outside our earth the astronomer will turn to
+electromagnetic radiation, as a lot of the most interesting events emit photons
+in some kind of way this is very useful but he's missing out on a big part of
+the full picture.  There are regions in the universe from which photons can't
+escape. They can also be absorbed on their way to earth.  That's where the
+astroparticle physicist comes in who takes a look at muons, nuclei,... and
+neutrinos.
 
 Neutrinos are often called “ghost” particles because they very rarely interact
-with matter, on average 100 trillion neutrinos pass through your body per second, none of them having any effect.
-You'd even need a light year of lead to give you just a 50\% chance of stopping a neutrino.
+with matter, on average 100 trillion neutrinos pass through your body per
+second, none of them having any effect.  You'd even need a light year of lead
+to give you just a 50\% chance of stopping a neutrino.
+
+As they also have no charge they are not deflected by magnetic fields. This means
+that once a cosmic neutrino is detected and it's direction is inferred, it's origin
+can be found.
 
 Because they can travel huge distances without getting distorted or
-sidetracked, neutrinos are ideal messengers to identify sources of ultra high energy (UHE) cosmic rays in the universe.
-Neutrinos can serve as unique clues about what’s happening
-elsewhere in the universe including the cosmic collisions, galaxies and black
-holes where they are created.
+sidetracked, neutrinos are ideal messengers to identify sources of ultra high
+energy (UHE) cosmic rays in the universe.  Neutrinos can serve as unique clues
+about what’s happening elsewhere in the universe including the cosmic
+collisions, galaxies, supernovae, Gamma-ray bursts (GRBs),... where they are created.
 
 \section{Discovery}
-When researching beta decay, the decay of a neutron, researcher
+When researching $\beta^-$ decay, the decay of a neutron into a nucleus, researcher
 detected a proton and an electron coming from the neutron. However
 on closer inspection it became apparent that energy was lost
 somewhere in violation with the conservation law of energy, and
 angular momentum wasn't conserved.  The solution postulated by
 Wolfgang Pauli was to introduce a new, really hard to detect
 particle: the neutrino.  The neutrino comes in three flavours:
-electron, muon and tau neutrinos, each corresponding to their respective lepton 
+electron, muon and tau neutrinos, each corresponding to their respective lepton denoted as
+\begin{equation}
+	\nu_e \quad \nu_\mu \quad \nu_\tau
+\end{equation}
 and each also having an anti-particle.
-Now with the introduction of the neutrino the full beta decay
+\begin{equation}
+	\bar{\nu}_e \quad \bar{\nu}_\mu \quad \bar{\nu}_\tau
+\end{equation}
+
+Now with the introduction of the neutrino the full $\beta^-$ decay
 becomes
 \begin{equation}
 	n \rightarrow p^+ + e^- + \nu_e
@@ -233,12 +249,57 @@ The inverse can then also be used to detect neutrinos:
 \begin{equation}
 	n \rightarrow p^+ + e^- + \nu_e
 \end{equation}
-Which is called beta capture and was first experimentally detected in 1956 \cite{BetaCapture} also 
-making it the first experimental detection of a neutrino
+Which is called beta capture and was first experimentally detected in 1956
+\cite{BetaCapture} also making it the first experimental detection of a
+neutrino.
 \section{Neutrino sources}
-
-\section{Do neutrinos have mass?}
-Neutrinos get produced through the following ways in the nucleus of our star:\\
+%The radio detection of neutrinos targets the energy range 10PeV to 100EeV\cite{Aguilar_2021} 
+Neutrinos can be generated in 2 ways: either they're generated in
+interactions at the sources, termed \textit{astrophysical neutrinos}. Or
+they're created through the interaction of ultra-high energy cosmic rays during
+propagation with the cosmic microwave or other photon backgrounds termed
+\textit{cosmogenic neutrinos}. 
+In figure \ref{figure:Neutrino fluxes} you see the neutrino flux theoretically expected 
+in function of energy for various sources of neutrinos. I'll walk you through each of
+them seperately.
+\begin{figure}
+	\centering
+	\copyrightbox[r]{\includegraphics[height = 0.5\textwidth]{neutrinofluxes.pdf}}{\textcopyright Abhik Jash, Studies on the Physics of Resistive Plate Chambers in Relation to the INO Experiment}
+	\caption{Predicted neutrino flux for various natural sources}
+	\label{figure:Neutrino fluxes}
+\end{figure}
+\subsection{Cosmological/Primordial neutrinos}
+The first source of neutrinos we'll talk about is the one in blue to the left of the figure
+termed the \textit{Cosmological neutrinos}: 
+the neutrino version of the CMB.
+To understand this source we'll have to go back all the way to just after the big bang:
+The very early universe was hot and dense. As a result, interactions among particles
+occurred much more frequently than they do today. As an example, a photon today
+can travel across the observable universe without deflection or capture, so it has a
+mean free path greater than $10^26$ m. When the universe was 1 second old, though, 
+the mean free path of a photon was about the size of an atom. Thus in
+the time it took the universe to expand by a factor of 2, a given photon interacted
+many, many times. These multiple interactions kept the consitituents in the universe
+in thermal equilibrium. But as the universe expanded there were times when reactions could
+not proceed rapidly enough to maintain equilibrium conditions, these particles then fall out
+of thermal equilibrium. This falling out of equilibrium is termed \textit{decoupling}.
+And we're interested in when neutrinos decoupled.
+Neutrinos were kept in equilibrium through the interaction 
+\begin{equation}
+	\nu e \leftrightarrow \nu e
+\end{equation}
+up until the universe cooled down to about 1MeV when they decoupled.
+To estimate the temperature of the neutrinos who decoupled at the start of the universe, 
+we can take a look at conservation of entropy \cite{Dodelson} from which we'll find that:
+\begin{equation}
+	T_\nu = \left(\frac{4}{11}\right)^{1/3}T_\gamma
+\end{equation}
+Note that they decoupled before the photons making them lower in temperature.
+As $T_\gamma$ is the CMB temperature which, nowadays, is measured to be around 2.7K.
+These primordial neutrinos are very low in energy.
+\subsection{Solar neutrinos}
+The sun fuses elements to release energy and thus keeping itself from collapsing in 
+on itself, with most of the various ways particles get fused neutrinos get released:\\
 $\bold{pp-cycle}$
 \begin{align}
 	\mathrm{p} + \mathrm{p} &\rightarrow \mathrm{D} + e^+ + \nu_e\\
@@ -260,16 +321,19 @@ $\bold{pep}$
 \begin{align}
 	\mathrm{p} + e^- + \mathrm{p} \rightarrow \mathrm{D} + \nu_e
 \end{align}\\
-Now with this and some information about the sun like the pressure and mass, 
-the so-called "standard solar model" was
-made. This model predicted a certain amount of neutrinos to be hitting the earth from the previously
-mentioned thermonuclear fusion, it was however 3 times higher than the observed amount of neutrinos back
-at our planet. Through various experiments it became apparent that this was due to the various kind of
-neutrinos oscillating into each other, i.e 2/3 of the original electron 
-neutrinos had oscillated into mu and tau neutrinos
-but for them to oscillate into eachother, they require mass:
-\subsection{neutrino oscillations}
-So the transition probability is
+Now with this and some information about the sun like the pressure and mass,
+the so-called "standard solar model" was made. This model predicted a certain
+amount of neutrinos to be hitting the earth from the previously mentioned
+thermonuclear fusion, it was however 3 times higher than the observed amount of
+neutrinos back at our planet. This led to a little bit of hysteria as this could've meant
+that the sun was dying and we'd see the aftermath only in a couple of years.
+Through various experiments however, it became apparent
+that this was due to the various kind of neutrinos oscillating into each other
+on their way to earth,
+i.e 2/3 of the original electron neutrinos had oscillated into mu and tau
+neutrinos. But for them to oscillate into eachother, theoretically they not only require mass
+but each flavor also should have a different mass
+as the 2D transition probability is
 \begin{equation}
 	P(\nu_e\rightarrow\nu_\mu) = |\braket{\nu_\mu|\psi(L,T)}|^2 = c_\mu c_\mu^* = \sin ^2(2 \theta) \sin ^2\left(\frac{\Delta \phi_{12}}{2}\right)
 \end{equation}
@@ -277,17 +341,145 @@ with
 \begin{equation}
 	\Delta \phi_{12} \approx \frac{m_1^2 - m_2^2}{2p}L
 \end{equation}
-I.e not only mass but difference in mass of the eigenstates is a requirement for oscillations to occur.
-In general
+In general (3D)
 \begin{equation}
 	\ket{\nu_\alpha} = \sum_iU_{\alpha i} \ket{\nu_i}
 \end{equation}
 With $U_{\alpha i}$ e.g the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix. 
-This phenomenon has been observed e.g from the descrepency from the observed
+This phenomenon has been observed e.g through the descrepency from the observed
 and expected neutrino events coming from a nuclear reactor \cite{Eguchi_2003}.
+\subsection{Supernovae}
+\label{sec:supernovae}
+A star starts its life as a ball of pure hydrogen. At the core, due to the
+gravitational pressure of the outside plasma, fusion of hydrogen into deuterium
+and helium happens. Thus converting mass into energy. The pressure of this energy
+counteracts the pressure of gravity and the star is stable.
+
+When the hydrogen at the core runs out no more hydrogen can be fused. For
+stars with masses between $8M_\odot$ and $30M_\odot$ the
+fusion of heavier elements starts, this can't keep going on however as at some
+point the star starts to form the most stable element: iron. 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Binding_energy_curve.png}
+\end{figure}
+It costs energy
+to both make lighter elements than iron and heavier ones.  As the iron core
+builds up the outside pressure from the core starts to decrease as no new
+energy is released. This goes on until  the treshold of an iron core with a mass of 1.4$M_\odot$ known as the 
+Chandrasekhar limit and the the inwards pressure becomes too large, making the
+electrons surrounding the iron core fuse with the protons (uud),  creating
+neutrons (udd) and neutrinos, diagramatically:
+\begin{figure}[!ht]
+	\centering
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex (a0){u};
+	\vertex[right=2cm of a0] (am) ;
+	\vertex[right=2cm of am] (a1) {d};
+	\vertex[above=2cm of am] (bm);
+	\vertex[above=2cm of a0] (b0){$e^-$};
+	\vertex[right=2cm of bm] (b1){$\nu_e$};
+	\diagram* {
+		{[edges=fermion]
+			(a0) -- (am) -- (a1)
+		},
+		{[edges=fermion]
+			(b0) -- (bm) -- (b1)
+		},
+		{[edges=boson,edge label=$W^+$]
+			(am) -- (bm)
+		}
+	};
+	\end{feynman}
+	\end{tikzpicture}
+\end{figure}\\
+This last part happens in a split second as the collapse goes at 25\% the speed
+of light, creating a very dense neutron star (3000km in diameter iron core to
+30km in diameter neutron star) and up to $10^{52}$ ultra-relativistic
+neutrinos, carrying up to 99\% of the released energy
+\cite{Melson_2015}\footnote{1\% is released as kinetic energy, only 0.001\% as
+electromagnetic radiation}.  As the density has suddenly increased so much
+there's a huge distance of pure vaccuum between the plasma outer layer and the
+(now) neutron star, this plasma starts free-falling inwards, also at 25\% the
+speed of light whilst the neutrinos carrying tremendous amounts of energy start
+going outwards from the neutron stars core.
+
+The neutrinos then collide with the plasma resulting in what we observe as a
+"supernova", wrongly thought of by Kepler as being a "new (nova) star" rather
+being a violent death of an old star.
+
+This is quite unexpected as neutrinos rarely interact, they only do becouse the
+incoming plasma is so dense and due to the tremendous amount of neutrinos that
+collissions happen at all. Some, however, escape and will be visible on earth
+in our neutrino detectors $\approx$ 18h before the light escapes the exploding
+star.
+
+Neutrino observatories are thus useful to know where to point our various
+telescopes before the supernova is actually visible in the night sky.
+\subsection{Terrestrial anti-neutrinos}
+Terrestrial anti-neutrinos, also termed a \textit{geoneutrinos} are neutrinos
+coming from the decay of radionuclides (unstable nuclides due to excess in
+nuclear energy) naturally occuring in our earth.  Most geoneutrinos are
+electron antineutrinos originating in $\beta^-$ decay modes of ${}^{40}$K,
+${}^{232}$Th and ${}^{238}$U. Together these decay chains account for more than
+99\% of the present-day radiogenic heat generated inside the Earth
+
+\subsection{Reactor anti-neutrinos}
+Our most important energy source today, both in terms of energy output and
+their impact on the enviroment are fission reactors.
+Looking back at our energy per nucleon vs number of nucleons in nucleus figure shown in the
+supernovae subsection we see that all the way to the right uranium is found, a lot of energy
+can thus be released by splitting in into nuclei with a lower amount of nucleons.
+Fission reactors operate by splitting this urantium by the introduction of a neutron:
+\begin{equation}
+	n + {}^{235}U \rightarrow \text{Energy (radiation)} + 2\times\text{Fission fragments} + 2.5\times n
+\end{equation}
+this 2.5 is of course an average. The surplus of neutrons means this is a self-sustaining
+interaction meaning that for a stable thermonuclear interaction carbon capture rods
+are needed.
+When this uranium nucleus fissions into two daughter nuclei fragments, about 0.1
+percent of the mass of the uranium nucleus appears as the fission energy which is about
+~200 MeV. For uranium-235 about ~169 MeV appears as the kinetic energy of the daughter nuclei
+, the neutrons carry a mean kinetic energy per neutron of ~2 MeV
+(total of 4.8 MeV) and ~7 MeV is released in the form of gamma ray photons.
+This all sums up to the \textit{total prompt fission energy} which amounts to about 181 MeV, 
+or ~89\% of the total
+energy which is eventually released by fission over time. The remaining ~11\% is
+released in beta decays where we get our reactor anti-neutrinos from.
+\subsection{Background from old supernovae}
+Also termed the \textit{diffuse supernova neutrino background} (DSNB), as the
+universe is quite old various supernovae have happened over it's lifetime, each generating
+a lot of neutrinos as was discussed in section \ref{sec:supernovae}. 
+This is postulated to have generated a continuous neutrino background.
+\subsection{Atmospheric neutrinos}
+
+\subsection{How do they fit into the full detector spectrum?}
+The origin of the most energetic cosmic rays is still not conclusively
+identified. One approach to solving this problem is \textit{multi-messenger
+astrophysics}, where several types of cosmic particles are used to identify the
+sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously
+measure gravitational waves (gravitons?) with the Einstein telescope,
+neutrinos with IceCube (or eventually RNO-G), photons with various telescopes
+and muons with a muon detector.
+
+\subsection{astrophysical neutrinos: general}
+As cosmic rays get accelerated they will occasionally interact with matter
+and photon fields near the source. These will then produce new particles,
+of which the most common is pions due to their low mass (a lot of available 
+phase space). Pions can decay
+into neutrinos as follows:
+\begin{eqnarray}
+	\pi^- &\rightarrow \mu^- + \bar{\nu}_\mu \rightarrow e^- + \bar{\nu}_e + \nu_\mu + \bar{\nu}_\mu\\
+	\pi^+ &\rightarrow \mu^+ + \nu_\mu \rightarrow e^+ + \nu_e + \bar{\nu}_\mu + \nu_\mu
+\end{eqnarray}
+Another possibility is direct production of neutrinos at the source, of which Supernovae are
+a prime example:
+
+\section{Do neutrinos have mass?}
 Now the question remains, how do neutrinos get their mass (theoretically)?
 \subsection{See-saw mechanism}
-We can give neutrino's mass as with any other spinor throught Yukawa couplings and an extra term:
+We can give neutrinos mass as with any other spinor throught Yukawa couplings and an extra term:
 \begin{equation}
 	\mathcal{L} = i\bar{\nu}\slashed{\partial}\nu - m\bar{\psi}\nu - \frac{M}{2} (\bar{\nu}_R\nu_{Rc} + \bar{\nu}_{Rc}\nu_R)
 \end{equation}
@@ -576,110 +768,6 @@ to find out if neutrinos are Majorana is "Neutrinoless double beta decay":
 	\caption{normal and neutrinoless double beta decay}
 \end{figure}\\
 This is (at the time of writing) actively investigated.
-\section{Why study neutrinos?}
-%The radio detection of neutrinos targets the energy range 10PeV to 100EeV\cite{Aguilar_2021} 
-Neutrinos are ideal messengers to identify the UHE (Ultra High Energy) sources
-in the universe. Unlike cosmic rays, which are deflected by magnetic fields and
-interact with matter and radiation on their way to us, neutrinos point back to
-sources and can reach Earth unperturbed from the most distant corners of the
-universe.  Neutrinos can be generated in 2 ways: either they're generated in
-interactions at the sources, termed \textit{astrophysical neutrinos}. Or
-they're created through the interaction of ultra-high energy cosmic rays during
-propagation with the cosmic microwave or other photon backgrounds termed
-\textit{cosmogenic neutrinos}. 
-\subsection{astrophysical neutrinos: general}
-As cosmic rays get accelerated they will occasionally interact with matter
-and photon fields near the source. These will then produce new particles,
-of which the most common is pions due to their low mass (a lot of available 
-phase space). As seen in chapter \ref{chapter:EWTheory} pions can decay
-into neutrino's as follows:
-\begin{eqnarray}
-	\pi^- &\rightarrow \mu^- + \bar{\nu}_\mu \rightarrow e^- + \bar{\nu}_e + \nu_\mu + \bar{\nu}_\mu\\
-	\pi^+ &\rightarrow \mu^+ + \nu_\mu \rightarrow e^+ + \nu_e + \bar{\nu}_\mu + \nu_\mu
-\end{eqnarray}
-Another possibility is direct production of neutrino's at the source, of which Supernovae are
-a prime example:
-\subsection{Supernovae}
-A star starts its life as a ball of pure hydrogen. At the core, due to the
-gravitational pressure of the outside plasma, fusion of hydrogen into deuterium
-and helium happens. Thus converting mass into energy. The pressure of this energy
-counteracts the pressure of gravity and the star is stable.
-
-When the hydrogen at the core runs out no more hydrogen can be fused. For
-stars with masses between $8M_\odot$ and $30M_\odot$ the
-fusion of heavier elements starts, this can't keep going on however as at some
-point the star starts to form the most stable element: iron. 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.5\textwidth]{Binding_energy_curve.png}
-\end{figure}
-It costs energy
-to both make lighter elements than iron and heavier ones.  As the iron core
-builds up the outside pressure from the core starts to decrease as no new
-energy is released. This goes on until  the treshold of an iron core with a mass of 1.4$M_\odot$ known as the 
-Chandrasekhar limit and the the inwards pressure becomes too large, making the electrons surrounding the 
-iron core fuse with the protons (uud),  creating neutrons (udd) and neutrino's, diagramatically:
-\begin{figure}[!ht]
-	\centering
-	\begin{tikzpicture}
-	\begin{feynman}
-	\vertex (a0){u};
-	\vertex[right=2cm of a0] (am) ;
-	\vertex[right=2cm of am] (a1) {d};
-	\vertex[above=2cm of am] (bm);
-	\vertex[above=2cm of a0] (b0){$e^-$};
-	\vertex[right=2cm of bm] (b1){$\nu_e$};
-	\diagram* {
-		{[edges=fermion]
-			(a0) -- (am) -- (a1)
-		},
-		{[edges=fermion]
-			(b0) -- (bm) -- (b1)
-		},
-		{[edges=boson,edge label=$W^+$]
-			(am) -- (bm)
-		}
-	};
-	\end{feynman}
-	\end{tikzpicture}
-\end{figure}\\
-This last part happens in a split second as the collapse goes at 25\% the speed of light, 
-creating a very dense neutron star (3000km in diameter iron core to 30km in diameter neutron star) 
-and up to $10^{52}$ ultra-relativistic neutrinos, carrying up to 99\% of the
-released energy \cite{Melson_2015}\footnote{1\% is released as kinetic energy, only 0.001\% as electromagnetic radiation}.
-As the density has suddenly
-increased so much there's a huge distance of pure vaccuum between the plasma
-outer layer and the (now) neutron star, this plasma starts free-falling inwards, 
-also at 25\% the speed of light whilst the neutrinos carrying tremendous amounts 
-of energy start going outwards from the neutron stars core.
-
-The neutrinos then collide with the plasma resulting in what we observe as a "supernova", wrongly
-thought of by Kepler as being a "new (nova) star" rather being a violent death
-of an old star.
-
-This is quite unexpected as neutrinos rarely interact, they only do becouse the
-incoming plasma is so dense and due to the tremendous amount of neutrinos that 
-collissions happen at all. Some, however, escape and will be visible on earth in 
-our neutrino detectors $\approx$ 18h before the light escapes the exploding star.
-
-Neutrino observatories are thus useful to know where to point our various
-telescopes before the supernova is actually visible in the night sky.
-\subsection{primordial neutrinos}
-Aside from all the previously mentioned sources, there's also a less spectacular source of 
-neutrinos: the neutrino version of the CMB.
-We can estimate the temperature of the neutrinos who decoupled at the start of the universe, 
-for this we can take a look at conservation of entropy \cite{Dodelson}
-\begin{equation}
-	T_\nu = \left(\frac{4}{11}\right)^{1/3}T_\gamma
-\end{equation}
-\subsection{How do they fit into the full detector spectrum?}
-The origin of the most energetic cosmic rays is still not conclusively
-identified. One approach to solving this problem is \textit{multi-messenger
-astrophysics}, where several types of cosmic particles are used to identify the
-sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously
-measure gravitational waves (gravitons?) with the Einstein telescope,
-neutrino's with IceCube (or eventually RNO-G), photons with various telescopes
-and muons with a muon detector.
 \newpage
 \chapter{Radio detection of neutrinos}
 \section{Neutrino interactions in ice}
@@ -955,7 +1043,7 @@ Both cosmic ray and neutrino detectors face the same main problem at the
 highest energies: the steeply falling flux (as can be seen on figure \ref{figure:FallingFlux}) 
 requires large effective areas, which
 leads to the construction of neutrino detectors with volumes on the cubic
-kilometer scale: IceCube. As we wish to detect neutrino's with even higher
+kilometer scale: IceCube. As we wish to detect neutrinos with even higher
 energies we turn to look at an array of detectors spanning multiple cubic
 kilometers: RNO-G.
 
@@ -1426,6 +1514,7 @@ passes these detectors and only in signals coming from these particular detector
 
 
 \appendix
+\chapter{List of abbreviations}
 \chapter{Hybrid minimizer code}
 \label{chapter: Hybrid minimizer code}
 \begin{mintedbox}{python}
