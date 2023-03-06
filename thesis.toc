@@ -9,11 +9,12 @@
 \contentsline {subsection}{\numberline {2.2.4}Terrestrial anti-neutrinos}{9}{subsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.5}Reactor anti-neutrinos}{9}{subsection.2.2.5}%
 \contentsline {subsection}{\numberline {2.2.6}Background from old supernovae}{10}{subsection.2.2.6}%
-\contentsline {subsection}{\numberline {2.2.7}Atmospheric neutrinos}{10}{subsection.2.2.7}%
-\contentsline {subsection}{\numberline {2.2.8}How do they fit into the full detector spectrum?}{10}{subsection.2.2.8}%
-\contentsline {subsection}{\numberline {2.2.9}astrophysical neutrinos: general}{10}{subsection.2.2.9}%
+\contentsline {subsection}{\numberline {2.2.7}Cosmic rays}{10}{subsection.2.2.7}%
+\contentsline {subsection}{\numberline {2.2.8}Atmospheric neutrinos}{10}{subsection.2.2.8}%
+\contentsline {subsection}{\numberline {2.2.9}How do they fit into the full detector spectrum?}{10}{subsection.2.2.9}%
+\contentsline {subsection}{\numberline {2.2.10}astrophysical neutrinos: general}{10}{subsection.2.2.10}%
 \contentsline {section}{\numberline {2.3}Do neutrinos have mass?}{10}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}See-saw mechanism}{10}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}See-saw mechanism}{11}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Majorana fermions}{13}{subsection.2.3.2}%
 \contentsline {chapter}{\numberline {3}Radio detection of neutrinos}{15}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Neutrino interactions in ice}{15}{section.3.1}%
