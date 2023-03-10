@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.3)  9 MAR 2023 20:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.3)  10 MAR 2023 17:39
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1290,23 +1290,23 @@ Package pdftex.def Info: ./figures//WeatherBalloonClosePositionReconstruction.pd
 <./figures//Frequencies.pdf, id=1129, 911.75127pt x 758.91428pt>
 File: ./figures//Frequencies.pdf Graphic file (type pdf)
 <use ./figures//Frequencies.pdf>
-Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1566.
+Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1567.
 (pdftex.def)             Requested size: 227.62206pt x 189.46176pt.
 <./figures//FrequenciesDetectors.png, id=1130, 1240.635pt x 451.6875pt>
 File: ./figures//FrequenciesDetectors.png Graphic file (type png)
 <use ./figures//FrequenciesDetectors.png>
-Package pdftex.def Info: ./figures//FrequenciesDetectors.png  used on input line 1572.
+Package pdftex.def Info: ./figures//FrequenciesDetectors.png  used on input line 1573.
 (pdftex.def)             Requested size: 409.71692pt x 149.1676pt.
 [36 <./figures//GreenlandHeight.png (PNG copy)>] [37 <./figures//StartAndStop10Illu.pdf>] [38 <./figures//PathSMT_20220820_111609.pdf> <./figures//WeatherBalloonPath.png>] [39 <./figures//WeatherBalloonPositionReconstruction.pdf> <./figures//WeatherBalloonClosePositionReconstruction.pdf>]
 <./figures//InteractingWeatherBalloonPath.png, id=1255, 651.76833pt x 392.13167pt>
 File: ./figures//InteractingWeatherBalloonPath.png Graphic file (type png)
 <use ./figures//InteractingWeatherBalloonPath.png>
-Package pdftex.def Info: ./figures//InteractingWeatherBalloonPath.png  used on input line 1579.
+Package pdftex.def Info: ./figures//InteractingWeatherBalloonPath.png  used on input line 1580.
 (pdftex.def)             Requested size: 227.62206pt x 136.94298pt.
 <./figures//Events20Aug.png, id=1256, 2345.76375pt x 379.4175pt>
 File: ./figures//Events20Aug.png Graphic file (type png)
 <use ./figures//Events20Aug.png>
-Package pdftex.def Info: ./figures//Events20Aug.png  used on input line 1587.
+Package pdftex.def Info: ./figures//Events20Aug.png  used on input line 1588.
 (pdftex.def)             Requested size: 455.24411pt x 73.63005pt.
 
 
@@ -1395,7 +1395,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  83i,17n,90p,1195b,2025s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on thesis.pdf (52 pages, 5056144 bytes).
+Output written on thesis.pdf (52 pages, 5056223 bytes).
 PDF statistics:
  1490 PDF objects out of 1728 (max. 8388607)
  899 compressed objects within 9 object streams
