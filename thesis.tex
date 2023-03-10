@@ -1444,7 +1444,7 @@ angle with the detector the less accurate the plane wave reconstruction.  So
 which angles are acceptable? To determine this our method works as follows: 
 
 we vary the position of the weather balloon in the x direction (keeping the
-height constant), reconstruct the ray path and then fit n such that the
+height constant), reconstruct the ray path from channels 0 to 3 and then fit n such that the
 difference between the reconstructed angle and the direct angle is the smallest
 possible.  Then we compare the n we have fit to the one we know from the model
 at that position.  We quantise the discrepency between these two indices of
@@ -1455,24 +1455,65 @@ refraction using what we here define as the \textit{relative accuracy}:
 Carrying this out we get figure \ref{fig:EpsilonIFODirect}, i.e it gets
 exponentially less accurate as the balloon moves further away. As we wish our
 accuracy to be within 1\%, the angle the balloon makes with the detector needs
-to be less than 10°.
+to be less than 10° for the deep channels 0 to 3.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{EpsilonIFODirect.pdf}
 	\caption{Epsilon in function of the direct angle}
 	\label{fig:EpsilonIFODirect}
 \end{figure}
-An example path of a weather balloon is shown in figure
-\ref{fig:ExampleBalloonPath}, looking specifically at the height using ROOT\footnote{\url{https://root.cern/}}
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{BobsWeatherBalloonHeight.pdf}
+  \caption{Height data viewed in ROOT}
   \label{fig:BobsWeatherBalloonHeight}
 \end{figure}
+An example path of a weather balloon is shown in figure
+\ref{fig:ExampleBalloonPath}, looking specifically at the height using ROOT\footnote{\url{https://root.cern/}}
 we get what is shown in figure \ref{fig:BobsWeatherBalloonHeight}. It can be seen that the elevation varies between 3228m 
 (read the graph as: Over a 1000 data entries at that height)
-and 22755m (entries go to zero after that height). E.g our $<$10° policy would thus require for the ballon to be less
-distant than 586 meters away from the detector at the start of the measurements and less than 4029 meters away at the end.
+and 22755m (entries go to zero after that height). 
+This is relative to sea-level, looking at the height map of greenland as shown in figure \ref{fig:HeightMapGreenland}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{GreenlandHeight.png}
+  \caption{Height map of greenland}
+  \label{fig:HeightMapGreenland}
+\end{figure}
+this is obvious.  It's quite difficult to work directly with the global geographic
+coordinate system (longitudinal, latitude and elevation coordinates),
+that's why we convert them to local ENU coordinates (north, east, up) this is all
+relative to the 'DISC' which is located at 72.58279265212887 latitude,
+-38.45581495328228 longitude and 3251.9489147560234 elevation.
+
+Now what would our $<$10° policy entail? And is it even possible? 
+Say we take a look at station Terianniaq (station 12)
+it's located at 72.6000868058195° N -38.4962265332872° W.
+converting this into ENU coordinates we get -137.67250176003688N 1727.5184983294744E now our "up" is then -95.5m as this 
+is the approximate location of the middle of channels 0-3.
+Now looking at e.g the Balloon path recorded on the 20th of august 2022 (figure \ref{fig:ExampleBalloonPathCrossing12})
+we see that the balloon crosses paths with detector 12, how close was this encounter? We can just look at every data
+entry (there are $>$12000 entries) individually and compute the angle the
+balloon makes with the detector by first converting the location of the balloon
+in ENU coordinates, then calculating the horizontal distance ($\sqrt{(x-x')^2 +
+(y-y')^2}$) then the relative vertical distance $|z - z'|$ and then from those
+compute the angle ($tan(\theta) = \frac{Hor.}{Vert.}$) doing this and recording
+when the balloon gets close enought to get below the 10° mark we get figure
+\ref{fig:ExampleBalloonPathCrossing12LessThan10}. We thus see that in this example the $<10$° policy is viable.
+\begin{figure}
+  \centering
+	\includegraphics[width=0.7\textwidth]{StartAndStop10Illu.pdf}
+  \caption{Illustration of when the angle with the deep array (channels 0-3) with the weather balloon is less than 10 degrees,
+  the green mark indicates when it starts being less than 10 degrees and the red mark when it stops being less than 10 degrees.}
+  \label{fig:ExampleBalloonPathCrossing12LessThan10}
+\end{figure}
+
+\begin{figure}
+  \centering
+	\includegraphics[width=0.7\textwidth]{PathSMT_20220820_111609.pdf}
+  \caption{Path traced out by a weather balloon released at 20/08/2022}
+  \label{fig:ExampleBalloonPathCrossing12}
+\end{figure}
 \begin{figure}
   \centering
 	\includegraphics[width=0.7\textwidth]{WeatherBalloonPath.png}
@@ -1496,7 +1537,7 @@ distant than 586 meters away from the detector at the start of the measurements 
 \section{Fitting the index}
 Now that we know our goal to be feasible for angles smaller than 10 degrees, let's
 analyse the data. The positional data of the weather balloons was obtained from the \url{ftp1.esrl.noaa.gov} website using
-the rno-g-sonde script Of the official RNO-G github page. We'll be looking at the data recorded in the summer of 2022, more
+the rno-g-sonde script Of the official RNO-G github page. We'll be looking at the data recorded over the summer of 2022, more
 particularly 15/06/2022 - 30/09/2022. The detected events can be obtained from the DESY database\footnote{\url{https://rnog-monitor.zeuthen.desy.de/}}.
 
 Let's do an example rundown of how this analysis is going to go: let's start by
@@ -1504,11 +1545,36 @@ looking at the weather balloon file SMT\_20220820\_111609.root, it was recorded
 the 20th of august 2022 as can be derived from it's name, we have a
 complementary file SMT\_20220820\_111609.gpx this can be graphically displayed
 using the python module gpxplotter resulting in the trajectory shown in figure
-\ref{fig:IntWB} We can see it clearly first coming close to the station Amaroq (station 21) and subsequently very close to 
-Terianniaq (station 12), making this event usable for our analysis.
-If we take a look at this day in the event browser we see quite a lot of activity
-as is shown in figure \ref{fig:20thEvents}. We, however, are only interested in the brief timeframe where the weather balloon
-passes these detectors and only in signals coming from these particular detectors.
+\ref{fig:IntWB} We can see it clearly first coming close to the station Amaroq
+(station 21) and subsequently very close to Terianniaq (station 12), making
+this event usable for our analysis.  If we take a look at this day in the event
+browser we see quite a lot of activity as is shown in figure
+\ref{fig:20thEvents}. We, however, are only interested in the brief timeframe
+where the weather balloon passes these detectors closely and only in signals coming
+from these particular detectors. Let's do the analysis previously described
+to find when the angle the detector makes (at -95.5m depth) with the Balloon
+is less than 10° and record the timestamps, if we do this we'll find that 
+we'll need to look inbetween 11:24:02 and 11:26:23. This seems to be within
+run 528 as it runs from 10:45 till 12:45. If we now take a look at the file 
+SMT\_20220820\_111609.root with ROOT we can see that the balloon sends out signals at
+a frequency of 403 as shown in figure \ref{fig:BalloonFreq}, if we now take a
+look at event 1981 in run 528 which was recorded at 20/08/2022 11:25:51 we see
+the spectrum shown in figure \ref{fig:DetectorFreq} which shows a spike at 403MHz for the surface
+detectors.
+Let's now go through all the different files and see in which ones the Balloon gets close "enough"
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{Frequencies.pdf}
+  \caption{Frequencies sent out by the weather balloon}
+  \label{fig:BalloonFreq}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{FrequenciesDetectors.png}
+  \caption{Frequencies received by the various detectors}
+  \label{fig:DetectorFreq}
+\end{figure}
+
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{InteractingWeatherBalloonPath.png}

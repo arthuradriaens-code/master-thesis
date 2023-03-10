@@ -33,6 +33,6 @@
 \contentsline {chapter}{\numberline {6}Weather Balloon}{31}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Plane Wave Reconstruction}{31}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Is the goal feasible?}{34}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Fitting the index}{35}{section.6.3}%
-\contentsline {chapter}{\numberline {A}List of abbreviations}{39}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Hybrid minimizer code}{40}{appendix.B}%
+\contentsline {section}{\numberline {6.3}Fitting the index}{36}{section.6.3}%
+\contentsline {chapter}{\numberline {A}List of abbreviations}{42}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Hybrid minimizer code}{43}{appendix.B}%
