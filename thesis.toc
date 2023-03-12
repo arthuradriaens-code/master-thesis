@@ -11,28 +11,30 @@
 \contentsline {subsection}{\numberline {2.2.6}Background from old supernovae}{10}{subsection.2.2.6}%
 \contentsline {subsection}{\numberline {2.2.7}Cosmic rays}{10}{subsection.2.2.7}%
 \contentsline {subsection}{\numberline {2.2.8}Atmospheric neutrinos}{10}{subsection.2.2.8}%
-\contentsline {subsection}{\numberline {2.2.9}How do they fit into the full detector spectrum?}{10}{subsection.2.2.9}%
-\contentsline {subsection}{\numberline {2.2.10}astrophysical neutrinos: general}{10}{subsection.2.2.10}%
-\contentsline {section}{\numberline {2.3}Do neutrinos have mass?}{10}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}See-saw mechanism}{11}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Majorana fermions}{13}{subsection.2.3.2}%
-\contentsline {chapter}{\numberline {3}Radio detection of neutrinos}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Neutrino interactions in ice}{15}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Askaryan effect}{16}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Wave propagation}{17}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Ice model}{18}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Reconstruction}{18}{section.3.5}%
-\contentsline {chapter}{\numberline {4}The Detector}{19}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{24}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Shortcomings of the exponential ice model}{24}{section.5.1}%
-\contentsline {section}{\numberline {5.2}How it works}{24}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Performance Optimalisation}{26}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Length of the normal vector}{26}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}ztol}{26}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Sphere Size \& Step Size}{27}{subsection.5.3.3}%
-\contentsline {chapter}{\numberline {6}Weather Balloon}{31}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Plane Wave Reconstruction}{31}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Is the goal feasible?}{34}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Fitting the index}{36}{section.6.3}%
-\contentsline {chapter}{\numberline {A}List of abbreviations}{42}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Hybrid minimizer code}{43}{appendix.B}%
+\contentsline {subsection}{\numberline {2.2.9}neutrinos from AGNs}{10}{subsection.2.2.9}%
+\contentsline {subsection}{\numberline {2.2.10}Cosmogenic neutrinos}{11}{subsection.2.2.10}%
+\contentsline {subsection}{\numberline {2.2.11}How do they fit into the full detector spectrum?}{11}{subsection.2.2.11}%
+\contentsline {subsection}{\numberline {2.2.12}astrophysical neutrinos: general}{11}{subsection.2.2.12}%
+\contentsline {section}{\numberline {2.3}Do neutrinos have mass?}{11}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}See-saw mechanism}{12}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Majorana fermions}{14}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Radio detection of neutrinos}{16}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Neutrino interactions in ice}{16}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Askaryan effect}{17}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Wave propagation}{18}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Ice model}{19}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Reconstruction}{19}{section.3.5}%
+\contentsline {chapter}{\numberline {4}The Detector}{20}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Shortcomings of the exponential ice model}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}How it works}{25}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Performance Optimalisation}{27}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Length of the normal vector}{27}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}ztol}{27}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Sphere Size \& Step Size}{28}{subsection.5.3.3}%
+\contentsline {chapter}{\numberline {6}Weather Balloon}{32}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Plane Wave Reconstruction}{32}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Is the goal feasible?}{35}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Fitting the index}{37}{section.6.3}%
+\contentsline {chapter}{\numberline {A}List of abbreviations}{43}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Hybrid minimizer code}{44}{appendix.B}%
