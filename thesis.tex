@@ -536,127 +536,22 @@ measure gravitational waves (gravitons?) with the Einstein telescope,
 neutrinos with IceCube (or eventually RNO-G), photons with various telescopes
 and muons with a muon detector.
 
-\subsection{astrophysical neutrinos: general}
-As cosmic rays get accelerated they will occasionally interact with matter
-and photon fields near the source. These will then produce new particles,
-of which the most common is pions due to their low mass (a lot of available 
-phase space). Pions can decay
-into neutrinos as follows:
-\begin{eqnarray}
-	\pi^- &\rightarrow \mu^- + \bar{\nu}_\mu \rightarrow e^- + \bar{\nu}_e + \nu_\mu + \bar{\nu}_\mu\\
-	\pi^+ &\rightarrow \mu^+ + \nu_\mu \rightarrow e^+ + \nu_e + \bar{\nu}_\mu + \nu_\mu
-\end{eqnarray}
-Another possibility is direct production of neutrinos at the source, of which Supernovae are
-a prime example:
-
-\section{Do neutrinos have mass?}
-Now the question remains, how do neutrinos get their mass (theoretically)?
-\subsection{See-saw mechanism}
-We can give neutrinos mass as with any other spinor throught Yukawa couplings and an extra term:
+\section{Current research}
+There are still a lot of unknowns concerning neutrinos, of which the most prominent questions
+are "How do neutrinos get their mass? (theoretically)" and "are neutrinos Majorana?".
+\subsection{Mass}
+As neutrinos oscillate they must have mass, the currently most exciting theory to 
+explain the origins of this mass is the \textit{See-Saw mechanism} here mass is given
+via a simple Yukawa coupling:
 \begin{equation}
 	\mathcal{L} = i\bar{\nu}\slashed{\partial}\nu - m\bar{\psi}\nu - \frac{M}{2} (\bar{\nu}_R\nu_{Rc} + \bar{\nu}_{Rc}\nu_R)
 \end{equation}
-More general, given a spinor $\psi$ with the following Lagrange density:
-\begin{equation}
-	\mathcal{L} = i\bar{\psi}\slashed{\partial}\psi - m\bar{\psi}\psi - \frac{M}{2} (\bar{\psi}_R\psi_{Rc} + \bar{\psi}_{Rc}\psi_R)
-\end{equation}
-We can re-write this Lagrangian in terms of
+The exciting part about this theory however is that you can re-write this with
 \begin{align}
 	\chi &:= \frac{1}{\sqrt{2}} (\psi_R + \psi_{Rc})\\
 	\omega &:= \frac{1}{\sqrt{2}} (\psi_L + \psi_{Lc})
 \end{align}
-by first identifying that
-\begin{equation}
-	- \frac{M}{2} (\bar{\psi}_R\psi_{Rc} + \bar{\psi}_{Rc}\psi_R)
-\end{equation}
-is equal to
-\begin{equation}
-	-M\bar{\chi} \chi = -\frac{M}{2} (\bar{\psi}_R + \bar{\psi}_{Rc}) (\psi_R + \psi_{Rc}) = -\frac{M}{2} (\bar{\psi}_R\psi_{Rc} + \bar{\psi}_{Rc}\psi_R)
-\end{equation}
-Where we've used
-\begin{equation}
-	\bar{\psi}_R\psi_{R} \equiv \psi_R^\dagger\gamma^0\psi_{R} \equiv P_R\psi^\dagger\gamma^0P_R\psi = P_RP_L\psi^\dagger\gamma^0\psi = 0
-\end{equation}
-And next that in
-\begin{equation}
-	i\bar{\psi}\slashed{\partial}\psi - m\bar{\psi}\psi = i\bar{\psi}_R\slashed{\partial}\psi_{R} + i\bar{\psi}_L\slashed{\partial}\psi_{L} - m\bar{\psi}_R\psi_{L} - m\bar{\psi}_L\psi_{R}
-\end{equation}
-We can identify that
-\begin{align}
-	\bar{\chi}\slashed{\partial}\chi &= \frac{1}{2}(\bar{\psi}_R\slashed{\partial}\psi_{R} + \bar{\psi}_{Rc}\slashed{\partial}\psi_{Rc}) = \bar{\psi}_R \slashed{\partial} \psi_{R}\\
-	\bar{\omega}\slashed{\partial}\omega &= \bar{\psi}_L \slashed{\partial} \psi_{L}
-\end{align}
-Where we've done an integration by parts and used $\bar{\psi}_c\gamma_\mu\chi_c = -\bar{\chi}\gamma_\mu\psi$. We thus get:
-\begin{equation}
-	\mathcal{L} = i\bar{\chi}\slashed{\partial}\chi +i\bar{\omega}\slashed{\partial}\omega - m\bar{\psi}_R\psi_{L} - m\bar{\psi}_L\psi_{R} -M\bar{\chi} \chi 
-\end{equation}
-And finally we notice that
-\begin{align}
-	\bar{\chi}\omega &= \frac{1}{2} \left(\bar{\psi}_R\psi_L + \bar{\psi}_R\psi_{Lc} + \bar{\psi}_{Rc}\psi_{L} + \bar{\psi}_{Rc}\psi_{Lc}\right)\\
-	&=  \frac{1}{2} \left(\bar{\psi}_R\psi_L + \bar{\psi}_R\psi_{Lc} + \bar{\psi}_{Rc}\psi_{L} + \bar{\psi}_{L}\psi_{R}\right)\\
-	\bar{\omega}\chi &= \frac{1}{2} \left(\bar{\psi}_L \psi_{R} + \bar{\psi}_{Lc}\psi_{R} + \bar{\psi}_L\psi_{Rc} + \bar{\psi}_{Lc}\psi_{Rc}\right)\\
-	&= \frac{1}{2} \left(\bar{\psi}_L \psi_{R} + \bar{\psi}_{Lc}\psi_{R} + \bar{\psi}_L\psi_{Rc} + \bar{\psi}_{R}\psi_{L}\right)
-\end{align}
-As $\bar{\psi}_c\chi_c = \bar{\chi}\psi$. Summing these, we get:
-\begin{align}
-	\bar{\chi}\omega + \bar{\omega}\chi &= \bar{\psi}_L \psi_R + \bar{\psi}_R \psi_{L}\\
-	&\quad + \frac{1}{2}\left(\bar{\psi}_R\psi_{Lc} + \bar{\psi}_{Rc} \psi_{L} + \bar{\psi}_{Lc}\psi_R + \bar{\psi}_L\psi_{Rc}\right)\\
-	&= \bar{\psi}_L \psi_R + \bar{\psi}_R \psi_{L}
-\end{align}
-Where we've used the handedness flips a charge conjugation entails, at last we now have:
-\begin{equation}
-	\mathcal{L} = i\bar{\chi}\slashed{\partial}\chi +i\bar{\omega}\slashed{\partial}\omega - m(\bar{\chi}\omega + \bar{\omega}\chi) -M\bar{\chi} \chi 
-\end{equation}
-Now to determine the mass eigenstates we'll re-write this equation into the form
-\begin{equation}
-	\mathcal{L} = i\bar{\chi}\slashed{\partial}\chi +i\bar{\omega}\slashed{\partial}\omega 
-	-\left(\begin{array}{cc}
-		\bar{\chi} &\bar{\omega}
-	\end{array}\right)\cdot
-	\left(\begin{array}{cc}
-		M & m \\
-		m & 0
-	\end{array}\right) \cdot \left(\begin{array}{c}
-	\chi \\ \omega
-\end{array}\right)
-\end{equation}
-lets now find the eigenvalues:
-\begin{equation}
-	\left| \begin{array}{cc}
-		M-\lambda & m \\
-		m & -\lambda
-	\end{array} \right| = (\lambda-M)\lambda - m^2 = 0 \implies \lambda_\pm  = \frac{M\pm \sqrt{M^2 + 4m^2}}{2} \label{eigenvalues}
-\end{equation}
-i.e
-\begin{equation}
-	\lambda_\pm = \frac{M}{2}\left( 1 \pm \sqrt{1 + 4m^2/M^2}\right)
-\end{equation}
-Now we'll determine the eigenvectors:
-\begin{equation}
-\left[\begin{array}{cc}
-	M-\lambda_\pm & m \\
-	m & -\lambda_\pm
-\end{array}\right] \left(\begin{array}{c}
-x_\pm \\
-y_\pm
-\end{array}\right) = \vec{0}
-\end{equation}
-this gives
-\begin{align}
-	Mx_\pm - \lambda_\pm x_\pm + my_\pm &= 0\\
-	m x_\pm - \lambda_\pm y_\pm &= 0 \implies \frac{m x_\pm}{\lambda_\pm} = y_\pm
-\end{align}
-inserting the second equation in the first we get:
-\begin{align}
-	Mx_\pm - \lambda_\pm x_\pm + m \frac{m x_\pm}{\lambda_\pm} = 0 &= M\lambda_\pm x_\pm - \lambda_\pm^2 x_\pm + m^2 x_\pm\\
-	&= x_\pm(\lambda_\pm^2 -M\lambda_\pm + m^2)
-\end{align}
-which is true for every $x_\pm$ (see equation \ref{eigenvalues}) i.e we can freely choose $x_\pm$ so let's opt for $x_\pm^2 + y_\pm^2 = 1$:
-\begin{align}
-	x_\pm^2(1+\frac{m^2}{\lambda_\pm^2}) = 1 \implies x^2_\pm = \frac{1}{1+\frac{m^2}{\lambda_\pm^2}} \implies x_\pm &= \frac{\lambda_\pm}{\sqrt{\lambda_\pm^2 + m^2}}\\
-	\& \quad y_\pm &= \frac{m}{\sqrt{\lambda_\pm^2 + m^2}}
-\end{align}
-And thus, summing up, we get the eigenvectors $\phi_\pm$ with eigenvalues $m_\pm$:
+And after some math find that you'll get the eigenvectors $\phi_\pm$ with eigenvalues $m_\pm$:
 \begin{equation}
 	\phi_\pm := \left(\begin{array}{c}
 		x_\pm\\
@@ -666,11 +561,11 @@ And thus, summing up, we get the eigenvectors $\phi_\pm$ with eigenvalues $m_\pm
 		\frac{m}{\sqrt{\lambda_\pm^2 + m^2}}
 	\end{array}\right) \quad \text{ and }\quad m_\pm := \lambda_\pm =  \frac{M}{2}\left( 1 \pm \sqrt{1 + 4m^2/M^2}\right)
 \end{equation}
-Now we'll consider the limit $M \gg m$:
+Now in the limit $M \gg m$:
 \begin{equation}
 	m_\pm =  \frac{M}{2}\left( 1 \pm \sqrt{1 + 4m^2/M^2}\right) \approx \frac{M}{2}\left(1\pm1\pm\frac{2m^2}{M^2}\right)
 \end{equation}
-Which gives:
+You get:
 \begin{align}
 	m_+ &\approx M\\
 	m_- &\approx -\frac{m^2}{M}
@@ -697,9 +592,7 @@ i.e, in the $\chi,\omega$ basis:
 	m_+\approx M \quad &\text{with eigenstate} \quad \chi + \frac{m}{M}\omega\\
 	m_-\approx -\frac{m^2}{M} \quad &\text{with eigenstate} \quad  \omega - \frac{m}{M}\chi\\
 \end{align}
-This is what's called the See-Saw mechanism, it's both a theory of giving mass to
-neutrinos and explaining their small mass.  
-For a certain $m$ if we choose a big $M$ we'll
+This is why it's called the  See-Saw mechanism : For a certain $m$ if we choose a big $M$ we'll
 get a big $m_+$ and small $m_-$ (and vice versa). We also see that there's only
 a very small mixing of states, i.e the $m_-$ mass state is almost purely
 $\omega$ (and $m_+$ almost purely $\chi$). The parameter $m$ in the original
@@ -715,10 +608,10 @@ which seems \cite{neutrino-mass} to be a reasonable order of magnitude estimate 
 mass.
 This mechanism would also lead to supermassive neutrinos, which are a possible dark matter
 candidate.
-\subsection{Majorana fermions}
+\subsection{Majorana}
 A theory that's also quite interesting is that
-neutrinos are majorana,
-a dirac fermion has the following density:
+neutrinos are majorana, meaning that they are their own anti-particle.
+A dirac fermion has the following density:
 \begin{align}
   \mathcal{L} &= i\bar{\psi}\slashed{\partial}\psi - m\bar{\psi}\psi\\
               &= i\bar{\psi}_L\slashed{\partial}\psi_L + i\bar{\psi}_R\slashed{\partial}\psi_R - m\bar{\psi}_R\psi_L - m\bar{\psi}_L\psi_R
@@ -732,22 +625,13 @@ A majorana fermion is a fermion which is it's own anti-particle, i.e:
 \begin{align}
   \chi = \frac{1}{\sqrt{2}}\left( \psi_R + \psi_{Rc}  \right) = \chi_c
 \end{align}
-With this we have that
-\begin{equation}
-  \bar{\chi}\chi = \frac{1}{2}\left(\bar{\psi}_R\psi_{Rc} + \bar{\psi}_{Rc}\psi_R\right)
-\end{equation}
-Which we can recognize in \ref{eqn:right-handed} and
-\begin{align}
-  \bar{\chi}\slashed{\partial}\chi &= \frac{1}{2}(\bar{\psi}_R + \bar{\psi}_{Rc}) \slashed{\partial}(\psi_R + \psi_{Rc})\\
-                                   &= \frac{1}{2} \bar{\psi}_R\slashed{\partial}\psi_R + \frac{1}{2}\bar{\psi}_{Rc}\slashed{\partial}\psi_{Rc}\\
-                                   &= \bar{\psi}_R \slashed{\partial}\psi_R
-\end{align}
-where we've used integration by parts at the end, with these we can re-write \ref{eqn:right-handed} as:
+With these we can re-write \ref{eqn:right-handed} as:
 \begin{equation}
   \mathcal{L} = i\bar{\chi}\slashed{\partial}\chi - M \bar{\chi}\chi
 \end{equation}
-Thus arriving at a density for Majorana fermions with mass M, a possible detection mechanism
-to find out if neutrinos are Majorana is "Neutrinoless double beta decay":
+Thus arriving at a density for Majorana fermions with mass M, this would be an exciting property
+for neutrinos as it would lead to the possibility of
+\textit{Neutrinoless double beta decay}:
 \begin{figure}[h!]
 	\begin{minipage}{\textwidth}
 		\begin{minipage}{0.49\textwidth}
@@ -840,7 +724,6 @@ to find out if neutrinos are Majorana is "Neutrinoless double beta decay":
 	\end{minipage}
 	\caption{normal and neutrinoless double beta decay}
 \end{figure}\\
-This is (at the time of writing) actively investigated.
 \newpage
 \chapter{Radio detection of neutrinos}
 \section{Neutrino interactions in ice}
