@@ -172,9 +172,12 @@ All simulations carried out within this work were made with the three programs
 	\item RadioPropa
 \end{itemize}
 whom are free to download on \href{https://github.com/nu-radio}{github}.
-The projects built over the course of this thesis were the "Hybrid minimizer": a new
-algorithm for finding the path of a neutrino interaction to the detector in complex ice models
-and (...)
+This masters thesis consists of two major parts, first off a new algorithm called the
+\textit{Hybrid minimizer} was built. This is an algorithm for finding the path(s)
+of a neutrino interaction to the detector in complex ice models.
+Second off an indirect measurement was done of the index of refraction around the 
+deep components of the detector using both weather balloon gps data and detector responses.
+\newpage
 \section*{Nederlands}
 De \textit{Radio Neutrino Observatory in Greenland} - RNO-G - is een detector die momenteel onder constructie is
 in Groenland. Deze detector heeft als doel het vinden van neutrinos met energieën van enkele PeV
@@ -188,10 +191,15 @@ Alle simulaties werden mogelijk gemaakt door de volgende programmas:
 	\item RadioPropa
 \end{itemize}
 Dewelke te downloaden zijn op \href{https://github.com/nu-radio}{github}
-De projecten die tot completie zijn gebracht over deze master thesis waren de
-\textit{Hybrid minimizer}: een algoritme gemaakt met als doel het snel vinden van
-een pad vanuit de interactievertex tot de detector in complexe ijsmodellen en
-(...)
+Deze master thesis is opgebouwd uit 2 delen: Het bouwen van een algoritme en
+indirecte metingen gebruik makende van gemeten weerballon data.
+Het algoritme dat gebouwd werd in de eerste helft van het jaar was de \textit{Hybrid minimizer}: een algoritme gemaakt met als doel het snel vinden van
+een pad vanuit een radio bron vertex (bv neutrino interactie) 
+tot de detector in complexe ijsmodellen.
+De indirecte metingen werden verwerkt in de tweede helft van het academiejaar, hier 
+werd gebruik gemaakt van de locatie-info van de weerballon en de response van de detectors
+om een schatting te maken van de index van refractie lokaal aan de verscheidene channels
+van de detectoren.
 % =====================================================================
 \chapter{Neutrinos}
 %\includegraphics[width=0.5\textwidth]{standard_model.png}
@@ -369,8 +377,8 @@ builds up the outside pressure from the core starts to decrease as no new
 energy is released. This goes on until  the treshold of an iron core with a mass of 1.4$M_\odot$ known as the 
 Chandrasekhar limit and the the inwards pressure becomes too large, making the
 electrons surrounding the iron core fuse with the protons (uud),  creating
-neutrons (udd) and neutrinos, diagramatically:
-\begin{figure}[!ht]
+neutrons (udd) and neutrinos, diagramatically shown in figure \ref{fig:CoreFusion}.
+\begin{figure}
 	\centering
 	\begin{tikzpicture}
 	\begin{feynman}
@@ -393,6 +401,8 @@ neutrons (udd) and neutrinos, diagramatically:
 	};
 	\end{feynman}
 	\end{tikzpicture}
+	\caption{fusion of protons with surrounding electrons into neutrons via the weak force}
+	\label{fig:CoreFusion}
 \end{figure}\\
 This last part happens in a split second as the collapse goes at 25\% the speed
 of light, creating a very dense neutron star (3000km in diameter iron core to
@@ -409,7 +419,7 @@ The neutrinos then collide with the plasma resulting in what we observe as a
 "supernova", wrongly thought of by Kepler as being a "new (nova) star" rather
 being a violent death of an old star.
 
-This is quite unexpected as neutrinos rarely interact, they only do becouse the
+This is quite unexpected as neutrinos rarely interact, it's only as the
 incoming plasma is so dense and due to the tremendous amount of neutrinos that
 collissions happen at all. Some, however, escape and will be visible on earth
 in our neutrino detectors $\approx$ 18h before the light escapes the exploding
@@ -897,6 +907,7 @@ follows: generally the shower is of length
 $\mathcal{O}$(10cm)\cite{Huege_2017}, over this length the radiation gets
 emitted, most frequencies decoherently interfering, but radio waves with wavelengths of 
 $\approx$ 10cm coherently interfere, and it's these waves we then wish to detect.
+\section{Polarization}
 \section{Wave propagation}
 Waves propagating through ice to a detector generally looks something like this:
 \begin{figure}[h!]
@@ -989,47 +1000,68 @@ in a database.  If we then detect a neutrino event in the real
 detector it can be compared to the database, thus finding the
 origin.
 \chapter{The Detector}
-\begin{figure}
-	\centering
-	\copyrightbox[r]{\includegraphics[height = 0.3\textheight]{cosmic_ray_flux.pdf}}{\textcopyright Cosmic rays and particle physics by Caiser, Engel and Resconi}
-	\caption{Falling cosmic ray flux with energy}
-	\label{figure:FallingFlux}
-\end{figure}
 Both cosmic ray and neutrino detectors face the same main problem at the
-highest energies: the steeply falling flux (as can be seen on figure \ref{figure:FallingFlux}) 
-requires large effective areas, which
-leads to the construction of neutrino detectors with volumes on the cubic
-kilometer scale: IceCube. As we wish to detect neutrinos with even higher
-energies we turn to look at an array of detectors spanning multiple cubic
-kilometers: RNO-G.
+highest energies: the steeply falling flux (as was previously discussed in
+chapter 2) requires large effective areas, which leads to the construction of
+neutrino detectors with volumes on the cubic kilometer scale: IceCube. 
+But even IceCube has it's limitations, it's still too small to observe neutrino
+events above the PeV scale, that's why a new detector was needed which was even bigger.
+We could just make IceCube bigger but this would cost a lot of money as the individual
+detectors need to be spaced closely as IceCube works in the visible spectrum
+for which the attenuation length is quite short. The solution is thus to work with
+radiowave detectors, as was previously explained neutrinos emit quite a lot of radiowaves
+due to the Askaryan effect. Besides this radiowaves can also propagate way further in ice
+than visible light making it possible to space the individual detectors further apart.
+
+Thus the proposal for RNO-G was made, it was funded and here we are.  RNO-G is
+an array of autonomous radio stations each of which having both surface
+channels and various deep channels resulting in a total of 24 channels per
+station. The whole project builds heavily on the knowledge obtained through
+previous neutrino detectors like ARA, RICE and ARIANNA experiments, as well as
+the balloon-borne ANITA experiment.
 
 One such detector is illustrated in figure \ref{fig:detector}.
+Just below the surface are 9 Log Periodic Dipole Antennas (LPDAs),
+these are used to detect muon signals as muons will also generate 
+cherencov radiation in the ice those signals can then be filtered out.
+The deep component of the detector can be split up in three parts: Two
+\textit{helper strings} and the \textit{power string}.
 
-The deep component of the detector can be split up in three parts: Two \textit{helper strings}, one \textit{power string} and the surface components. The helper strings are the 2 vertical cables shown on the right of the figure and each one houses 2 vertically polarized antennas (Vpols), one quadslot antenna for the horizontal polarization component (Hpol) and one radio pulser on each helper string which can be used to generate calibration signals.
+The helper strings are the 2 vertical cables shown on the right of the figure
+each housing 2 vertically polarized antennas (Vpols), one quadslot
+antenna for the horizontal polarization component (Hpol) and one radio pulser
+on each helper string which can be used to generate calibration signals.
+As was mentioned in the previous chapter the polarization can be used
+to distinguish between 2 possible cherenkov cones generating the same resulting
+pulse.
 
-The power string (the leftmost vertical cable) is more densely instrumented: At the bottom it houses a set of four Vpol and two Hpol antennas with a spacing of 1m and further up the string, with a spacing of 20m are three more Vpol antennas.
+The power string (the leftmost vertical cable) is more densely instrumented: At
+the bottom it houses a set of four Vpol and two Hpol antennas with a spacing of
+1m and further up the string, with a spacing of 20m are three more Vpol
+antennas.
 
-The signal from each of these antennae are fed into a low-noise amplifier directly above it, from there the signal is send to the data acquisition (DAQ) system at the surface via a Radio Frequency over Fiber (RFoF) cable. There it's again amplified, digitized and saved onto an SD card. This data is then transmitted via a Long Term Evolution (LTE) telecommunications network to a local server\footnote{There is additionally a Long Range Wide Area Network (LoRaWAN) antenna as backup in case of problems with the LTE network}, from where it is sent via a sattelite link.
+The signal from each of these antennae are fed into a low-noise amplifier
+directly above it, from there the signal is send to the data acquisition (DAQ)
+system at the surface via a Radio Frequency over Fiber (RFoF) cable. There it's
+again amplified, digitized and saved onto an SD card. This data is then
+transmitted via a Long Term Evolution (LTE) telecommunications network to a
+local server\footnote{There is additionally a Long Range Wide Area Network
+(LoRaWAN) antenna as backup in case of problems with the LTE network}, from
+where it is sent via a sattelite link.
 
-There are solar panels as a power source who charge up battery banks, but as there is't enough light during the Greenland winters, there're plans to build wind turbines (with the problem being the possibly detectable RF noise the 'engine' produces)
+There are solar panels as a power source who charge up battery banks, but as
+there is't enough light during the Greenland winters, there're plans to build
+wind turbines (with the problem being the possibly detectable RF noise the
+'engine' would produce).
 
 \begin{figure}
-	\includegraphics[width=0.9\textwidth]{figures/detector.pdf}	
+	\centering
+	\includegraphics[height=0.9\textheight]{figures/detector.pdf}	
 	\caption{illustration of the detector}
 	\label{fig:detector}
 \end{figure}
-\newpage
-The radio signal from a neutrino often travels along both direct and refracted paths (designated DnR) to the deep array, this happens because the upper ice layer is a non-uniform medium where the signal trajectory is bent, as illustrated by a simulation in figure \ref{fig:path_illustration}. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{figures/path_illustration.png}	
-	\caption{illustration of a neutrino signal path, the neutrino interaction 
-	being located at (0,-100) and the detector at (90,-7)}
-	\label{fig:path_illustration}
-\end{figure}
-
-
+As was previously explained the radio signal from a neutrino often travels
+along both direct and refracted paths (designated DnR) to the deep array. 
 This double pulse characteristic would be a smoking-gun signature of an in-ice
 source. The two helper strings are needed for a full direction reconstruction.
 Three independent measurements are needed for azimuthal information, which is

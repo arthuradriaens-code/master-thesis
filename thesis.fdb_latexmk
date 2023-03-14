@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex thesis"] 1678723038 "thesis.aux" "thesis.bbl" "thesis" 1678723267
+["bibtex thesis"] 1678726740 "thesis.aux" "thesis.bbl" "thesis" 1678726747
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "sources.bib" 1678705171 12479 248f9c40d18b1e66ead9e503e4a75bc1 ""
-  "thesis.aux" 1678723266 17730 4a4c2d8ac78357fb9827f96ac4613d01 "pdflatex"
+  "thesis.aux" 1678726747 17510 e5179920106f4341bf99fabb3f49a92c "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1678723260 "thesis.tex" "thesis.pdf" "thesis" 1678723267
+["pdflatex"] 1678726740 "thesis.tex" "thesis.pdf" "thesis" 1678726747
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1650183167 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -301,7 +301,6 @@
   "figures//WeatherBalloonPositionReconstruction.pdf" 1678093799 15811 7adfe1909e069788d6ca73a18d37e5b4 ""
   "figures//algoillu.pdf" 1677579297 7218 2eada6ff10f9f9761984dc5e77c24ef6 ""
   "figures//begin_explanation.png" 1677579297 215711 09f258ee07c8c0e104d2fe17083b846b ""
-  "figures//cosmic_ray_flux.pdf" 1677169169 57698 6b51ed87f598002176618751dfa324a7 ""
   "figures//detector-illustration2.png" 1677169169 46028 69e8e4b6007d33708a5c314543f9118a ""
   "figures//neutrinofluxes.pdf" 1678095338 74096 843dd841a86692cde02059de754a5792 ""
   "figures//planewave.pdf" 1677169361 6660 a7e64a18cb1c4323498c0df09bc9c779 ""
@@ -317,15 +316,14 @@
   "figures/detector.pdf" 1677169169 778788 c084872b5cecd42c516b47dc76654901 ""
   "figures/hybrid_comparison_N_1000.pdf" 1677169169 18268 805de0864666b93b3eea56a0d4276162 ""
   "figures/iterative_comparison_N_1000.pdf" 1677169169 18468 4b9283e2de22aeed3ac1fa12cf90341f ""
-  "figures/path_illustration.png" 1677169169 74621 382a15564b39495510a3e41dcf539e81 ""
   "figures/station-map.png" 1677169169 460566 edfcbb53f60c18b413484a25298ddc83 ""
   "figures/subplotofallstepsphere.pdf" 1677169169 25926 2bedb96184d9e879901f92694ef89727 ""
-  "thesis.aux" 1678723266 17730 4a4c2d8ac78357fb9827f96ac4613d01 "pdflatex"
-  "thesis.bbl" 1678723038 5301 17d1f0f4e5cca9db13dd154751ecabf6 "bibtex thesis"
-  "thesis.listing" 1678723266 12774 fa2f7f249610dd0e12edd03479fd6289 "pdflatex"
-  "thesis.out" 1678723266 5883 5054465cee15b7e708fbc3ada028698a "pdflatex"
-  "thesis.tex" 1678723259 88583 cd2a833fdca076a0f19537cc0c6b366c ""
-  "thesis.toc" 1678723266 3191 8144e3b450216238949c94c0a5017be2 "pdflatex"
+  "thesis.aux" 1678726747 17510 e5179920106f4341bf99fabb3f49a92c "pdflatex"
+  "thesis.bbl" 1678726740 5301 17d1f0f4e5cca9db13dd154751ecabf6 "bibtex thesis"
+  "thesis.listing" 1678726746 12774 fa2f7f249610dd0e12edd03479fd6289 "pdflatex"
+  "thesis.out" 1678726747 5998 7eda719e3a2b114afc30c4f87bc69a53 "pdflatex"
+  "thesis.tex" 1678726727 90003 96f17f89d35c08aadb8ac0f58235c647 ""
+  "thesis.toc" 1678726747 3264 89f4de7f4a706f2834739685b7feabfd "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.listing"
