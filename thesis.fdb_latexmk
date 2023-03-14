@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex thesis"] 1678726740 "thesis.aux" "thesis.bbl" "thesis" 1678726747
+["bibtex thesis"] 1678797494 "thesis.aux" "thesis.bbl" "thesis" 1678797501
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "sources.bib" 1678705171 12479 248f9c40d18b1e66ead9e503e4a75bc1 ""
-  "thesis.aux" 1678726747 17510 e5179920106f4341bf99fabb3f49a92c "pdflatex"
+  "thesis.aux" 1678797501 17983 f0d0501bebb28e974388b4723a919f7b "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1678726740 "thesis.tex" "thesis.pdf" "thesis" 1678726747
+["pdflatex"] 1678797494 "thesis.tex" "thesis.pdf" "thesis" 1678797501
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1650183167 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -272,8 +272,8 @@
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1650183167 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1650183167 56029 3f7889dab51d620aa43177c391b7b190 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1670510018 4408072 42ceaa83bae76aebad711d3f3dd7f55f ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1670510008 2927665 eb28d2c44a8820189acd6c5297edd6e9 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1678788996 4408072 42ceaa83bae76aebad711d3f3dd7f55f ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1678788956 2927658 748ccefff2a4bd3a57dfa712138675d5 ""
   "_minted-thesis/C191E2975EEE774087194FBA64B507A40F797E22429BB5A758097AEB8DC94FDC.pygtex" 1678093799 400 b0cbac3c94adb495dbafdae035215f40 ""
   "_minted-thesis/FA2F7F249610DD0E12EDD03479FD62890F797E22429BB5A758097AEB8DC94FDC.pygtex" 1677579297 32775 b08150957607984672a34412d3561ca6 ""
   "_minted-thesis/default.pygstyle" 1677579297 6365 683ea4fd81022f120108d52c508c17f9 ""
@@ -285,6 +285,7 @@
   "figures//Cherenkov-reactor.jpg" 1677169169 108711 d3a412a6dc3f37b367555fc2196145f5 ""
   "figures//Cherenkov.pdf" 1677169169 45214 34dfd1b8635b79c5540726f76c577b1a ""
   "figures//EpsilonIFODirect.pdf" 1678093799 22339 556a5150f54fc466925fe5e559eb8788 ""
+  "figures//EpsilonIFODirectSnell.pdf" 1678725800 22073 8be6cbc71288da24501d3127b19f5403 ""
   "figures//Events20Aug.png" 1678093799 134755 64861d1297ad9c03640c85b1a1d69e7b ""
   "figures//Frequencies.pdf" 1678705171 46105 3407f4f35a6791829f41ebf391b53c92 ""
   "figures//FrequenciesDetectors.png" 1678705171 92051 bf0cce64486432cf60b488e4fe1062a1 ""
@@ -302,6 +303,7 @@
   "figures//algoillu.pdf" 1677579297 7218 2eada6ff10f9f9761984dc5e77c24ef6 ""
   "figures//begin_explanation.png" 1677579297 215711 09f258ee07c8c0e104d2fe17083b846b ""
   "figures//detector-illustration2.png" 1677169169 46028 69e8e4b6007d33708a5c314543f9118a ""
+  "figures//illu_polarization.pdf" 1678788565 1516 37ca8a0b96c71d20b2d815ba10aacf98 ""
   "figures//neutrinofluxes.pdf" 1678095338 74096 843dd841a86692cde02059de754a5792 ""
   "figures//planewave.pdf" 1677169361 6660 a7e64a18cb1c4323498c0df09bc9c779 ""
   "figures//weerballontraject.pdf" 1678093799 16387 2eaf757e2963a73e843930b52ccf4206 ""
@@ -318,12 +320,12 @@
   "figures/iterative_comparison_N_1000.pdf" 1677169169 18468 4b9283e2de22aeed3ac1fa12cf90341f ""
   "figures/station-map.png" 1677169169 460566 edfcbb53f60c18b413484a25298ddc83 ""
   "figures/subplotofallstepsphere.pdf" 1677169169 25926 2bedb96184d9e879901f92694ef89727 ""
-  "thesis.aux" 1678726747 17510 e5179920106f4341bf99fabb3f49a92c "pdflatex"
-  "thesis.bbl" 1678726740 5301 17d1f0f4e5cca9db13dd154751ecabf6 "bibtex thesis"
-  "thesis.listing" 1678726746 12774 fa2f7f249610dd0e12edd03479fd6289 "pdflatex"
-  "thesis.out" 1678726747 5998 7eda719e3a2b114afc30c4f87bc69a53 "pdflatex"
-  "thesis.tex" 1678726727 90003 96f17f89d35c08aadb8ac0f58235c647 ""
-  "thesis.toc" 1678726747 3264 89f4de7f4a706f2834739685b7feabfd "pdflatex"
+  "thesis.aux" 1678797501 17983 f0d0501bebb28e974388b4723a919f7b "pdflatex"
+  "thesis.bbl" 1678797494 5301 17d1f0f4e5cca9db13dd154751ecabf6 "bibtex thesis"
+  "thesis.listing" 1678797500 12774 fa2f7f249610dd0e12edd03479fd6289 "pdflatex"
+  "thesis.out" 1678797501 6194 63aa46f4192ea0484875ca139a957421 "pdflatex"
+  "thesis.tex" 1678797487 92134 1d3ff410d41260f5e6e043ee88485d21 ""
+  "thesis.toc" 1678797501 3360 e32ce6f579da62e106554af636fb77eb "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.listing"

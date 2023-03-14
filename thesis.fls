@@ -1367,6 +1367,11 @@ INPUT ./figures//Cherenkov.pdf
 INPUT ./figures//Cherenkov.pdf
 INPUT ./figures//Cherenkov.pdf
 INPUT ./figures//Cherenkov.pdf
+INPUT ./figures//illu_polarization.pdf
+INPUT ./figures//illu_polarization.pdf
+INPUT ./figures//illu_polarization.pdf
+INPUT ./figures//illu_polarization.pdf
+INPUT ./figures//illu_polarization.pdf
 INPUT ./figures//Path_illu.pdf
 INPUT ./figures//Path_illu.pdf
 INPUT ./figures//Path_illu.pdf
@@ -1513,6 +1518,11 @@ INPUT ./figures//GreenlandHeight.png
 INPUT ./figures//GreenlandHeight.png
 INPUT ./figures//GreenlandHeight.png
 INPUT ./figures//GreenlandHeight.png
+INPUT ./figures//EpsilonIFODirectSnell.pdf
+INPUT ./figures//EpsilonIFODirectSnell.pdf
+INPUT ./figures//EpsilonIFODirectSnell.pdf
+INPUT ./figures//EpsilonIFODirectSnell.pdf
+INPUT ./figures//EpsilonIFODirectSnell.pdf
 INPUT ./figures//StartAndStop10Illu.pdf
 INPUT ./figures//StartAndStop10Illu.pdf
 INPUT ./figures//StartAndStop10Illu.pdf

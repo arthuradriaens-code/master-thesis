@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="83.741203mm"
+   height="45.677879mm"
+   viewBox="0 0 83.741203 45.677879"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-73.528238,-45.354819)">
+    <path
+       style="fill:#00ff00;stroke:#ff0000;stroke-width:0.3"
+       d="M 109.47495,62.282601 82.335667,76.8981 109.45202,90.89941"
+       id="path548"
+       inkscape:export-filename="illu_polarization.pdf"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#ffff00;stroke:#ff0000;stroke-width:0.3"
+       d="M 85.598607,46.201868 82.378757,76.857795 109.22599,62.34712"
+       id="path548-6" />
+    <rect
+       style="fill:none;stroke:#0000ff;stroke-width:0.3"
+       id="rect624"
+       width="8.3518734"
+       height="7.1292357"
+       x="148.76756"
+       y="45.504818" />
+    <path
+       style="fill:#0000ff;stroke:none;stroke-width:0.3"
+       id="path836"
+       sodipodi:type="arc"
+       sodipodi:cx="82.355782"
+       sodipodi:cy="76.916222"
+       sodipodi:rx="0.71417797"
+       sodipodi:ry="0.57277751"
+       sodipodi:start="2.7408681"
+       sodipodi:end="2.7366805"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m 81.698182,77.139654 a 0.71417797,0.57277751 0 0 1 0.378321,-0.750599 0.71417797,0.57277751 0 0 1 0.936294,0.302631 0.71417797,0.57277751 0 0 1 -0.376361,0.751233 0.71417797,0.57277751 0 0 1 -0.937082,-0.301059" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:0.3"
+       d="M 93.818031,60.128459 76.865124,84.843725"
+       id="path1050" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:0.3"
+       d="M 108.09069,77.732108 73.532404,76.772221"
+       id="path1160" />
+    <path
+       style="fill:none;stroke:#ff7f2a;stroke-width:0.3"
+       d="M 82.437075,77.117796 C 144.56255,40.157143 153.19837,49.45454 153.19837,49.45454"
+       id="path1216" />
+    <path
+       style="fill:none;stroke:#00ff00;stroke-width:0.3"
+       d="m 99.551745,67.365384 -1.683747,-2.915859 -0.32976,1.285986"
+       id="path1326" />
+    <path
+       style="fill:none;stroke:#00ff00;stroke-width:0.3"
+       d="m 97.87384,64.428972 -0.333743,1.283772"
+       id="path1410" />
+    <path
+       style="fill:none;stroke:#00ff00;stroke-width:0.3"
+       d="m 97.798741,64.246001 1.408555,0.689886"
+       id="path1414" />
+    <path
+       style="fill:none;stroke:#ffff00;stroke-width:0.3"
+       d="M 99.555656,67.360141 101.2394,70.276 101.56916,68.990014"
+       id="path1326-5" />
+    <path
+       style="fill:none;stroke:#ffff00;stroke-width:0.3"
+       d="m 101.23356,70.296553 0.33374,-1.283772"
+       id="path1410-3" />
+    <path
+       style="fill:none;stroke:#ffff00;stroke-width:0.3"
+       d="M 101.30866,70.479524 99.900105,69.789638"
+       id="path1414-5" />
+  </g>
+</svg>

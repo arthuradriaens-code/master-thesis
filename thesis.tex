@@ -908,6 +908,18 @@ $\mathcal{O}$(10cm)\cite{Huege_2017}, over this length the radiation gets
 emitted, most frequencies decoherently interfering, but radio waves with wavelengths of 
 $\approx$ 10cm coherently interfere, and it's these waves we then wish to detect.
 \section{Polarization}
+The generated electromagnetic radiation is polarized perpendicular to the
+cherenkov cone, this can be useful to discern between two cherenkov cones whom,
+timely, would generate the same response. This concept is illustrated below where
+two neutrinos from different directions would generate the same signal in the detector.
+If the detector has a way to differentiate between polarization however, there would be no
+doubt where the neutrino originated from as the one producing the yellow cherenkov cone
+would have a downwards polarization and the one producing a green cherenkov cone would have
+an upwards polarization.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{illu_polarization.pdf}
+\end{figure}
 \section{Wave propagation}
 Waves propagating through ice to a detector generally looks something like this:
 \begin{figure}[h!]
@@ -1474,8 +1486,32 @@ balloon makes with the detector by first converting the location of the balloon
 in ENU coordinates, then calculating the horizontal distance ($\sqrt{(x-x')^2 +
 (y-y')^2}$) then the relative vertical distance $|z - z'|$ and then from those
 compute the angle ($tan(\theta) = \frac{Hor.}{Vert.}$) doing this and recording
-when the balloon gets close enought to get below the 10° mark we get figure
-\ref{fig:ExampleBalloonPathCrossing12LessThan10}. We thus see that in this example the $<10$° policy is viable.
+when the balloon gets close enough to get below the 10° mark we get figure
+\ref{fig:ExampleBalloonPathCrossing12LessThan10}. We thus see that in this
+example the $<10$° policy is viable.
+
+Now how much data do we have that way? After looping through every weather balloon
+gpx file recorded in the summer of 2022 and seeing where it get's within 10 degrees we 
+get the data shown in table (...), this isn't that much and maybe we'd like a bit more
+data. 
+
+\subsection{Refraction at the surface}
+Up until now we have not included refraction at the surface as we didn't want to assume anything,
+now say that we include refraction at the surface for our plane wave reconstruction. This
+would mean that we'd follow analogous steps as our previous analysis, i.e doing a plane wave
+reconstruction from the difference in signal and trying to fit the index of refraction, only
+now the plane wave abides with snell's law at the surface, going from n=1.27 to n=1 and we'll 
+try to minimize the horizontal distance from the ray at the height of the balloon and
+the balloon. Doing this, we get the result shown in figure \ref{fig:EpsilonIFODirectSnell}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{EpsilonIFODirectSnell.pdf}
+	\caption{epsilon IFO possible angles from channels 0-3 with refraction at the surface}
+	\label{fig:EpsilonIFODirectSnell}
+\end{figure}
+As you can see we can now go up to 15°! The only drawback of this method is that we need to
+assume the index of refraction to be 1.27 at the surface, 
+if this isn't the case in some places our predictions won't be accurate.
 \begin{figure}
   \centering
 	\includegraphics[width=0.7\textwidth]{StartAndStop10Illu.pdf}
