@@ -59,6 +59,7 @@
 % Comment or remove the two lines below to use the default Computer Modern font
 %\usepackage{libertine}
 %\usepackage{libertinust1math}
+\usepackage{csvsimple}
 
 %\usepackage[sc]{mathpazo} %font or smth
 \linespread{1.05}
@@ -1414,16 +1415,21 @@ where it reaches it's minimum. Using this angle we can then reconstruct a ray an
 where the weather balloon is approximately, this is illustrated in figure 
 \ref{fig:WeatherBalloonPositionReconstruction}. 
 \section{Is the goal feasible?}
-In the example reconstruction illustrated in figure \ref{fig:WeatherBalloonPositionReconstruction} the difference in 
-angle between direct to balloon and plane wave reconstruction is already quite small (0.65329617\%)
-but as the balloon gets closer to the detector this reduces significantly as is shown in figure
-\ref{fig:WeatherBalloonClosePositionReconstruction} where the difference in angle between direct 
-to balloon and plane wave reconstruction is only 0.06788141\%. Our goal is to find the local index
-of refraction n by using the plane wave reconstruction with the recorded timing and the positional data from the weather
-balloon as the plane wave reconstruction is heavily dependent on the index
-of refraction (as can be seen in equation \ref{eqn:PlaneWave}). As was already established we'll consider
-the index of refraction in the middle of all the detectors (instead of a different one for every pair of
-detectors), after experimenting this doesn't seem to have an impact on the accuracy of the plane wave reconstruction. 
+In the example reconstruction illustrated in figure
+\ref{fig:WeatherBalloonPositionReconstruction} the difference in angle between
+direct to balloon and plane wave reconstruction is already quite small
+(0.65329617\%) but as the balloon gets closer to the detector this reduces
+significantly as is shown in figure
+\ref{fig:WeatherBalloonClosePositionReconstruction} where the difference in
+angle between direct to balloon and plane wave reconstruction is only
+0.06788141\%. Our goal is to find the local index of refraction n by using the
+plane wave reconstruction with the recorded timing and the positional data from
+the weather balloon as the plane wave reconstruction is heavily dependent on
+the index of refraction (as can be seen in equation \ref{eqn:PlaneWave}). As
+was already established we'll consider the index of refraction in the middle of
+all the detectors (instead of a different one for every pair of detectors),
+after experimenting this doesn't seem to have an impact on the accuracy of the
+plane wave reconstruction. 
 
 Now we need to ask ourselves the question, within which angles should the
 weather balloon fly for the data to be useful?  As was previously stated, the
@@ -1492,26 +1498,60 @@ example the $<10$° policy is viable.
 
 Now how much data do we have that way? After looping through every weather balloon
 gpx file recorded in the summer of 2022 and seeing where it get's within 10 degrees we 
-get the data shown in table (...), this isn't that much and maybe we'd like a bit more
-data. 
+get the data shown in table (...), even though this is quite a lot of data there's still
+another step that we could do to broaden the amount of usable data. 
 
 \subsection{Refraction at the surface}
-Up until now we have not included refraction at the surface as we didn't want to assume anything,
-now say that we include refraction at the surface for our plane wave reconstruction. This
-would mean that we'd follow analogous steps as our previous analysis, i.e doing a plane wave
-reconstruction from the difference in signal and trying to fit the index of refraction, only
-now the plane wave abides with snell's law at the surface, going from n=1.27 to n=1 and we'll 
-try to minimize the horizontal distance from the ray at the height of the balloon and
-the balloon. Doing this, we get the result shown in figure \ref{fig:EpsilonIFODirectSnell}
+Up until now we have not used the property that waves refract at the surface as
+we didn't want to assume anything, now say that we include refraction at the
+surface for our plane wave reconstruction. This would mean that we'd follow
+analogous steps as our previous analysis, i.e doing a plane wave reconstruction
+from the difference in timing and trying to fit the index of refraction, only
+now the plane wave abides with snell's law at the surface, going from n=1.27 to
+n=1 and we'll try to minimize the horizontal distance from the ray at the
+height of the balloon and the balloon. 
+I.e in full we first reconstruct the plane wave launch angle $\theta_1$ by
+minimizing the correlation function previously defined, this gives us
+a function
+\begin{equation}
+	z = a_{InIce}*x + b_{InIce}
+	\label{eqn:InIcePlaneWave}
+\end{equation}
+The outgoing zenith angle at the surface will be $\theta_2$ calculated as:
+\begin{equation}
+n_1 \sin{\theta_1} = n_2 \sin{\theta_2} \implies  \theta_2 = \sin^{-1}\left(\frac{n_1}{n_2}\sin{\theta_1}\right)
+\end{equation}
+from this we know the slope of the wave path $a_{InAir} = \tan\left({\frac{\pi}{2} -
+\theta_2}\right)$ but not the offset, but this can easily be found from equation
+\ref{eqn:InIcePlaneWave} as 
+\begin{equation}
+	z = 0 = a_{InIce}*x_{End} + b_{InIce} \implies x_{End} = -\frac{b_{InIce}}{a_{InIce}}
+\end{equation}
+and 
+\begin{align}
+	z = 0 = a_{InAir}*x_{End} + b_{InAir} \implies b_{InAir} &= -a_{InAir}*x_{End}
+	\\&= a_{InAir}* \frac{b_{InIce}}{a_{InIce}}
+\end{align}
+Now that we have the function describing the "path of the plane wave"\footnote{we use double
+quotes as to emphasize that this is a reconstruction method and not an actual wave} in the air 
+we can find out the horizontal position at the height of the balloon as
+\begin{equation}
+	z = z_{Balloon} = a_{InAir}*x_{f} + b_{InAir} \implies x_f = \frac{z_{Balloon} - b_{InAir}}{a_{InAir}}
+\end{equation}
+and iteratively loop over possible indices of refraction, minimizing $|x_{Balloon} - x_f|$.
+
+Doing this whilst looping over possible horizontal balloon positions, 
+we get the result shown in figure \ref{fig:EpsilonIFODirectSnell}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{EpsilonIFODirectSnell.pdf}
 	\caption{epsilon IFO possible angles from channels 0-3 with refraction at the surface}
 	\label{fig:EpsilonIFODirectSnell}
 \end{figure}
-As you can see we can now go up to 15°! The only drawback of this method is that we need to
-assume the index of refraction to be 1.27 at the surface, 
-if this isn't the case in some places our predictions won't be accurate.
+As you can see we can now go up to 15° and still have less than 1\% error!  The
+only drawback of this method is that we need to assume the index of refraction
+to be 1.27 at the surface of the ice, if this isn't the case in some places our
+predictions won't be accurate.
 \begin{figure}
   \centering
 	\includegraphics[width=0.7\textwidth]{StartAndStop10Illu.pdf}
@@ -1573,7 +1613,10 @@ a frequency of 403 as shown in figure \ref{fig:BalloonFreq}, if we now take a
 look at event 1981 in run 528 which was recorded at 20/08/2022 11:25:51 we see
 the spectrum shown in figure \ref{fig:DetectorFreq} which shows a spike at 403MHz for the surface
 detectors.
-Let's now go through all the different files and see in which ones the Balloon gets close "enough"
+Let's now go through all the different files and see in which ones the Balloon
+gets close enough, doing this for the 10 degree treshold for the summer of 2022 
+we get what is shown in appendix \ref{app:10Deg}.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{Frequencies.pdf}
@@ -1605,6 +1648,27 @@ Let's now go through all the different files and see in which ones the Balloon g
 
 \appendix
 \chapter{List of abbreviations}
+\chapter{Balloon passbys under 10°\\ in the summer of 2022}
+\label{app:10Deg}
+\begin{table}[h!]
+\csvautotabular{tables/EventsBelow10DegPart5.csv}
+\end{table}
+\begin{table}
+\csvautotabular{tables/EventsBelow10DegPart1.csv}
+\end{table}
+\begin{table}
+\csvautotabular{tables/EventsBelow10DegPart2.csv}
+\end{table}
+\begin{table}
+\csvautotabular{tables/EventsBelow10DegPart3.csv}
+\end{table}
+\begin{table}
+\csvautotabular{tables/EventsBelow10DegPart4.csv}
+\end{table}
+%\chapter{Balloon passbys under 15°}
+%\begin{table}
+%\csvautotabular{tables/EventsBelow15Deg.csv}
+%\end{table}
 \chapter{Hybrid minimizer code}
 \label{chapter: Hybrid minimizer code}
 \begin{mintedbox}{python}

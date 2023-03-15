@@ -37,5 +37,6 @@
 \contentsline {section}{\numberline {6.2}Is the goal feasible?}{33}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Refraction at the surface}{35}{subsection.6.2.1}%
 \contentsline {section}{\numberline {6.3}Fitting the index}{36}{section.6.3}%
-\contentsline {chapter}{\numberline {A}List of abbreviations}{42}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Hybrid minimizer code}{43}{appendix.B}%
+\contentsline {chapter}{\numberline {A}List of abbreviations}{43}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Balloon passbys under 10°\\ in the summer of 2022}{44}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Hybrid minimizer code}{49}{appendix.C}%
