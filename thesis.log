@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.14)  15 MAR 2023 11:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.14)  15 MAR 2023 12:49
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1248,90 +1248,90 @@ Package pdftex.def Info: ./figures//planewave.pdf  used on input line 1354.
 \tcb@out=\write9
 \openout9 = `thesis.listing'.
 
- (./_minted-thesis/default.pygstyle) (./_minted-thesis/C191E2975EEE774087194FBA64B507A40F797E22429BB5A758097AEB8DC94FDC.pygtex)
+ (./_minted-thesis/default.pygstyle) (./_minted-thesis/5F9D1189DE60F867F1B69EF3864FDF890F797E22429BB5A758097AEB8DC94FDC.pygtex)
 <./figures//NormedCorrelation.pdf, id=951, 1628.9658pt x 881.69403pt>
 File: ./figures//NormedCorrelation.pdf Graphic file (type pdf)
 <use ./figures//NormedCorrelation.pdf>
-Package pdftex.def Info: ./figures//NormedCorrelation.pdf  used on input line 1403.
+Package pdftex.def Info: ./figures//NormedCorrelation.pdf  used on input line 1404.
 (pdftex.def)             Requested size: 364.19667pt x 197.12141pt.
 <./figures//SummedCorrelation.pdf, id=952, 1628.9658pt x 881.69403pt>
 File: ./figures//SummedCorrelation.pdf Graphic file (type pdf)
 <use ./figures//SummedCorrelation.pdf>
-Package pdftex.def Info: ./figures//SummedCorrelation.pdf  used on input line 1409.
+Package pdftex.def Info: ./figures//SummedCorrelation.pdf  used on input line 1410.
 (pdftex.def)             Requested size: 455.24411pt x 246.40176pt.
  [32 <./figures//NormedCorrelation.pdf>]
 <./figures//EpsilonIFODirect.pdf, id=1003, 771.1209pt x 638.1441pt>
 File: ./figures//EpsilonIFODirect.pdf Graphic file (type pdf)
 <use ./figures//EpsilonIFODirect.pdf>
-Package pdftex.def Info: ./figures//EpsilonIFODirect.pdf  used on input line 1455.
+Package pdftex.def Info: ./figures//EpsilonIFODirect.pdf  used on input line 1456.
 (pdftex.def)             Requested size: 318.66948pt x 263.72455pt.
 <./figures//BobsWeatherBalloonHeight.pdf, id=1004, 1099.10625pt x 571.38469pt>
 File: ./figures//BobsWeatherBalloonHeight.pdf Graphic file (type pdf)
 <use ./figures//BobsWeatherBalloonHeight.pdf>
-Package pdftex.def Info: ./figures//BobsWeatherBalloonHeight.pdf  used on input line 1461.
+Package pdftex.def Info: ./figures//BobsWeatherBalloonHeight.pdf  used on input line 1462.
 (pdftex.def)             Requested size: 318.66948pt x 165.66243pt.
 <./figures//GreenlandHeight.png, id=1010, 489.12738pt x 416.25513pt>
 File: ./figures//GreenlandHeight.png Graphic file (type png)
 <use ./figures//GreenlandHeight.png>
-Package pdftex.def Info: ./figures//GreenlandHeight.png  used on input line 1473.
+Package pdftex.def Info: ./figures//GreenlandHeight.png  used on input line 1474.
 (pdftex.def)             Requested size: 182.09486pt x 154.9647pt.
  [33 <./figures//SummedCorrelation.pdf>] [34 <./figures//EpsilonIFODirect.pdf> <./figures//BobsWeatherBalloonHeight.pdf>] [35 <./figures//GreenlandHeight.png (PNG copy)>]
-<./figures//EpsilonIFODirectSnell.pdf, id=1116, 564.42871pt x 421.3341pt>
+<./figures//EpsilonIFODirectSnell.pdf, id=1117, 564.42871pt x 421.3341pt>
 File: ./figures//EpsilonIFODirectSnell.pdf Graphic file (type pdf)
 <use ./figures//EpsilonIFODirectSnell.pdf>
-Package pdftex.def Info: ./figures//EpsilonIFODirectSnell.pdf  used on input line 1547.
+Package pdftex.def Info: ./figures//EpsilonIFODirectSnell.pdf  used on input line 1549.
 (pdftex.def)             Requested size: 318.66948pt x 237.88705pt.
 
 
 pdfTeX warning: pdflatex (file ./figures//StartAndStop10Illu.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<./figures//StartAndStop10Illu.pdf, id=1117, 426.92834pt x 509.23584pt>
+<./figures//StartAndStop10Illu.pdf, id=1118, 426.92834pt x 509.23584pt>
 File: ./figures//StartAndStop10Illu.pdf Graphic file (type pdf)
 <use ./figures//StartAndStop10Illu.pdf>
-Package pdftex.def Info: ./figures//StartAndStop10Illu.pdf  used on input line 1557.
+Package pdftex.def Info: ./figures//StartAndStop10Illu.pdf  used on input line 1559.
 (pdftex.def)             Requested size: 318.66948pt x 380.12323pt.
 
 
 pdfTeX warning: pdflatex (file ./figures//PathSMT_20220820_111609.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<./figures//PathSMT_20220820_111609.pdf, id=1118, 682.55pt x 651.09918pt>
+<./figures//PathSMT_20220820_111609.pdf, id=1119, 682.55pt x 651.09918pt>
 File: ./figures//PathSMT_20220820_111609.pdf Graphic file (type pdf)
 <use ./figures//PathSMT_20220820_111609.pdf>
-Package pdftex.def Info: ./figures//PathSMT_20220820_111609.pdf  used on input line 1565.
+Package pdftex.def Info: ./figures//PathSMT_20220820_111609.pdf  used on input line 1567.
 (pdftex.def)             Requested size: 318.66948pt x 303.98991pt.
-<./figures//WeatherBalloonPath.png, id=1119, 739.26187pt x 447.31326pt>
+<./figures//WeatherBalloonPath.png, id=1120, 739.26187pt x 447.31326pt>
 File: ./figures//WeatherBalloonPath.png Graphic file (type png)
 <use ./figures//WeatherBalloonPath.png>
-Package pdftex.def Info: ./figures//WeatherBalloonPath.png  used on input line 1571.
+Package pdftex.def Info: ./figures//WeatherBalloonPath.png  used on input line 1573.
 (pdftex.def)             Requested size: 318.66948pt x 192.81873pt.
-<./figures//WeatherBalloonPositionReconstruction.pdf, id=1120, 1628.9658pt x 881.69403pt>
+<./figures//WeatherBalloonPositionReconstruction.pdf, id=1121, 1628.9658pt x 881.69403pt>
 File: ./figures//WeatherBalloonPositionReconstruction.pdf Graphic file (type pdf)
 <use ./figures//WeatherBalloonPositionReconstruction.pdf>
-Package pdftex.def Info: ./figures//WeatherBalloonPositionReconstruction.pdf  used on input line 1579.
+Package pdftex.def Info: ./figures//WeatherBalloonPositionReconstruction.pdf  used on input line 1581.
 (pdftex.def)             Requested size: 409.71692pt x 221.75487pt.
-<./figures//WeatherBalloonClosePositionReconstruction.pdf, id=1121, 1628.9658pt x 881.69403pt>
+<./figures//WeatherBalloonClosePositionReconstruction.pdf, id=1122, 1628.9658pt x 881.69403pt>
 File: ./figures//WeatherBalloonClosePositionReconstruction.pdf Graphic file (type pdf)
 <use ./figures//WeatherBalloonClosePositionReconstruction.pdf>
-Package pdftex.def Info: ./figures//WeatherBalloonClosePositionReconstruction.pdf  used on input line 1585.
+Package pdftex.def Info: ./figures//WeatherBalloonClosePositionReconstruction.pdf  used on input line 1587.
 (pdftex.def)             Requested size: 409.71692pt x 221.75487pt.
-[36]
-<./figures//Frequencies.pdf, id=1147, 911.75127pt x 758.91428pt>
+<./figures//Frequencies.pdf, id=1131, 911.75127pt x 758.91428pt>
 File: ./figures//Frequencies.pdf Graphic file (type pdf)
 <use ./figures//Frequencies.pdf>
-Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1622.
+Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1618.
 (pdftex.def)             Requested size: 227.62206pt x 189.46176pt.
-<./figures//FrequenciesDetectors.png, id=1148, 1240.635pt x 451.6875pt>
+<./figures//FrequenciesDetectors.png, id=1132, 1240.635pt x 451.6875pt>
 File: ./figures//FrequenciesDetectors.png Graphic file (type png)
 <use ./figures//FrequenciesDetectors.png>
-Package pdftex.def Info: ./figures//FrequenciesDetectors.png  used on input line 1628.
+Package pdftex.def Info: ./figures//FrequenciesDetectors.png  used on input line 1624.
 (pdftex.def)             Requested size: 409.71692pt x 149.1676pt.
-<./figures//InteractingWeatherBalloonPath.png, id=1149, 651.76833pt x 392.13167pt>
+[36]
+<./figures//InteractingWeatherBalloonPath.png, id=1150, 651.76833pt x 392.13167pt>
 File: ./figures//InteractingWeatherBalloonPath.png Graphic file (type png)
 <use ./figures//InteractingWeatherBalloonPath.png>
-Package pdftex.def Info: ./figures//InteractingWeatherBalloonPath.png  used on input line 1635.
+Package pdftex.def Info: ./figures//InteractingWeatherBalloonPath.png  used on input line 1631.
 (pdftex.def)             Requested size: 227.62206pt x 136.94298pt.
-<./figures//Events20Aug.png, id=1150, 2345.76375pt x 379.4175pt>
+<./figures//Events20Aug.png, id=1151, 2345.76375pt x 379.4175pt>
 File: ./figures//Events20Aug.png Graphic file (type png)
 <use ./figures//Events20Aug.png>
-Package pdftex.def Info: ./figures//Events20Aug.png  used on input line 1643.
+Package pdftex.def Info: ./figures//Events20Aug.png  used on input line 1639.
 (pdftex.def)             Requested size: 455.24411pt x 73.63005pt.
 
 
@@ -1345,33 +1345,33 @@ Appendix A.
 Appendix B.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 1651.
+(hyperref)                removing `\\' on input line 1647.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1654--1655
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1650--1651
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1657--1658
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1653--1654
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 12.41837pt on input line 1658.
+LaTeX Warning: Float too large for page by 12.41837pt on input line 1654.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1660--1661
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1656--1657
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1663--1664
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1659--1660
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1666--1667
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1662--1663
 [][] 
  []
 
@@ -1485,16 +1485,16 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  33259 strings out of 478238
  696989 string characters out of 5850456
- 1149208 words of memory out of 5000000
+ 1149209 words of memory out of 5000000
  50593 multiletter control sequences out of 15000+600000
  489600 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,17n,90p,1195b,2025s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on thesis.pdf (58 pages, 5011326 bytes).
+Output written on thesis.pdf (58 pages, 5011272 bytes).
 PDF statistics:
- 1570 PDF objects out of 1728 (max. 8388607)
- 940 compressed objects within 10 object streams
+ 1571 PDF objects out of 1728 (max. 8388607)
+ 941 compressed objects within 10 object streams
  224 named destinations out of 1000 (max. 500000)
  551 words of extra memory for PDF output out of 10000 (max. 10000000)
 

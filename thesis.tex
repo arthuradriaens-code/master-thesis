@@ -1368,13 +1368,14 @@ basic trigonometry and dimensional analysis:
 \begin{equation}
 	\Delta t' = \frac{m}{(m/s)} = (s/m)*m = v^{-1} * m = v^{-1} \cos\theta \Delta z
 \end{equation}
-With $v = c/n$ the local speed of light. As previously discussed
-this n is depth-dependent and we'll be using the local index of
-refraction. Say we have 4 detectors at depths -94,-95,-96,-97,
-this then would mean that we'll ask for n at a depth of -95.5, exactly inbetween:
+With $v = c/n$ the local speed of light. As previously discussed this n is
+depth-dependent and for comparison with the fitted index we'll be using the
+models local index of refraction. Say we have 4 detectors at depths -94,-95,-96,-97,
+this then would mean that we'll set the index of refraction at a depth of -95.5, 
+exactly inbetween:
 \begin{mintedbox}{python}
 ice = medium.greenland_simple()
-n = ice.get_index_of_refraction(np.array[0,0,-95.5])
+n_exact = ice.get_index_of_refraction(np.array[0,0,-95.5])
 \end{mintedbox}
 Now in reality we don't know the angle a priori, we'll only have the timing
 information, so we'll perform a scan by minimizing something we define here as 
@@ -1444,7 +1445,7 @@ possible.  Then we compare the n we have fit to the one we know from the model
 at that position.  We quantise the discrepency between these two indices of
 refraction using what we here define as the \textit{relative accuracy}:
 \begin{equation}
-  \varepsilon\ (\%) = \frac{n_\text{fit} - n_{\text{actual}}}{n_{\text{actual}}} \times 100
+  \varepsilon\ (\%) = \frac{n_\text{fit} - n_{\text{exact}}}{n_{\text{exact}}} \times 100
 \end{equation}
 Carrying this out we get figure \ref{fig:EpsilonIFODirect}, i.e it gets
 exponentially less accurate as the balloon moves further away. As we wish our
@@ -1496,10 +1497,11 @@ when the balloon gets close enough to get below the 10° mark we get figure
 \ref{fig:ExampleBalloonPathCrossing12LessThan10}. We thus see that in this
 example the $<10$° policy is viable.
 
-Now how much data do we have that way? After looping through every weather balloon
-gpx file recorded in the summer of 2022 and seeing where it get's within 10 degrees we 
-get the data shown in table (...), even though this is quite a lot of data there's still
-another step that we could do to broaden the amount of usable data. 
+Now how much data do we have that way? After looping through every weather
+balloon gpx file recorded in the summer of 2022 and seeing where it get's
+within 10 degrees we get the data shown in appendix \ref{app:10Deg}, even
+though this is quite a lot of data there's still another step that we could do
+to broaden the amount of usable data. 
 
 \subsection{Refraction at the surface}
 Up until now we have not used the property that waves refract at the surface as
@@ -1587,7 +1589,7 @@ predictions won't be accurate.
 	\label{fig:WeatherBalloonClosePositionReconstruction}
 \end{figure}
 \section{Fitting the index}
-Now that we know our goal to be feasible for angles smaller than 10 degrees, let's
+Now that we know our goal to be feasible, let's
 analyse the data. The positional data of the weather balloons was obtained from the \url{ftp1.esrl.noaa.gov} website using
 the rno-g-sonde script Of the official RNO-G github page. We'll be looking at the data recorded over the summer of 2022, more
 particularly 15/06/2022 - 30/09/2022. The detected events can be obtained from the DESY database\footnote{\url{https://rnog-monitor.zeuthen.desy.de/}}.
@@ -1598,25 +1600,19 @@ the 20th of august 2022 as can be derived from it's name, we have a
 complementary file SMT\_20220820\_111609.gpx this can be graphically displayed
 using the python module gpxplotter resulting in the trajectory shown in figure
 \ref{fig:IntWB} We can see it clearly first coming close to the station Amaroq
-(station 21) and subsequently very close to Terianniaq (station 12), making
-this event usable for our analysis.  If we take a look at this day in the event
+(station 21) and subsequently very close to Terianniaq (station 12) as is 
+also found in appendix \ref{app:10Deg}.  If we take a look at this day in the event
 browser we see quite a lot of activity as is shown in figure
 \ref{fig:20thEvents}. We, however, are only interested in the brief timeframe
 where the weather balloon passes these detectors closely and only in signals coming
-from these particular detectors. Let's do the analysis previously described
-to find when the angle the detector makes (at -95.5m depth) with the Balloon
-is less than 10° and record the timestamps, if we do this we'll find that 
-we'll need to look inbetween 11:24:02 and 11:26:23. This seems to be within
+from these particular detectors. The time window we'll need to look at is
+inbetween 11:24:02 and 11:26:23. This seems to be within
 run 528 as it runs from 10:45 till 12:45. If we now take a look at the file 
 SMT\_20220820\_111609.root with ROOT we can see that the balloon sends out signals at
-a frequency of 403 as shown in figure \ref{fig:BalloonFreq}, if we now take a
+a frequency of 403 as shown in figure \ref{fig:BalloonFreq}. Now taking a
 look at event 1981 in run 528 which was recorded at 20/08/2022 11:25:51 we see
-the spectrum shown in figure \ref{fig:DetectorFreq} which shows a spike at 403MHz for the surface
-detectors.
-Let's now go through all the different files and see in which ones the Balloon
-gets close enough, doing this for the 10 degree treshold for the summer of 2022 
-we get what is shown in appendix \ref{app:10Deg}.
-
+the spectrum shown in figure \ref{fig:DetectorFreq} which shows a clear spike
+at 403MHz for the surface detectors.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{Frequencies.pdf}
