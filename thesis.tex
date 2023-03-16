@@ -163,8 +163,13 @@
 % =====================================================================
 \chapter{Foreword}
 \section*{English}
-The Radio Neutrino Observatory in Greenland - RNO-G - is under construction at Summit Station in Greenland to search for neutrinos of several PeV energy up to the Eev range. It's a mid-scale, discovery phase, extremely high-energy neutrino telescope that will probe the astrophysical neutrino flux at energies beyond the reach of IceCube.
-More particularly if will make it possible to reach the next major milestone in astroparticle physics: the discovery of cosmogenic neutrinos.
+The Radio Neutrino Observatory in Greenland - RNO-G - is under construction at
+Summit Station in Greenland to search for neutrinos of several PeV energy up to
+the Eev range. It's a mid-scale, discovery phase, extremely high-energy
+neutrino telescope that will probe the astrophysical neutrino flux at energies
+beyond the reach of IceCube.  More particularly if will make it possible to
+reach the next major milestone in astroparticle physics: the discovery of
+cosmogenic neutrinos.
 \vspace{0.5cm}
 All simulations carried out within this work were made with the three programs 
 \begin{itemize}
@@ -172,35 +177,43 @@ All simulations carried out within this work were made with the three programs
 	\item radiotools
 	\item RadioPropa
 \end{itemize}
-whom are free to download on \href{https://github.com/nu-radio}{github}.
-This masters thesis consists of two major parts, first off a new algorithm called the
-\textit{Hybrid minimizer} was built. This is an algorithm for finding the path(s)
-of a neutrino interaction to the detector in complex ice models.
-Second off an indirect measurement was done of the index of refraction around the 
-deep components of the detector using both weather balloon gps data and detector responses.
+whom are free to download on \href{https://github.com/nu-radio}{github}.  This
+masters thesis consists of three major parts, first off a background is given
+on what neutrinos are and how the detector works, these are chapters 2-4, then
+chapter 5 explains how a new algorithm called the \textit{Hybrid minimizer} was
+built. This is an algorithm for finding the path(s) of a neutrino interaction
+to the detector in complex ice models. And lastly, in chapter 6 it's explained
+how an indirect measurement was done of the index of refraction around the deep
+components of the detector using both weather balloon gps data and detector
+responses.
+All the code for both the simulations carried out throughout this thesis as well
+as the algorithm that was built can be found \href{https://github.com/arthuradriaens-code/projects-mt}{here}
 \newpage
 \section*{Nederlands}
-De \textit{Radio Neutrino Observatory in Greenland} - RNO-G - is een detector die momenteel onder constructie is
-in Groenland. Deze detector heeft als doel het vinden van neutrinos met energieën van enkele PeV
-tot in het EeV gebied. Deze extreem hoge energy neutrino telescoop zal astrofysische neutrinos
-zoeken op energieën waar icecube te klein voor is. Het zal ook het vinden van cosmogenische
-neutrinos mogelijk maken.
-Alle simulaties werden mogelijk gemaakt door de volgende programmas:
+De \textit{Radio Neutrino Observatory in Greenland} - RNO-G - is een detector
+die momenteel onder constructie is in Groenland. Deze detector heeft als doel
+het vinden van neutrinos met energieën van enkele PeV tot in het EeV gebied.
+Deze extreem hoge energy neutrino telescoop zal astrofysische neutrinos zoeken
+op energieën waar icecube te klein voor is. Het zal ook het vinden van
+cosmogenische neutrinos mogelijk maken.  Alle simulaties werden mogelijk
+gemaakt door de volgende programmas:
 \begin{itemize}
 	\item NuRadioMC
 	\item radiotools
 	\item RadioPropa
 \end{itemize}
-Dewelke te downloaden zijn op \href{https://github.com/nu-radio}{github}
-Deze master thesis is opgebouwd uit 2 delen: Het bouwen van een algoritme en
-indirecte metingen gebruik makende van gemeten weerballon data.
-Het algoritme dat gebouwd werd in de eerste helft van het jaar was de \textit{Hybrid minimizer}: een algoritme gemaakt met als doel het snel vinden van
-een pad vanuit een radio bron vertex (bv neutrino interactie) 
-tot de detector in complexe ijsmodellen.
-De indirecte metingen werden verwerkt in de tweede helft van het academiejaar, hier 
-werd gebruik gemaakt van de locatie-info van de weerballon en de response van de detectors
-om een schatting te maken van de index van refractie lokaal aan de verscheidene channels
-van de detectoren.
+Dewelke te downloaden zijn op \href{https://github.com/nu-radio}{github} Deze
+master thesis is opgebouwd uit 3 delen. Hoofdstukken 2 t.e.m 4 zijn
+achtergrondinformatie, daarna wordt in hoofdstuk 5 het bouwen van een algoritme
+uitgelegd en in hoofdstuk 6 worden indirecte metingen gedaan gebruik makende
+van gemeten weerballon data.  Het algoritme werd gebouwd in de eerste helft
+van het jaar en heet de \textit{Hybrid minimizer}: een algoritme gemaakt met als
+doel het snel vinden van een pad vanuit een radio bron vertex (bv neutrino
+interactie) tot de detector in complexe ijsmodellen. De indirecte metingen
+werden verwerkt in de tweede helft van het academiejaar, hier werd gebruik
+gemaakt van de locatie-info van de weerballon en de response van de detectors
+om een schatting te maken van de index van refractie lokaal aan de verscheidene
+channels van de detectoren.
 % =====================================================================
 \chapter{Neutrinos}
 %\includegraphics[width=0.5\textwidth]{standard_model.png}
@@ -211,7 +224,7 @@ light-years to end up where you stand.
 
 When looking at phenomena outside our earth the astronomer will turn to
 electromagnetic radiation, as a lot of the most interesting events emit photons
-in some kind of way this is very useful but he's missing out on a big part of
+in some kind of way. But he's missing out on a big part of
 the full picture.  There are regions in the universe from which photons can't
 escape. They can also be absorbed on their way to earth.  That's where the
 astroparticle physicist comes in who takes a look at muons, nuclei,... and
@@ -285,7 +298,7 @@ To understand this source we'll have to go back all the way to just after the bi
 The very early universe was hot and dense. As a result, interactions among particles
 occurred much more frequently than they do today. As an example, a photon today
 can travel across the observable universe without deflection or capture, so it has a
-mean free path greater than $10^26$ m. When the universe was 1 second old, though, 
+mean free path greater than $10^{26}$ m. When the universe was 1 second old, though, 
 the mean free path of a photon was about the size of an atom. Thus in
 the time it took the universe to expand by a factor of 2, a given photon interacted
 many, many times. These multiple interactions kept the consitituents in the universe
@@ -308,7 +321,7 @@ As $T_\gamma$ is the CMB temperature which, nowadays, is measured to be around 2
 These primordial neutrinos are very low in energy.
 \subsection{Solar neutrinos}
 The sun fuses elements to release energy and thus keeping itself from collapsing in 
-on itself, with most of the various ways particles get fused neutrinos get released:\\
+on itself, with most of the various ways particles get fused, neutrinos get released:\\
 $\bold{pp-cycle}$
 \begin{align}
 	\mathrm{p} + \mathrm{p} &\rightarrow \mathrm{D} + e^+ + \nu_e\\
@@ -336,13 +349,12 @@ amount of neutrinos to be hitting the earth from the previously mentioned
 thermonuclear fusion, it was however 3 times higher than the observed amount of
 neutrinos back at our planet. This led to a little bit of hysteria as this could've meant
 that the sun was dying and we'd see the aftermath only in a couple of years.
-Through various experiments however, it became apparent
-that this was due to the various kind of neutrinos oscillating into each other
-on their way to earth,
-i.e 2/3 of the original electron neutrinos had oscillated into mu and tau
-neutrinos. But for them to oscillate into eachother, theoretically they not only require mass
-but each flavor also should have a different mass
-as the 2D transition probability is
+Through various experiments however, it became apparent that this was due to
+the different kinds of neutrinos oscillating into each other on their way to
+earth, i.e 2/3 of the original electron neutrinos had oscillated into mu and
+tau neutrinos. But for them to oscillate into eachother, theoretically they not
+only require mass but each flavor also should have a different mass as the 2D
+transition probability is
 \begin{equation}
 	P(\nu_e\rightarrow\nu_\mu) = |\braket{\nu_\mu|\psi(L,T)}|^2 = c_\mu c_\mu^* = \sin ^2(2 \theta) \sin ^2\left(\frac{\Delta \phi_{12}}{2}\right)
 \end{equation}
@@ -376,9 +388,10 @@ It costs energy
 to both make lighter elements than iron and heavier ones.  As the iron core
 builds up the outside pressure from the core starts to decrease as no new
 energy is released. This goes on until  the treshold of an iron core with a mass of 1.4$M_\odot$ known as the 
-Chandrasekhar limit and the the inwards pressure becomes too large, making the
-electrons surrounding the iron core fuse with the protons (uud),  creating
-neutrons (udd) and neutrinos, diagramatically shown in figure \ref{fig:CoreFusion}.
+Chandrasekhar limit is reached and the the inwards pressure becomes too large,
+making the electrons surrounding the iron core fuse with the protons (uud),
+creating neutrons (udd) and neutrinos, diagramatically shown in figure
+\ref{fig:CoreFusion}.
 \begin{figure}
 	\centering
 	\begin{tikzpicture}
@@ -439,25 +452,25 @@ ${}^{232}$Th and ${}^{238}$U. Together these decay chains account for more than
 \subsection{Reactor anti-neutrinos}
 Our most important energy source today, both in terms of energy output and
 their impact on the enviroment are fission reactors.
-Looking back at our energy per nucleon vs number of nucleons in nucleus figure shown in the
+Looking back at our energy per nucleon vs number of nucleons in the nucleus figure shown in the
 supernovae subsection we see that all the way to the right uranium is found, a lot of energy
 can thus be released by splitting in into nuclei with a lower amount of nucleons.
-Fission reactors operate by splitting this urantium by the introduction of a neutron:
+Fission reactors operate by splitting this urantium via the introduction of a neutron:
 \begin{equation}
 	n + {}^{235}U \rightarrow \text{Energy (radiation)} + 2\times\text{Fission fragments} + 2.5\times n
 \end{equation}
-this 2.5 is of course an average. The surplus of neutrons means this is a self-sustaining
-interaction meaning that for a stable thermonuclear interaction carbon capture rods
-are needed.
-When this uranium nucleus fissions into two daughter nuclei fragments, about 0.1
-percent of the mass of the uranium nucleus appears as the fission energy which is about
-~200 MeV. For uranium-235 about ~169 MeV appears as the kinetic energy of the daughter nuclei
-, the neutrons carry a mean kinetic energy per neutron of ~2 MeV
-(total of 4.8 MeV) and ~7 MeV is released in the form of gamma ray photons.
-This all sums up to the \textit{total prompt fission energy} which amounts to about 181 MeV, 
-or ~89\% of the total
-energy which is eventually released by fission over time. The remaining ~11\% is
-released in beta decays where we get our reactor anti-neutrinos from.
+this 2.5 is of course an average. The surplus of neutrons means that this is a
+self-sustaining reaction implying that for a stable thermonuclear fission
+reaction, carbon capture rods are needed.  When this uranium nucleus fissions
+into two daughter nuclei fragments, about 0.1 percent of the mass of the
+uranium nucleus appears as the fission energy which is about ~200 MeV. For
+uranium-235 about ~169 MeV appears as the kinetic energy of the daughter nuclei
+, the neutrons carry a mean kinetic energy per neutron of ~2 MeV (total of 4.8
+MeV) and ~7 MeV is released in the form of gamma ray photons.  This all sums up
+to the \textit{total prompt fission energy} which amounts to about 181 MeV, or
+~89\% of the total energy which is eventually released by fission over time.
+The remaining ~11\% is released in beta decays where we get our reactor
+anti-neutrinos from.
 \subsection{Background from old supernovae}
 Also termed the \textit{diffuse supernova neutrino background} (DSNB), as the
 universe is quite old various supernovae have happened over it's lifetime, each generating
@@ -512,29 +525,28 @@ It would appear that the luminocity of an AGN would increase indefinitely with i
 limited: if too much matter accretes on the black hole the radiative pressure becomes too massive and the 
 matter on the disc gets blown away, this phenomenon is termed a \textit{black hole outburst}.
 
-The emission and the detection of high energy neutrinos from AGN rests solely
-on the premise of the presence of relativistic protons of sufficiently high energy and
-energy density in the AGN central engine .    
-The emission of high energy neutrinos from AGNs rests solely on the premise that relativistic
-protons of sufficiently high energy and energy density in the AGN's accretion disc will be present \cite{NASANeutrinos}.
-A direct consequence of the occurence of these relativistic protons is the production
-of $\gamma$-rays of similar energies to those of the neutrinos, high energy neutrino and $\gamma$-ray 
-astronomy are closely related.
-However, even though $\gamma$-ray photons can be produced even in the absence of relativistic protons
-(e.g via high energy electrons), neutrinos can not. Thus the detection of these high-energy neutrinos
-(which might have already been detected \cite{AGNNeutrino}) will provide unique information about the 
-workings of AGNs.
+The emission of high energy neutrinos from AGNs rests solely on the premise
+that relativistic protons of sufficiently high energy and energy density in the
+AGN's accretion disc will be present \cite{NASANeutrinos} as they may interact
+to create e.g pions whom decay. A direct consequence of the occurence of these
+relativistic protons is the production of $\gamma$-rays of similar energies to
+those of the neutrinos, thus high energy neutrino- and $\gamma$-ray astronomy are
+closely related.  However, even though $\gamma$-ray photons can be produced
+even in the absence of relativistic protons (e.g via high energy electrons),
+neutrinos can not.  Thus the detection of these high-energy neutrinos (which
+might have already been detected \cite{AGNNeutrino}) will provide unique
+information about the workings of AGNs.
 
 \subsection{Cosmogenic neutrinos}
-And now finally one of the most exciting neutrino sources (maybe) observable on earth:
-cosmogenic neutrinos. The mechanism by which these get created is quite simple, if
-a protons has sufficiently high energy the cross section to interact with CMB (Cosmic
-Microwave Background) photons becomes non-negligable.
-These protons can scatter off the photons to resonantly produce a $\Delta^+$ baryon. This
-resonance has enough mass to dominantly decay to a pion and a nucleon:
+And now finally one of the most exciting neutrino sources (maybe) observable on
+earth: cosmogenic neutrinos. The mechanism by which these get created is quite
+simple, if a proton has sufficiently high energy the cross section to interact
+with CMB (Cosmic Microwave Background) photons becomes non-negligable.  These
+protons can scatter off the photons to resonantly produce a $\Delta^+$ baryon.
+This resonance has enough mass to dominantly decay to a pion and a nucleon:
 \begin{align}
-	\Delta^+ &\rightarrow \pi^0 + p (2/3)\\
-	\Delta^+ &\rightarrow \pi^+ + n (1/3)
+	\Delta^+ &\rightarrow \pi^0 + p \ \ (2/3)\\
+	\Delta^+ &\rightarrow \pi^+ + n \ (1/3)
 \end{align}
 Of which the charged pion decays to neutrinos as previously mentioned in 
 \ref{sec:AtmosphericNeutrinos}.
@@ -636,7 +648,7 @@ A majorana fermion is a fermion which is it's own anti-particle, i.e:
 \begin{align}
   \chi = \frac{1}{\sqrt{2}}\left( \psi_R + \psi_{Rc}  \right) = \chi_c
 \end{align}
-With these we can re-write \ref{eqn:right-handed} as:
+With this we can re-write equation \ref{eqn:right-handed} as:
 \begin{equation}
   \mathcal{L} = i\bar{\chi}\slashed{\partial}\chi - M \bar{\chi}\chi
 \end{equation}
@@ -843,25 +855,25 @@ For a particle shower to emit strong radio signals, two conditions have to be me
 	\item There needs to be a speration of positive and negative charges in the shower front 
 	\item The signals produced over the length of the shower profile need to overlap coherently.
 \end{itemize}
-The \textit{Askaryan} \cite{Askaryan} effect, also known as Askaryan
-radiation describes the effect at radio frequencies which abides by both 
-of these conditions, in general it's a quite difficult effect but we'll give 
-a crude overview. 
-The above described interactions create a shower
-of secondary charged particles containing a charge anisotropy, 
-this charge imbalance is a result of medium electrons either Compton
-scattering into the advancing shower or annihilating with shower positrons. 
-In the end you have a moving charge anisotropy, propagating faster than the speed of 
-light in the medium,
-creating Cherenkov radiation.
-Cherenkov radiation is like the elektromagnetic equivalent of a sonic boom, a
-sonic boom happens when something goes faster than the sounds speed in the
-medium; A particle emits Cherenkov radiation if it goes faster than the light
-speed in the medium\footnote{The reader who wants a thorough explanation and derivation is
-advised to check out \textit{Chapter 14: Radiation by Moving Charges} from the
-book \textit{Classical Electrodynamics} by Jackson.} 
-. Choosing the particle trajectory to lie along the z axis
-we can approximately find an equation for $\frac{\text{d}^2 \mathscr{J}}{\text{d}\omega \text{d}\Omega}$: the energy radiated per elementary unit solid angle and per elementary unit frequency interval
+The \textit{Askaryan} \cite{Askaryan} effect, also known as Askaryan radiation
+describes the effect at radio frequencies which abides by both of these
+conditions, in general it's a quite difficult effect but we'll give a crude
+overview.  The previously described interactions create a shower of secondary
+charged particles containing a charge anisotropy, this charge imbalance is a
+result of medium electrons either Compton scattering into the advancing shower
+or annihilating with shower positrons.  In the end you have a moving charge
+anisotropy, propagating faster than the speed of light in the medium, creating
+Cherenkov radiation.  Cherenkov radiation is like the elektromagnetic
+equivalent of a sonic boom, a sonic boom happens when something goes faster
+than the sounds speed in the medium; A particle emits Cherenkov radiation if it
+goes faster than the speed of light in the medium\footnote{The reader who wants a
+	thorough explanation and derivation is advised to check out
+\textit{Chapter 14: Radiation by Moving Charges} from the book
+\textit{Classical Electrodynamics} by Jackson.} . Choosing the particle
+trajectory to lie along the z axis we can approximately find an equation for
+$\frac{\text{d}^2 \mathscr{J}}{\text{d}\omega \text{d}\Omega}$: the energy
+radiated per elementary unit solid angle and per elementary unit frequency
+interval
 \begin{equation}
 	\frac{\text{d}^2 \mathscr{J}(\omega)}{\text{d} \omega \text{d} \Omega} = \frac{q^2}{4\pi}\sqrt{\frac{\mu}{\epsilon}}\beta^2\omega^2\delta^2[\omega(1-\beta \mathbf{e}_r\cdot\mathbf{e}_z)]|\mathbf{e}_r\times\mathbf{e}_z|^2 \label{equation: 4.128 in elektromagnetisme}
 \end{equation}
@@ -922,35 +934,36 @@ an upwards polarization.
 	\includegraphics[width=0.5\textwidth]{illu_polarization.pdf}
 \end{figure}
 \section{Wave propagation}
-Waves propagating through ice to a detector generally looks something like this:
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Path_illu.pdf}
-\end{figure}\\
-Here the interaction of the neutrino happens somewhere in the neighbourhood of the red cross,
-the orange rays represent the resulting radio wave paths to the detectors which are signaled
-by the blue dot. Notice that reflection at the surface is also a
-possible path to the detector.
-In a homogeneous dielectric medium a ray propagates straight 
-with it's signal wave-speed determined by the local index of 
-refraction as $v = c/n$, 
-the dependence of the index of refraction on density
-for ice is given by the Schytt equation:
+	\label{fig:PathIllu}
+	\caption{illustration of radiowave paths generated by a neutrino event}
+\end{figure}
+Waves propagating through ice to a detector generally looks something like
+what's illustrated in figure \ref{fig:PathIllu}.  Here the interaction of the
+neutrino happens somewhere in the neighbourhood of the red cross, the orange
+rays represent the resulting radio wave paths to the detector channels which are
+illustrated by blue dots. Notice that reflection at the surface is also a
+possible path to the detector.  In a dielectric medium a ray
+propagates with it's signal wave-speed determined by the local index
+of refraction as $v = c/n$. 
+The dependence of the index of refraction on
+density for ice is given by the Schytt equation:
 \begin{equation}
 	n(x,y,z) \approx 1 + 0.78\rho(x,y,z)/\rho_0
 \end{equation}
-Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the
-density for solid ice (917 kg/m³).
-This isn't the only part of the index of refraction with which we'll
-need to concern ourselves however. If a ray propagates towards a
-boundary dividing 2 media with different indexes of refraction, the
-ray will refract and the refracted angle can be
-found from Snell's law:
+Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the density for
+solid ice (917 kg/m³).  The effect on speed isn't the only effect the index of
+refraction has which we'll need to concern ourselves with however, if a ray
+propagates towards a boundary dividing 2 media with different indexes of
+refraction, the ray will refract and the refracted angle can be found from
+Snell's law:
 \begin{equation}
 	n_1\sin{\theta_1} = n_2\sin{\theta_2}
 \end{equation}
 Where n is the index of refraction and $\theta$ is the angle
-with respect to the surface.
+with respect to the surface normal.
 The system we'll consider however, isn't 
 homogeneous with some specified boundary, it's continous: ice
 in greenland has a continously varying density. 
@@ -993,7 +1006,7 @@ called
 From the measured density with depth variation this seems to
 roughly hold but it could be better (as will be explained in chapter
 (TBC)).
-This exponential model has a huge advantage as it's analytically 
+This exponential model has a huge advantage however as it's analytically 
 solvable, meaning that we don't have to iteratively search for the 
 path to the detector but know it instantly after the location of
 the neutrino interaction and the detector are specified, this
@@ -1016,42 +1029,47 @@ origin.
 Both cosmic ray and neutrino detectors face the same main problem at the
 highest energies: the steeply falling flux (as was previously discussed in
 chapter 2) requires large effective areas, which leads to the construction of
-neutrino detectors with volumes on the cubic kilometer scale: IceCube. 
-But even IceCube has it's limitations, it's still too small to observe neutrino
-events above the PeV scale, that's why a new detector was needed which was even bigger.
-We could just make IceCube bigger but this would cost a lot of money as the individual
-detectors need to be spaced closely as IceCube works in the visible spectrum
-for which the attenuation length is quite short. The solution is thus to work with
-radiowave detectors, as was previously explained neutrinos emit quite a lot of radiowaves
-due to the Askaryan effect. Besides this radiowaves can also propagate way further in ice
-than visible light making it possible to space the individual detectors further apart.
+neutrino detectors with volumes on the cubic kilometer scale: IceCube.  But
+even IceCube has it's limitations, it's still too small to observe neutrino
+events above the PeV scale, that's why a new detector was needed which was even
+bigger.  We could just make IceCube bigger but this would cost a lot of money
+as the individual detectors need to be spaced closely as IceCube works in the
+visible spectrum for which the attenuation length is quite short. The proposed
+solution was to work with radiowave detectors, leveraging the Askaryan effect
+(as was previously explored, e.g in the NuMoon project).  Besides the abundance
+of radiowaves due to this effect, radiowaves can also propagate way further in
+ice than visible light making it possible to space the individual detectors
+further apart.
 
-Thus the proposal for RNO-G was made, it was funded and here we are.  RNO-G is
-an array of autonomous radio stations each of which having both surface
-channels and various deep channels resulting in a total of 24 channels per
-station. The whole project builds heavily on the knowledge obtained through
-previous neutrino detectors like ARA, RICE and ARIANNA experiments, as well as
-the balloon-borne ANITA experiment.
+Thus the proposal for RNO-G was made, funded and now in the construction phase.
+RNO-G is an array of autonomous radio stations each of which
+having both surface channels and various deep channels resulting in a total of
+24 channels per station. The whole project builds heavily on the knowledge
+obtained through previous neutrino detectors like ARA, RICE and ARIANNA
+experiments, as well as the balloon-borne ANITA experiment.
 
-One such detector is illustrated in figure \ref{fig:detector}.
-Just below the surface are 9 Log Periodic Dipole Antennas (LPDAs),
-these are used to detect muon signals as muons will also generate 
-cherencov radiation in the ice those signals can then be filtered out.
-The deep component of the detector can be split up in three parts: Two
-\textit{helper strings} and the \textit{power string}.
+One such detector is illustrated in figure \ref{fig:detector}, the plan is to
+build 35 of these as is shown in figure \ref{fig:station map}.  Looking closely
+at one such detector we see just below the surface 9 Log Periodic Dipole
+Antennas (LPDAs), these are used to detect muon signals as muons will also
+generate cherencov radiation in the ice whose signals can then be filtered out.
+Aside form these surface detectors there are also deep components of the
+detector which can be split up in three parts: Two \textit{helper strings} and
+the \textit{power string}.
 
-The helper strings are the 2 vertical cables shown on the right of the figure
-each housing 2 vertically polarized antennas (Vpols), one quadslot
-antenna for the horizontal polarization component (Hpol) and one radio pulser
-on each helper string which can be used to generate calibration signals.
-As was mentioned in the previous chapter the polarization can be used
-to distinguish between 2 possible cherenkov cones generating the same resulting
-pulse.
+The helper strings are the 2 vertical cables shown on the right of figure
+\ref{fig:detector} each housing 2 vertically polarized antennas (Vpols), one
+quadslot antenna for the horizontal polarization component (Hpol) and one radio
+pulser on each helper string which can be used to generate calibration signals.
+As was mentioned in the previous chapter the polarization can be used to
+distinguish between 2 possible cherenkov cones generating the same resulting
+pulse, this effect will mostly concern vertical polarization, as such most
+of the deep channels are vpol antennae.
 
-The power string (the leftmost vertical cable) is more densely instrumented: At
-the bottom it houses a set of four Vpol and two Hpol antennas with a spacing of
-1m and further up the string, with a spacing of 20m are three more Vpol
-antennas.
+The power string (the leftmost vertical cable) is more densely instrumented
+than the helper strings: At the bottom it houses a set of four Vpol and two
+Hpol antennas with a spacing of 1m and further up the string, with a spacing of
+20m, are three more Vpol antennas.
 
 The signal from each of these antennae are fed into a low-noise amplifier
 directly above it, from there the signal is send to the data acquisition (DAQ)
@@ -1064,8 +1082,8 @@ where it is sent via a sattelite link.
 
 There are solar panels as a power source who charge up battery banks, but as
 there is't enough light during the Greenland winters, there're plans to build
-wind turbines (with the problem being the possibly detectable RF noise the
-'engine' would produce).
+wind turbines (with one of the problems being the possibly detectable RF noise
+the 'engine' would produce).
 
 \begin{figure}
 	\centering
@@ -1085,9 +1103,9 @@ strings' calibration pulsers, as well as one on the surface, will ensure
 regular monitoring of the performance of the station and provide information
 useful for precise calibration of the antenna geometry.
 
-The plan is to construct these detectors in an array as shown in figure 
-\ref{fig:station map}, note that all the individual detectors are named after
-various species living in greenland (in the native tongue).
+As previously mentioned the plan is to construct these detectors in an array as
+shown in figure \ref{fig:station map}, note that all the individual detectors
+are named after various species living in greenland (in the native tongue).
 
 Christoph Welling did an investigation into energy reconstruction from the
 received signals\cite{Welling_2019} for air showers in one single station (as
@@ -1121,7 +1139,7 @@ It has become apparent [citation needed] that complex ice models will be nescess
 forward as the exponential ice model fails to fit the density curve.  The ideal
 software for radio wave propagation through ice is radiopropa\cite{Winchen_2019}, 
 but due to the way it works you'll have to
-know the start point , the end point and the launch angle of your ray to work
+know the start point, the end point and the launch angle of your ray to work
 out the path. This isn't difficult for the analytic model as it's exactly solvable
 but for a general ice model you'll somehow have to find where to shoot the ray.
 Work has been done on finding the launch angle in the case of complex
@@ -1149,11 +1167,11 @@ our detector is located at position $\mathbf{X}_2$, we start by defining the
 vector $\mathbf{v} = \mathbf{X}_2 - \mathbf{X}_1$, then we clone it as a new
 vector u and set u's z coordinate to 0, making it a normal vector of a plane
 parallel to the z direction. we now wish to know where we'd actually be able to
-find possible paths, looking at figure \ref{fig:path_illustration} we see that
+find possible paths, looking at figure \ref{fig:PathIllu} we see that
 no solutions below the direct path are possible as there would need to be
 upwards reflection, so we convert our vector $\mathbf{v}$ representing the path
 from the source to the detector to spherical coordinates, giving us a polar
-angle (zenith angle) "theta-direct". With this we know that the, at the source,
+angle (zenith angle) "theta-direct". With this we know that at the source
 the ray should propagate with an initial zenith angle within the angle interval
 0° to theta-direct° $:= \Omega$.
 
