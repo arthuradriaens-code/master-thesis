@@ -181,13 +181,16 @@ whom are free to download on \href{https://github.com/nu-radio}{github}.  This
 masters thesis consists of three major parts, first off a background is given
 on what neutrinos are and how the detector works, these are chapters 2-4, then
 chapter 5 explains how a new algorithm called the \textit{Hybrid minimizer} was
-built. This is an algorithm for finding the path(s) of a neutrino interaction
+built. This is an algorithm for finding the path(s) of a radio source (e.g a neutrino interaction)
 to the detector in complex ice models. And lastly, in chapter 6 it's explained
 how an indirect measurement was done of the index of refraction around the deep
 components of the detector using both weather balloon gps data and detector
 responses.
 All the code for both the simulations carried out throughout this thesis as well
-as the algorithm that was built can be found \href{https://github.com/arthuradriaens-code/projects-mt}{here}
+as the testing of the algorithm that was built can be found \href{https://github.com/arthuradriaens-code/projects-mt}{here},
+the algorithm itself can be found \href{https://github.com/arthuradriaens-code/NuRadioMC}{here}
+within the branch radiopropa/hybrid\_minimizer.
+
 \newpage
 \section*{Nederlands}
 De \textit{Radio Neutrino Observatory in Greenland} - RNO-G - is een detector
@@ -214,6 +217,10 @@ werden verwerkt in de tweede helft van het academiejaar, hier werd gebruik
 gemaakt van de locatie-info van de weerballon en de response van de detectors
 om een schatting te maken van de index van refractie lokaal aan de verscheidene
 channels van de detectoren.
+De code dienend tot het testen van het gemelde algoritme en het uitvoeren van 
+genoemde simulaties kan \href{https://github.com/arthuradriaens-code/projects-mt}{hier}
+gevonden worden en het algoritme zelf kan \href{https://github.com/arthuradriaens-code/NuRadioMC}{hier}
+gevonden worden onder de branch radiopropa/hybrid\_minimizer
 % =====================================================================
 \chapter{Neutrinos}
 %\includegraphics[width=0.5\textwidth]{standard_model.png}
@@ -1465,8 +1472,8 @@ refraction using what we here define as the \textit{relative accuracy}:
 \begin{equation}
   \varepsilon\ (\%) = \frac{n_\text{fit} - n_{\text{exact}}}{n_{\text{exact}}} \times 100
 \end{equation}
-Carrying this out we get figure \ref{fig:EpsilonIFODirect}, i.e it gets
-exponentially less accurate as the balloon moves further away. As we wish our
+Carrying this out\footnote{The code for this can be found in projects-mt/BaLLooN/simulations as plane\_wave.py} we get figure \ref{fig:EpsilonIFODirect}, i.e it gets
+exponentially shifted towards higher n as the balloon moves further away. If we wish our
 accuracy to be within 1\%, the angle the balloon makes with the detector needs
 to be less than 10° for the deep channels 0 to 3.
 \begin{figure}
@@ -1482,11 +1489,14 @@ to be less than 10° for the deep channels 0 to 3.
   \label{fig:BobsWeatherBalloonHeight}
 \end{figure}
 An example path of a weather balloon is shown in figure
-\ref{fig:ExampleBalloonPath}, looking specifically at the height using ROOT\footnote{\url{https://root.cern/}}
-we get what is shown in figure \ref{fig:BobsWeatherBalloonHeight}. It can be seen that the elevation varies between 3228m 
-(read the graph as: Over a 1000 data entries at that height)
-and 22755m (entries go to zero after that height). 
-This is relative to sea-level, looking at the height map of greenland as shown in figure \ref{fig:HeightMapGreenland}
+\ref{fig:ExampleBalloonPath}, looking specifically at the height information
+recorded by the weather balloon in a .root file using
+ROOT\footnote{\url{https://root.cern/}} we get what is shown in figure
+\ref{fig:BobsWeatherBalloonHeight}. It can be seen that the elevation varies
+between 3228m (read the graph as: Over a 1000 data entries at that height) and
+22755m (entries go to zero after that height).  This is relative to sea-level,
+looking at the height map of greenland as shown in figure
+\ref{fig:HeightMapGreenland}
 \begin{figure}
   \centering
   \includegraphics[width=0.4\textwidth]{GreenlandHeight.png}
@@ -1495,17 +1505,19 @@ This is relative to sea-level, looking at the height map of greenland as shown i
 \end{figure}
 this is obvious.  It's quite difficult to work directly with the global geographic
 coordinate system (longitudinal, latitude and elevation coordinates),
-that's why we convert them to local ENU coordinates (north, east, up) this is all
+that's why we convert them to local ENU coordinates (north, east, up)
 relative to the 'DISC' which is located at 72.58279265212887 latitude,
 -38.45581495328228 longitude and 3251.9489147560234 elevation.
 
 Now what would our $<$10° policy entail? And is it even possible? 
 Say we take a look at station Terianniaq (station 12)
 it's located at 72.6000868058195° N -38.4962265332872° W.
-converting this into ENU coordinates we get -137.67250176003688N 1727.5184983294744E now our "up" is then -95.5m as this 
-is the approximate location of the middle of channels 0-3.
-Now looking at e.g the Balloon path recorded on the 20th of august 2022 (figure \ref{fig:ExampleBalloonPathCrossing12})
-we see that the balloon crosses paths with detector 12, how close was this encounter? We can just look at every data
+converting this into ENU coordinates we get -137.67250176003688N
+1727.5184983294744E, we then set our "up" to be -95.5m as this is the
+approximate location of the middle of channels 0-3.  Now looking at e.g the
+Balloon path recorded on the 20th of august 2022 (figure
+\ref{fig:ExampleBalloonPathCrossing12}) we see that the balloon crosses paths
+closely with detector 12, but how close was this encounter? To quantize this we can take a look at every data
 entry (there are $>$12000 entries) individually and compute the angle the
 balloon makes with the detector by first converting the location of the balloon
 in ENU coordinates, then calculating the horizontal distance ($\sqrt{(x-x')^2 +
@@ -1528,16 +1540,16 @@ surface for our plane wave reconstruction. This would mean that we'd follow
 analogous steps as our previous analysis, i.e doing a plane wave reconstruction
 from the difference in timing and trying to fit the index of refraction, only
 now the plane wave abides with snell's law at the surface, going from n=1.27 to
-n=1 and we'll try to minimize the horizontal distance from the ray at the
-height of the balloon and the balloon. 
-I.e in full we first reconstruct the plane wave launch angle $\theta_1$ by
-minimizing the correlation function previously defined, this gives us
-a function
+n=1 and we'll need to minimize the horizontal distance from the ray at the
+height of the balloon and the balloon, not the angle.  
+The full algorithm thus goes as follows: We first reconstruct the
+plane wave launch angle $\theta_1$ by minimizing the correlation function
+previously defined, this gives us a function
 \begin{equation}
 	z = a_{InIce}*x + b_{InIce}
 	\label{eqn:InIcePlaneWave}
 \end{equation}
-The outgoing zenith angle at the surface will be $\theta_2$ calculated as:
+The outgoing zenith angle at the surface $\theta_2$ can be calculated from snell's law:
 \begin{equation}
 n_1 \sin{\theta_1} = n_2 \sin{\theta_2} \implies  \theta_2 = \sin^{-1}\left(\frac{n_1}{n_2}\sin{\theta_1}\right)
 \end{equation}
@@ -1561,7 +1573,7 @@ we can find out the horizontal position at the height of the balloon as
 and iteratively loop over possible indices of refraction, minimizing $|x_{Balloon} - x_f|$.
 
 Doing this whilst looping over possible horizontal balloon positions, 
-we get the result shown in figure \ref{fig:EpsilonIFODirectSnell}
+we get the result shown in figure \ref{fig:EpsilonIFODirectSnell}\footnote{The code for this can be found in projects-mt/BaLLooN/simulations as plane\_wave\_with\_snell.py}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{EpsilonIFODirectSnell.pdf}
@@ -1606,11 +1618,48 @@ predictions won't be accurate.
 	\caption{Example plane wave reconstruction of near-flying weather balloon position}
 	\label{fig:WeatherBalloonClosePositionReconstruction}
 \end{figure}
+\newpage
+\section{Error on prediction}
+Running ahead on the actual measurements, let's estimate how accurate our predictions will be,
+for the moment we're only interested in the deep channels 0-3. Let's label the vertical spatial accuracy, i.e how
+accurately we know the height of these detectors, $\delta z$ and the timely accuracy $\delta t$.
+Even though we know our $\epsilon$ to always overestimate the actual value, meaning that we could
+theoretically account for this by just calculating $\epsilon$ for the considered system and 
+correcting, let's assume it to be an absolute error. If we want to fit n, we first minimize the 
+summed correlation function to construct the plane wave. One correlation function is given by 
+\begin{equation}
+	Correlation(\theta) := \Delta t - \Delta t' = \Delta t
+	- \frac{\cos\theta \Delta z}{v}
+\end{equation}
+Say the minimum occurs at $Correlation(\theta) = Correlation(\theta_{min}) := \mathcal{C}$, we can then re-write 
+this equation for n:
+\begin{equation}
+  n = \frac{c(\Delta t - \mathcal{C})}{\cos \theta_{min} \Delta z} = \frac{c}{\cos{\theta_{min}}}\left[\frac{\Delta t}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]
+\end{equation}
+The $\Delta z$ is the vertical distance between two channels and thus has an error of $2\delta z$ and $\Delta t$ is the time
+difference between two channels, implying an error $2\delta t$. Let's use the variance formula to estimate the error:
+\begin{align}
+  \delta n &= \sqrt{\left(\frac{\partial n}{\partial \Delta t}\right)^2\delta t^2 + \left(\frac{\partial n}{\partial \Delta z}\right)^2\delta z^2}\\
+      &= \sqrt{\left(\frac{\partial n}{\partial \Delta t}\right)^2\delta t^2 + \left(\frac{\partial n}{\partial \Delta z}\right)^2\delta z^2}\\
+      &= \frac{c}{\cos{\theta_{min}}}\sqrt{\left[\frac{1}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]^2\delta t^2 + 
+      \left[\frac{\mathcal{C}}{\Delta z^2} - \frac{\Delta t}{\Delta z^2}\right]\delta z^2}
+\end{align}
+As we actually summed the correlation functions (6 in total), it's equivalent to doing 6 independent measurements
+of n, meaning that we get a reduction by a factor $\sim \sqrt{6}$.
+Now due to the inherent inaccuracy as previously shown, this n also has an additional error of $\pm \epsilon(\vec{r})$
+with $\vec{r}$ the position of the balloon. Our final error on n is thus:
+\begin{equation}
+  \pm \epsilon(\vec{r})\pm\frac{c}{\sqrt{6}\cos{\theta_{min}}}\sqrt{\left[\frac{1}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]^2\delta t^2 + 
+      \left[\frac{\mathcal{C}}{\Delta z^2} - \frac{\Delta t}{\Delta z^2}\right]\delta z^2}
+\end{equation}
 \section{Fitting the index}
-Now that we know our goal to be feasible, let's
-analyse the data. The positional data of the weather balloons was obtained from the \url{ftp1.esrl.noaa.gov} website using
-the rno-g-sonde script Of the official RNO-G github page. We'll be looking at the data recorded over the summer of 2022, more
-particularly 15/06/2022 - 30/09/2022. The detected events can be obtained from the DESY database\footnote{\url{https://rnog-monitor.zeuthen.desy.de/}}.
+Now that we know our goal to be feasible, let's analyse some data. The
+positional data of the weather balloons was obtained from the
+\url{ftp1.esrl.noaa.gov} website using the rno-g-sonde script Of the official
+RNO-G github page. We'll be looking at the data recorded over the summer of
+2022, more particularly 15/06/2022 - 30/09/2022. The detected events can be
+obtained from the DESY
+database\footnote{\url{https://rnog-monitor.zeuthen.desy.de/}}.
 
 Let's do an example rundown of how this analysis is going to go: let's start by
 looking at the weather balloon file SMT\_20220820\_111609.root, it was recorded
