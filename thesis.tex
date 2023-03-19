@@ -1527,12 +1527,16 @@ when the balloon gets close enough to get below the 10° mark we get figure
 \ref{fig:ExampleBalloonPathCrossing12LessThan10}. We thus see that in this
 example the $<10$° policy is viable.
 
-Now how much data do we have that way? After looping through every weather
+Now how much data do we have that way? 
+We'll be looking at the data recorded over the summer of
+2022, more particularly 15/06/2022 - 30/09/2022.
+The positional data of the weather balloons was obtained from the
+\url{ftp1.esrl.noaa.gov} website using the rno-g-sonde script of the official
+RNO-G github page .After looping through every weather
 balloon gpx file recorded in the summer of 2022 and seeing where it get's
 within 10 degrees we get the data shown in appendix \ref{app:10Deg}, even
 though this is quite a lot of data there's still another step that we could do
-to broaden the amount of usable data. 
-
+to broaden the amount of usable data.
 \subsection{Refraction at the surface}
 Up until now we have not used the property that waves refract at the surface as
 we didn't want to assume anything, now say that we include refraction at the
@@ -1620,13 +1624,13 @@ predictions won't be accurate.
 \end{figure}
 \newpage
 \section{Error on prediction}
-Running ahead on the actual measurements, let's estimate how accurate our predictions will be,
-for the moment we're only interested in the deep channels 0-3. Let's label the vertical spatial accuracy, i.e how
-accurately we know the height of these detectors, $\delta z$ and the timely accuracy $\delta t$.
-Even though we know our $\epsilon$ to always overestimate the actual value, meaning that we could
-theoretically account for this by just calculating $\epsilon$ for the considered system and 
-correcting, let's assume it to be an absolute error. If we want to fit n, we first minimize the 
-summed correlation function to construct the plane wave. One correlation function is given by 
+Running ahead on the actual measurements, let's estimate how accurate our
+predictions will be (in the non-snell case).  For the moment we're only
+interested in the deep channels 0-3. Let's label the vertical spatial accuracy,
+i.e how accurately we know the height of these channels, $\delta z$ and the
+timely accuracy, or how accurate the vpol timing characteristics are, $\delta
+t$. If we want to fit n, we first minimize the summed correlation function to
+construct the plane wave. One correlation function is given by 
 \begin{equation}
 	Correlation(\theta) := \Delta t - \Delta t' = \Delta t
 	- \frac{\cos\theta \Delta z}{v}
@@ -1639,27 +1643,44 @@ this equation for n:
 The $\Delta z$ is the vertical distance between two channels and thus has an error of $2\delta z$ and $\Delta t$ is the time
 difference between two channels, implying an error $2\delta t$. Let's use the variance formula to estimate the error:
 \begin{align}
-  \delta n &= \sqrt{\left(\frac{\partial n}{\partial \Delta t}\right)^2\delta t^2 + \left(\frac{\partial n}{\partial \Delta z}\right)^2\delta z^2}\\
-      &= \sqrt{\left(\frac{\partial n}{\partial \Delta t}\right)^2\delta t^2 + \left(\frac{\partial n}{\partial \Delta z}\right)^2\delta z^2}\\
-      &= \frac{c}{\cos{\theta_{min}}}\sqrt{\left[\frac{1}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]^2\delta t^2 + 
+  \delta n &= \sqrt{\left(\frac{\partial n}{\partial \Delta t}\right)^2 4\delta t^2 + \left(\frac{\partial n}{\partial \Delta z}\right)^24\delta z^2}\\
+      &= 2\sqrt{\left(\frac{\partial n}{\partial \Delta t}\right)^2\delta t^2 + \left(\frac{\partial n}{\partial \Delta z}\right)^2\delta z^2}\\
+      &= \frac{2c}{\cos{\theta_{min}}}\sqrt{\left[\frac{1}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]^2\delta t^2 + 
       \left[\frac{\mathcal{C}}{\Delta z^2} - \frac{\Delta t}{\Delta z^2}\right]\delta z^2}
 \end{align}
-As we actually summed the correlation functions (6 in total), it's equivalent to doing 6 independent measurements
-of n, meaning that we get a reduction by a factor $\sim \sqrt{6}$.
-Now due to the inherent inaccuracy as previously shown, this n also has an additional error of $\pm \epsilon(\vec{r})$
-with $\vec{r}$ the position of the balloon. Our final error on n is thus:
+As we actually summed the correlation functions (6 in total), it's equivalent
+to doing 6 independent measurements of n, meaning that we get a reduction by a
+factor $\sim \sqrt{6}$.  Even though we know our $\epsilon$ to always
+overestimate the actual value, meaning that we could theoretically account for
+this by just calculating $\epsilon$ for the considered system and correcting,
+let's assume it to be an absolute error.  Now due to this inherent inaccuracy ,
+n also has an additional error of $\pm \epsilon(\vec{r})$ with $\vec{r}$ the
+position of the balloon. Our final error on n is thus:
 \begin{equation}
-  \pm \epsilon(\vec{r})\pm\frac{c}{\sqrt{6}\cos{\theta_{min}}}\sqrt{\left[\frac{1}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]^2\delta t^2 + 
+  \pm \epsilon(\vec{r})\pm\sqrt{\frac{2}{3}}\frac{c}{\cos{\theta_{min}}}\sqrt{\left[\frac{1}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]^2\delta t^2 + 
       \left[\frac{\mathcal{C}}{\Delta z^2} - \frac{\Delta t}{\Delta z^2}\right]\delta z^2}
+      \label{eqn:total error}
 \end{equation}
+If we assume the $\epsilon$ to overestimate the index of refraction the same way in real
+life as in the simulation however, our estimated $n$ can be corrected as
+\begin{equation}
+  n_{\text{corrected}} = \frac{n}{\epsilon + 1}
+\end{equation}
+and our error becomes only the second part of equation \ref{eqn:total error}.
+\newpage
 \section{Fitting the index}
-Now that we know our goal to be feasible, let's analyse some data. The
-positional data of the weather balloons was obtained from the
-\url{ftp1.esrl.noaa.gov} website using the rno-g-sonde script Of the official
-RNO-G github page. We'll be looking at the data recorded over the summer of
-2022, more particularly 15/06/2022 - 30/09/2022. The detected events can be
-obtained from the DESY
-database\footnote{\url{https://rnog-monitor.zeuthen.desy.de/}}.
+Now that we know our goal to be feasible, let's analyse some data.  As we'll
+start by just analysing one event, let's take one of the best events possible
+for our analysis.  A close look at graph \ref{fig:EpsilonIFODirect} shows that
+events under 5° produce an error of less than 0.22\%, implying that if we
+measure n to be 1.7407 our error will only be 0.0038. After looping through
+all the balloon positional files and only outputting the $<5°$ ones we get
+some moments balloons were actually close enough (note that $<5°$ almost never happens).
+
+If we search in the DESY
+database \footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within these timeframes
+for the particular detectors where the balloon gets close enough to AND the 403MHz signal
+coming from the Ballon is detected in the deep channels, the event ... jumps out:
 
 Let's do an example rundown of how this analysis is going to go: let's start by
 looking at the weather balloon file SMT\_20220820\_111609.root, it was recorded
