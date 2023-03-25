@@ -992,11 +992,26 @@ the neutrino interaction and the detector are specified, the ray
 tracing software developed in complience with this exponential density
 profile is called the \textit{analytic ray tracer}.
 
-There is one big downside however: looking at measurements of the density i.f.o depth
-it seems that the ice actually doesn't follow an exponential curve but more closely
-a polynomial, implying that our analytic ray tracer will make wrong predictions.
-This is why the development of a different ray tracer was needed which we'll get to
-in the next chapter.
+There is one big downside however: looking at measurements of the density i.f.o depth as shown in figure \ref{fig:DensityMeasurements} 
+\begin{figure}
+	\includegraphics[width=0.5\textwidth]{Density_measurements.pdf}
+	\caption{Measurements of the density (kg/m$^3$) i.f.o the depth with various fits}
+	\label{fig:DensityMeasurements}
+\end{figure}
+it seems that the ice actually doesn't follow an exponential
+curve as is indicated with the "log function" but more closely
+some kind of polynomial. as an example the curve "polynomial
+log function" was included which has the structure
+\begin{equation}
+	a_5 log(x)^5 + a_4 log(x)^4 + a_3 log(x)^3 
+	+ a_2 log(x)^2 + a_1 log(x) + a_0
+\end{equation}
+this discrepency between the exponential model and the actual
+data implies that the analytic ray tracer will make the wrong
+predictions.  This is why the development of a different ray
+tracer was needed which will be able to handle more complex
+(e.g polynomial) ice models, we'll get to this ray tracer in
+the next chapter.
 \section{Reconstruction: Lookup tables}
 The main simulation code we'll be using consists of 2 parts: 
 NuRadioMC and NuRadiopropa,
