@@ -152,7 +152,7 @@
 % =====================================================================
 % Front matter
 % =====================================================================
-
+\newpage
 % ------------ TABLE OF CONTENTS ---------
 {\hypersetup{hidelinks}\tableofcontents} % hide link color in toc
 \newpage
@@ -196,7 +196,7 @@ within the branch radiopropa/hybrid\_minimizer.
 De \textit{Radio Neutrino Observatory in Greenland} - RNO-G - is een detector
 die momenteel onder constructie is in Groenland. Deze detector heeft als doel
 het vinden van neutrinos met energieën van enkele PeV tot in het EeV gebied.
-Deze extreem hoge energy neutrino telescoop zal astrofysische neutrinos zoeken
+Deze extreem hoge energie neutrino telescoop zal astrofysische neutrinos zoeken
 op energieën waar icecube te klein voor is. Het zal ook het vinden van
 cosmogenische neutrinos mogelijk maken.  Alle simulaties werden mogelijk
 gemaakt door de volgende programmas:
@@ -207,11 +207,11 @@ gemaakt door de volgende programmas:
 \end{itemize}
 Dewelke te downloaden zijn op \href{https://github.com/nu-radio}{github} Deze
 master thesis is opgebouwd uit 3 delen. Hoofdstukken 2 t.e.m 4 zijn
-achtergrondinformatie, daarna wordt in hoofdstuk 5 het bouwen van een algoritme
-uitgelegd en in hoofdstuk 6 worden indirecte metingen gedaan gebruik makende
+achtergrondinformatie, waarna in hoofdstuk 5 het bouwen van een algoritme
+uitgelegd wordt en in hoofdstuk 6 worden indirecte metingen gedaan gebruik makende
 van gemeten weerballon data.  Het algoritme werd gebouwd in de eerste helft
 van het jaar en heet de \textit{Hybrid minimizer}: een algoritme gemaakt met als
-doel het snel vinden van een pad vanuit een radio bron vertex (bv neutrino
+doel het snel vinden van een pad vanuit een radio bron vertex (bv een neutrino
 interactie) tot de detector in complexe ijsmodellen. De indirecte metingen
 werden verwerkt in de tweede helft van het academiejaar, hier werd gebruik
 gemaakt van de locatie-info van de weerballon en de response van de detectors
@@ -253,13 +253,13 @@ about what’s happening elsewhere in the universe including the cosmic
 collisions, galaxies, supernovae, Gamma-ray bursts (GRBs),... where they are created.
 
 \section{Discovery}
-When researching $\beta^-$ decay, the decay of a neutron into a nucleus, researcher
+When researching $\beta^-$ decay, the decay of a neutron, researcher
 detected a proton and an electron coming from the neutron. However
 on closer inspection it became apparent that energy was lost
 somewhere in violation with the conservation law of energy, and
 angular momentum wasn't conserved.  The solution postulated by
 Wolfgang Pauli was to introduce a new, really hard to detect
-particle: the neutrino.  The neutrino comes in three flavours:
+particle with no charge and a very small mass: the neutrino.  The neutrino comes in three flavours:
 electron, muon and tau neutrinos, each corresponding to their respective lepton denoted as
 \begin{equation}
 	\nu_e \quad \nu_\mu \quad \nu_\tau
@@ -290,7 +290,7 @@ propagation with the cosmic microwave or other photon backgrounds termed
 \textit{cosmogenic neutrinos}. 
 In figure \ref{figure:Neutrino fluxes} you see the neutrino flux theoretically expected 
 in function of energy for various sources of neutrinos. I'll walk you through each of
-them seperately.
+them seperately, going from smallest energy and flux to highest.
 \begin{figure}
 	\centering
 	\copyrightbox[r]{\includegraphics[height = 0.5\textwidth]{neutrinofluxes.pdf}}{\textcopyright Abhik Jash, Studies on the Physics of Resistive Plate Chambers in Relation to the INO Experiment}
@@ -324,8 +324,8 @@ we can take a look at conservation of entropy \cite{Dodelson} from which we'll f
 	T_\nu = \left(\frac{4}{11}\right)^{1/3}T_\gamma
 \end{equation}
 Note that they decoupled before the photons making them lower in temperature.
-As $T_\gamma$ is the CMB temperature which, nowadays, is measured to be around 2.7K.
-These primordial neutrinos are very low in energy.
+As $T_\gamma$ is the CMB temperature which, nowadays, is measured to be around 2.7K,
+these primordial neutrinos are very low in energy.
 \subsection{Solar neutrinos}
 The sun fuses elements to release energy and thus keeping itself from collapsing in 
 on itself, with most of the various ways particles get fused, neutrinos get released:\\
@@ -359,9 +359,9 @@ that the sun was dying and we'd see the aftermath only in a couple of years.
 Through various experiments however, it became apparent that this was due to
 the different kinds of neutrinos oscillating into each other on their way to
 earth, i.e 2/3 of the original electron neutrinos had oscillated into mu and
-tau neutrinos. But for them to oscillate into eachother, theoretically they not
-only require mass but each flavor also should have a different mass as the 2D
-transition probability is
+tau neutrinos. But for them to oscillate into eachother, they not
+only require mass but each flavor also should have a different mass as can be seen
+from an example 2D approximation to the transition probability:
 \begin{equation}
 	P(\nu_e\rightarrow\nu_\mu) = |\braket{\nu_\mu|\psi(L,T)}|^2 = c_\mu c_\mu^* = \sin ^2(2 \theta) \sin ^2\left(\frac{\Delta \phi_{12}}{2}\right)
 \end{equation}
@@ -369,11 +369,11 @@ with
 \begin{equation}
 	\Delta \phi_{12} \approx \frac{m_1^2 - m_2^2}{2p}L
 \end{equation}
-In general (3D)
+In full generality (3D):
 \begin{equation}
 	\ket{\nu_\alpha} = \sum_iU_{\alpha i} \ket{\nu_i}
 \end{equation}
-With $U_{\alpha i}$ e.g the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix. 
+With $U_{\alpha i}$ the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix. 
 This phenomenon has been observed e.g through the descrepency from the observed
 and expected neutrino events coming from a nuclear reactor \cite{Eguchi_2003}.
 \subsection{Supernovae}
@@ -390,6 +390,8 @@ point the star starts to form the most stable element: iron.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Binding_energy_curve.png}
+	\caption{Energy per nucleon i.f.o number of nucleons in the nucleus}
+	\label{fig:BindingEnergyCurve}
 \end{figure}
 It costs energy
 to both make lighter elements than iron and heavier ones.  As the iron core
@@ -428,9 +430,9 @@ creating neutrons (udd) and neutrinos, diagramatically shown in figure
 This last part happens in a split second as the collapse goes at 25\% the speed
 of light, creating a very dense neutron star (3000km in diameter iron core to
 30km in diameter neutron star) and up to $10^{52}$ ultra-relativistic
-neutrinos, carrying up to 99\% of the released energy
-\cite{Melson_2015}\footnote{1\% is released as kinetic energy, only 0.001\% as
-electromagnetic radiation}.  As the density has suddenly increased so much
+neutrinos, carrying up to 99\%\footnote{$\approx$1\% is released as kinetic energy, only 0.001\% as
+electromagnetic radiation} of the released energy
+\cite{Melson_2015}. As the density has suddenly increased so much
 there's a huge distance of pure vaccuum between the plasma outer layer and the
 (now) neutron star, this plasma starts free-falling inwards, also at 25\% the
 speed of light whilst the neutrinos carrying tremendous amounts of energy start
@@ -446,10 +448,10 @@ collissions happen at all. Some, however, escape and will be visible on earth
 in our neutrino detectors $\approx$ 18h before the light escapes the exploding
 star.
 
-Neutrino observatories are thus useful to know where to point our various
+Neutrino observatories are thus also useful to know where to point our various
 telescopes before the supernova is actually visible in the night sky.
 \subsection{Terrestrial anti-neutrinos}
-Terrestrial anti-neutrinos, also termed a \textit{geoneutrinos} are neutrinos
+Terrestrial anti-neutrinos, also termed \textit{geoneutrinos} are neutrinos
 coming from the decay of radionuclides (unstable nuclides due to excess in
 nuclear energy) naturally occuring in our earth.  Most geoneutrinos are
 electron antineutrinos originating in $\beta^-$ decay modes of ${}^{40}$K,
@@ -457,12 +459,12 @@ ${}^{232}$Th and ${}^{238}$U. Together these decay chains account for more than
 99\% of the present-day radiogenic heat generated inside the Earth
 
 \subsection{Reactor anti-neutrinos}
-Our most important energy source today, both in terms of energy output and
-their impact on the enviroment are fission reactors.
-Looking back at our energy per nucleon vs number of nucleons in the nucleus figure shown in the
-supernovae subsection we see that all the way to the right uranium is found, a lot of energy
-can thus be released by splitting in into nuclei with a lower amount of nucleons.
-Fission reactors operate by splitting this urantium via the introduction of a neutron:
+Arguably our most important energy source today, both in terms of energy output
+and their impact on the enviroment are fission reactors.  Looking back at
+figure \ref{fig:BindingEnergyCurve} we see that all the way to the right
+uranium is found, a lot of energy can thus be released by splitting in into
+nuclei with a lower amount of nucleons.  Fission reactors operate by splitting
+this urantium via the introduction of a neutron:
 \begin{equation}
 	n + {}^{235}U \rightarrow \text{Energy (radiation)} + 2\times\text{Fission fragments} + 2.5\times n
 \end{equation}
@@ -498,7 +500,7 @@ $N \propto E^{-\gamma}$ \cite{gaisser_engel_resconi_2016}.
 Cosmic rays hit the Earth's atmosphere at a rate of about 1000 per square meter
 per second and interact with atomic nuclei in the Earth's atmosphere, creating
 showers of particles, many of which are unstable and produce neutrinos when
-they decay these neutrinos are what's called \textit{Atmospheric neutrinos}.
+they decay, these neutrinos are what's called \textit{Atmospheric neutrinos}.
 Most notably neutrinos can be produced together with muons in the two-body
 decays of charged pions and kaons wherever these hadronic interactions occur.
 The most important production channels and their branching ratios for neutrinos
@@ -511,12 +513,12 @@ Neutrinos are subsequently also produced when these muons decay:
 \begin{equation}
 	\mu^\pm \rightarrow e^\pm + \nu_e(\bar{\nu}_e) + \bar{\nu}_\mu(\nu_\mu)
 \end{equation}
-which is a process mainly happening
-at low energies in the atmosphere.
-The spectrum shown in the figure roughly follows a power spectrum as the
-cosmic ray flux follows a power spectrum but the correspondence isn't one-to-one
-as, due to the difference in kinematics, the contribution from kaons to neutrinos is 
-significantly more important than to muons, especially at high energies.
+which is a process mainly happening at low energies in the atmosphere.  The
+atmospheric neutrino spectrum shown in figure \ref{figure:Neutrino
+fluxes} roughly follows a power spectrum as the cosmic ray flux follows a power
+spectrum but the correspondence isn't one-to-one as, due to the difference in
+kinematics, the contribution from kaons to neutrinos is significantly more
+important than to muons, especially at high energies.
 
 \subsection{neutrinos from AGNs}
 An AGN (active galactic nucleus) is deemed to be the reason why several abnormal galaxies exist with
@@ -562,7 +564,7 @@ The origin of the most energetic cosmic rays is still not conclusively
 identified. One approach to solving this problem is \textit{multi-messenger
 astrophysics}, where several types of cosmic particles are used to identify the
 sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously
-measure gravitational waves (gravitons?) with the Einstein telescope,
+measure gravitational waves with the Einstein telescope,
 neutrinos with IceCube (or eventually RNO-G), photons with various telescopes
 and muons with a muon detector.
 
@@ -591,33 +593,7 @@ And after some math find that you'll get the eigenvectors $\phi_\pm$ with eigenv
 		\frac{m}{\sqrt{\lambda_\pm^2 + m^2}}
 	\end{array}\right) \quad \text{ and }\quad m_\pm := \lambda_\pm =  \frac{M}{2}\left( 1 \pm \sqrt{1 + 4m^2/M^2}\right)
 \end{equation}
-Now in the limit $M \gg m$:
-\begin{equation}
-	m_\pm =  \frac{M}{2}\left( 1 \pm \sqrt{1 + 4m^2/M^2}\right) \approx \frac{M}{2}\left(1\pm1\pm\frac{2m^2}{M^2}\right)
-\end{equation}
-You get:
-\begin{align}
-	m_+ &\approx M\\
-	m_- &\approx -\frac{m^2}{M}
-\end{align}
-and:
-\begin{align}
-	\phi_+&\approx \left(\begin{array}{c}
-		\frac{M}{M}\\
-		\frac{m}{M}
-	\end{array}\right) = \left(\begin{array}{c}
-	1\\
-	m/M
-	\end{array}\right)\\
-	\phi_-&\approx \left(\begin{array}{c}
-		-\frac{m}{M}\\
-		\frac{m}{m}
-	\end{array}\right) = \left(\begin{array}{c}
-		-m/M\\
-		1
-	\end{array}\right)
-\end{align}
-i.e, in the $\chi,\omega$ basis:
+Now in the limit $M \gg m$, in the $\chi,\omega$ basis:
 \begin{align}
 	m_+\approx M \quad &\text{with eigenstate} \quad \chi + \frac{m}{M}\omega\\
 	m_-\approx -\frac{m^2}{M} \quad &\text{with eigenstate} \quad  \omega - \frac{m}{M}\chi\\
@@ -846,20 +822,19 @@ or, less ideally
 \begin{equation}
 	\tau^- \rightarrow \mu^- + \bar{\nu}_\mu + \nu_\tau
 \end{equation}
-In both of the possible interactions the resulting nucleus will result in a 
-hadronic shower, for the neutral current interaction (mediated by the Z boson) 
-the fraction of the neutrino energy that gets transferred to the nucleon
-is described by the inelasticity $y$ and is heavily shifted towards small
-values of $y$\cite{elasticity_y}. This causes a big, irreducable uncertainty
-when trying to estimate the original
-neutrino energy from these kinds of events. 
-With the charged current interaction (mediated by the $W^\pm$ bosons) this 
-isn't a problem however as the full neutrino energy
-ends up in the resulting cascades.
+In both of the possible interactions (W or Z exchange) the resulting nucleus
+will result in a hadronic shower, for the neutral current interaction (mediated
+by the Z boson) the fraction of the neutrino energy that gets transferred to
+the nucleon is described by the inelasticity $y$ and is heavily shifted towards
+small values of $y$\cite{elasticity_y}. This causes a big, irreducable
+uncertainty when trying to estimate the original neutrino energy from these
+kinds of events.  With the charged current interaction (mediated by the $W^\pm$
+bosons) this isn't a problem however as the full neutrino energy ends up in the
+resulting cascades.
 \section{Askaryan effect}
 For a particle shower to emit strong radio signals, two conditions have to be met:
 \begin{itemize}
-	\item There needs to be a speration of positive and negative charges in the shower front 
+	\item There needs to be a separation of positive and negative charges in the shower front 
 	\item The signals produced over the length of the shower profile need to overlap coherently.
 \end{itemize}
 The \textit{Askaryan} \cite{Askaryan} effect, also known as Askaryan radiation
@@ -870,9 +845,9 @@ charged particles containing a charge anisotropy, this charge imbalance is a
 result of medium electrons either Compton scattering into the advancing shower
 or annihilating with shower positrons.  In the end you have a moving charge
 anisotropy, propagating faster than the speed of light in the medium, creating
-Cherenkov radiation.  Cherenkov radiation is like the elektromagnetic
+Cherenkov radiation.  Cherenkov radiation is like the electromagnetic
 equivalent of a sonic boom, a sonic boom happens when something goes faster
-than the sounds speed in the medium; A particle emits Cherenkov radiation if it
+than the speed of sound in the medium; A particle emits Cherenkov radiation if it
 goes faster than the speed of light in the medium\footnote{The reader who wants a
 	thorough explanation and derivation is advised to check out
 \textit{Chapter 14: Radiation by Moving Charges} from the book
@@ -888,7 +863,7 @@ Now we can re-write this equation in spherical coordinates, which gives $1-\beta
 \begin{equation}
 \cos(\theta_c) = \frac{1}{\beta} = \frac{c'}{u} = \frac{c}{n}\cdot\frac{1}{u}
 \end{equation}
-I.e if $u>\frac{c}{n}$ with n the index of refraction, Cherenkov radiation will be emitted along a cone surface with half angle $\frac{\pi}{2}-\theta_c$ as illustrated in figure \ref{figure: Cherenkov illustratie}. Integrating equation \ref{equation: 4.128 in elektromagnetisme} over the solid angle and formally deviding by the time interval we get:
+I.e if $u>\frac{c}{n}$ with n the index of refraction, Cherenkov radiation will be emitted along a cone surface with half angle $\frac{\pi}{2}-\theta_c$ as illustrated in figure \ref{figure: Cherenkov illustratie}. Integrating equation \ref{equation: 4.128 in elektromagnetisme} over the solid angle and formally dividing by the time interval we get:
 \begin{equation}
 	\frac{\text{d}^2\mathscr{J}}{\text{d}\omega \text{d}t} = \frac{q^2}{4\pi}\sqrt{\frac{\mu}{\epsilon}}\beta\omega\left(1-\frac{1}{\beta^2}\right)	
 \end{equation}
@@ -947,7 +922,7 @@ an upwards polarization.
 	\label{fig:PathIllu}
 	\caption{illustration of radiowave paths generated by a neutrino event}
 \end{figure}
-Waves propagating through ice to a detector generally looks something like
+Waves propagating through ice to detectors generally looks something like
 what's illustrated in figure \ref{fig:PathIllu}.  Here the interaction of the
 neutrino happens somewhere in the neighbourhood of the red cross, the orange
 rays represent the resulting radio wave paths to the detector channels which are
@@ -1005,20 +980,26 @@ it can be derived that the index of refraction abides by
 \begin{equation}
 	n(z) = n_{ice} - \Delta n e^{z/z_0}
 \end{equation}
-with $n_{ice}$ the refractive index of solid ice and $\Delta n =
-n_{ice} - n_s$ with $n_s$ the index of refraction of snow. This is
-called
-"the exponential model".
+with $n_{ice}$ the refractive index of solid ice and $\Delta n = n_{ice} - n_s$
+with $n_s$ the index of refraction of snow. This is called "the exponential
+model".  Looking back at Schytt's equation we see that this model is a
+consequence of the exponential nature the density would have.
 
-From the measured density with depth variation this seems to
-roughly hold but it could be better (as will be explained in chapter
-(TBC)).
-This exponential model has a huge advantage however as it's analytically 
+This exponential model has a huge advantage as it's analytically 
 solvable, meaning that we don't have to iteratively search for the 
 path to the detector but know it instantly after the location of
-the neutrino interaction and the detector are specified, this
-"model" is called the \textit{analytic ray tracer}.
-\section{Reconstruction}
+the neutrino interaction and the detector are specified, the ray 
+tracing software developed in complience with this exponential density
+profile is called the \textit{analytic ray tracer}.
+
+There is one big downside however: looking at measurements of the density i.f.o depth
+it seems that the ice actually doesn't follow an exponential curve but more closely
+a polynomial, implying that our analytic ray tracer will make wrong predictions.
+This is why the development of a different ray tracer was needed which we'll get to
+in the next chapter.
+\section{Reconstruction: Lookup tables}
+The main simulation code we'll be using consists of 2 parts: 
+NuRadioMC and NuRadiopropa,
 It can pose a challenge to reconstruct the radio signals produced by
 the Cherenkov radiation as they are often obscured by background
 noise. A solution used in RadioReco is Information Field Theory
@@ -1576,8 +1557,10 @@ we can find out the horizontal position at the height of the balloon as
 \end{equation}
 and iteratively loop over possible indices of refraction, minimizing $|x_{Balloon} - x_f|$.
 
-Doing this whilst looping over possible horizontal balloon positions, 
-we get the result shown in figure \ref{fig:EpsilonIFODirectSnell}\footnote{The code for this can be found in projects-mt/BaLLooN/simulations as plane\_wave\_with\_snell.py}
+Doing this whilst looping over possible horizontal balloon positions, we get
+the result shown in figure \ref{fig:EpsilonIFODirectSnell}\footnote{The code
+for this can be found in projects-mt/BaLLooN/simulations as
+plane\_wave\_with\_snell.py}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{EpsilonIFODirectSnell.pdf}
@@ -1673,62 +1656,34 @@ Now that we know our goal to be feasible, let's analyse some data.  As we'll
 start by just analysing one event, let's take one of the best events possible
 for our analysis.  A close look at graph \ref{fig:EpsilonIFODirect} shows that
 events under 5° produce an error of less than 0.22\%, implying that if we
-measure n to be 1.7407 our error will only be 0.0038. After looping through
-all the balloon positional files and only outputting the $<5°$ ones we get
-some moments balloons were actually close enough (note that $<5°$ almost never happens).
+measure n to be 1.7407 our error will only be 0.0038. After looping through all
+the balloon positional files and only outputting the $<5°$ ones we get some
+moments where balloons were actually close enough (note that $<5°$ almost never
+happens at low heights).
 
-If we search in the DESY
-database \footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within these timeframes
-for the particular detectors where the balloon gets close enough to AND the 403MHz signal
-coming from the Ballon is detected in the deep channels, the event ... jumps out:
+If we search in the DESY database
+\footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within the calculated
+timeframes for the particular detectors where the balloon gets close enough to,
+AND where the 403MHz signal coming from the Ballon (see figure
+\ref{fig:BalloonFreq}) is detected in the deep channels, the events of the 29th
+of august stands out; between 11:18:46 and 11:18:56, the balloon gets really
+close to detector (...) as can be seen on figure (...). If we take a look
+at the detected signals we see that at run 691 the event 489 gets recorded at
+(...) showing a clear 403MHz peak at channels (...).
 
-Let's do an example rundown of how this analysis is going to go: let's start by
-looking at the weather balloon file SMT\_20220820\_111609.root, it was recorded
-the 20th of august 2022 as can be derived from it's name, we have a
-complementary file SMT\_20220820\_111609.gpx this can be graphically displayed
-using the python module gpxplotter resulting in the trajectory shown in figure
-\ref{fig:IntWB} We can see it clearly first coming close to the station Amaroq
-(station 21) and subsequently very close to Terianniaq (station 12) as is 
-also found in appendix \ref{app:10Deg}.  If we take a look at this day in the event
-browser we see quite a lot of activity as is shown in figure
-\ref{fig:20thEvents}. We, however, are only interested in the brief timeframe
-where the weather balloon passes these detectors closely and only in signals coming
-from these particular detectors. The time window we'll need to look at is
-inbetween 11:24:02 and 11:26:23. This seems to be within
-run 528 as it runs from 10:45 till 12:45. If we now take a look at the file 
-SMT\_20220820\_111609.root with ROOT we can see that the balloon sends out signals at
-a frequency of 403 as shown in figure \ref{fig:BalloonFreq}. Now taking a
-look at event 1981 in run 528 which was recorded at 20/08/2022 11:25:51 we see
-the spectrum shown in figure \ref{fig:DetectorFreq} which shows a clear spike
-at 403MHz for the surface detectors.
+Now to calculate the differences in timing for this received signal:  The
+signal sent out by the weather balloon is a sinusoidal wave, meaning that we
+can take a look at the recorded voltage i.f.o time and overlay a sine of
+403MHz, making the differences with the actual signal as close to zero as
+possible; if we then compare the different offsets of the sine we get the
+differences in timing.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{Frequencies.pdf}
   \caption{Frequencies sent out by the weather balloon}
   \label{fig:BalloonFreq}
 \end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\textwidth]{FrequenciesDetectors.png}
-  \caption{Frequencies received by the various detectors}
-  \label{fig:DetectorFreq}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{InteractingWeatherBalloonPath.png}
-  \caption{Part of a weather balloon path on the 20th of august, the detectors placed as of 2023 are illustrated with
-  a green info mark}
-  \label{fig:IntWB}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{Events20Aug.png}
-  \caption{Event rate recorded on the 20th of august}
-  \label{fig:20thEvents}
-\end{figure}
-
 
 \appendix
 \chapter{List of abbreviations}
@@ -1749,10 +1704,6 @@ at 403MHz for the surface detectors.
 \begin{table}
 \csvautotabular{tables/EventsBelow10DegPart4.csv}
 \end{table}
-%\chapter{Balloon passbys under 15°}
-%\begin{table}
-%\csvautotabular{tables/EventsBelow15Deg.csv}
-%\end{table}
 
 % =====================================================================
 % End matter
