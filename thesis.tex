@@ -152,6 +152,7 @@
 % =====================================================================
 % Front matter
 % =====================================================================
+\shipout\null
 \newpage
 % ------------ TABLE OF CONTENTS ---------
 {\hypersetup{hidelinks}\tableofcontents} % hide link color in toc
@@ -567,7 +568,7 @@ sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously
 measure gravitational waves with the Einstein telescope,
 neutrinos with IceCube (or eventually RNO-G), photons with various telescopes
 and muons with a muon detector.
-
+\newpage
 \section{Current research}
 There are still a lot of unknowns concerning neutrinos, of which the most prominent questions
 are "How do neutrinos get their mass? (theoretically)" and "are neutrinos Majorana?".
@@ -614,6 +615,7 @@ which seems \cite{neutrino-mass} to be a reasonable order of magnitude estimate 
 mass.
 This mechanism would also lead to supermassive neutrinos, which are a possible dark matter
 candidate.
+\newpage
 \subsection{Majorana}
 A theory that's also quite interesting is that
 neutrinos are majorana, meaning that they are their own anti-particle.
@@ -994,6 +996,7 @@ profile is called the \textit{analytic ray tracer}.
 
 There is one big downside however: looking at measurements of the density i.f.o depth as shown in figure \ref{fig:DensityMeasurements} 
 \begin{figure}
+  \centering
 	\includegraphics[width=0.5\textwidth]{Density_measurements.pdf}
 	\caption{Measurements of the density (kg/m$^3$) i.f.o the depth with various fits}
 	\label{fig:DensityMeasurements}
@@ -1011,23 +1014,7 @@ data implies that the analytic ray tracer will make the wrong
 predictions.  This is why the development of a different ray
 tracer was needed which will be able to handle more complex
 (e.g polynomial) ice models, we'll get to this ray tracer in
-the next chapter.
-\section{Reconstruction: Lookup tables}
-The main simulation code we'll be using consists of 2 parts: 
-NuRadioMC and NuRadiopropa,
-It can pose a challenge to reconstruct the radio signals produced by
-the Cherenkov radiation as they are often obscured by background
-noise. A solution used in RadioReco is Information Field Theory
-(IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021}
-which uses Bayesian inference to calculate the most likely radio
-signal, given recorded data.  The full reconstruction will then work
-as follows: events and their propagation are generated in a
-monte-carlo simulation using
-NuRadioMC\cite{Glaser_2019}\cite{Glaser_2020}, how the detector
-signals would look like is then simulated with RadioReco and saved
-in a database.  If we then detect a neutrino event in the real
-detector it can be compared to the database, thus finding the
-origin.
+chapter \ref{chapter:hybrid}.
 \chapter{The Detector}
 Both cosmic ray and neutrino detectors face the same main problem at the
 highest energies: the steeply falling flux (as was previously discussed in
@@ -1088,6 +1075,23 @@ there is't enough light during the Greenland winters, there're plans to build
 wind turbines (with one of the problems being the possibly detectable RF noise
 the 'engine' would produce).
 
+\section{Reconstruction: Lookup tables}
+The main simulation code we'll be using consists of 2 parts: 
+NuRadioMC and NuRadiopropa,
+It can pose a challenge to reconstruct the radio signals produced by
+the Cherenkov radiation as they are often obscured by background
+noise. A solution used in RadioReco is Information Field Theory
+(IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021}
+which uses Bayesian inference to calculate the most likely radio
+signal, given recorded data.  The full reconstruction will then work
+as follows: events and their propagation are generated in a
+monte-carlo simulation using
+NuRadioMC\cite{Glaser_2019}\cite{Glaser_2020}, how the detector
+signals would look like is then simulated with RadioReco and saved
+in a database.  If we then detect a neutrino event in the real
+detector it can be compared to the database, thus finding the
+origin.
+
 \begin{figure}
 	\centering
 	\includegraphics[height=0.9\textheight]{figures/detector.pdf}	
@@ -1134,6 +1138,7 @@ additional complexities.
 \end{figure}
 
 \chapter{Hybrid Ray tracer}
+\label{chapter:hybrid}
 %----------------------------------------------------------------------------------------
 %	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
@@ -1162,7 +1167,7 @@ more accurate and also arrives closer to the detector as the final result is
 not limited by the final drawn sphere size but by a given tolerence.
 
 \section{How it works}
-The full code can be found in appendix \ref{chapter: Hybrid minimizer code},
+The full code can be found in (WORK) ,
 here we'll walk you through the algorithm.  The hybrid minimizer can be seen as
 an extension of the iterative raytracer \cite{2022icrc.confE1027O} as it starts
 out the same way: Say our source of radiation is at position $\mathbf{X}_1$ and
