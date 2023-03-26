@@ -24,7 +24,7 @@
 \contentsline {section}{\numberline {3.4}Wave propagation}{16}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Ice model}{17}{section.3.5}%
 \contentsline {chapter}{\numberline {4}The Detector}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Reconstruction: Lookup tables}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.1}Reconstruction: Lookup tables}{21}{section.4.1}%
 \contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{24}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Shortcomings of the exponential ice model}{24}{section.5.1}%
 \contentsline {section}{\numberline {5.2}How it works}{24}{section.5.2}%

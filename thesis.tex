@@ -1098,13 +1098,6 @@ noise. A solution used in RadioReco is Information Field Theory
 which uses Bayesian inference to calculate the most likely radio
 signal, given recorded data.  
 
-
-\begin{figure}
-	\centering
-	\includegraphics[height=0.9\textheight]{figures/detector.pdf}	
-	\caption{illustration of the detector}
-	\label{fig:detector}
-\end{figure}
 As was previously explained the radio signal from a neutrino often travels
 along both direct and refracted paths (designated DnR) to the deep array. 
 This double pulse characteristic would be a smoking-gun signature of an in-ice
@@ -1133,7 +1126,7 @@ the Cherenkov-ring disappear. Because of this the RNO-G stations are fitted
 with surface Log Periodic Dipole Antennas (LPDA), capable of detecting muons.
 Note that this is for air showers, the radio signal from neutrinos show
 additional complexities.
-
+\newpage
 \section{Reconstruction: Lookup tables}
 The main simulation code we'll be using consists of 2 parts:
 NuRadioMC\cite{Glaser_2019}\cite{Glaser_2020} and NuRadioReco. NuRadioMC uses
@@ -1144,6 +1137,13 @@ The plan is to simulate a lot of neutrino events and record the detector
 responses in a giant database then, when an actual neutrino event occurs, we'll
 only have to look in the database and match the actual detector response to the
 simulated detector responses, thus finding the origin.
+
+\begin{figure}
+	\centering
+	\includegraphics[height=0.9\textheight]{figures/detector.pdf}	
+	\caption{illustration of the detector}
+	\label{fig:detector}
+\end{figure}
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{figures/station-map.png}	
