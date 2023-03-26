@@ -1172,15 +1172,16 @@ paper.  This is however a sub-optimal solution in python as an optimalisation
 library will generally work faster, work had been done on trying to implement
 such an algorithm deemed the "minimizer" but this attempt failed.  As we saw
 this work the idea came to mind to combine the iterative ray tracer and the
-code using the optimisation libraries, to come up with the algorithm that will
+code using the optimization libraries, to come up with the algorithm that will
 be discussed in this chapter: The hybrid ray tracer, in the source code called
-the "hybrid minimizer" for which the source code can be found
+the "hybrid minimizer" which can be found
 \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the
 radiopropa/hybrid\_minimizer branch.
 
 It succeeds in more rapidly tracing the path from the event to the detector, is
 more accurate and also arrives closer to the detector as the final result is
-not limited by the final drawn sphere size but by a given tolerence.
+not limited by the final drawn sphere size but by a given tolerence making it
+useful for plane wave reconstruction as we'll get to next chapter.
 
 \section{How it works}
 The hybrid minimizer can be seen as an extension of the iterative raytracer
@@ -1244,13 +1245,15 @@ With this our algorithm is done, it does have a fail-safe as well for if the fir
 regions, doesn't work namely it reverts back to being the iterative ray tracer.
 \section{Performance Optimalisation}
 To test the hybrid minimizer the numpy random module was used to generate
-random coördinates, the considered square (as there is only a z component to the
-ice model the 3D problem is essentially only a 2D problem) is x:0.1km,4km and
-z:-0.1km,-3km.\footnote{This start at 100m depth was to get around issues concerning events that 
-won't even trigger in a full simulation}
-Every test point shown in the following subsections consists of at least 500 random initial positions.
-As the speed of the algorithm is computer dependent the algorithm's speed is always plotted relative to
-the iterative ray tracer's speed, simulated with the same coordinates at the same time.
+random coördinates, the considered square (as there is only a z component to
+the ice model the 3D problem is cilindrically symmetric and thus essentially
+only a 2D problem) is x:0.1km,4km and z:-0.1km,-3km.\footnote{This start at
+100m depth was to get around issues concerning events that won't even trigger
+in a full simulation} Every test point shown in the following subsections
+consists of at least 500 random initial positions.  As the speed of the
+algorithm is computer dependent the algorithm's speed is always plotted
+relative to the iterative ray tracer's speed, simulated with the same
+coordinates at the same time.
 \subsection{Length of the normal vector}
 \begin{figure}[h!]
 	\centering
@@ -1361,7 +1364,7 @@ detectors.
 If this is somewhat succesfull it can be used (as we'll get to
 shortly) to find out the local index of refraction in the ice.
 
-There are 2 changes that need to happen first however to our algorithm for us to
+There are 2 changes that need to happen first to our algorithm for us to
 be able to simulate this: The air observers needs to be hard removed
 as to make a ray tracing possible from within the air to the
 detector and second off, we'll need to implement secondaries.
@@ -1381,7 +1384,7 @@ balloon to the "start" of the ray.
 From this information the propagation time from the balloon to the ice $t$ 
 can later be added to the time of the path in the ice by measuring the 
 length $d$ of the drawn line from the balloon to the beginning of the recorded path, 
-setting the speed of radio waves in air to c and then just $t = d/c$.
+setting the speed of radio waves in air to c and then just adding $t = d/c$.
 \section{Plane Wave Reconstruction}
 Now having modified our ray tracer, the first problem we'll consider is
 plane wave reconstruction of the original position, an example path
@@ -1483,18 +1486,20 @@ angle with the detector the less accurate the plane wave reconstruction.  So
 which angles are acceptable? To determine this our method works as follows: 
 
 we vary the position of the weather balloon in the x direction (keeping the
-height constant), reconstruct the ray path from channels 0 to 3 and then fit n such that the
-difference between the reconstructed angle and the direct angle is the smallest
-possible.  Then we compare the n we have fit to the one we know from the model
-at that position.  We quantise the discrepency between these two indices of
-refraction using what we here define as the \textit{relative accuracy}:
+height constant), simulate the ray path to the channels 0 to 3 and then fit n
+such that the difference between the reconstructed angle (from the plane wave
+method) and the direct angle (angle between the middle of channels 0-3 and the
+balloon) is the smallest possible.  Then we compare the n we have fit to the
+one we know from the model at that position.  We quantise the discrepency
+between these two indices of refraction using what we here define as the
+\textit{relative accuracy}:
 \begin{equation}
   \varepsilon\ (\%) = \frac{n_\text{fit} - n_{\text{exact}}}{n_{\text{exact}}} \times 100
 \end{equation}
 Carrying this out\footnote{The code for this can be found in projects-mt/BaLLooN/simulations as plane\_wave.py} we get figure \ref{fig:EpsilonIFODirect}, i.e it gets
 exponentially shifted towards higher n as the balloon moves further away. If we wish our
-accuracy to be within 1\%, the angle the balloon makes with the detector needs
-to be less than 10° for the deep channels 0 to 3.
+accuracy to be within 1\%, the angle the balloon makes with the middle of channels 0 to 3 needs
+to be less than 10°.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{EpsilonIFODirect.pdf}
