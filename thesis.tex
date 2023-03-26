@@ -1040,8 +1040,8 @@ bigger.  We could just make IceCube bigger but this would cost a lot of money
 as the individual detectors need to be spaced closely as IceCube works in the
 visible spectrum for which the attenuation length is quite short. The proposed
 solution was to work with radiowave detectors, leveraging the Askaryan effect
-(as was previously explored, e.g in the NuMoon project).  Besides the abundance
-of radiowaves due to this effect, radiowaves can also propagate way further in
+(as was previously explored, e.g in the NuMoon project).  Besides the advantage
+radiowaves have due to their abundance, they can also propagate way further in
 ice than visible light making it possible to space the individual detectors
 further apart.
 
@@ -1053,13 +1053,14 @@ obtained through previous neutrino detectors like ARA, RICE and ARIANNA
 experiments, as well as the balloon-borne ANITA experiment.
 
 One such detector is illustrated in figure \ref{fig:detector}, the plan is to
-build 35 of these as is shown in figure \ref{fig:station map}.  Looking closely
-at one such detector we see just below the surface 9 Log Periodic Dipole
-Antennas (LPDAs), these are used to detect muon signals as muons will also
-generate cherencov radiation in the ice whose signals can then be filtered out.
-Aside form these surface detectors there are also deep components of the
-detector which can be split up in three parts: Two \textit{helper strings} and
-the \textit{power string}.
+build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
+that all the individual detectors are named after various species living in
+greenland (in the native tongue)}.  .  Looking closely at one such detector we
+see just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are
+used to detect muon signals as muons will also generate cherencov radiation in
+the ice whose signals can then be filtered out.  Aside form these surface
+detectors there are also deep components of the detector which can be split up
+in three parts: Two \textit{helper strings} and the \textit{power string}.
 
 The helper strings are the 2 vertical cables shown on the right of figure
 \ref{fig:detector} each housing 2 vertically polarized antennas (Vpols), one
@@ -1089,22 +1090,14 @@ there is't enough light during the Greenland winters, there're plans to build
 wind turbines (with one of the problems being the possibly detectable RF noise
 the 'engine' would produce).
 
-\section{Reconstruction: Lookup tables}
-The main simulation code we'll be using consists of 2 parts: 
-NuRadioMC and NuRadiopropa,
-It can pose a challenge to reconstruct the radio signals produced by
+
+It can,however, pose a challenge to reconstruct the radio signals produced by
 the Cherenkov radiation as they are often obscured by background
 noise. A solution used in RadioReco is Information Field Theory
 (IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021}
 which uses Bayesian inference to calculate the most likely radio
-signal, given recorded data.  The full reconstruction will then work
-as follows: events and their propagation are generated in a
-monte-carlo simulation using
-NuRadioMC\cite{Glaser_2019}\cite{Glaser_2020}, how the detector
-signals would look like is then simulated with RadioReco and saved
-in a database.  If we then detect a neutrino event in the real
-detector it can be compared to the database, thus finding the
-origin.
+signal, given recorded data.  
+
 
 \begin{figure}
 	\centering
@@ -1124,10 +1117,6 @@ strings' calibration pulsers, as well as one on the surface, will ensure
 regular monitoring of the performance of the station and provide information
 useful for precise calibration of the antenna geometry.
 
-As previously mentioned the plan is to construct these detectors in an array as
-shown in figure \ref{fig:station map}, note that all the individual detectors
-are named after various species living in greenland (in the native tongue).
-
 Christoph Welling did an investigation into energy reconstruction from the
 received signals\cite{Welling_2019} for air showers in one single station (as
 the RNO-G stations are so far apart this is the case here aswell) and he
@@ -1145,6 +1134,17 @@ with surface Log Periodic Dipole Antennas (LPDA), capable of detecting muons.
 Note that this is for air showers, the radio signal from neutrinos show
 additional complexities.
 
+\section{Reconstruction: Lookup tables}
+The main simulation code we'll be using consists of 2 parts:
+NuRadioMC\cite{Glaser_2019}\cite{Glaser_2020} and NuRadioReco. NuRadioMC uses
+Monte Carlo simulations to generate neutrino events in the ice and how they
+propagate to the various channels. NuRadioReco is reconstruction software, it
+simulates how the various detectors would respond to the detected radiowaves.
+The plan is to simulate a lot of neutrino events and record the detector
+responses in a giant database then, when an actual neutrino event occurs, we'll
+only have to look in the database and match the actual detector response to the
+simulated detector responses, thus finding the origin.
+
 \begin{figure}
 	\includegraphics[width=\textwidth]{figures/station-map.png}	
 	\caption{map of the station}
@@ -1157,56 +1157,59 @@ additional complexities.
 %	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
 \section{Shortcomings of the exponential ice model}
-It has become apparent [citation needed] that complex ice models will be nescessary moving
-forward as the exponential ice model fails to fit the density curve.  The ideal
-software for radio wave propagation through ice is radiopropa\cite{Winchen_2019}, 
-but due to the way it works you'll have to
-know the start point, the end point and the launch angle of your ray to work
-out the path. This isn't difficult for the analytic model as it's exactly solvable
-but for a general ice model you'll somehow have to find where to shoot the ray.
-Work has been done on finding the launch angle in the case of complex
-ice models by B. Oeyen et al. \cite{2022icrc.confE1027O}, where they
-created a ray tracer which iteratively finds the solution, called the
-"iterative ray tracer".  The full explanation of how their algorithm works can
-be found in the mentioned paper.  This is however a sub-optimal solution in
-python as an optimalisation library will generally work faster, work had been
-done on trying to implement such an algorithm but this attempt failed.  As we
-saw this work the idea came to mind to combine the iterative ray tracer and the code
-using the optimisation libraries (a so called "minimizer"), to come up with the
-algorithm that will be discussed in this chapter: The hybrid ray tracer, in the
-source code called the "hybrid minimizer".
+As mentioned in section \ref{section:Ice Model}, complex ice models will be
+necessary moving forward as the exponential ice model fails to fit the density
+curve.  The ideal software for radio wave propagation through ice is
+radiopropa\cite{Winchen_2019}, but due to the way it works you'll have to know
+the start point, the end point and the launch angle of your ray to work out the
+path. This isn't difficult for the analytic model as it's exactly solvable but
+for a general ice model you'll somehow have to find where to \textit{shoot} the
+ray.  Work has been done on finding the launch angle in the case of complex ice
+models by B. Oeyen et al. \cite{2022icrc.confE1027O}, where they created a ray
+tracer which iteratively finds the solution, called the "iterative ray tracer".
+The full explanation of how their algorithm works can be found in the mentioned
+paper.  This is however a sub-optimal solution in python as an optimalisation
+library will generally work faster, work had been done on trying to implement
+such an algorithm deemed the "minimizer" but this attempt failed.  As we saw
+this work the idea came to mind to combine the iterative ray tracer and the
+code using the optimisation libraries, to come up with the algorithm that will
+be discussed in this chapter: The hybrid ray tracer, in the source code called
+the "hybrid minimizer" for which the source code can be found
+\href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the
+radiopropa/hybrid\_minimizer branch.
 
 It succeeds in more rapidly tracing the path from the event to the detector, is
 more accurate and also arrives closer to the detector as the final result is
 not limited by the final drawn sphere size but by a given tolerence.
 
 \section{How it works}
-The full code can be found in (WORK) ,
-here we'll walk you through the algorithm.  The hybrid minimizer can be seen as
-an extension of the iterative raytracer \cite{2022icrc.confE1027O} as it starts
-out the same way: Say our source of radiation is at position $\mathbf{X}_1$ and
-our detector is located at position $\mathbf{X}_2$, we start by defining the
-vector $\mathbf{v} = \mathbf{X}_2 - \mathbf{X}_1$, then we clone it as a new
-vector u and set u's z coordinate to 0, making it a normal vector of a plane
-parallel to the z direction. we now wish to know where we'd actually be able to
-find possible paths, looking at figure \ref{fig:PathIllu} we see that
-no solutions below the direct path are possible as there would need to be
-upwards reflection, so we convert our vector $\mathbf{v}$ representing the path
-from the source to the detector to spherical coordinates, giving us a polar
-angle (zenith angle) "theta-direct". With this we know that at the source
-the ray should propagate with an initial zenith angle within the angle interval
-0° to theta-direct° $:= \Omega$.
+The hybrid minimizer can be seen as an extension of the iterative raytracer
+\cite{2022icrc.confE1027O} as it starts out the same way: Say our source of
+radiation is at position $\mathbf{X}_1$ and our detector is located at position
+$\mathbf{X}_2$, we start by defining the vector $\mathbf{v} = \mathbf{X}_2 -
+\mathbf{X}_1$, then we clone it as a new vector u and set u's z coordinate to
+0, making it a normal vector of a plane parallel to the z direction. we now
+wish to know where we'd actually be able to find possible paths, looking at
+figure \ref{fig:PathIllu} we see that no solutions below the direct path are
+possible as there would need to be upwards reflection, so we convert our vector
+$\mathbf{v}$ representing the path from the source to the detector to spherical
+coordinates, giving us a polar angle (zenith angle) "theta-direct". With this
+we know that at the source the ray should propagate with an initial zenith
+angle within the angle interval 0° to theta-direct° $:= \Omega$.
 
-Next we need to define our "observers", if you shoot a ray with the radiopropa module from a certain
-point at a certain angle the ray path will get simulated until it interacts with this "observer".
-Ideally we would like to a priori know where to shoot our ray and have the detector be an infinitesimally small
-observer in our simulation, but as we'll be working with general ice models this can't be done.
+Next we need to define our "observers", if you shoot a ray with the radiopropa
+module from a certain point at a certain angle the ray path will get simulated
+until it interacts with this "observer".  Ideally we would like to a priori
+know where to shoot our ray and have the detector be an infinitesimally small
+observer in our simulation, but as we'll be working with general ice models
+this can't be done.
 
-The algorithm of finding the possible paths is then as follows:
-We define a spherical observer at the location of the detector, with a radius of fair size. We place an 
-observer plane directly behind the detector (with normal vector $\mathbf{u}$, no rays can propagate back after crossing) 
-and an observer above the surface (as no rays could make it back after escaping the ice) our 
-full setup is then what's illustrated in the figure below
+The algorithm of finding the possible paths is then as follows: We define a
+spherical observer at the location of the detector, with a radius of fair size.
+We place an observer plane directly behind the detector (with normal vector
+$\mathbf{u}$, no rays can propagate back after crossing) and an observer above
+the surface (as no rays could make it back after escaping the ice) our full
+setup is then what's illustrated in the figure below
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.6\textwidth]{algoillu.pdf}
@@ -1216,10 +1219,11 @@ Here the red cross is the radio source, the blue horizontal line is the ice-air
 boundary surface, the blue dot to the right is the detector and the green
 $\Omega$ indicates the range over which solutions to the problem are possible.
 
-We start off by just iteratively guessing: given a certain angle stepsize $\Delta \theta$ shoot rays
-at the angles $\{0,\Delta \theta, 2\Delta \theta,...,\Omega\}$ And see which ones get detected 
-at the sphere around the detector, this process is illustrated in a modified version of B. Oeyen
-et al. their figure below\\
+We start off by just iteratively guessing: given a certain angle stepsize
+$\Delta \theta$ shoot rays at the angles $\{0,\Delta \theta, 2\Delta
+\theta,...,\Omega\}$ And see which ones get detected at the sphere around the
+detector, this process is illustrated in a modified version of B. Oeyen et al.
+their figure below\\
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.5\textwidth]{begin_explanation.png}
