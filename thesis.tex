@@ -570,8 +570,9 @@ neutrinos with IceCube (or eventually RNO-G), photons with various telescopes
 and muons with a muon detector.
 \newpage
 \section{Current research}
-There are still a lot of unknowns concerning neutrinos, of which the most prominent questions
-are "How do neutrinos get their mass? (theoretically)" and "are neutrinos Majorana?".
+There are still a lot of unknowns concerning neutrinos, for the interested reader 
+here I'll quickly go over current research into the most prominent questions. Namely
+"How do neutrinos get their mass? (theoretically)" and "are neutrinos Majorana?".
 \subsection{Mass}
 As neutrinos oscillate they must have mass, the currently most exciting theory to 
 explain the origins of this mass is the \textit{See-Saw mechanism} here mass is given
@@ -936,6 +937,7 @@ The dependence of the index of refraction on
 density for ice is given by the Schytt equation:
 \begin{equation}
 	n(x,y,z) \approx 1 + 0.78\rho(x,y,z)/\rho_0
+	\label{eqn:Schytt}
 \end{equation}
 Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the density for
 solid ice (917 kg/m³).  The effect on speed isn't the only effect the index of
@@ -980,6 +982,7 @@ on the index of refraction on a given location.
 Purely from classical gravity and density considerations
 it can be derived that the index of refraction abides by
 \begin{equation}
+	\label{eqn:expn}
 	n(z) = n_{ice} - \Delta n e^{z/z_0}
 \end{equation}
 with $n_{ice}$ the refractive index of solid ice and $\Delta n = n_{ice} - n_s$
@@ -1001,13 +1004,24 @@ There is one big downside however: looking at measurements of the density i.f.o 
 	\caption{Measurements of the density (kg/m$^3$) i.f.o the depth with various fits}
 	\label{fig:DensityMeasurements}
 \end{figure}
-it seems that the ice actually doesn't follow an exponential
-curve as is indicated with the "log function" but more closely
-some kind of polynomial. as an example the curve "polynomial
-log function" was included which has the structure
+And fitting the "exponential model" which can be derived by 
+combining equations \ref{eqn:Schytt} and \ref{eqn:expn} to 
+the form
 \begin{equation}
-	a_5 log(x)^5 + a_4 log(x)^4 + a_3 log(x)^3 
-	+ a_2 log(x)^2 + a_1 log(x) + a_0
+	\rho_0 (n_{ice} - 1 + \Delta n e^{z/z_0}) = \rho
+\end{equation}
+or simply
+\begin{equation}
+	a(b + c e^{z/d}) = \rho
+\end{equation}
+it seems that the ice actually doesn't follow this exponential
+curve perfectly but more closely some kind of polynomial. as an
+example the curve "fifth order exponential"\footnote{This is
+just an example, a better function can probably be found} was
+included which has the structure
+\begin{equation}
+	a_5 exp(-z/z_0)^5 + a_4 exp(-z/z_0)^4 + a_3 exp(-z/z_0)^3 
+	+ a_2 exp(-z/z_0)^2 + a_1 exp(-z/z_0) +a_0
 \end{equation}
 this discrepency between the exponential model and the actual
 data implies that the analytic ray tracer will make the wrong
