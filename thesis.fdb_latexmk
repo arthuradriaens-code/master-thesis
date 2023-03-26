@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex thesis"] 1679769435 "thesis.aux" "thesis.bbl" "thesis" 1679769438
+["bibtex thesis"] 1679827327 "thesis.aux" "thesis.bbl" "thesis" 1679827329
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "sources.bib" 1678625833 12479 248f9c40d18b1e66ead9e503e4a75bc1 ""
-  "thesis.aux" 1679769437 18235 cde3029981d85ffe267e023e56ef8a92 "pdflatex"
+  "thesis.aux" 1679827329 18366 5b6a20abb54691945cec15ce8c67dd39 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1679769435 "thesis.tex" "thesis.pdf" "thesis" 1679769438
+["pdflatex"] 1679827327 "thesis.tex" "thesis.pdf" "thesis" 1679827329
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1650183167 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -289,7 +289,7 @@
   "figures//BobsWeatherBalloonHeight.pdf" 1677853642 11166 8819f6032241e4b6828a9a23efc63ac8 ""
   "figures//Cherenkov-reactor.jpg" 1675373063 108711 d3a412a6dc3f37b367555fc2196145f5 ""
   "figures//Cherenkov.pdf" 1675373063 45214 34dfd1b8635b79c5540726f76c577b1a ""
-  "figures//Density_measurements.pdf" 1679768868 26483 8e294bb65997d123ebf8dc38389bd27c ""
+  "figures//Density_measurements.pdf" 1679827317 27729 a637ebfba59e025536cfd8765bf3fc2b ""
   "figures//EpsilonIFODirect.pdf" 1677795572 22339 556a5150f54fc466925fe5e559eb8788 ""
   "figures//EpsilonIFODirectSnell.pdf" 1679230914 22073 8be6cbc71288da24501d3127b19f5403 ""
   "figures//Frequencies.pdf" 1678382228 46105 3407f4f35a6791829f41ebf391b53c92 ""
@@ -328,12 +328,12 @@
   "tables/EventsBelow10DegPart3.csv" 1679230914 4227 4bb437e29dc4ca02cdca9e41c298ef45 ""
   "tables/EventsBelow10DegPart4.csv" 1679230914 3270 cb26a9736ea64265e4646f1aa789291e ""
   "tables/EventsBelow10DegPart5.csv" 1679230914 1269 98b49c5ceda72968cb8dcd94856ba8ec ""
-  "thesis.aux" 1679769437 18235 cde3029981d85ffe267e023e56ef8a92 "pdflatex"
-  "thesis.bbl" 1679769435 5301 17d1f0f4e5cca9db13dd154751ecabf6 "bibtex thesis"
-  "thesis.listing" 1679769437 91 5f9d1189de60f867f1b69ef3864fdf89 "pdflatex"
-  "thesis.out" 1679769437 6582 d532896007077d2efd90c7b9310cc0b8 "pdflatex"
-  "thesis.tex" 1679769432 86021 735948a1e40fca4e16293c266518122d ""
-  "thesis.toc" 1679769437 3484 935386ed43bc484d297dc712b5887f92 "pdflatex"
+  "thesis.aux" 1679827329 18366 5b6a20abb54691945cec15ce8c67dd39 "pdflatex"
+  "thesis.bbl" 1679827327 5301 17d1f0f4e5cca9db13dd154751ecabf6 "bibtex thesis"
+  "thesis.listing" 1679827329 91 5f9d1189de60f867f1b69ef3864fdf89 "pdflatex"
+  "thesis.out" 1679827329 6582 d532896007077d2efd90c7b9310cc0b8 "pdflatex"
+  "thesis.tex" 1679827317 86479 a0db5902e52a3d1c01fdf7634af2255d ""
+  "thesis.toc" 1679827329 3484 935386ed43bc484d297dc712b5887f92 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.listing"
