@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.14)  27 MAR 2023 12:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.14)  27 MAR 2023 17:23
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1322,73 +1322,70 @@ Package pdftex.def Info: ./figures//WeatherBalloonClosePositionReconstruction.pd
 (pdftex.def)             Requested size: 409.71692pt x 221.75487pt.
 [37 <./figures//EpsilonIFODirectSnell.pdf>] [38 <./figures//StartAndStop10Illu.pdf>] [39 <./figures//PathSMT_20220820_111609.pdf> <./figures//WeatherBalloonPath.png>] [40 <./figures//WeatherBalloonPositionReconstruction.pdf> <./figures//WeatherBalloonClosePositionReconstruction.pdf>] [41]
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1703.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1719.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1703.
-
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1704.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1704.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1719.
 
 Missing character: There is no ° in font cmr10!
-<./figures//Frequencies.pdf, id=1346, 911.75127pt x 758.91428pt>
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1720.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1720.
+
+Missing character: There is no ° in font cmr10!
+<./figures//29-08-Encounter.png, id=1358, 371.88937pt x 298.96957pt>
+File: ./figures//29-08-Encounter.png Graphic file (type png)
+<use ./figures//29-08-Encounter.png>
+Package pdftex.def Info: ./figures//29-08-Encounter.png  used on input line 1732.
+(pdftex.def)             Requested size: 182.09486pt x 146.39145pt.
+<./figures//Frequencies.pdf, id=1360, 911.75127pt x 758.91428pt>
 File: ./figures//Frequencies.pdf Graphic file (type pdf)
 <use ./figures//Frequencies.pdf>
-Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1726.
+Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1768.
 (pdftex.def)             Requested size: 227.62206pt x 189.46176pt.
-[42 <./figures//Frequencies.pdf>]
+[42 <./figures//29-08-Encounter.png>] [43 <./figures//Frequencies.pdf>]
 Appendix A.
-[43
+[44
 
 ]
 Appendix B.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 1737.
+(hyperref)                removing `\\' on input line 1779.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1740--1741
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1782--1783
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1743--1744
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1785--1786
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 12.41837pt on input line 1744.
+LaTeX Warning: Float too large for page by 12.41837pt on input line 1786.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1746--1747
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1788--1789
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1749--1750
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1791--1792
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1752--1753
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1794--1795
 [][] 
  []
 
-[44
+[45
 
 ]
-
-Package fancyhdr Warning: \headheight is too small (13.59999pt): 
-(fancyhdr)                Make it at least 25.22153pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.22153pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
-
-[45]
 
 Package fancyhdr Warning: \headheight is too small (13.59999pt): 
 (fancyhdr)                Make it at least 25.22153pt, for example:
@@ -1412,30 +1409,39 @@ Package fancyhdr Warning: \headheight is too small (13.59999pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
 
-[48] (./thesis.bbl
+[48]
+
+Package fancyhdr Warning: \headheight is too small (13.59999pt): 
+(fancyhdr)                Make it at least 25.22153pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.22153pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
+
+[49] (./thesis.bbl
 Overfull \hbox (6.0pt too wide) in paragraph at lines 1--1
 [][] 
  []
 
-[49
+[50
 
-]) [50] (./thesis.aux)
+]) [51] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D532896007077D2EFD90C7B9310CC0B8;6582.
  ) 
 Here is how much of TeX's memory you used:
- 33226 strings out of 478238
- 695784 string characters out of 5850456
- 1121314 words of memory out of 5000000
- 50565 multiletter control sequences out of 15000+600000
+ 33248 strings out of 478238
+ 696253 string characters out of 5850456
+ 1121390 words of memory out of 5000000
+ 50574 multiletter control sequences out of 15000+600000
  489264 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,17n,90p,1195b,2025s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on thesis.pdf (52 pages, 4810193 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
+Output written on thesis.pdf (53 pages, 4853286 bytes).
 PDF statistics:
- 1570 PDF objects out of 1728 (max. 8388607)
- 950 compressed objects within 10 object streams
- 226 named destinations out of 1000 (max. 500000)
- 541 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1603 PDF objects out of 1728 (max. 8388607)
+ 976 compressed objects within 10 object streams
+ 238 named destinations out of 1000 (max. 500000)
+ 546 words of extra memory for PDF output out of 10000 (max. 10000000)
 

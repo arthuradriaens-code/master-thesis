@@ -1653,10 +1653,11 @@ predictions won't be accurate.
 Running ahead on the actual measurements, let's estimate how accurate our
 predictions will be (in the non-snell case).  For the moment we're only
 interested in the deep channels 0-3. Let's label the vertical spatial accuracy,
-i.e how accurately we know the height of these channels, $\delta z$ and the
-timely accuracy, or how accurate the vpol timing characteristics are, $\delta
-t$. If we want to fit n, we first minimize the summed correlation function to
-construct the plane wave. One correlation function is given by 
+i.e how accurately we know the height of these channels, $\delta z$\footnote{meaning if we have a measurement $z_i$ the true value is within $z_i
+\pm \delta z$ with 95\% certainty}. And the timely accuracy, or how accurate the
+vpol timing characteristics are, $\delta t$. If we want to fit n, we first
+minimize the summed correlation function to construct the plane wave. One
+correlation function is given by 
 \begin{equation}
 	Correlation(\theta) := \Delta t - \Delta t' = \Delta t
 	- \frac{\cos\theta \Delta z}{v}
@@ -1667,30 +1668,45 @@ this equation for n:
   n = \frac{c(\Delta t - \mathcal{C})}{\cos \theta_{min} \Delta z} = \frac{c}{\cos{\theta_{min}}}\left[\frac{\Delta t}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]
 \end{equation}
 The $\Delta z$ is the vertical distance between two channels and thus has an error of $2\delta z$ and $\Delta t$ is the time
-difference between two channels, implying an error $2\delta t$. Let's use the variance formula to estimate the error:
+difference between two channels, implying an error $2\delta t$. 
+Let's look at the two terms seperately (assuming the error on $\theta_{min}$ to be negligable),
+the first quotient $\phi_1 := \Delta t/\Delta z$ has a variance \cite{grabe2005measurement} of
+\begin{equation}
+	s_{\phi_1}^2 = \frac{1}{{\Delta z}^2}s_{\Delta t}^2 - 2 \frac{{\Delta t}}{{\Delta z}^3}s_{\Delta t \Delta z} + \frac{{\Delta t}^2}{{\Delta z}^4}s_{\Delta z}^2
+\end{equation}
+Assuming $\Delta t$ and $\Delta z$ to be independent:
 \begin{align}
-  \delta n &= \sqrt{\left(\frac{\partial n}{\partial \Delta t}\right)^2 4\delta t^2 + \left(\frac{\partial n}{\partial \Delta z}\right)^24\delta z^2}\\
-      &= 2\sqrt{\left(\frac{\partial n}{\partial \Delta t}\right)^2\delta t^2 + \left(\frac{\partial n}{\partial \Delta z}\right)^2\delta z^2}\\
-      &= \frac{2c}{\cos{\theta_{min}}}\sqrt{\left[\frac{1}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]^2\delta t^2 + 
-      \left[\frac{\mathcal{C}}{\Delta z^2} - \frac{\Delta t}{\Delta z^2}\right]\delta z^2}
+	s_{\phi_1}^2 &= \frac{1}{{\Delta z}^2}s_{\Delta t}^2 + \frac{{\Delta t}^2}{{\Delta z}^4}s_{\Delta z}^2\\
+	&= 4\left(\frac{1}{{\Delta z}^2}{\delta t}^2 + \frac{{\Delta t}^2}{{\Delta z}^4}{\delta z}^2\right)
 \end{align}
-As we actually summed the correlation functions (6 in total), it's equivalent
-to doing 6 independent measurements of n, meaning that we get a reduction by a
-factor $\sim \sqrt{6}$.  Even though we know our $\epsilon$ to always
+And the second term ($\phi_2 := -\mathcal{C}/\Delta z$):
+\begin{align}
+	s_{\phi_2}^2 &= \frac{\mathcal{C}^2}{{\Delta z}^2}s_{\Delta t}^2\\
+		     &= 4\frac{\mathcal{C}^2}{{\Delta z}^2}{\delta t}^2\\
+\end{align}
+Our uncertainty on the index of refraction is thus (neglecting unknown systematic errors):
+\begin{equation}
+	\delta n =4\left(\frac{c}{\cos{\theta_{min}}}\right) \left( \frac{1}{{\Delta z}^2}{\delta t}^2 + \frac{{\Delta t}^2}{{\Delta z}^4}{\delta z}^2 + 
+\frac{\mathcal{C}^2}{{\Delta z}^2}{\delta t}^2\right)
+\end{equation}
+%As we actually summed the correlation functions (6 in total), it's equivalent
+%to doing 6 independent measurements of n, meaning that we get a reduction by a
+%factor $\sim \sqrt{6}$.  
+Even though we know our $\epsilon$ to always
 overestimate the actual value, meaning that we could theoretically account for
 this by just calculating $\epsilon$ for the considered system and correcting,
 let's assume it to be an absolute error.  Now due to this inherent inaccuracy,
 n also has an additional error of $\pm \epsilon(\vec{r})$ with $\vec{r}$ the
 position of the balloon. Our final error on n is thus:
 \begin{equation}
-  \pm \epsilon(\vec{r})\pm\sqrt{\frac{2}{3}}\frac{c}{\cos{\theta_{min}}}\sqrt{\left[\frac{1}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]^2\delta t^2 + 
-      \left[\frac{\mathcal{C}}{\Delta z^2} - \frac{\Delta t}{\Delta z^2}\right]\delta z^2}
-      \label{eqn:total error}
+  \delta n(\vec{r})=  \epsilon(\vec{r}) + 4\left(\frac{c}{\cos{\theta_{min}}}\right) \left( \frac{1}{{\Delta z}^2}{\delta t}^2 + \frac{{\Delta t}^2}{{\Delta z}^4}{\delta z}^2 + 
+\frac{\mathcal{C}^2}{{\Delta z}^2}{\delta t}^2\right)
+  \label{eqn:total error}
 \end{equation}
 If we assume the $\epsilon$ to overestimate the index of refraction the same way in real
 life as in the simulation however, our estimated $n$ can be corrected as
 \begin{equation}
-  n_{\text{corrected}} = \frac{n}{\epsilon + 1}
+  n_{\text{corrected}} (\vec{r})= \frac{n(\vec{r})}{\epsilon(\vec{r}) + 1}
 \end{equation}
 and our error becomes only the second part of equation \ref{eqn:total error}.
 \newpage
@@ -1710,16 +1726,42 @@ timeframes for the particular detectors where the balloon gets close enough to,
 AND where the 403MHz signal coming from the Ballon (see figure
 \ref{fig:BalloonFreq}) is detected in the deep channels, the events of the 29th
 of august stands out; between 11:18:46 and 11:18:56, the balloon gets really
-close to detector (???) as can be seen on figure (???). If we take a look
+close to detector 23 as can be seen on figure \ref{fig:29/08/22}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{29-08-Encounter.png}
+	\caption{Close encounter between a weather balloon and detector 23 on the 29th of august 2022 at 11:18}
+	\label{fig:29/08/22}
+\end{figure}
+If we take a look
 at the detected signals we see that at run 691 the event 489 gets recorded at
-(???) showing a clear 403MHz peak at channels (???).
+2022-08-29 11:18:32+00:00 showing a clear 403MHz peak at channels 5-7.
+It is of course unfortunate that we don't get to measure the index of refraction
+at the deep component jet but a quick calculation shows that if we measure the
+index of refraction using detectors 5 and 6 (getting the index of refraction at -70m) 
+the error will be $\approx 0.5\%$ which is a nice start\footnote{This calculation was
+performed with the program CalculateInherentErrorWithSnell.py located in projects-mt/BaLLooN/RealData}.
 
 Now to calculate the differences in timing for this received signal:  The
 signal sent out by the weather balloon is a sinusoidal wave, meaning that we
 can take a look at the recorded voltage i.f.o time and overlay a sine of
-403MHz, making the differences with the actual signal as close to zero as
-possible; if we then compare the different offsets of the sine we get the
-differences in timing.
+403MHz. As the data is measured in nanoseconds we'll need to convert the frequency
+first:
+\begin{equation}
+	f = 403\text{MHz} = 403\times 10^{-3} \frac{1}{\text{ns}}
+\end{equation}
+The signal is a sine wave of the form
+\begin{equation}
+	\mathcal{S} = A\cdot\sin\left(\omega t + T\right)
+\end{equation}
+with
+\begin{equation}
+	\omega = 2\pi f
+\end{equation}
+So, as $f$ is known, we'll have to fit the amplitude $A$ and the offset $T$
+to the data making the differences with the actual signal as close
+to zero as possible; if we then compare the different offsets of the sine we
+get the differences in timing.
 
 \begin{figure}
   \centering

@@ -1594,6 +1594,11 @@ INPUT ./figures//WeatherBalloonClosePositionReconstruction.pdf
 INPUT ./figures//WeatherBalloonClosePositionReconstruction.pdf
 INPUT ./figures//WeatherBalloonClosePositionReconstruction.pdf
 INPUT ./figures//WeatherBalloonClosePositionReconstruction.pdf
+INPUT ./figures//29-08-Encounter.png
+INPUT ./figures//29-08-Encounter.png
+INPUT ./figures//29-08-Encounter.png
+INPUT ./figures//29-08-Encounter.png
+INPUT ./figures//29-08-Encounter.png
 INPUT ./figures//Frequencies.pdf
 INPUT ./figures//Frequencies.pdf
 INPUT ./figures//Frequencies.pdf
@@ -1617,7 +1622,9 @@ INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb

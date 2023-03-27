@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex thesis"] 1679910799 "thesis.aux" "thesis.bbl" "thesis" 1679913735
+["bibtex thesis"] 1679928763 "thesis.aux" "thesis.bbl" "thesis" 1679930606
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "sources.bib" 1678705171 12479 248f9c40d18b1e66ead9e503e4a75bc1 ""
-  "thesis.aux" 1679913734 18366 41805d13df7e32b18039d7206f51e490 "pdflatex"
+  "sources.bib" 1679914087 12750 ddec0448fd1925aa5df8b9a0a142ed6e ""
+  "thesis.aux" 1679930606 18790 ba6eacb1fc1c6791ac8cbcbc194fda79 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1679913730 "thesis.tex" "thesis.pdf" "thesis" 1679913735
+["pdflatex"] 1679930603 "thesis.tex" "thesis.pdf" "thesis" 1679930606
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1650183167 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -65,7 +65,9 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1650183167 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1650183167 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1650183167 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1650183167 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1650183167 35469 70d41d2b9ea31d5d813066df7c99281c ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb" 1650183167 36094 798f80770b3b148ceedd006d487db67c ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1650183167 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1650183167 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1650183167 32362 179c33bbf43f19adbb3825bb4e36e57a ""
@@ -285,6 +287,7 @@
   "cls/ugent-doc.cls" 1677169169 6440 75c32ce872b3816749619e55e5742b91 ""
   "cls/ugent-en.pdf" 1677169169 13833 4aa4f0ec00981d4528b955edd3415aee ""
   "cls/we-en.pdf" 1677169169 12104 0a8a09359de713b3e02d8dc52d98b663 ""
+  "figures//29-08-Encounter.png" 1679928491 27419 464739e5d9b86268b12671eb4ac1d65a ""
   "figures//Binding_energy_curve.png" 1677169169 18133 8d69e796b7b85ad980ec62b9bfc802b1 ""
   "figures//BobsWeatherBalloonHeight.pdf" 1678093799 11166 8819f6032241e4b6828a9a23efc63ac8 ""
   "figures//Cherenkov-reactor.jpg" 1677169169 108711 d3a412a6dc3f37b367555fc2196145f5 ""
@@ -328,12 +331,12 @@
   "tables/EventsBelow10DegPart3.csv" 1678874125 4227 4bb437e29dc4ca02cdca9e41c298ef45 ""
   "tables/EventsBelow10DegPart4.csv" 1678874225 3270 cb26a9736ea64265e4646f1aa789291e ""
   "tables/EventsBelow10DegPart5.csv" 1678874258 1269 98b49c5ceda72968cb8dcd94856ba8ec ""
-  "thesis.aux" 1679913734 18366 41805d13df7e32b18039d7206f51e490 "pdflatex"
-  "thesis.bbl" 1679910799 5301 17d1f0f4e5cca9db13dd154751ecabf6 "bibtex thesis"
-  "thesis.listing" 1679913734 91 5f9d1189de60f867f1b69ef3864fdf89 "pdflatex"
-  "thesis.out" 1679913734 6582 d532896007077d2efd90c7b9310cc0b8 "pdflatex"
-  "thesis.tex" 1679910799 86930 fa4524b7382855665460cf72396b1352 ""
-  "thesis.toc" 1679913734 3484 6592cede1752d858a100875faf18eba8 "pdflatex"
+  "thesis.aux" 1679930606 18790 ba6eacb1fc1c6791ac8cbcbc194fda79 "pdflatex"
+  "thesis.bbl" 1679928764 5456 908f4736082b68637f00ffda4c2c5c91 "bibtex thesis"
+  "thesis.listing" 1679930606 91 5f9d1189de60f867f1b69ef3864fdf89 "pdflatex"
+  "thesis.out" 1679930606 6582 d532896007077d2efd90c7b9310cc0b8 "pdflatex"
+  "thesis.tex" 1679930601 88800 a4501fc208412d3c5a915a706e701283 ""
+  "thesis.toc" 1679930606 3484 51d276da6a67a7f9fb0bf9a01689c364 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.listing"
