@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.3)  26 MAR 2023 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.14)  27 MAR 2023 12:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1084,11 +1084,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 pdfTeX warning: pdflatex (file ./figures//illu_polarization.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] [17 <./figures//Path_illu.pdf>]
-<./figures//Density_measurements.pdf, id=500, 693.59125pt x 640.3925pt>
+<./figures//Density_measurements.pdf, id=500, 642.4pt x 481.8pt>
 File: ./figures//Density_measurements.pdf Graphic file (type pdf)
 <use ./figures//Density_measurements.pdf>
 Package pdftex.def Info: ./figures//Density_measurements.pdf  used on input line 1003.
-(pdftex.def)             Requested size: 227.62206pt x 210.15758pt.
+(pdftex.def)             Requested size: 227.62206pt x 170.71304pt.
  [18 <./figures//Density_measurements.pdf>]
 Chapter 4.
 [19
@@ -1348,33 +1348,33 @@ Appendix A.
 Appendix B.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 1733.
+(hyperref)                removing `\\' on input line 1737.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1736--1737
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1740--1741
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1739--1740
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1743--1744
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 12.41837pt on input line 1740.
+LaTeX Warning: Float too large for page by 12.41837pt on input line 1744.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1742--1743
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1746--1747
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1745--1746
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1749--1750
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 1748--1749
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 1752--1753
 [][] 
  []
 
@@ -1425,14 +1425,14 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  33226 strings out of 478238
- 695784 string characters out of 5850457
- 1121321 words of memory out of 5000000
+ 695784 string characters out of 5850456
+ 1121314 words of memory out of 5000000
  50565 multiletter control sequences out of 15000+600000
  489264 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,17n,90p,1195b,2025s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on thesis.pdf (52 pages, 4817496 bytes).
+Output written on thesis.pdf (52 pages, 4810193 bytes).
 PDF statistics:
  1570 PDF objects out of 1728 (max. 8388607)
  950 compressed objects within 10 object streams
