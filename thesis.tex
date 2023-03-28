@@ -1742,7 +1742,16 @@ index of refraction using detectors 5 and 6 (getting the index of refraction at 
 the error will be $\approx 0.5\%$ which is a nice start\footnote{This calculation was
 performed with the program CalculateInherentErrorWithSnell.py located in projects-mt/BaLLooN/RealData}.
 
-Now to calculate the differences in timing for this received signal:  The
+Now to calculate the differences in timing for this received signal, the code
+used for this is called FitN.py and stored at (???), let's go over the full code step
+by step:
+\subsection{Spatial}
+The first part we'll need to concern ourselves with is determining the relative positions
+of everything. The balloon data file is and the time when the event took
+place are given, from these two the latitudenal and longitudinal position is determined 
+and also the elevation. We convert these three measurements to the ENU coordinate frame
+and store it in \textit{BalloonPosition}. The next step is to get the location 
+The
 signal sent out by the weather balloon is a sinusoidal wave, meaning that we
 can take a look at the recorded voltage i.f.o time and overlay a sine of
 403MHz. As the data is measured in nanoseconds we'll need to convert the frequency
