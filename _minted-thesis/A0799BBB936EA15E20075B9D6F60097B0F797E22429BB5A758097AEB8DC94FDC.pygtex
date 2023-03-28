@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{det} \PYG{o}{=} \PYG{n}{NuRadioReco}\PYG{o}{.}\PYG{n}{detector}\PYG{o}{.}\PYG{n}{detector}\PYG{o}{.}\PYG{n}{Detector}\PYG{p}{(}\PYG{n}{json\PYGZus{}file}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}RNO\PYGZus{}season\PYGZus{}2022.json\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

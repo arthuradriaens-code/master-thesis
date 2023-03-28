@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n}{stationlocation} \PYG{o}{=} \PYG{n}{det}\PYG{o}{.}\PYG{n}{get\PYGZus{}absolute\PYGZus{}position}\PYG{p}{(}\PYG{n}{station\PYGZus{}id}\PYG{p}{)}
+\end{Verbatim}

@@ -1743,19 +1743,77 @@ the error will be $\approx 0.5\%$ which is a nice start\footnote{This calculatio
 performed with the program CalculateInherentErrorWithSnell.py located in projects-mt/BaLLooN/RealData}.
 
 Now to calculate the differences in timing for this received signal, the code
-used for this is called FitN.py and stored at (???), let's go over the full code step
-by step:
-\subsection{Spatial}
-The first part we'll need to concern ourselves with is determining the relative positions
-of everything. The balloon data file is and the time when the event took
-place are given, from these two the latitudenal and longitudinal position is determined 
-and also the elevation. We convert these three measurements to the ENU coordinate frame
-and store it in \textit{BalloonPosition}. The next step is to get the location 
-The
-signal sent out by the weather balloon is a sinusoidal wave, meaning that we
-can take a look at the recorded voltage i.f.o time and overlay a sine of
-403MHz. As the data is measured in nanoseconds we'll need to convert the frequency
-first:
+used for this is called FitN.py and stored at the repository
+\href{projects-mt}{https://github.com/arthuradriaens-code/projects-mt.git}
+under BaLLooN/RealData, let's go over the full code step by step:
+
+\subsection{Spatial data}
+The first part we'll need to concern ourselves with is determining the relative
+positions of everything. The balloon data file and the time when the event took
+place are given, from these two both the latitudenal and longitudinal position
+and elevation of the balloon at the given time is determined. We convert these
+three measurements to the ENU coordinate frame and store it in the array
+\textit{BalloonPosition}. The next step is to get the location of the detector,
+for this we first instantiate a detector object 
+
+\begin{mintedbox}{python}
+det = NuRadioReco.detector.detector.Detector(json_file="RNO_season_2022.json")
+\end{mintedbox}
+
+The RNO season 2022 json file can be found on the official RNO-G github
+under "analysis-tools", then we "update" the detector to the event time and get the
+absolute position of our detector (station 23) via the get\_absolute\_position module:
+
+\begin{mintedbox}{python}
+	stationlocation = det.get_absolute_position(station_id)
+\end{mintedbox}
+
+Now that we have both the position of our balloon and station 23 in ENU coordinates,
+let's make the calculations simpler by setting the detector as the central coordinate.
+i.e our new balloon position will be
+
+\begin{equation}
+	\textit{RelBalloon} = \textit{BalloonPosition} - \textit{station}
+\end{equation}
+
+And as we might want to plot this later, due to the cylindrical symmetry, we can rotate
+the coordinates to get rid of our y-axis. We can do this by defining the radius:
+
+\begin{equation}
+	r := \sqrt{\textit{RelBalloon}_x^2 + \textit{RelBalloon}_y^2}
+\end{equation}
+
+and just setting this equal to $\textit{Balloon}_x$ and setting $\textit{Balloon}_y$ to
+zero (equivalent to setting $\theta= 0$ in a rotation).
+
+Now we don't have the position of our individual channels yet, only of the station itself,
+these can however easily be obtained using the get\_relative\_position module on our
+detector object, as we chose our station to be the center of the coordinate system,
+these relative positions are absolute positions in our frame of reference.
+
+\subsection{Time difference}
+Now that we have our geometry, let's analyse the data for the channels 6 and 7, the data
+for a particulal channel is stored in a channel object. From this object 
+we can get the recorded voltages with the get\_trace() module, the recorded times
+with the get\_times() module, the recorded frequencies with the get\_frequencies() and
+the recorded spectrum corresponding to these frequencies with get\_frequency\_spectrum()
+, note that the last two do a FFT on our data.
+The recorded spectrum of both channels is given in figure \ref{fig:freqs67}, we observe
+a clear spike at 403MHz.
+\begin{figure}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{23-489-6-freq.pdf}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{23-489-7-freq.pdf}
+	\end{minipage}
+	\caption{recorded frequencies on detector 23 at 2022/08/29 11:18:32}
+	\label{fig:freqs67}
+\end{figure}
+
+The signal sent out by the weather balloon is a sinusoidal wave, meaning that
+we can take a look at the recorded voltage i.f.o time and overlay a sine of
+403MHz. As the data is measured in nanoseconds the frequency is:
 \begin{equation}
 	f = 403\text{MHz} = 403\times 10^{-3} \frac{1}{\text{ns}}
 \end{equation}
@@ -1769,8 +1827,31 @@ with
 \end{equation}
 So, as $f$ is known, we'll have to fit the amplitude $A$ and the offset $T$
 to the data making the differences with the actual signal as close
-to zero as possible; if we then compare the different offsets of the sine we
-get the differences in timing.
+to zero as possible, the two fits are shown in figure \ref{fig:voltage67}.
+\begin{figure}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{FittedCh6.pdf}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{FittedCh7.pdf}
+	\end{minipage}
+	\caption{recorded voltage i.f.o time on detector 23 at 2022/08/29 11:18:32 for
+	channels 6 and 7}
+	\label{fig:voltage67}
+\end{figure}
+
+
+This offset can then be used to know the time difference
+between the two signals.
+
+Before actually fitting our signal there's one important consideration that
+we haven't made yet: cable delay. We get the delay for the individual channels
+with the get\_cable\_delay module, say our couble delays on channels a and b are $t_a^d$
+and $t_b^d$, the recorded times (from fitting the sine) are thus of the form
+$t^f = t + t^d$, our actual difference in timing is thus:
+\begin{equation}
+	t_b - t_a = t_b^f - t_a^f - (t_b^d - t_a^d)
+\end{equation}
 
 \begin{figure}
   \centering
@@ -1785,6 +1866,7 @@ Radio Neutrino Observatory in Greenland (RNO-G)
 ultra high energy (UHE)
 Gamma-ray bursts (GRBs)
 Cosmic Microwave Background CMB
+Fast Fourrier Transform FFT
 \chapter{Balloon passbys under 10°\\ in the summer of 2022}
 \label{app:10Deg}
 \begin{table}[h!]
