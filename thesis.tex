@@ -1137,6 +1137,12 @@ The plan is to simulate a lot of neutrino events and record the detector
 responses in a giant database then, when an actual neutrino event occurs, we'll
 only have to look in the database and match the actual detector response to the
 simulated detector responses, thus finding the origin.
+\section{Reconstruction: Butterworth filters}
+Sometimes it is necessary to only let through a certain part of
+the frequency spectrum that's recorded, an elegant way to accomplish
+this is by using a Butterworth filter. This is a filter that's
+applied afterwards on the measurements and only let's through 
+a certain part of the observed frequency spectrum
 
 \begin{figure}
 	\centering
@@ -1811,13 +1817,14 @@ a clear spike at 403MHz.
 	\label{fig:freqs67}
 \end{figure}
 
-The signal sent out by the weather balloon is a sinusoidal wave, meaning that
-we can take a look at the recorded voltage i.f.o time and overlay a sine of
-403MHz. As the data is measured in nanoseconds the frequency is:
+We know that the signal sent out by the weather balloon is a
+"sinusoidal" wave, and also that the frequency is
+403MHz. As the data is measured in nanoseconds
+the frequency is:
 \begin{equation}
 	f = 403\text{MHz} = 403\times 10^{-3} \frac{1}{\text{ns}}
 \end{equation}
-The signal is a sine wave of the form
+But the signal is not a sine wave of the form
 \begin{equation}
 	\mathcal{S} = A\cdot\sin\left(\omega t + T\right)
 \end{equation}
@@ -1825,9 +1832,9 @@ with
 \begin{equation}
 	\omega = 2\pi f
 \end{equation}
-So, as $f$ is known, we'll have to fit the amplitude $A$ and the offset $T$
-to the data making the differences with the actual signal as close
-to zero as possible, the two fits are shown in figure \ref{fig:voltage67}.
+As, if you just fit this sine to the data making the differences
+with the actual signal as close to zero as possible you get the two
+fits are shown in figure \ref{fig:voltage67}.
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{FittedCh6.pdf}
@@ -1839,20 +1846,44 @@ to zero as possible, the two fits are shown in figure \ref{fig:voltage67}.
 	channels 6 and 7}
 	\label{fig:voltage67}
 \end{figure}
+These fits are terrible, that's why we'll first pass this signal
+through a fifth order butterworth filter with a passband of
+[0.4031,0.4032]\footnote{This is a filter that only let's certain frequencies pass}. Doing this however we notice that the signal looks as shown in figure \ref{fig:ModulatedChannels}, where it's clear
+that even though the balloon sends out a 403MHz frequency, this
+signal is amplitude modulated (AM) with a sine wave. We'll thus
+have to fit a function of the form
 
+\begin{equation}
+	\mathcal{S} = A\cdot\sin\left(0.403*2\pi t + \phi_1\right)\sin\left(2\pi f + T\right)
+\end{equation}
+
+
+\begin{figure}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{ModulatedCh6.pdf}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{ModulatedCh7.pdf}
+	\end{minipage}
+	\caption{recorded voltage i.f.o time on detector 23 at 2022/08/29 11:18:32 for
+	channels 6 and 7}
+	\label{fig:ModulatedChannels}
+\end{figure}
 
 This offset can then be used to know the time difference
 between the two signals.
 
-Before actually fitting our signal there's one important consideration that
-we haven't made yet: cable delay. We get the delay for the individual channels
-with the get\_cable\_delay module, say our couble delays on channels a and b are $t_a^d$
-and $t_b^d$, the recorded times (from fitting the sine) are thus of the form
-$t^f = t + t^d$, our actual difference in timing is thus:
+Before actually fitting our signal there's one important
+consideration that we haven't made yet: cable delay. We get
+the delay for the individual channels with the
+get\_cable\_delay module, say our couble delays on channels a
+and b are $t_a^d$ and $t_b^d$, the recorded times (from
+fitting the sine) are thus of the form $t^f = t + t^d$, our
+actual difference in timing is thus:
 \begin{equation}
 	t_b - t_a = t_b^f - t_a^f - (t_b^d - t_a^d)
 \end{equation}
-
+Now if we'd want to 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{Frequencies.pdf}

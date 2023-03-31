@@ -1,4 +1,4 @@
-PWD /home/arthur/Documents/thesis/master-thesis
+PWD /home/arthur/Universiteit/master-proef/master-thesis
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT thesis.tex
@@ -1643,6 +1643,16 @@ INPUT ./figures//FittedCh7.pdf
 INPUT ./figures//FittedCh7.pdf
 INPUT ./figures//FittedCh7.pdf
 INPUT ./figures//FittedCh7.pdf
+INPUT ./figures//ModulatedCh6.pdf
+INPUT ./figures//ModulatedCh6.pdf
+INPUT ./figures//ModulatedCh6.pdf
+INPUT ./figures//ModulatedCh6.pdf
+INPUT ./figures//ModulatedCh6.pdf
+INPUT ./figures//ModulatedCh7.pdf
+INPUT ./figures//ModulatedCh7.pdf
+INPUT ./figures//ModulatedCh7.pdf
+INPUT ./figures//ModulatedCh7.pdf
+INPUT ./figures//ModulatedCh7.pdf
 INPUT ./figures//Frequencies.pdf
 INPUT ./figures//Frequencies.pdf
 INPUT ./figures//Frequencies.pdf

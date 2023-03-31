@@ -25,6 +25,7 @@
 \contentsline {section}{\numberline {3.5}Ice model}{17}{section.3.5}%
 \contentsline {chapter}{\numberline {4}The Detector}{19}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Reconstruction: Lookup tables}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Reconstruction: Butterworth filters}{21}{section.4.2}%
 \contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{24}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Shortcomings of the exponential ice model}{24}{section.5.1}%
 \contentsline {section}{\numberline {5.2}How it works}{24}{section.5.2}%
@@ -40,5 +41,5 @@
 \contentsline {section}{\numberline {6.4}Fitting the index}{42}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Spatial data}{42}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Time difference}{43}{subsection.6.4.2}%
-\contentsline {chapter}{\numberline {A}List of abbreviations}{45}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Balloon passbys under 10°\\ in the summer of 2022}{46}{appendix.B}%
+\contentsline {chapter}{\numberline {A}List of abbreviations}{46}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Balloon passbys under 10°\\ in the summer of 2022}{47}{appendix.B}%
