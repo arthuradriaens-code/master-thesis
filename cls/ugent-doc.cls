@@ -139,7 +139,7 @@
 		
 	\begin{minipage}{\subpaperwidth}%-2\gridunit} % tile minipage, right margin of 1
 			\centering
-			\includegraphics[width=0.7\textwidth]{detector-illustration2.png}
+			\includegraphics[width=0.6\textwidth]{BalloonDrawing.pdf}
 	\end{minipage}
 	\vspace{0.8cm}		
         \vskip\fill % Push down to bottom of minipage

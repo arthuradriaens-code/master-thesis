@@ -107,13 +107,14 @@
 %----------------------
 
 % The title
-\thetitle{Radio detection of high energy neutrinos in the Greenland icecap}
+\thetitle{Development of a new ray tracing algorithm for complex ice models and the analysis of ice properties using weather balloons}
 \thesubtitle{Arthur Adriaens}
 
 %% Note: a stricter UGent style could be achieved with, e.g.:
 \usepackage{ulem} % for colored underline
 \renewcommand{\ULthickness}{2pt} % adjust thickness of underline
-\thetitle{\uline{\color{ugentblue}Radio detection of high energy neutrinos in the Greenland icecap}}
+\thetitle{\uline{\color{ugentblue}Development of a new ray tracing algorithm for complex ice models 
+and the analysis of ice properties using weather balloons}}
 % Note: do not forget to reset the \ULthickness to 1pt after invoking \maketitle
 % (otherwise all underlines in the rest of your document will be too thick):
 %\renewcommand{\ULthickness}{1pt}
@@ -1797,15 +1798,15 @@ these can however easily be obtained using the get\_relative\_position module on
 detector object, as we chose our station to be the center of the coordinate system,
 these relative positions are absolute positions in our frame of reference.
 
-\subsection{Time difference}
-Now that we have our geometry, let's analyse the data for the channels 6 and 7, the data
-for a particulal channel is stored in a channel object. From this object 
-we can get the recorded voltages with the get\_trace() module, the recorded times
-with the get\_times() module, the recorded frequencies with the get\_frequencies() and
-the recorded spectrum corresponding to these frequencies with get\_frequency\_spectrum()
-, note that the last two do a FFT on our data.
-The recorded spectrum of both channels is given in figure \ref{fig:freqs67}, we observe
-a clear spike at 403MHz.
+\subsection{Signal analysis}
+Now that we have our geometry, let's analyse the data for the channels 6 and 7,
+the data for a particulal channel is stored in a channel object. From this
+object we can get the recorded voltages with the get\_trace() module, the
+recorded times with the get\_times() module, the recorded frequencies with the
+get\_frequencies() and the recorded spectrum corresponding to these frequencies
+with get\_frequency\_spectrum() , note that the last two do a FFT on our data.
+The recorded spectrum of both channels is given in figure \ref{fig:freqs67}, we
+observe a clear spike at 403MHz.
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{23-489-6-freq.pdf}
@@ -1817,14 +1818,13 @@ a clear spike at 403MHz.
 	\label{fig:freqs67}
 \end{figure}
 
-We know that the signal sent out by the weather balloon is a
-"sinusoidal" wave, and also that the frequency is
-403MHz. As the data is measured in nanoseconds
-the frequency is:
+We know that the signal sent out by the weather balloon has a frequency of
+403MHz. As the data is measured in nanoseconds the frequency is:
 \begin{equation}
 	f = 403\text{MHz} = 403\times 10^{-3} \frac{1}{\text{ns}}
 \end{equation}
-But the signal is not a sine wave of the form
+but looking at the data in figure \ref{fig:voltage67} we see that we'll have to 
+do some processing before fitting a sine of the form
 \begin{equation}
 	\mathcal{S} = A\cdot\sin\left(\omega t + T\right)
 \end{equation}
@@ -1832,32 +1832,110 @@ with
 \begin{equation}
 	\omega = 2\pi f
 \end{equation}
-As, if you just fit this sine to the data making the differences
-with the actual signal as close to zero as possible you get the two
-fits are shown in figure \ref{fig:voltage67}.
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{FittedCh6.pdf}
+		\includegraphics[width=\textwidth]{RawChannel6.pdf}
 	\end{minipage}
 	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{FittedCh7.pdf}
+		\includegraphics[width=\textwidth]{RawChannel7.pdf}
 	\end{minipage}
 	\caption{recorded voltage i.f.o time on detector 23 at 2022/08/29 11:18:32 for
 	channels 6 and 7}
 	\label{fig:voltage67}
 \end{figure}
-These fits are terrible, that's why we'll first pass this signal
-through a fifth order butterworth filter with a passband of
-[0.4031,0.4032]\footnote{This is a filter that only let's certain frequencies pass}. Doing this however we notice that the signal looks as shown in figure \ref{fig:ModulatedChannels}, where it's clear
-that even though the balloon sends out a 403MHz frequency, this
-signal is amplitude modulated (AM) with a sine wave. We'll thus
-have to fit a function of the form
-
+Let's first pass this signal through a sixth order butterworth filter with a
+passband of [0.4031249, 0.4031251]\footnote{This is a filter that only let's
+ frequencies pass whom are within the passband}. Doing this we notice that the signal looks as shown
+in figure \ref{fig:ModulatedChannels}, where it's clear that even though the
+balloon indeed sends out a sinusoidal 403MHz frequency, this signal is
+amplitude modulated (AM).  Meaning that we have a sinusoidial
+carrier signal $c(t)$:
 \begin{equation}
-	\mathcal{S} = A\cdot\sin\left(0.403*2\pi t + \phi_1\right)\sin\left(2\pi f + T\right)
+  c(t) = A \sin(2\pi f_c t)
 \end{equation}
-
-
+with a message signal
+\begin{equation}
+  m(t) = Am \cos(2\pi f_m t + \phi)
+\end{equation}
+These two modulated together thus has the form
+\begin{equation}
+  V(t) = \left[1 + \frac{m(t)}{A}\right]c(t) = A\sin(2\pi f_c t)[1 + m\cos(2\pi f_m  t + \phi)]
+\end{equation}
+With a little correction that, due to the nature of observing the signal, there will be another phase:
+\begin{equation}
+  V(t) = A\sin(2\pi f_c t + \phi_1)[1 + m\cos(2\pi f_m  t + \phi_2)]
+\end{equation}
+Herein the carrier frequency is given by $f_c = 0.403125$ as previously
+established but with the other parameters seemingly unknown which we'll have to
+fit to the measured data.  We can, however, do some educated guesses which will
+help the fitting algorithm.  The first guess we'll do is establish the maximum
+value, as we have implemented an algorithm of finding the envelope functions
+(in green and orange on figure \ref{fig:ModulatedChannels}), this is as simple
+as calling the max function on the high envelope. Looking at our function this
+max value corresponds to
+\begin{equation}
+  e_{highmax} = A(1 + m) := E_1
+\end{equation}
+The minimal value of our high envelope function corresponds to the minimal value of the message signal, due to symmetry
+it's actually easier to just look at the absolute maximal values of the low envelope:
+\begin{equation}
+  |e_{lowmax}| = A(1-m) := E_2
+\end{equation}
+combining these two we get an equation for A and one for m:
+\begin{align}
+  m &= \frac{\frac{E_1}{E_2} - 1}{\frac{E_1}{E_2} + 1}\\
+  A &= \frac{E_1}{1+m}\\
+\end{align}
+The frequency of the message signal can also be found from looking at the
+difference between subsequent "bumps", these will be spaced some time T apart,
+from which an initial guess for the message frequency can be found as $f_m =
+1/T$. The only thing left to find is the phases $\phi_i$, we'll just fit these
+with an initial guess of both being zero. Fitting this function with the
+initial guesses you get what's shown on figure \ref{fig:FittedVoltage67}, i.e a
+perfect fit.
+\begin{figure}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{FitChannel6.pdf}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{FitChannel7.pdf}
+	\end{minipage}
+	\caption{recorded voltage i.f.o time on detector 23 at 2022/08/29 11:18:32 for
+	channels 6 and 7}
+	\label{fig:FittedVoltage67}
+\end{figure}
+\subsection{Difference in timing}
+The difference in timing can be found from using the different $\phi$'s we fitted;
+this is easy to see from the following example: Consider a sine wave 
+\begin{equation}
+  sin(\omega t)
+\end{equation}
+This reaches a certain value x after a time $t_x$:
+\begin{equation}
+  t_x = \frac{1}{\omega}\sin^{-1}(x)
+\end{equation}
+Now a sine wave with an offset of $-\phi$ 
+\begin{equation}
+  sin(\omega t - \phi)
+\end{equation}
+reaches this same x only after a time
+\begin{equation}
+  t_x = \frac{1}{\omega}\left(\sin^{-1}(x) + \phi\right)
+\end{equation}
+i.e a difference of $\phi/\omega$. 
+The signals detected in the channels have the form 
+\begin{equation}
+  V(t) = \sin(2\pi f_c t + \Omega)(1 + m\cos(\omega t + \Phi))
+\end{equation}
+after some time $t_7$ a signal will reach channel 7 and channel 7 will show a value $V$:
+\begin{equation}
+  V = \sin(2\pi f_c t_7 + \Omega_7)(1 + m\cos(\omega_7 t_7 + \Phi_7))
+\end{equation}
+and, after a different (higher) time $t_6$ the same signal will reach channel 6:
+\begin{equation}
+  V = \sin(2\pi f_c t_6 + \Omega_6)(1 + m\cos(\omega_6 t_6 + \Phi_6))
+\end{equation}
+Now, for the plane wave reconstruction, we want to know the difference between these arrival times $t_6$ and $t_7$.
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ModulatedCh6.pdf}
@@ -1870,10 +1948,7 @@ have to fit a function of the form
 	\label{fig:ModulatedChannels}
 \end{figure}
 
-This offset can then be used to know the time difference
-between the two signals.
-
-Before actually fitting our signal there's one important
+there's one important
 consideration that we haven't made yet: cable delay. We get
 the delay for the individual channels with the
 get\_cable\_delay module, say our couble delays on channels a
