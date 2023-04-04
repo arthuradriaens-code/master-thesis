@@ -107,13 +107,13 @@
 %----------------------
 
 % The title
-\thetitle{Development of a new ray tracing algorithm for complex ice models and the analysis of ice properties using weather balloons}
+\thetitle{A new ray tracing algorithm for complex ice models and the analysis of ice properties using weather balloons}
 \thesubtitle{Arthur Adriaens}
 
 %% Note: a stricter UGent style could be achieved with, e.g.:
 \usepackage{ulem} % for colored underline
 \renewcommand{\ULthickness}{2pt} % adjust thickness of underline
-\thetitle{\uline{\color{ugentblue}Development of a new ray tracing algorithm for complex ice models 
+\thetitle{\uline{\color{ugentblue}A new ray tracing algorithm for complex ice models 
 and the analysis of ice properties using weather balloons}}
 % Note: do not forget to reset the \ULthickness to 1pt after invoking \maketitle
 % (otherwise all underlines in the rest of your document will be too thick):
@@ -1031,6 +1031,18 @@ tracer was needed which will be able to handle more complex
 (e.g polynomial) ice models, we'll get to this ray tracer in
 chapter \ref{chapter:hybrid}.
 \chapter{The Detector}
+\begin{figure}
+  \begin{minipage}{0.49\textwidth}
+      \centering
+      \includegraphics[height=3cm]{figures/GreenlandFlag.pdf}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+      \centering
+      \includegraphics[height=3cm]{figures/CoatOfArms.pdf}
+  \end{minipage}
+  \caption{Flag (left) and Coat of arms (right) of Greenland}
+  \label{fig:FlagAndArms}
+\end{figure}
 Both cosmic ray and neutrino detectors face the same main problem at the
 highest energies: the steeply falling flux (as was previously discussed in
 chapter 2) requires large effective areas, which leads to the construction of
@@ -1041,22 +1053,38 @@ bigger.  We could just make IceCube bigger but this would cost a lot of money
 as the individual detectors need to be spaced closely as IceCube works in the
 visible spectrum for which the attenuation length is quite short. The proposed
 solution was to work with radiowave detectors, leveraging the Askaryan effect
-(as was previously explored, e.g in the NuMoon project).  Besides the advantage
-radiowaves have due to their abundance, they can also propagate way further in
-ice than visible light making it possible to space the individual detectors
-further apart.
-
-Thus the proposal for RNO-G was made, funded and now in the construction phase.
-RNO-G is an array of autonomous radio stations each of which
-having both surface channels and various deep channels resulting in a total of
-24 channels per station. The whole project builds heavily on the knowledge
-obtained through previous neutrino detectors like ARA, RICE and ARIANNA
-experiments, as well as the balloon-borne ANITA experiment.
+which has been previously explored e.g in the NuMoon project.  Besides the
+advantage radiowaves have due to their abundance, they can also propagate way
+further in ice than visible light making it possible to space the individual
+detectors further apart. The proposed location was Greenland, an island country
+in North America and part of the Kingdom of Denmark which has large ice sheets.
+An orthographic projection projection of greenland is shown in figure
+\ref{fig:GreenlandOP} and both Greenland's flag and it's code of arms are shown
+in figure \ref{fig:FlagAndArms}, the flag sports the same colors as it's parent
+country's flag Denmark. The flag is designed by Thue Christiansen who described
+the white stripe as representing the glaciers and ice cap, which cover more
+than 80\% of the island; the red stripe, the ocean; the red semicircle, the
+sun, with its bottom part sunk in the ocean; and the white semicircle, the
+icebergs and pack ice. The design is also reminiscent of the setting Sun
+half-submerged below the horizon and reflected on the sea.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/GreenlandOP.pdf}
+  \caption{orthographic projection of Greenland}
+  \label{fig:GreenlandOP}
+\end{figure}
+\newpage
+The proposal for RNO-G, which was later funded and now in the construction
+phase, is it be an array of autonomous radio stations each of which having both
+surface channels and various deep channels resulting in a total of 24 channels
+per station. The whole project builds heavily on the knowledge obtained through
+previous neutrino detectors like ARA, RICE and ARIANNA experiments, as well as
+the balloon-borne ANITA experiment.
 
 One such detector is illustrated in figure \ref{fig:detector}, the plan is to
 build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
 that all the individual detectors are named after various species living in
-greenland (in the native tongue)}.  .  Looking closely at one such detector we
+greenland (in the native tongue)}. Looking closely at one such detector we
 see just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are
 used to detect muon signals as muons will also generate cherencov radiation in
 the ice whose signals can then be filtered out.  Aside form these surface
@@ -1486,11 +1514,13 @@ all the detectors (instead of a different one for every pair of detectors),
 after experimenting this doesn't seem to have an impact on the accuracy of the
 plane wave reconstruction. 
 
-Now we need to ask ourselves the question, within which angles should the
+Now let's ask ourselves the question, within which angles should the
 weather balloon fly for the data to be useful?  As was previously stated, the
 further the weather balloon is away (in the x direction) the bigger the zenith
 angle with the detector the less accurate the plane wave reconstruction.  So
-which angles are acceptable? To determine this our method works as follows: 
+which angles are acceptable? Note that not only angle but also height will eventually
+play a role in the accuracy, the angle however gives a good starting point.
+To determine this our method works as follows: 
 
 we vary the position of the weather balloon in the x direction (keeping the
 height constant), simulate the ray path to the channels 0 to 3 and then fit n
@@ -1699,15 +1729,17 @@ Our uncertainty on the index of refraction is thus (neglecting unknown systemati
 %As we actually summed the correlation functions (6 in total), it's equivalent
 %to doing 6 independent measurements of n, meaning that we get a reduction by a
 %factor $\sim \sqrt{6}$.  
-Even though we know our $\epsilon$ to always
-overestimate the actual value, meaning that we could theoretically account for
-this by just calculating $\epsilon$ for the considered system and correcting,
-let's assume it to be an absolute error.  Now due to this inherent inaccuracy,
-n also has an additional error of $\pm \epsilon(\vec{r})$ with $\vec{r}$ the
-position of the balloon. Our final error on n is thus:
+If we have more than 2 detectors, say N then the uncertainty on the fit can be assumed to be the
+RMS of the individual uncertainties:
 \begin{equation}
-  \delta n(\vec{r})=  \epsilon(\vec{r}) + 4\left(\frac{c}{\cos{\theta_{min}}}\right) \left( \frac{1}{{\Delta z}^2}{\delta t}^2 + \frac{{\Delta t}^2}{{\Delta z}^4}{\delta z}^2 + 
-\frac{\mathcal{C}^2}{{\Delta z}^2}{\delta t}^2\right)
+  \delta n =\sqrt{\sum_{i=0}^N \delta n _i^2}
+\end{equation}
+Let's assume $\epsilon$ to be an absolute error.  Now due to this inherent
+inaccuracy, the "global" uncertainty on n also has an additional error of $\pm \epsilon(\vec{r})n$ with
+$\vec{r}$ the position of the balloon.  Our final error on n is thus:
+\begin{equation}
+  \delta n(\vec{r})=  \epsilon(\vec{r})n + \sqrt{\sum_{i=0}^N \left[4\left(\frac{c}{\cos{\theta_{min}}}\right) \left( \frac{1}{{\Delta z_i}^2}{\delta t}^2 + \frac{{\Delta t_i}^2}{{\Delta z_i}^4}{\delta z}^2 + 
+  \frac{\mathcal{C}^2}{{\Delta z_i}^2}{\delta t}^2\right)\right]^2 }
   \label{eqn:total error}
 \end{equation}
 If we assume the $\epsilon$ to overestimate the index of refraction the same way in real
@@ -1716,8 +1748,12 @@ life as in the simulation however, our estimated $n$ can be corrected as
   n_{\text{corrected}} (\vec{r})= \frac{n(\vec{r})}{\epsilon(\vec{r}) + 1}
 \end{equation}
 and our error becomes only the second part of equation \ref{eqn:total error}.
+As the error on the position of the channels is not yet fully known this whole
+section mainly serves as a future reference to calculate the errors on the
+indices of refraction that will be calculated in the next sections within
+this chapter.
 \newpage
-\section{Fitting the index}
+\section{Fitting the index: Channels 6 and 7}
 Now that we know our goal to be feasible, let's analyse some data.  As we'll
 start by just analysing one event, let's take one of the best events possible
 for our analysis.  A close look at graph \ref{fig:EpsilonIFODirect} shows that
@@ -1798,7 +1834,7 @@ these can however easily be obtained using the get\_relative\_position module on
 detector object, as we chose our station to be the center of the coordinate system,
 these relative positions are absolute positions in our frame of reference.
 
-\subsection{Signal analysis}
+\subsection{Signal analysis and initial guesses}
 Now that we have our geometry, let's analyse the data for the channels 6 and 7,
 the data for a particulal channel is stored in a channel object. From this
 object we can get the recorded voltages with the get\_trace() module, the
@@ -1890,22 +1926,12 @@ The frequency of the message signal can also be found from looking at the
 difference between subsequent "bumps", these will be spaced some time T apart,
 from which an initial guess for the message frequency can be found as $f_m =
 1/T$. The only thing left to find is the phases $\phi_i$, we'll just fit these
-with an initial guess of both being zero. Fitting this function with the
-initial guesses you get what's shown on figure \ref{fig:FittedVoltage67}, i.e a
-perfect fit.
-\begin{figure}
-	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{FitChannel6.pdf}
-	\end{minipage}
-	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{FitChannel7.pdf}
-	\end{minipage}
-	\caption{recorded voltage i.f.o time on detector 23 at 2022/08/29 11:18:32 for
-	channels 6 and 7}
-	\label{fig:FittedVoltage67}
-\end{figure}
-\subsection{Difference in timing}
-The difference in timing can be found from using the different $\phi$'s we fitted;
+with an initial smart guess, for which I'll first have to talk about cable
+delays which we'll denote as $t^d$.
+We get the delay for the individual channels with the get\_cable\_delay
+module, these later on need to be substracted from the fit.
+
+The difference in timing can be found from using the different $\phi$'s we will fit;
 this is easy to see from the following example: Consider a sine wave 
 \begin{equation}
   sin(\omega t)
@@ -1923,19 +1949,43 @@ reaches this same x only after a time
   t_x = \frac{1}{\omega}\left(\sin^{-1}(x) + \phi\right)
 \end{equation}
 i.e a difference of $\phi/\omega$. 
+
+Knowing this relationship is useful for finding an initial guess for $\phi$ as
+the recorded travel times $T_i$ are of the form $T = -\phi/\omega - t^d$ and we
+know that the travel times should be around 4200 ns from a simple simulation
+using the greenland simple ice model, meaning that our guess for $\phi$ is in
+the neighborhood of $-\omega(4200-t^d)$ and should give the smallest
+correlation function; doing this for this example we get that the $\phi$ for
+channel 6 should be -752 and channel 7 we give as initial guess the final fit
+of channel 6 as it is higher and will thus have less travel time implying a
+higher $\phi$ (the algorithm fits the $\phi$ upwards).  Fitting this function
+with the initial guesses you get what's shown on figure
+\ref{fig:FittedVoltage67}, i.e a perfect fit on the data.
+\begin{figure}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{FitChannel6.pdf}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{FitChannel7.pdf}
+	\end{minipage}
+	\caption{recorded voltage i.f.o time on detector 23 at 2022/08/29 11:18:32 for
+	channels 6 and 7}
+	\label{fig:FittedVoltage67}
+\end{figure}
+\subsection{Difference in timing}
 The signals detected in the channels have the form 
+\begin{align}
+  V(t) &= \sin(\omega_c t + \phi_c)\left[1 + m\cos(\omega_m t + \phi_m)\right]\\
+  &= \sin(\omega_c(t + \phi_c/\omega_c))\left[1 + m\cos(\omega_m( t + \phi_m/\omega_m))\right]\\
+  &:= \sin(\omega_c(t + T_c))\left[1 + m\cos(\omega_m( t + T_m))\right]
+\end{align}
+Now, for the plane wave reconstruction, we want to know the difference between
+the arrival times for channels 6 and 7.  We take it to be sufficient to let the
+offset in time be the offset on the message as the offset on the carrier is 
+sufficiently small, i.e
 \begin{equation}
-  V(t) = \sin(2\pi f_c t + \Omega)(1 + m\cos(\omega t + \Phi))
+  \Delta T := T_6 - T_7 = T_6^m - T_7^m
 \end{equation}
-after some time $t_7$ a signal will reach channel 7 and channel 7 will show a value $V$:
-\begin{equation}
-  V = \sin(2\pi f_c t_7 + \Omega_7)(1 + m\cos(\omega_7 t_7 + \Phi_7))
-\end{equation}
-and, after a different (higher) time $t_6$ the same signal will reach channel 6:
-\begin{equation}
-  V = \sin(2\pi f_c t_6 + \Omega_6)(1 + m\cos(\omega_6 t_6 + \Phi_6))
-\end{equation}
-Now, for the plane wave reconstruction, we want to know the difference between these arrival times $t_6$ and $t_7$.
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ModulatedCh6.pdf}
@@ -1947,32 +1997,68 @@ Now, for the plane wave reconstruction, we want to know the difference between t
 	channels 6 and 7}
 	\label{fig:ModulatedChannels}
 \end{figure}
-
-there's one important
-consideration that we haven't made yet: cable delay. We get
-the delay for the individual channels with the
-get\_cable\_delay module, say our couble delays on channels a
-and b are $t_a^d$ and $t_b^d$, the recorded times (from
-fitting the sine) are thus of the form $t^f = t + t^d$, our
-actual difference in timing is thus:
+our actual difference
+in timing is thus:
 \begin{equation}
-	t_b - t_a = t_b^f - t_a^f - (t_b^d - t_a^d)
+	t_6 - t_7 = T_6 - T_7 - (t_6^d - t_7^d) = \Delta T - (t_6^d - t_7^d)
 \end{equation}
-Now if we'd want to 
+Now going through the full calculation we get that the index for refraction at
+a depth of 47.714m is 1.6061, which is a fairly good estimate as, looking at
+the measurements depicted in figure \ref{fig:DensityMeasurements} a depth of 47.7m
+would correspond to a density of about $710 kg/m^3$, using Schytts equation this
+would thus give an index of refraction of 1.603.
+Now using the positional data we can calculate the relative accuracy $\epsilon$ which comes to 
+be about $0.39\%$. Our final answer is thus:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c}
+      depth & station number & run used & event\_id used & channels used & n\\
+      \hline
+      -47.714m & 23 & 691 & 489 & 6,7 & $1.606 \pm 0.006$
+    \end{tabular}
+\end{table}
+Which has the expected answer within the margin of error. We are aware that this event 
+also shows a peak in the frequency spectrum for channel 5 but the data deviates slightly
+from an AM signal and thus didn't seem to be usable. 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{Frequencies.pdf}
   \caption{Frequencies sent out by the weather balloon}
   \label{fig:BalloonFreq}
 \end{figure}
+\newpage
+\section{Fitting the index: deep components}
+\subsection{Station 24 run 646 event 373}
+Going through the full calculation again, i.e getting the relative balloon position
+and detector positions, fitting the AM function\footnote{The guess for $\phi$ to reach 
+$\approx 6670$ns } and thus finding the time
+offsets, minimizing the correlation function for every index of refraction n
+whilst recording the difference between the path and the weather balloon location and
+finally returning the index of refraction for which this difference is the
+smallest; we get as an index of refraction from fit at a depth of -96.1265m :
+1.7648612972259445, if we now calculate the theoretical value (for a greenland
+simple ice model) of the \textit{relative accuracy} $\epsilon$ we get
+$3.3693085783550876\%$. This thus implies a value of
+\begin{equation}
+  n = 1.765 \pm 0.059
+\end{equation}
+It is quite unfortunate that the uncertainty is that large.
+Now how does this compare to the expected value from density measurements?
+Looking at the density measurements shown in figure \ref{fig:DensityMeasurements} 
+we expect a density of about 860 $kg/m^3$ at a depth of 96.13m, using
+Schytt's equation with $\rho_0 = 917$ this implies an index of refraction of about 1.73
+which is within our confidence interval.
 
 \appendix
 \chapter{List of abbreviations}
-Radio Neutrino Observatory in Greenland (RNO-G)
-ultra high energy (UHE)
-Gamma-ray bursts (GRBs)
-Cosmic Microwave Background CMB
-Fast Fourrier Transform FFT
+\begin{itemize}
+\item \textbf{AM}: \textbf{A}mplitude \textbf{M}odulated
+\item \textbf{CMB}: \textbf{C}osmic \textbf{M}icrowave \textbf{B}ackground
+\item \textbf{FFT} \textbf{F}ast \textbf{F}ourrier \textbf{T}ransform
+\item \textbf{GRBs}: \textbf{G}amma-\textbf{R}ay \textbf{B}ursts
+\item \textbf{RNO-G}: \textbf{R}adio \textbf{N}eutrino \textbf{O}bservatory in \textbf{G}reenland
+\item \textbf{UHE}: \textbf{U}ltra \textbf{H}igh \textbf{E}nergy 
+\end{itemize}
 \chapter{Balloon passbys under 10°\\ in the summer of 2022}
 \label{app:10Deg}
 \begin{table}[h!]

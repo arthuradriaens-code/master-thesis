@@ -24,23 +24,25 @@
 \contentsline {section}{\numberline {3.4}Wave propagation}{16}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Ice model}{17}{section.3.5}%
 \contentsline {chapter}{\numberline {4}The Detector}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Reconstruction: Lookup tables}{21}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Reconstruction: Butterworth filters}{21}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{24}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Shortcomings of the exponential ice model}{24}{section.5.1}%
-\contentsline {section}{\numberline {5.2}How it works}{24}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Performance Optimalisation}{26}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Length of the normal vector}{26}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}ztol}{26}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Sphere Size \& Step Size}{27}{subsection.5.3.3}%
-\contentsline {chapter}{\numberline {6}Weather Balloon}{31}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Plane Wave Reconstruction}{31}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Is the goal feasible?}{34}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Refraction at the surface}{36}{subsection.6.2.1}%
-\contentsline {section}{\numberline {6.3}Error on prediction}{41}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Fitting the index}{42}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Spatial data}{42}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Signal analysis}{43}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Difference in timing}{45}{subsection.6.4.3}%
-\contentsline {chapter}{\numberline {A}List of abbreviations}{47}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Balloon passbys under 10°\\ in the summer of 2022}{48}{appendix.B}%
+\contentsline {section}{\numberline {4.1}Reconstruction: Lookup tables}{22}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Reconstruction: Butterworth filters}{22}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Hybrid Ray tracer}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Shortcomings of the exponential ice model}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}How it works}{25}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Performance Optimalisation}{27}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Length of the normal vector}{27}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}ztol}{27}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Sphere Size \& Step Size}{28}{subsection.5.3.3}%
+\contentsline {chapter}{\numberline {6}Weather Balloon}{32}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Plane Wave Reconstruction}{32}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Is the goal feasible?}{35}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Refraction at the surface}{37}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}Error on prediction}{42}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Fitting the index: Channels 6 and 7}{44}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Spatial data}{44}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Signal analysis and initial guesses}{45}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Difference in timing}{47}{subsection.6.4.3}%
+\contentsline {section}{\numberline {6.5}Fitting the index: deep components}{49}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Station 24 run 646 event 373}{49}{subsection.6.5.1}%
+\contentsline {chapter}{\numberline {A}List of abbreviations}{50}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Balloon passbys under 10°\\ in the summer of 2022}{51}{appendix.B}%

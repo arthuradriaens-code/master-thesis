@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex thesis"] 1680348099 "thesis.aux" "thesis.bbl" "thesis" 1680348260
+["bibtex thesis"] 1680616386 "thesis.aux" "thesis.bbl" "thesis" 1680616594
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "sources.bib" 1680280137 12750 ddec0448fd1925aa5df8b9a0a142ed6e ""
-  "thesis.aux" 1680348260 20792 e5d4d1353f70e395fbfbf1d252946c91 "pdflatex"
+  "thesis.aux" 1680616594 21616 7f51e8abf4b9157974ca9acb977ebeaf "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1680348257 "thesis.tex" "thesis.pdf" "thesis" 1680348260
+["pdflatex"] 1680616592 "thesis.tex" "thesis.pdf" "thesis" 1680616594
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1650183167 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -325,6 +325,9 @@
   "figures//neutrinofluxes.pdf" 1678359375 74096 843dd841a86692cde02059de754a5792 ""
   "figures//planewave.pdf" 1677347627 6660 a7e64a18cb1c4323498c0df09bc9c779 ""
   "figures//weerballontraject.pdf" 1677761353 16387 2eaf757e2963a73e843930b52ccf4206 ""
+  "figures/CoatOfArms.pdf" 1680611012 30100 d17632c6d68722125c5597ced8361542 ""
+  "figures/GreenlandFlag.pdf" 1680610725 12572 43f4bfafa1fb2d6833041fb44d464e46 ""
+  "figures/GreenlandOP.pdf" 1680610571 119588 069a5ea0fad8e198aada6a12b2d0b9e8 ""
   "figures/NormVsSigmaAZ.pdf" 1675386228 74620 3a2b6d930b57dd6f7dd4ffb1c44db064 ""
   "figures/NormVsSigmaTime.pdf" 1675386228 65533 4c07866abbdb48be314051faed7daa91 ""
   "figures/NormVsTime.pdf" 1675386228 41679 5c0288bba338941c74b2550922314397 ""
@@ -343,12 +346,12 @@
   "tables/EventsBelow10DegPart3.csv" 1679230914 4227 4bb437e29dc4ca02cdca9e41c298ef45 ""
   "tables/EventsBelow10DegPart4.csv" 1679230914 3270 cb26a9736ea64265e4646f1aa789291e ""
   "tables/EventsBelow10DegPart5.csv" 1679230914 1269 98b49c5ceda72968cb8dcd94856ba8ec ""
-  "thesis.aux" 1680348260 20792 e5d4d1353f70e395fbfbf1d252946c91 "pdflatex"
-  "thesis.bbl" 1680348099 5456 908f4736082b68637f00ffda4c2c5c91 "bibtex thesis"
-  "thesis.listing" 1680348260 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
-  "thesis.out" 1680348260 7251 8b501b5b80b8c5f9eae5096530625efb "pdflatex"
-  "thesis.tex" 1680348256 97614 0662abfaeb68d42e020ba1c8e931ffad ""
-  "thesis.toc" 1680348260 3840 2899bf6819d6c69ef7b098fc2b69d970 "pdflatex"
+  "thesis.aux" 1680616594 21616 7f51e8abf4b9157974ca9acb977ebeaf "pdflatex"
+  "thesis.bbl" 1680616386 5456 908f4736082b68637f00ffda4c2c5c91 "bibtex thesis"
+  "thesis.listing" 1680616594 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
+  "thesis.out" 1680616594 7916 b5a8120059511f01104d18e06e7beac4 "pdflatex"
+  "thesis.tex" 1680616591 102661 ac05b25ece4f49e0b381f894176dda48 ""
+  "thesis.toc" 1680616594 4072 f19ba264d5bb16bcbfbe5ff43c7f55d6 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.listing"
