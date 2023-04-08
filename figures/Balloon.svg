@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="Balloon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.2938725"
+     inkscape:cx="133.32071"
+     inkscape:cy="178.14739"
+     inkscape:window-width="2536"
+     inkscape:window-height="1416"
+     inkscape:window-x="12"
+     inkscape:window-y="12"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.211148"
+       d="m 24.236271,114.77406 95.738989,-0.25884"
+       id="path115"
+       inkscape:export-filename="BalloonDrawing.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:none;stroke:#ff6600;stroke-width:0.264583"
+       id="rect225"
+       width="3.4797869"
+       height="3.5064993"
+       x="39.653919"
+       y="124.73567" />
+    <rect
+       style="fill:none;stroke:#ff6600;stroke-width:0.264583"
+       id="rect225-3"
+       width="3.4797869"
+       height="3.5064993"
+       x="39.835945"
+       y="146.48454" />
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.264583"
+       id="path565"
+       cx="102.78671"
+       cy="75.550758"
+       rx="4.642487"
+       ry="3.1378653" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.0491444;stroke-dasharray:0.0491444, 0.0491444;stroke-dashoffset:0"
+       d="m 100.16899,78.285798 -0.11206,2.763464"
+       id="path675" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.065;stroke-dasharray:0.065, 0.065;stroke-dashoffset:0"
+       d="m 105.33859,78.129381 -0.11095,4.882594"
+       id="path675-6" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 99.516291,81.034947 c 9.572239,-0.07624 4.854519,5.879527 4.854519,5.879527"
+       id="path1376" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 104.43294,86.881286 -1.75751,-1.275712"
+       id="path1486" />
+    <ellipse
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path1488"
+       cx="102.59255"
+       cy="85.429443"
+       rx="0.41658804"
+       ry="0.43410873" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 102.3992,85.79278 -47.13051,28.9139 c 0,0 -11.792667,5.11852 -14.089002,11.91445"
+       id="path1649" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
+       d="M 102.35085,85.797407 63.993045,114.72527 c 0,0 -19.676461,16.4228 -22.516652,33.59363"
+       id="path1759" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 41.200435,124.75342 0.02222,-9.97313"
+       id="path1907" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
+       d="M 41.238535,128.31409 41.39824,146.4763"
+       id="path2017" />
+  </g>
+</svg>

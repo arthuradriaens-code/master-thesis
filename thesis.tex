@@ -1032,15 +1032,16 @@ chapter \ref{chapter:hybrid}.
 \begin{figure}
   \begin{minipage}{0.49\textwidth}
       \centering
-      \includegraphics[height=3cm]{figures/GreenlandFlag.pdf}
+      \includegraphics[height=2.8cm]{figures/GreenlandFlag.pdf}
   \end{minipage}
   \begin{minipage}{0.49\textwidth}
       \centering
-      \includegraphics[height=3cm]{figures/CoatOfArms.pdf}
+      \includegraphics[height=2.8cm]{figures/CoatOfArms.pdf}
   \end{minipage}
   \caption{Flag (left) and Coat of arms (right) of Greenland}
   \label{fig:FlagAndArms}
 \end{figure}
+\section{Introduction}
 Both cosmic ray and neutrino detectors face the same main problem at the
 highest energies: the steeply falling flux (as was previously discussed in
 chapter 2) requires large effective areas, which leads to the construction of
@@ -1078,16 +1079,17 @@ surface channels and various deep channels resulting in a total of 24 channels
 per station. The whole project builds heavily on the knowledge obtained through
 previous neutrino detectors like ARA, RICE and ARIANNA experiments, as well as
 the balloon-borne ANITA experiment.
-
+\section{Hardware}
 One such detector is illustrated in figure \ref{fig:detector}, the plan is to
 build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
 that all the individual detectors are named after various species living in
-greenland (in the native tongue)}. Looking closely at one such detector we
-see just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are
-used to detect muon signals as muons will also generate cherencov radiation in
-the ice whose signals can then be filtered out.  Aside form these surface
-detectors there are also deep components of the detector which can be split up
-in three parts: Two \textit{helper strings} and the \textit{power string}.
+greenland (in the native tongue)}. Looking closely at one such detector we see
+just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are used
+to detect air shower muon signals as muons will also generate cherenkov
+radiation in the ice whose signals can then be filtered out.  Aside form these
+surface detectors there are also deep components of the detector which can be
+split up in three parts: Two \textit{helper strings} and the \textit{power
+string}.
 
 The helper strings are the 2 vertical cables shown on the right of figure
 \ref{fig:detector} each housing 2 vertically polarized antennas (Vpols), one
@@ -1103,20 +1105,23 @@ than the helper strings: At the bottom it houses a set of four Vpol and two
 Hpol antennas with a spacing of 1m and further up the string, with a spacing of
 20m, are three more Vpol antennas.
 
-The signal from each of these antennae are fed into a low-noise amplifier
+The signal from each of the deep antennae are fed into a low-noise amplifier
 directly above it, from there the signal is send to the data acquisition (DAQ)
-system at the surface via a Radio Frequency over Fiber (RFoF) cable. There it's
-again amplified, digitized and saved onto an SD card. This data is then
-transmitted via a Long Term Evolution (LTE) telecommunications network to a
-local server\footnote{There is additionally a Long Range Wide Area Network
-(LoRaWAN) antenna as backup in case of problems with the LTE network}, from
-where it is sent via a sattelite link.
+system at the surface via a Radio Frequency over Fiber (RFoF) cable.  The
+signals coming from the surface antennae are first passed through a Bandpass
+filter of 80-750MHz\footnote{i.e a filter that only lets frequencies in this
+range pass} prior to both them and the deep component signal ending up in the
+RAdio DIgitizer and Auxiliary Neutrino Trigger (RADIANT), there it's again
+amplified, digitized and saved onto an SD card. This data is then transmitted
+via a Long Term Evolution (LTE) telecommunications network to a local
+server\footnote{There is additionally a Long Range Wide Area Network (LoRaWAN)
+antenna as backup in case of problems with the LTE network}, from where it is
+sent via a sattelite link.
 
-There are solar panels as a power source who charge up battery banks, but as
-there is't enough light during the Greenland winters, there're plans to build
-wind turbines (with one of the problems being the possibly detectable RF noise
-the 'engine' would produce).
-
+As a power source, battery banks are used whom are charged via solar panels.
+But as there is't enough light during the Greenland winters, there're plans to
+build wind turbines (with one of the problems being the possibly detectable RF
+noise the 'engine' would produce).
 
 It can,however, pose a challenge to reconstruct the radio signals produced by
 the Cherenkov radiation as they are often obscured by background
@@ -1686,7 +1691,7 @@ predictions won't be accurate.
 \newpage
 \section{Error on prediction}
 Running ahead on the actual measurements, let's estimate how accurate our
-predictions will be (in the non-snell case).  For the moment we're only
+predictions will be.  For the moment we're only
 interested in the deep channels 0-3. Let's label the vertical spatial accuracy,
 i.e how accurately we know the height of these channels, $\delta z$\footnote{meaning if we have a measurement $z_i$ the true value is within $z_i
 \pm \delta z$ with 95\% certainty}. And the timely accuracy, or how accurate the
@@ -1740,26 +1745,26 @@ $\vec{r}$ the position of the balloon.  Our final error on n is thus:
   \frac{\mathcal{C}^2}{{\Delta z_i}^2}{\delta t}^2\right)\right]^2 }
   \label{eqn:total error}
 \end{equation}
-If we assume the $\epsilon$ to overestimate the index of refraction the same way in real
-life as in the simulation however, our estimated $n$ can be corrected as
-\begin{equation}
-  n_{\text{corrected}} (\vec{r})= \frac{n(\vec{r})}{\epsilon(\vec{r}) + 1}
-\end{equation}
-and our error becomes only the second part of equation \ref{eqn:total error}.
-As the error on the position of the channels is not yet fully known this whole
-section mainly serves as a future reference to calculate the errors on the
-indices of refraction that will be calculated in the next sections within
-this chapter.
+%If we assume the $\epsilon$ to overestimate the index of refraction the same way in real
+%life as in the simulation however, our estimated $n$ can be corrected as
+%\begin{equation}
+%  n_{\text{corrected}} (\vec{r})= \frac{n(\vec{r})}{\epsilon(\vec{r}) + 1}
+%\end{equation}
+%and our error becomes only the second part of equation \ref{eqn:total error}.
+%As the error on the position of the channels is not yet fully known this whole
+%section mainly serves as a future reference to calculate the errors on the
+%indices of refraction that will be calculated in the next sections within
+%this chapter.
 \newpage
 \section{Fitting the index: Channels 6 and 7}
 Now that we know our goal to be feasible, let's analyse some data.  As we'll
 start by just analysing one event, let's take one of the best events possible
 for our analysis.  A close look at graph \ref{fig:EpsilonIFODirect} shows that
-events under 5° produce an error of less than 0.22\%, implying that if we
-measure n to be 1.7407 our error will only be 0.0038. After looping through all
-the balloon positional files and only outputting the $<5°$ ones we get some
-moments where balloons were actually close enough (note that $<5°$ almost never
-happens at low heights).
+events under 5° at a height of 500m produce an error of less than 0.22\%,
+implying that if we measure n to be 1.7407 our error will only be 0.0038. After
+looping through all the balloon positional files and only outputting the $<5°$
+ones we get some moments where balloons were actually close enough (note that
+$<5°$ almost never happens at low heights).
 
 If we search in the DESY database
 \footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within the calculated
@@ -1779,14 +1784,16 @@ at the detected signals we see that at run 691 the event 489 gets recorded at
 2022-08-29 11:18:32+00:00 showing a clear 403MHz peak at channels 5-7.
 It is of course unfortunate that we don't get to measure the index of refraction
 at the deep component jet but a quick calculation shows that if we measure the
-index of refraction using detectors 5 and 6 (getting the index of refraction at -70m) 
-the error will be $\approx 0.5\%$ which is a nice start\footnote{This calculation was
+index of refraction using detectors 6 and 7 (getting the index of refraction at $\approx -50m$) 
+the error will be $\approx 0.4\%$ which is a nice start\footnote{This calculation was
 performed with the program CalculateInherentErrorWithSnell.py located in projects-mt/BaLLooN/RealData}.
 
 Now to calculate the differences in timing for this received signal, the code
 used for this is called FitN.py and stored at the repository
-\href{projects-mt}{https://github.com/arthuradriaens-code/projects-mt.git}
-under BaLLooN/RealData, let's go over the full code step by step:
+\href{https://github.com/arthuradriaens-code/projects-mt.git}{projects-mt}
+under BaLLooN/RealData, let's go over the full code step by step:\footnote{I advise 
+the people who will continue this work to pull up the code side-by-side with this 
+explanation}
 
 \subsection{Spatial data}
 The first part we'll need to concern ourselves with is determining the relative
@@ -1802,19 +1809,19 @@ det = NuRadioReco.detector.detector.Detector(json_file="RNO_season_2022.json")
 \end{mintedbox}
 
 The RNO season 2022 json file can be found on the official RNO-G github
-under "analysis-tools", then we "update" the detector to the event time and get the
+under "analysis-tools", then we "update" the detector to the time of the event and get the
 absolute position of our detector (station 23) via the get\_absolute\_position module:
 
 \begin{mintedbox}{python}
 	stationlocation = det.get_absolute_position(station_id)
 \end{mintedbox}
 
-Now that we have both the position of our balloon and station 23 in ENU coordinates,
-let's make the calculations simpler by setting the detector as the central coordinate.
+Now that we have both the position of our balloon and station in ENU coordinates,
+let's simplify the calculations by setting the detector as the origin.
 i.e our new balloon position will be
 
 \begin{equation}
-	\textit{RelBalloon} = \textit{BalloonPosition} - \textit{station}
+	\textit{RelBalloon} = \textit{BalloonPosition} - \textit{StationPosition}
 \end{equation}
 
 And as we might want to plot this later, due to the cylindrical symmetry, we can rotate
@@ -1830,7 +1837,7 @@ zero (equivalent to setting $\theta= 0$ in a rotation).
 Now we don't have the position of our individual channels yet, only of the station itself,
 these can however easily be obtained using the get\_relative\_position module on our
 detector object, as we chose our station to be the center of the coordinate system,
-these relative positions are absolute positions in our frame of reference.
+these relative positions are absolute positions of the channels in our frame of reference.
 
 \subsection{Signal analysis and initial guesses}
 Now that we have our geometry, let's analyse the data for the channels 6 and 7,
@@ -1840,7 +1847,8 @@ recorded times with the get\_times() module, the recorded frequencies with the
 get\_frequencies() and the recorded spectrum corresponding to these frequencies
 with get\_frequency\_spectrum() , note that the last two do a FFT on our data.
 The recorded spectrum of both channels is given in figure \ref{fig:freqs67}, we
-observe a clear spike at 403MHz.
+observe a clear spike at 403.125MHz\footnote{The original signal of 403MHz gets binned
+in 403.125MHz}.
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{23-489-6-freq.pdf}
@@ -1851,13 +1859,12 @@ observe a clear spike at 403MHz.
 	\caption{recorded frequencies on detector 23 at 2022/08/29 11:18:32}
 	\label{fig:freqs67}
 \end{figure}
-
-We know that the signal sent out by the weather balloon has a frequency of
-403MHz. As the data is measured in nanoseconds the frequency is:
+We know that the signal sent out by the weather balloon has a "observed" frequency of
+403.125MHz. As the data is measured in nanoseconds the frequency is:
 \begin{equation}
-	f = 403\text{MHz} = 403\times 10^{-3} \frac{1}{\text{ns}}
+	f = 403.125\text{MHz} = 403.125\times 10^{-3} \frac{1}{\text{ns}}
 \end{equation}
-but looking at the data in figure \ref{fig:voltage67} we see that we'll have to 
+Looking at the data in figure \ref{fig:voltage67} we see that we'll have to 
 do some processing before fitting a sine of the form
 \begin{equation}
 	\mathcal{S} = A\cdot\sin\left(\omega t + T\right)
@@ -1879,7 +1886,8 @@ with
 \end{figure}
 Let's first pass this signal through a sixth order butterworth filter with a
 passband of [0.4031249, 0.4031251]\footnote{This is a filter that only let's
- frequencies pass whom are within the passband}. Doing this we notice that the signal looks as shown
+frequencies pass whom are within the passband, here it will let 0.403125 pass}. 
+Doing this we notice that the signal looks as shown
 in figure \ref{fig:ModulatedChannels}, where it's clear that even though the
 balloon indeed sends out a sinusoidal 403MHz frequency, this signal is
 amplitude modulated (AM).  Meaning that we have a sinusoidial
@@ -1954,9 +1962,9 @@ know that the travel times should be around 4200 ns from a simple simulation
 using the greenland simple ice model, meaning that our guess for $\phi$ is in
 the neighborhood of $-\omega(4200-t^d)$ and should give the smallest
 correlation function; doing this for this example we get that the $\phi$ for
-channel 6 should be -752 and channel 7 we give as initial guess the final fit
-of channel 6 as it is higher and will thus have less travel time implying a
-higher $\phi$ (the algorithm fits the $\phi$ upwards).  Fitting this function
+channel 6 should be -752, and channel 7 we give as initial guess the final fit
+of channel 6 as this channel is higher and will thus have less travel time implying a
+higher $\phi$ (the algorithm seems to fit the $\phi$ upwards).  Fitting this function
 with the initial guesses you get what's shown on figure
 \ref{fig:FittedVoltage67}, i.e a perfect fit on the data.
 \begin{figure}
@@ -2000,24 +2008,27 @@ in timing is thus:
 \begin{equation}
 	t_6 - t_7 = T_6 - T_7 - (t_6^d - t_7^d) = \Delta T - (t_6^d - t_7^d)
 \end{equation}
-Now going through the full calculation we get that the index for refraction at
-a depth of 47.714m is 1.6061, which is a fairly good estimate as, looking at
-the measurements depicted in figure \ref{fig:DensityMeasurements} a depth of 47.7m
-would correspond to a density of about $710 kg/m^3$, using Schytts equation this
-would thus give an index of refraction of 1.603.
-Now using the positional data we can calculate the relative accuracy $\epsilon$ which comes to 
-be about $0.39\%$. Our final answer is thus:
+Now going through the full calculation (i.e minimizing the correlation function
+for different n given the time difference and finding the minimal distance
+between reconstruction and balloon position)\footnote{Note that we used Snell's
+law} we get that the index for refraction at a depth of 47.714m is 1.6061,
+which is a fairly good estimate as, looking at the measurements depicted in
+figure \ref{fig:DensityMeasurements} a depth of 47.7m would correspond to a
+density of about $710 kg/m^3$, using Schytts equation this would thus give an
+index of refraction of 1.603.  Now using the positional data we can calculate
+the relative accuracy $\epsilon$ which comes to be about $0.39\%$. Our final
+answer is thus:
 \begin{table}[h]
     \centering
     \begin{tabular}{c|c|c|c|c|c}
-      depth & station number & run used & event\_id used & channels used & n\\
+      depth (m)& station number & run used & event\_id used & channels used & n\\
       \hline
-      -47.714m & 23 & 691 & 489 & 6,7 & $1.606 \pm 0.006$
+      -47.714 & 23 & 691 & 489 & 6,7 & $1.606 \pm 0.006$
     \end{tabular}
-\end{table}
+\end{table}\\
 Which has the expected answer within the margin of error. We are aware that this event 
 also shows a peak in the frequency spectrum for channel 5 but the data deviates slightly
-from an AM signal and thus didn't seem to be usable. 
+from an AM signal and thus didn't seem to be usable due to the difficulty of fitting it. 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{Frequencies.pdf}
@@ -2026,37 +2037,90 @@ from an AM signal and thus didn't seem to be usable.
 \end{figure}
 \newpage
 \section{Fitting the index: deep components}
-\subsection{Station 24 run 646 event 373}
-Going through the full calculation again, i.e getting the relative balloon position
-and detector positions, fitting the AM function\footnote{The guess for $\phi$ to reach 
-$\approx 6670$ns } and thus finding the time
-offsets, minimizing the correlation function for every index of refraction n
-whilst recording the difference between the path and the weather balloon location and
-finally returning the index of refraction for which this difference is the
-smallest; we get as an index of refraction from fit at a depth of -96.1265m :
-1.7648612972259445, if we now calculate the theoretical value (for a greenland
-simple ice model) of the \textit{relative accuracy} $\epsilon$ we get
-$3.3693085783550876\%$. This thus implies a value of
-\begin{equation}
-  n = 1.765 \pm 0.059
-\end{equation}
-It is quite unfortunate that the uncertainty is that large.
-Now how does this compare to the expected value from density measurements?
-Looking at the density measurements shown in figure \ref{fig:DensityMeasurements} 
-we expect a density of about 860 $kg/m^3$ at a depth of 96.13m, using
-Schytt's equation with $\rho_0 = 917$ this implies an index of refraction of about 1.73
-which is within our confidence interval.
+%\subsection{Station 24 run 646 event 373 Channels 0,1,2,3}
+%Going through the full calculation again, i.e getting the relative balloon
+%position and detector positions, fitting the AM function and thus finding the
+%time offsets, minimizing the correlation function for every index of refraction
+%n whilst recording the difference between the path and the weather balloon
+%location and finally returning the index of refraction for which this
+%difference is the smallest; we get as an index of refraction from fit at a
+%depth of -96.1265m : 1.7648612972259445, if we now calculate the theoretical
+%value (for a greenland simple ice model) of the \textit{relative accuracy}
+%$\epsilon$ we get $3.369\%$. This thus implies a value of
+%\begin{equation}
+%  n = 1.765 \pm 0.059
+%\end{equation}
+%It is quite unfortunate that the uncertainty is that large.
+%Now how does this compare to the expected value from density measurements?
+%Looking at the density measurements shown in figure \ref{fig:DensityMeasurements} 
+%we expect a density of about 860 $kg/m^3$ at a depth of 96.13m, using
+%Schytt's equation with $\rho_0 = 917$ this implies an index of refraction of about 1.73
+%which is within our confidence interval.
+
+\subsection{Station 23 run 800 event 1867 Channels 0 and 3}
+Using guesses $\phi_2^0 = -786.91$ \& $\phi_2^3 = -782$, traveltimes
+[4822.41659697 4806.73065199] are found which have nearly the same difference
+and size as the simulated [4822.16,4805.80]. The minimal correlation was found to be
+$0.334$ns and yielded 1.7475 as index of refraction at a depth of -93.231m.
+Epsilon is calculated to be 4.865\% for this Balloon position, our final result is 
+thus:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c}
+      depth (m)& station number & run used & event\_id used & channels used & n\\
+      \hline
+      -93.231& 23 & 800 & 1867 & 0,3 & $1.748 \pm 0.085$
+    \end{tabular}
+\end{table}\\
+From analysis of the density we expect an index of refraction of 1.73 which
+lies inside our confidence interval.
+
+\section{Special test: Channels 7 and 13}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c}
+      depth (m)& station number & run used & event\_id used & channels used & n\\
+      \hline
+      -19.11& 23 & 691 & 489 & 7,13 & $1.3777 \pm 0.117$
+    \end{tabular}
+\end{table}\\
+This test isn't to be used as the error is too large but it might be useful
+to know that a plane wave reconstruction with one of the nearest deep components and
+a surface component is possible.
+
+\chapter*{Conclusion}
+\section*{Proposal of improved measurements}
+As this method seems to be a viable way of measuring the index of refraction,
+it might be a good idea to have a more controllable radio wave source fly
+closer to the detectors to make more accurate measurements, e.g an
+autonomous\footnote{as to not have it need a radio controller, causing RF interference 
+and also as autonomous GNSS positioning are always more accurate than humans} drone with an
+antenna strapped to it.  Assuming Schytt's equation to hold completely, ideally
+we'd like data inbetween the depths of 20-100m as density measurements are few
+there as depicted on figure \ref{fig:DensityMeasurements} which is possible to
+achieve using this method as detectors span this range.
+
+It would also help in the fitting of the AM signal is the message signal had a longer frequency
+making it less difficult to fit.
 
 \appendix
 \chapter{List of abbreviations}
 \begin{itemize}
 \item \textbf{AM}: \textbf{A}mplitude \textbf{M}odulated
 \item \textbf{CMB}: \textbf{C}osmic \textbf{M}icrowave \textbf{B}ackground
+\item \textbf{DAQ}: \textbf{D}ata \textbf{AQ}uisition system
+\item \textbf{DnR}: \textbf{D}irect a\textbf{N}d \textbf{R}efracted
 \item \textbf{FFT} \textbf{F}ast \textbf{F}ourrier \textbf{T}ransform
 \item \textbf{GRBs}: \textbf{G}amma-\textbf{R}ay \textbf{B}ursts
+\item \textbf{RADIANT}: \textbf{RA}dio \textbf{DI}gitizer and \textbf{A}uxiliary \textbf{N}eutrino \textbf{T}rigger
 \item \textbf{RNO-G}: \textbf{R}adio \textbf{N}eutrino \textbf{O}bservatory in \textbf{G}reenland
 \item \textbf{UHE}: \textbf{U}ltra \textbf{H}igh \textbf{E}nergy 
 \end{itemize}
+\chapter{Balloon passbys under 5°\\ in the summer of 2022}
+\label{app:5Deg}
+\csvautotabular{tables/EventsBelow5DegPart1.csv}
+\csvautotabular{tables/EventsBelow5DegPart2.csv}
+\csvautotabular{tables/EventsBelow5DegPart3.csv}
 \chapter{Balloon passbys under 10°\\ in the summer of 2022}
 \label{app:10Deg}
 \begin{table}[h!]

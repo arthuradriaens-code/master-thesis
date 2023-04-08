@@ -1684,12 +1684,15 @@ INPUT ./figures//Frequencies.pdf
 INPUT ./figures//Frequencies.pdf
 INPUT ./figures//Frequencies.pdf
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm2488.tfm
+INPUT tables/EventsBelow5DegPart1.csv
+INPUT tables/EventsBelow5DegPart2.csv
+INPUT tables/EventsBelow5DegPart3.csv
+INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcsl1095.tfm
 INPUT tables/EventsBelow10DegPart5.csv
 INPUT tables/EventsBelow10DegPart1.csv
 INPUT tables/EventsBelow10DegPart2.csv
 INPUT tables/EventsBelow10DegPart3.csv
 INPUT tables/EventsBelow10DegPart4.csv
-INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcsl1095.tfm
 INPUT ./thesis.bbl
 INPUT thesis.bbl
 INPUT ./thesis.bbl
