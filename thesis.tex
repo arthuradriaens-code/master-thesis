@@ -154,65 +154,175 @@ and the analysis of ice properties using weather balloons}}
 % =====================================================================
 \shipout\null
 \newpage
-\chapter*{Abstract}
-The Radio Neutrino Observatory in Greenland - RNO-G - is under construction at
-Summit Station in Greenland to search for neutrinos of several PeV energy up to
-the Eev range. It's a mid-scale, discovery phase, extremely high-energy
-neutrino telescope that will probe the astrophysical neutrino flux at energies
-beyond the reach of IceCube.  More particularly if will make it possible to
-reach the next major milestone in astroparticle physics: the discovery of
-cosmogenic neutrinos.
-\vspace{0.5cm}
-All simulations carried out within this work were made with the three programs 
-\begin{itemize}
-	\item NuRadioMC
-	\item radiotools
-	\item RadioPropa
-\end{itemize}
-whom are free to download on \href{https://github.com/nu-radio}{github}.  This
-masters thesis consists of three major parts, first off a background is given
-on what neutrinos are and how the detector works, these are chapters 2-4, then
-chapter 5 explains how a new algorithm called the \textit{Hybrid minimizer} was
-built. This is an algorithm for finding the path(s) of a radio source (e.g a neutrino interaction)
-to the detector in complex ice models. And lastly, in chapter 6 it's explained
-how an indirect measurement was done of the index of refraction around the deep
-components of the detector using both weather balloon gps data and detector
-responses.
-All the code for both the simulations carried out throughout this thesis as well
-as the testing of the algorithm that was built can be found \href{https://github.com/arthuradriaens-code/projects-mt}{here},
-the algorithm itself can be found \href{https://github.com/arthuradriaens-code/NuRadioMC}{here}
-within the branch radiopropa/hybrid\_minimizer.
+\chapter*{Summary}
+Outside our earth various kinds of events take place which we wish to 
+observe: Black hole outbursts, supernovae, cosmic jets, ...
+These events produce various kinds of messengers which are useful in
+detecting them: Gravitational waves, gamma rays, protons,...
+But one particle within this set of particles is quite unique and
+the subject of our study: The neutrino. 
+
+The neutrino is unique in that it points back to the event itself.
+Due to the neutrino not having any charge, nearly no mass and 
+interacting weakly it doesn't get bend or absorbed and re-emitted 
+on it's way to us unlike say the proton. This means that if we observe
+a neutrino back here on earth it's very likely that the direction we observe
+it in, is the direction it came from.
+
+We wish to detect a particular type of neutrinos: The ultra high energy (UHE)
+neutrino.  There have been lots of neutrino detectors around but none of them
+have been able to observe \textit{cosmogenic neutrinos} which would live past
+the 3 PeV energy range, this is probably caused by the exponentially falling
+flux with increasing energy, implying that a really big detector volume is
+required to detect neutrinos with such high energies. 
+
+Due to cost requirements, it was necessary to work in the radio regime.  As
+much as we'd like a really big detector working in the visible spectrum, it
+would cost way to much. As neutrinos can produce radio waves upon interacting
+in ice through the Askaryan effect and as radio waves can travel for way longer
+distances in there before interacting than visible light, it was previously
+descided in experiments like ARA and ARIANNA to detect on the principle of
+radio waves. The Radio Neutrino Observatory in Greenland or RNO-G wich is
+currently under construction and the subject of this thesis builds on the
+knowledge of these two experiments to make a quite complex detector which
+should be capable of detecting UHE neutrinos.
+
+The ice properties have an impact on how radiowaves propagate. As mentioned before, RNO-G is a detector built
+in the Greenland icecap. As the radiowaves get produced in the ice we need to figure out how
+they propagate towards our detector. An important part in figuring out how they propagate is 
+the local index of refraction which seems to be linearly related to the density of the ice. 
+The density of the ice seems to vary continuously with depth, a function describing
+this overall relation of the index of refraction with the depth is called an \textit{ice model}
+and it is crucial for future studies to understand this ice model.
+
+Due to the ice model seeming to deviate from the theoretically expected single exponential, it was necessary to 
+develop a new algorithm to find the paths the radio waves could take with more complex ice models. 
+The software used within this thesis to figure out the path radiowaves take is called \textit{radiopropa}.
+Even though this software can be used to work with most kinds of ice models, it still needs to be used within
+some kind of algorithm to be useful. Such an algorithm has already been developed but it had its shortcomings,
+that's why in this thesis a new algorithm was developed called the \textit{hybrid ray tracer} which is explained
+in section \ref{chapter:hybrid}. This algorithm makes it possible to both find a more accurate and faster solution.
+
+It is, however, crucial to make sure we actually need a new kind of ice model. The measuring of the index of refraction
+can be accomplished indirectly through weather balloon fly-bys as is explained in chapter \ref{chap:WB}. Every day
+in the summer, two times per day a weather balloon is launched from the base camp. This weather balloon is equiped with
+an antenna which sends out a 403MHz AM signal, upon close fly-bys with detectors this signal can be observed in the
+detectors. By looking at the difference in arrival time of the signal the difference in timing can be made out from 
+which a plane wave reconstruction can be done. As the accuracy of this plane wave reconstruction is heavily dependent
+on the local index of refraction in the ice, it can be indirectly measured through this reconstruction.
+After this analysis the following data was found:
+(???)
+These all show a discrepency with the exponential model as is shown in figure (???). 
 
 \newpage
-\chapter*{Voorwoord}
-De \textit{Radio Neutrino Observatory in Greenland} - RNO-G - is een detector
-die momenteel onder constructie is in Groenland. Deze detector heeft als doel
-het vinden van neutrinos met energieën van enkele PeV tot in het EeV gebied.
-Deze extreem hoge energie neutrino telescoop zal astrofysische neutrinos zoeken
-op energieën waar icecube te klein voor is. Het zal ook het vinden van
-cosmogenische neutrinos mogelijk maken.  Alle simulaties werden mogelijk
-gemaakt door de volgende programmas:
-\begin{itemize}
-	\item NuRadioMC
-	\item radiotools
-	\item RadioPropa
-\end{itemize}
-Dewelke te downloaden zijn op \href{https://github.com/nu-radio}{github} Deze
-master thesis is opgebouwd uit 3 delen. Hoofdstukken 2 t.e.m 4 zijn
-achtergrondinformatie, waarna in hoofdstuk 5 het bouwen van een algoritme
-uitgelegd wordt en in hoofdstuk 6 worden indirecte metingen gedaan gebruik makende
-van gemeten weerballon data.  Het algoritme werd gebouwd in de eerste helft
-van het jaar en heet de \textit{Hybrid minimizer}: een algoritme gemaakt met als
-doel het snel vinden van een pad vanuit een radio bron vertex (bv een neutrino
-interactie) tot de detector in complexe ijsmodellen. De indirecte metingen
-werden verwerkt in de tweede helft van het academiejaar, hier werd gebruik
-gemaakt van de locatie-info van de weerballon en de response van de detectors
-om een schatting te maken van de index van refractie lokaal aan de verscheidene
-channels van de detectoren.
-De code dienend tot het testen van het gemelde algoritme en het uitvoeren van 
-genoemde simulaties kan \href{https://github.com/arthuradriaens-code/projects-mt}{hier}
-gevonden worden en het algoritme zelf kan \href{https://github.com/arthuradriaens-code/NuRadioMC}{hier}
-gevonden worden onder de branch radiopropa/hybrid\_minimizer
+\chapter*{Samenvatting}
+Er gebeuren verscheidene gebeurtenissen in het heelal dewelke we wensen
+te detecteren, zoals Black hole outbursts, supernovae, cosmic jets, ...
+Al deze gebeurtenissen produceren vormen van informatie dewelke we kunnen
+infereren door hun op een manier te detecteren zoals de protonen en fotonen
+maar ook verscheidene andere zoals zwaartekracht golven.
+Maar één bepaald deeltje vinden wij bijzonder interresant: de neutrino.
+
+De neutrino heeft als erg unieke eigenschap dat het terugwijst naar het event
+waar ze gecreëerd werd. In tegenstelling tot andere deeltjes zoals protonen
+heeft de neutrino geen lading, bijna geen massa en interageert ze zeer zwakjes.
+Door deze eigenschappen zal ze op de weg naar de aarde niet afgebogen worden 
+door magneetvelden en hoogstwaardschijnlijk niet interageren met tussenmedia zoals
+gaswolken, wat impliceert dat als we erin slagen een neutrino the detecteren, de 
+richting waarin ze gedetecteerd wordt hoogstwaarschijnlijk eenzelfde richting is als
+waar ze vandaan komt.
+
+Neutrinos komen in verschijdene energieën maar wij zijn geïnteresseert in één bepaald gebied,
+boven de 3 PeV oftewel de ultra hoge energie (UHE) neutrino. In de verscheidene experimenten die 
+neutrinos hebben gedetecteerd is er nog geen een in geslaagd neutrinos te observeren met 
+energieën boven de 3 PeV, dit is het regime waar zogenaamde \textit{cosmogenic neutrinos} zouden
+leven en dus uiterst interessant om te bestuderen. Maar, om zo'n hoge neutrino energie waar te nemen
+blijkt een zeer grote detector nodig te zijn.
+
+Aangezien het zeer rap zeer duur zou zijn om een groot genoege detector te bouwen om deze neutrinos 
+te detecteren in het visuele spectrum, wat bijvoorbeeld gebruikt wordt in detectoren zoals IceCUBE.
+Werd besloten om te leunen op het Askaryan effect, dit is het effect die zorgt voor de productie
+van radiogolven bij interactie van een neutrino in ijs. Aangezien radio golven verder vrij kunnen
+propageren in ijs dan zichtbaar licht maakt dit het mogelijk om de verscheidene antennes verder
+van elkaar te plaatsen. Enkele experimenten zijn op dit principe gebouwd zoals ARA en ARIANNA,
+uit de expertise van deze experimenten werd dan de Radio Neutrino Observatory in Greenland of RNO-G gemaakt.
+RNO-G moet het mogelijk maken om UHE neutrinos te observeren en deze thesis wenst bij te dragen aan deze 
+detector.
+
+Het blijkt dat de eigenschappen van het ijs een effect hebben op hoe radiogolven zich propageren door het ijs.
+Aangezien RNO-G gebouwd is in groenland op een groot volume ijs en ze werkt op het principe van radiogolven
+is het nodig dit te onderzoeken. Het blijkt dat de propagatie sterk afhankelijk is aan de locale refractieve
+index van het ijs, dewelke lineair lijkt gerelateerd te zijn aan de dichtheid van het ijs, hoe de locale
+refractieve index afhangt van de ruimtelijke positie wordt het \textit{ijsmodel} genoemd. Theoretisch
+verwacht men een exponentiele afhankelijkheid van de dichtheid met de diepte, maar uit metingen blijkt deze
+af te wijken van het theoretische model. 
+
+De ray tracing simulaties die gebruikt worden om na te gaan waar de neutrino
+vandaan komt zijn sterk afhankelijk van het ijsmodel.  Er werd vroeger een algoritme gemaakt dewelke enkel 
+met het exponentieel model kan omgaan, maar door de recent gevonden tekortkomingen aan dit ijsmodel bleek 
+het nodig een nieuw algoritme te bedenken. Zo'n algoritme, genaamd de \textit{iterative ray tracer} werd 
+daarom uitgevonden maar bleek enkele tekortkomingen te hebben. Daarom bleek het nodig om een nieuw soort
+algoritme uit te vinden dewelke steunt op dat algoritme genaamd de \textit{hybrid ray tracer}, dit algoritme
+kan gevonden worden in sectie \ref{chapter:hybrid}. Dit algoritme maakt het mogelijk om beide een meer accurate
+oplossing te vinden maar deze ook sneller te vinden.
+
+Maar om over te schakelen op een nieuw ijsmodel met een anders algoritme is het nodig aan te tonen dat er effectief
+een groot verschil is tussen het theoretische exponentiële model en de echte refractieindex, om dit aan te tonen 
+kunnen we gebruik maken van weerballonnen. Elke dag in de zomer, 2 keer per dag, wordt een weerballon gelanceerd. 
+Deze weerballon beschikt over een antenne dewelke een AM signaal uitstuurt aan 403MHz, als zo'n ballon toevallig
+dicht bij een detector komt zal dit signaal kunnen gedetecteerd worden. Door een plane wave reconstructie te doen
+van dit signaal en gebruik te maken van de positie van de ballon kunnen we infereren wat de locale refractieve index
+is in het ijs. Deze procedure wordt volledig uitgelegd in hoofdstuk \ref{chap:WB}.
+Na deze procedure op enkele evenementen toe te passen werd de volgende data gevonden:
+(???)
+Hier is een duidelijke tekortkoming van het exponentieel model te zien.
+\newpage
+\chapter*{Introduction}
+Outside our earth various kinds of events take place which we wish to 
+observe: Black hole outbursts, supernovae, cosmic jets, ...
+These events produce various kinds of messengers which are useful in
+detecting them: Gravitational waves, gamma rays, protons,...
+But one particle within this set of particles is quite unique and
+the subject of our study: The neutrino. 
+
+The neutrino is unique in that it points back to the event itself.
+Due to the neutrino not having any charge, nearly no mass and 
+interacting weakly it doesn't get bend or absorbed and re-emitted 
+on it's way to us unlike say the proton. This means that if we observe
+a neutrino back here on earth it's very likely that the direction we observe
+it in, is the direction it came from.
+
+We wish to detect a particular type of neutrinos: The ultra high energy (UHE)
+neutrino.  There have been lots of neutrino detectors around but none of them
+have been able to observe \textit{cosmogenic neutrinos} which would live past
+the 3 PeV energy range, this is probably caused by the exponentially falling
+flux with increasing energy, implying that a really big detector volume is
+required to detect neutrinos with such high energies. 
+
+Due to cost requirements, it was necessary to work in the radio regime.  As
+much as we'd like a really big detector working in the visible spectrum, it
+would cost way to much. As neutrinos can produce radio waves upon interacting
+in ice through the Askaryan effect and as radio waves can travel for way longer
+distances in there before interacting than visible light, it was previously
+descided in experiments like ARA and ARIANNA to detect on the principle of
+radio waves. The Radio Neutrino Observatory in Greenland or RNO-G wich is
+currently under construction and the subject of this thesis builds on the
+knowledge of these two experiments to make a quite complex detector which
+should be capable of detecting UHE neutrinos.
+
+The ice properties have an impact on how radiowaves propagate. As mentioned before, RNO-G is a detector built
+in the Greenland icecap. As the radiowaves get produced in the ice we need to figure out how
+they propagate towards our detector. An important part in figuring out how they propagate is 
+the local index of refraction which seems to be linearly related to the density of the ice. 
+The density of the ice seems to vary continuously with depth, a function describing
+this overall relation of the index of refraction with the depth is called an \textit{ice model}
+and it is crucial for future studies to understand this ice model.
+
+It has become apparent that the ice model seems to deviate from the
+theoretically expected single exponential density expectation.  In this thesis
+a new algorithm will be developed which makes it possible to work with more
+complex ice models and the verification of the shortcomings of the exponential
+model, which is now the only model that gets used, will be layed out.
 
 % ------------ TABLE OF CONTENTS ---------
 {\hypersetup{hidelinks}\tableofcontents} % hide link color in toc
@@ -222,7 +332,7 @@ gevonden worden onder de branch radiopropa/hybrid\_minimizer
 % =====================================================================
 % Main matter
 % =====================================================================
-\chapter{Neutrinos}
+\chapter{Astrophysical Neutrinos}
 %\includegraphics[width=0.5\textwidth]{standard_model.png}
 
 When looking outside into the night sky you might see various stars, but
@@ -1394,6 +1504,7 @@ of 45m and a stepsize of 0.7°.
 \end{figure}
 
 \chapter{Weather Balloon}
+\label{chap:WB}
 In this chapter we'll simulate radio signals coming from a weather
 balloon flying over the stations. Our goal is to use the plane waves 
 method to reconstruct the position of the weather balloon with the
