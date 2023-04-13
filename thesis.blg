@@ -7,43 +7,43 @@ Warning--to sort, need author or key in elasticity_y
 Warning--empty author in elasticity_y
 You've used 20 entries,
             2118 wiz_defined-function locations,
-            641 strings with 8947 characters,
-and the built_in function-call counts, 8309 in all, are:
-= -- 715
-> -- 655
+            640 strings with 8779 characters,
+and the built_in function-call counts, 7977 in all, are:
+= -- 685
+> -- 614
 < -- 3
-+ -- 260
-- -- 240
-* -- 739
-:= -- 1471
++ -- 244
+- -- 224
+* -- 693
+:= -- 1412
 add.period$ -- 58
 call.type$ -- 20
-change.case$ -- 174
+change.case$ -- 166
 chr.to.int$ -- 0
 cite$ -- 22
-duplicate$ -- 239
-empty$ -- 478
-format.name$ -- 240
-if$ -- 1613
+duplicate$ -- 240
+empty$ -- 473
+format.name$ -- 224
+if$ -- 1556
 int.to.chr$ -- 0
 int.to.str$ -- 20
-missing$ -- 22
+missing$ -- 23
 newline$ -- 101
 num.names$ -- 40
-pop$ -- 170
+pop$ -- 169
 preamble$ -- 1
-purify$ -- 156
+purify$ -- 149
 quote$ -- 0
-skip$ -- 172
+skip$ -- 170
 stack$ -- 0
-substring$ -- 286
+substring$ -- 261
 swap$ -- 42
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 74
+type$ -- 72
 warning$ -- 2
-while$ -- 54
+while$ -- 52
 width$ -- 22
-write$ -- 217
+write$ -- 216
 (There were 2 warnings)

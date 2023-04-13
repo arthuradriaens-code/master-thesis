@@ -946,7 +946,7 @@ change in density
 \end{align}
 integrating the left side from $\rho_0$ to $\rho$ and the right side from 0 to z we get:
 \begin{align}
-	\ln\left(\frac{\rho/\rho_0}\right) &= Az := z/z_0\\
+ln\left(\frac{\rho}{\rho_0}\right) &= Az := z/z_0\\
 	\rho = \rho_0 e^{z/z_0}
 \end{align}
 Now as theoretically we can't expect the density to decrease forever we add an offset:
@@ -971,7 +971,7 @@ As the volume scales inversely with the density let's assume the relation $V \pr
 \end{align}
 And after again adding an offset, we get:
 \begin{equation}
-	\rho &= \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}} + B
+	\rho = \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}} + B
 \end{equation}
 
 For the development of the simulation software the first equation (equation \ref{eqn:myderiexp}) was

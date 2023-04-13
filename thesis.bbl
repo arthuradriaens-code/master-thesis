@@ -5,12 +5,6 @@ Measurement of the multi-{TeV} neutrino interaction cross-section with
   {IceCube} using earth absorption.
 \newblock {\em Nature}, 551(7682):596--600, nov 2017.
 
-\bibitem{neutrino-mass}
-M.~Aker, A.~Beglarian, J.~Behrens, A.~Berlev, U.~Besserer, B.~Bieringer,
-  F.~Block, S.~Bobien, et~al.
-\newblock Direct neutrino-mass measurement with sub-electronvolt sensitivity.
-\newblock {\em Nature Physics}, 18(2):160--166, 2022.
-
 \bibitem{Askaryan}
 G~A Askaryan.
 \newblock Excess negative charge of an electron-photon shower and the coherent
@@ -90,6 +84,11 @@ Tim Huege and Dave Besson.
 \newblock Radio-wave detection of ultra-high-energy neutrinos and cosmic rays.
 \newblock {\em Progress of Theoretical and Experimental Physics}, 2017(12), nov
   2017.
+
+\bibitem{jackson1998classical}
+J.D. Jackson.
+\newblock {\em Classical Electrodynamics}.
+\newblock Wiley, 1998.
 
 \bibitem{NASANeutrinos}
 Demosthenes {Kazanas}.
