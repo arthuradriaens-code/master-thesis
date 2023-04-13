@@ -954,13 +954,13 @@ Now as theoretically we can't expect the density to decrease forever we add an o
 	\label{eqn:myderiexp}
 	\rho = \rho_0 e^{z/z_0} + B
 \end{equation}
-And we're done! Another kind of derivation by Schytt was done by assuming the
-proportional change in air space to be proportional to the change in pressure
-instead:
+And we're done! Schytt did a derivation similar in nature but with a different
+assumption resulting in a different equation. He assumed the proportional
+change in air space to be proportional to the change in pressure:
 \begin{equation}
 	\frac{dV}{V} \propto d\sigma
 \end{equation}
-As the volume scales inversly with the density let's assume the relation $V \propto (\rho_i - \rho)$, yielding:
+As the volume scales inversely with the density let's assume the relation $V \propto (\rho_i - \rho)$, yielding:
 \begin{align}
 	\frac{d\rho}{\rho_i - \rho} &\propto \rho dz\\
 	\frac{d\rho}{\rho(\rho_i - \rho)} &\propto dz\\
@@ -974,7 +974,7 @@ And after again adding an offset, we get:
 	\rho &= \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}} + B
 \end{equation}
 
-for the development of the simulation software the first equation (equation \ref{eqn:myderiexp}) was
+For the development of the simulation software the first equation (equation \ref{eqn:myderiexp}) was
 taken and after assuming Schytt's equation to hold we find that the
 index of refraction abides by
 \begin{equation}
@@ -995,7 +995,7 @@ profile is called the \textit{analytic ray tracer}.
 There is one big downside however: looking at measurements of the density i.f.o depth as shown in figure \ref{fig:DensityMeasurements} 
 \begin{figure}
   \centering
-	\includegraphics[width=0.5\textwidth]{Density_measurements.pdf}
+	\includegraphics[width=0.5\textwidth]{Density_measurements2.pdf}
 	\caption{Measurements of the density (kg/m$^3$) i.f.o the depth with various fits}
 	\label{fig:DensityMeasurements}
 \end{figure}
@@ -1004,21 +1004,12 @@ the form
 \begin{equation}
 	a(b + c e^{z/d}) = \rho
 \end{equation}
-it seems that the ice actually doesn't follow this exponential
-curve perfectly but more closely some kind of polynomial. as an
-example the curve "fifth order exponential"\footnote{This is
-just an example, a better function can probably be found} was
-included which has the structure
-\begin{equation}
-	a_5 exp(-z/z_0)^5 + a_4 exp(-z/z_0)^4 + a_3 exp(-z/z_0)^3 
-	+ a_2 exp(-z/z_0)^2 + a_1 exp(-z/z_0) +a_0
-\end{equation}
-this discrepency between the exponential model and the actual
-data implies that the analytic ray tracer will make the wrong
-predictions.  This is why the development of a different ray
-tracer was needed which will be able to handle more complex
-(e.g polynomial) ice models, we'll get to this ray tracer in
-chapter \ref{chapter:hybrid}.
+it seems that the ice actually doesn't follow this exponential curve perfectly
+but more closely some kind of polynomial. this discrepency between the
+exponential model and the actual data implies that the analytic ray tracer will
+make the wrong predictions.  This is why the development of a different ray
+tracer was needed which will be able to handle more complex (e.g polynomial)
+ice models, we'll get to this ray tracer in chapter \ref{chapter:hybrid}.
 \chapter{The Detector}
 \begin{figure}
   \begin{minipage}{0.49\textwidth}
