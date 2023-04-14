@@ -334,30 +334,27 @@ model, which is now the only model that gets used, will be layed out.
 % =====================================================================
 \chapter{Neutrino as Astroparticle}
 %\includegraphics[width=0.5\textwidth]{standard_model.png}
-
 When looking outside into the night sky you might see various stars, but
 invisible to the naked eye various kinds of particles are also traversing
 light-years to end up where you stand.
 
 When looking at phenomena outside our earth the astronomer will turn to
-electromagnetic radiation, as a lot of the most interesting events emit photons
-in some kind of way. But he's missing out on a big part of the full picture,
-there are regions in the universe from which photons can't escape and they can
-also be absorbed on their way to earth.  That's where the astroparticle
-physicist comes in who takes a look at muons, nuclei,... and neutrinos.
+electromagnetic radiation, but he's missing out on a big part of the full
+picture. Not only do interesting events emit photons but also muons, nuclei,
+gravitational waves,... All kinds of particles which might also be of interest,
+that's where the astroparticle physicist comes in.
 
-Neutrinos are often called “ghost” particles because they very rarely interact
-with matter, on average 100 trillion neutrinos pass through your body per
-second, none of them having any effect.  You'd even need a light year of lead
-to give you just a 50\% chance of stopping a neutrino.
-
-As they also have no charge they are not deflected by magnetic fields. This means
-that once a cosmic neutrino is detected and it's direction is inferred, it's origin
-can be found.
-
-Because they can travel huge distances without getting distorted or
-sidetracked, neutrinos are ideal messengers to identify sources of ultra high
-energy (UHE) cosmic rays in the universe.  Neutrinos can serve as unique clues
+Of all these particles there is one particle which has properties we're quite
+interested in: the neutrino.  Neutrinos don't have any charge, meaning that
+they are not deflected by magnetic fields. Also neutrinos interact very weakly,
+because of this they are often called “ghost” particles; on average 100
+trillion neutrinos pass through your body per second, none of them having any
+effect.  You'd even need a light year of lead to give you just a 50\% chance of
+stopping a neutrino.
+These properties makes them ideal messenger particles as, when we detect a neutrino
+and it's arrival direction, we can be quite sure it came to our detector unhindered
+from a far away event in the exact same direction.
+Neutrinos can serve as unique clues
 about what’s happening elsewhere in the universe including the cosmic
 collisions, galaxies, supernovae, Gamma-ray bursts (GRBs),... where they are created.
 
@@ -391,9 +388,10 @@ Which is called beta capture and was first experimentally detected in 1956
 \cite{BetaCapture} also making it the first experimental detection of a
 neutrino.
 \section{Neutrino sources}
-As shown in figure \ref{figure:Neutrino fluxes} there are various kinds of neutrino sources,
-we'll discuss these one by one in order leaving out the reactor anti-neutrinos and the terrestrial anti-neutrinos
-as we're only interested in neutrinos of astrophysical nature.
+As shown in figure \ref{figure:Neutrino fluxes} there are various kinds of
+neutrino sources, we'll discuss these one by one in order leaving out the
+reactor anti-neutrinos and the terrestrial anti-neutrinos as we're only
+interested in neutrinos of astrophysical nature.
 \begin{figure}
 	\centering
 	\copyrightbox[r]{\includegraphics[height = 0.5\textwidth]{neutrinofluxes.pdf}}{\textcopyright Abhik Jash, Studies on the Physics of Resistive Plate Chambers in Relation to the INO Experiment}
@@ -540,36 +538,6 @@ star.
 
 Neutrino observatories are thus also useful to know where to point our various
 telescopes before the supernova is actually visible in the night sky.
-\subsection{Terrestrial anti-neutrinos}
-Terrestrial anti-neutrinos, also termed \textit{geoneutrinos} are neutrinos
-coming from the decay of radionuclides (unstable nuclides due to excess in
-nuclear energy) naturally occuring in our earth.  Most geoneutrinos are
-electron antineutrinos originating in $\beta^-$ decay modes of ${}^{40}$K,
-${}^{232}$Th and ${}^{238}$U. Together these decay chains account for more than
-99\% of the present-day radiogenic heat generated inside the Earth
-
-\subsection{Reactor anti-neutrinos}
-Arguably our most important energy source today, both in terms of energy output
-and their impact on the enviroment are fission reactors.  Looking back at
-figure \ref{fig:BindingEnergyCurve} we see that all the way to the right
-uranium is found, a lot of energy can thus be released by splitting in into
-nuclei with a lower amount of nucleons.  Fission reactors operate by splitting
-this urantium via the introduction of a neutron:
-\begin{equation}
-	n + {}^{235}U \rightarrow \text{Energy (radiation)} + 2\times\text{Fission fragments} + 2.5\times n
-\end{equation}
-this 2.5 is of course an average. The surplus of neutrons means that this is a
-self-sustaining reaction implying that for a stable thermonuclear fission
-reaction, carbon capture rods are needed.  When this uranium nucleus fissions
-into two daughter nuclei fragments, about 0.1 percent of the mass of the
-uranium nucleus appears as the fission energy which is about ~200 MeV. For
-uranium-235 about ~169 MeV appears as the kinetic energy of the daughter nuclei
-, the neutrons carry a mean kinetic energy per neutron of ~2 MeV (total of 4.8
-MeV) and ~7 MeV is released in the form of gamma ray photons.  This all sums up
-to the \textit{total prompt fission energy} which amounts to about 181 MeV, or
-~89\% of the total energy which is eventually released by fission over time.
-The remaining ~11\% is released in beta decays where we get our reactor
-anti-neutrinos from.
 \subsection{Background from old supernovae}
 Also termed the \textit{diffuse supernova neutrino background} (DSNB), as the
 universe is quite old various supernovae have happened over it's lifetime, each generating
@@ -861,6 +829,7 @@ would have a downwards polarization and the one producing a green cherenkov cone
 an upwards polarization, note that in 3D infinite different cherenkov cones could generate
 the same timely signal (think of rotating the cone around a line on the cone) so both vertical
 and horizontal polarization information is needed.
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{illu_polarization.pdf}
@@ -874,53 +843,58 @@ and horizontal polarization information is needed.
 \end{figure}
 The way we simulate the strongest waves propagating to the detector from a
 radio source is through ray tracing, an illustration of such a simulation is
-shown in figure \ref{fig:PathIllu}.  Here the interaction of the neutrino
-happens somewhere in the neighbourhood of the red cross, the orange rays
-represent the resulting radio wave paths to the detector channels which are
-illustrated by blue dots. Notice that reflection at the surface is also a
-possible path to the detector.  In a dielectric medium a ray propagates with
-it's signal wave-speed determined by the local index of refraction as $v =
-c/n$.   The effect on speed isn't the only effect the index of
-refraction has which we'll need to concern ourselves with however, if a ray
-propagates towards a boundary dividing 2 media with different indexes of
-refraction, the ray will refract and the refracted angle can be found from
-Snell's law:
+shown in figure \ref{fig:PathIllu}.  Here the detector is located at (0,-100)
+and a radio source at (480,-108), note that there are two possible paths
+leading to the detector.
+
+The amount of solutions and how the waves are bent is due to the nature of the
+ice we work in.  In a dielectric medium a ray propagates with it's signal
+wave-speed determined by the local index of refraction as $v = c/n$.   The
+effect on speed isn't the only effect the index of refraction has which we'll
+need to concern ourselves with however, if a ray propagates towards a boundary
+dividing 2 media with different indexes of refraction, the ray will refract and
+the refracted angle can be found from Snell's law:
 \begin{equation}
-	n_1\sin{\theta_1} = n_2\sin{\theta_2}
+	n_i\sin{\theta_i} = n_o\sin{\theta_o}
 \end{equation}
-Where n is the index of refraction and $\theta$ is the angle
-with respect to the surface normal.
-The system we'll consider however, isn't 
-homogeneous with some specified boundary, it's continous: ice
-in greenland has a continously varying density. 
-Because of this we can't work with Snell's law but we'll have to 
-take a look at the continuous version
-to figure out how these rays propagate. 
-The "continuous version of Snell's law" is the eikonal equation:
-a path of a ray $\mathbf{r}(s)$ with path parameter s in a medium
-with index of refraction n($\mathbf{r}$) is described by:
+Where n is the index of refraction, $\theta$ the angle with respect to the
+surface normal and "i" and "o" indicating incoming and outgoing respectively.
+The system we'll consider however, isn't homogeneous with some specified
+boundary, it's continous: ice in greenland has a continously varying density.
+Because of this we can't work with Snell's law but we'll have to take a look at
+the continuous version to figure out how these rays propagate. A path of a ray
+$\mathbf{r}(s)$ with path parameter s in a medium with index of refraction
+n($\mathbf{r}$) is described by the eikonal equation:
 \begin{equation}
 	\frac{d}{ds}\left(n(\mathbf{r})\frac{d\mathbf{r}}{ds}\right) = \mathbf{\nabla} n
 \end{equation}
-The software we'll be using for ray reconstruction is called
-"radiopropa" \cite{Winchen_2019} and in radiopropa the
-local paraxial approximation is used, i.e. if we assume that in any
-individual step of the algorithm the change of the refractive index
-along the path ds is small it's possible to
+This is the "continuous version of Snell's law" which we'll call the
+\textit{snell's gradient law}.
+
+The software we'll be using for ray reconstruction is called "radiopropa"
+\cite{Winchen_2019} and in radiopropa the local paraxial approximation is used,
+i.e if we assume that in any individual step of the algorithm the
+change of the refractive index along the path ds is small it's possible to
 re-write the equation as:
 \begin{equation}
 	n(\mathbf{r})\frac{d^2\mathbf{r}}{ds^2} \approx \mathbf{\nabla} n
 	\label{eqn:radiopropaformula}
 \end{equation}
-Which is then easily iteratively solved.
-If there are boundaries (such as defects or the surface)
-these are treated seperately using Snell's law. 
+Which is then iteratively solved using the Cash–Karp method.  The way you would
+go about using this program is thus find a start and end point (e.g a supposed
+neutrino interaction point and a detector respectively), "shoot" your ray in a
+certain direction for which the path will then be iteratively solved using
+radiopropa and if you chose your direction right you have the path a ray might
+take from your start to the end point.  The big complication is this direction
+choosing which we'll get to later.  If there are boundaries (such as defects or
+the surface) these are treated seperately using Snell's law. 
 \section{Ice model}
 \label{section:Ice Model}
 Ice has a density gradient which we'll need to account for. Due to the way the
-water molecules bond, closer to the surface more air will be trapped in the ice
-than at higher depths.  Due to this air being trapped the density of ice will
-be smaller closer to the surface than at higher depth.  
+ice bonds there will be more air trapped inbetween the molecules closer to the
+surface than at greater depths where the pressure due to the overhead ice
+prevents this.  Due to this air being trapped the density of ice will be
+smaller closer to the surface than at greater depth.  
 
 Equation \ref{eqn:radiopropaformula}, and thus the path, depends on the index
 of refraction on a given location.  The dependence of the index of refraction
@@ -975,24 +949,25 @@ And after again adding an offset, we get:
 \end{equation}
 
 For the development of the simulation software the first equation (equation \ref{eqn:myderiexp}) was
-taken and after assuming Schytt's equation to hold we find that the
+taken and after assuming Schytt's equation to hold (i.e $n \propto \rho$) we find that the
 index of refraction abides by
 \begin{equation}
 	\label{eqn:expn}
 	n(z) = n_{ice} - \Delta n e^{z/z_0}
 \end{equation}
 with $n_{ice}$ the refractive index of solid ice and $\Delta n = n_{ice} - n_s$
-with $n_s$ the index of refraction of snow. This is called "the exponential
-model".  
+with $n_s$ the index of refraction of snow. This exponential dependency of the
+index of refraction on depth is called "the exponential model".  
 
-This exponential model has a huge advantage as it's analytically 
-solvable, meaning that we don't have to iteratively search for the 
-path to the detector but know it instantly after the location of
-the neutrino interaction and the detector are specified, the ray 
-tracing software developed in complience with this exponential density
-profile is called the \textit{analytic ray tracer}.
+This exponential model has a huge advantage as it's analytically solvable,
+meaning that we know instantly which direction we'll have to shoot our ray in
+(as mentioned previously) after the location of the neutrino interaction and
+the detector are specified, the ray tracing software developed in complience
+with this exponential density profile is called the \textit{analytic ray
+tracer}.
 
-There is one big downside however: looking at measurements of the density i.f.o depth as shown in figure \ref{fig:DensityMeasurements} 
+There is one big downside however: looking at measurements of the density i.f.o
+depth as shown in figure \ref{fig:DensityMeasurements} 
 \begin{figure}
   \centering
 	\includegraphics[width=0.5\textwidth]{Density_measurements2.pdf}
@@ -1005,11 +980,22 @@ the form
 	a(b + c e^{z/d}) = \rho
 \end{equation}
 it seems that the ice actually doesn't follow this exponential curve perfectly
-but more closely some kind of polynomial. this discrepency between the
-exponential model and the actual data implies that the analytic ray tracer will
-make the wrong predictions.  This is why the development of a different ray
-tracer was needed which will be able to handle more complex (e.g polynomial)
-ice models, we'll get to this ray tracer in chapter \ref{chapter:hybrid}.
+but would more closely follow some kind of higher order function. this
+discrepency between the exponential model and the actual data implies that the
+analytic ray tracer will make the wrong predictions.  This is why the
+development of a different ray tracer was needed which will be able to handle
+more complex ice models, we'll get to this ray tracer in
+chapter \ref{chapter:hybrid}.
+
+Lastly there might be one more problem we haven't talked about yet: Birefringe.
+We have implicitly assumed that ice is isotropic meaning that both it's
+permittivity $\varepsilon$ and it's permeability $\mu$ are scalars but these
+could very well be tensorial in nature for radio waves. In general, after
+calculating what this tensorial nature implies you'd find that in every
+direction two different types of waves can be found each propagating with a
+different speed as shown in figure (???)
+
+Birefringe is the optical property of a material having the \cite{Heyer2023}
 \chapter{The Detector}
 \begin{figure}
   \begin{minipage}{0.49\textwidth}
