@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex thesis"] 1681379377 "thesis.aux" "thesis.bbl" "thesis" 1681379616
+["bibtex thesis"] 1681489497 "thesis.aux" "thesis.bbl" "thesis" 1681489499
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "sources.bib" 1681379329 12976 14f378b72b5d573b717e0e6b3778ccad ""
-  "thesis.aux" 1681379616 21819 0c7e74dee2ff0028a9145b5d0dbd0a6b "pdflatex"
+  "sources.bib" 1681481416 14834 627b90e33471145e583598d4f9096825 ""
+  "thesis.aux" 1681489499 21840 786f3d06604e975c582fc425614a3e21 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1681379614 "thesis.tex" "thesis.pdf" "thesis" 1681379616
+["pdflatex"] 1681489497 "thesis.tex" "thesis.pdf" "thesis" 1681489499
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1650183167 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -325,6 +325,7 @@
   "figures//planewave.pdf" 1677347627 6660 a7e64a18cb1c4323498c0df09bc9c779 ""
   "figures//weerballontraject.pdf" 1677761353 16387 2eaf757e2963a73e843930b52ccf4206 ""
   "figures/CoatOfArms.pdf" 1680611012 30100 d17632c6d68722125c5597ced8361542 ""
+  "figures/Fresnel.pdf" 1681489248 8576 9d27da52286a82076e789a69ca0c953d ""
   "figures/GreenlandFlag.pdf" 1680610725 12572 43f4bfafa1fb2d6833041fb44d464e46 ""
   "figures/GreenlandOP.pdf" 1680610571 119588 069a5ea0fad8e198aada6a12b2d0b9e8 ""
   "figures/NormVsSigmaAZ.pdf" 1675386228 74620 3a2b6d930b57dd6f7dd4ffb1c44db064 ""
@@ -349,12 +350,12 @@
   "tables/EventsBelow5DegPart1.csv" 1680879451 2676 f048f4026645bb21a3375da785be51c5 ""
   "tables/EventsBelow5DegPart2.csv" 1680879442 4412 20a921dadcc63ea94488d448b6c6cad5 ""
   "tables/EventsBelow5DegPart3.csv" 1680879465 3343 9fb1a492d71193e8d3fa7ee63a9e8446 ""
-  "thesis.aux" 1681379616 21819 0c7e74dee2ff0028a9145b5d0dbd0a6b "pdflatex"
-  "thesis.bbl" 1681379377 5308 3d352277f8b37ed822737982ad02a042 "bibtex thesis"
-  "thesis.listing" 1681379616 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
-  "thesis.out" 1681379616 8337 93f6a40158a444f94dfd9e64ae3f074f "pdflatex"
-  "thesis.tex" 1681379614 110413 6afb951cd622327978e98f00eced6c2e ""
-  "thesis.toc" 1681379616 4078 e0a9314dd6964a882a2f70539aa7b320 "pdflatex"
+  "thesis.aux" 1681489499 21840 786f3d06604e975c582fc425614a3e21 "pdflatex"
+  "thesis.bbl" 1681489497 5538 11576066ea70280abbf867113d597df6 "bibtex thesis"
+  "thesis.listing" 1681489499 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
+  "thesis.out" 1681489499 7966 652f6dade9d208373773adab52a4bcf2 "pdflatex"
+  "thesis.tex" 1681489494 109660 86a42b3bd23efe53ff91e78a108f4565 ""
+  "thesis.toc" 1681489499 3886 5585ef92f47d24fd98846db6f79cff0b "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.listing"

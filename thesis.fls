@@ -1424,6 +1424,11 @@ INPUT ./figures//Density_measurements2.pdf
 INPUT ./figures//Density_measurements2.pdf
 INPUT ./figures//Density_measurements2.pdf
 INPUT ./figures//Density_measurements2.pdf
+INPUT ./figures/Fresnel.pdf
+INPUT ./figures/Fresnel.pdf
+INPUT figures/Fresnel.pdf
+INPUT ./figures/Fresnel.pdf
+INPUT ./figures/Fresnel.pdf
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm

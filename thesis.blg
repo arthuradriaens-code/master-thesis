@@ -5,45 +5,45 @@ The style file: plain.bst
 Database file #1: sources.bib
 Warning--to sort, need author or key in elasticity_y
 Warning--empty author in elasticity_y
-You've used 20 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            640 strings with 8779 characters,
-and the built_in function-call counts, 7977 in all, are:
-= -- 685
-> -- 614
+            647 strings with 8931 characters,
+and the built_in function-call counts, 8263 in all, are:
+= -- 712
+> -- 627
 < -- 3
-+ -- 244
-- -- 224
-* -- 693
-:= -- 1412
-add.period$ -- 58
-call.type$ -- 20
-change.case$ -- 166
++ -- 249
+- -- 228
+* -- 716
+:= -- 1462
+add.period$ -- 61
+call.type$ -- 21
+change.case$ -- 171
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 240
-empty$ -- 473
-format.name$ -- 224
-if$ -- 1556
+cite$ -- 23
+duplicate$ -- 251
+empty$ -- 496
+format.name$ -- 228
+if$ -- 1614
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 23
-newline$ -- 101
-num.names$ -- 40
-pop$ -- 169
+int.to.str$ -- 21
+missing$ -- 24
+newline$ -- 106
+num.names$ -- 42
+pop$ -- 172
 preamble$ -- 1
-purify$ -- 149
+purify$ -- 153
 quote$ -- 0
-skip$ -- 170
+skip$ -- 178
 stack$ -- 0
-substring$ -- 261
-swap$ -- 42
+substring$ -- 275
+swap$ -- 43
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 76
 warning$ -- 2
-while$ -- 52
-width$ -- 22
-write$ -- 216
+while$ -- 55
+width$ -- 23
+write$ -- 227
 (There were 2 warnings)
