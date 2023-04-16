@@ -983,21 +983,25 @@ development of a different ray tracer was needed which will be able to handle
 more complex ice models, we'll get to this ray tracer in
 chapter \ref{chapter:hybrid}.
 
-Lastly there might be one more problem we haven't talked about yet: Birefringe.
-We have implicitly assumed that ice is isotropic meaning that both it's
-permittivity $\varepsilon$ and it's permeability $\mu$ are scalars but these
-could very well be tensorial in nature for radio waves. In general, after
-calculating what this tensorial nature implies you'd find that in every
-direction two different types of waves can be found each propagating with a
-different speed as shown in figure \ref{fig:Fresnel}.
+Lastly there is an effect which might become important in the future:
+birefringence.  Up until now have implicitly assumed that ice is isotropic
+meaning that both it's permittivity $\varepsilon$ and it's permeability $\mu$
+are scalars but these could very well be tensorial in nature for radio waves in
+ice. In general, after calculating this tensorial nature through you'd find
+that in every direction two different indices of refraction can be found
+implying two different types of waves each propagating with a different speed
+as illustrated in figure \ref{fig:Fresnel}. Which of the two speeds in a
+certain direction is then dependent on the polarization of the wave, which in
+our case thus depends on the Cherenkov cone. The optical property coming from
+the anisotropic nature of the material is what's called \texit{birefringence}.
+Birefringence has been extensively researched for implementation in the
+simulation software NuRadioMC used in the RNO-G group \cite{Heyer2023}.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/Fresnel.pdf}
   \caption{Wave surface of Fresnel with two sheets}
   \label{fig:Fresnel}
 \end{figure}
-Birefringe is the optical property of a material having the \cite{Heyer2023}
-\chapter{The Detector}
 \begin{figure}
   \begin{minipage}{0.49\textwidth}
       \centering
