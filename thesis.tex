@@ -929,24 +929,39 @@ change in air space to be proportional to the change in pressure:
 \begin{equation}
 	\frac{dV}{V} \propto d\sigma
 \end{equation}
-As the volume scales inversely with the density let's assume the relation $V \propto (\rho_i - \rho)$, yielding:
+As the volume scales inversely with the density let's assume the relation $V \propto (\rho_i - \rho)$ with
+$\rho_i$ the density of pure ice, this yields\cite{herron_langway_1980}:
 \begin{align}
 	\frac{d\rho}{\rho_i - \rho} &\propto \rho dz\\
-	\frac{d\rho}{\rho(\rho_i - \rho)} &\propto dz\\
+	\frac{d\rho}{\rho(\rho_i - \rho)} &\propto \rho dz \label{eqn:SchyttEnd}\\
 	\frac{\ln\left(\frac{\rho}{\rho_i-\rho}\right)}{\rho_i} + C &= Az\\
 	\ln\left(\frac{\rho}{\rho_i-\rho}\right) &= A\rho_iz + C\\
 	\frac{\rho}{\rho_i-\rho} &= e^{A\rho_iz + C} := Ae^{z/z_0}\\
 	\rho &= \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}}
 \end{align}
-And after again adding an offset, we get:
+Note that Schytt only worked with equation \ref{herron_langway_1980}, the
+further derivation was my doing.  After again adding an offset, we get:
 \begin{equation}
 	\rho = \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}} + B
 \end{equation}
+Figure \ref{fig:DensityMeasurements} shows how these functions fit the density
+curve.  There is one big downside however, it seems that the ice actually
+doesn't follow these exponential curves perfectly but would more closely follow
+some kind of higher order function.
+\begin{figure}
+  \centering
+	\includegraphics[width=0.5\textwidth]{Density_measurements2.pdf}
+	\caption{Illustration of the shortcomings of the analitical models}
+	\label{fig:DensityMeasurements}
+\end{figure}
+
 Equation \ref{eqn:radiopropaformula}, and thus the path, depends on the index
 of refraction on a given location.  The dependence of the index of refraction
-on density for ice can approximately be given by the Schytt equation:
-\begin{equation} n(x,y,z) \approx 1 + 0.78\rho(x,y,z)/\rho_0 \label{eqn:Schytt}
-\end{equation} Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the
+on density for ice can approximately be given by the Schytt equation\cite{Barwick_2018}:
+\begin{equation} 
+	n(x,y,z) \approx 1 + 0.78\rho(x,y,z)/\rho_0 \label{eqn:Schytt}
+\end{equation} 
+Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the
 density for solid ice (917 kg/m³).  For the development of the simulation
 software equation \ref{eqn:myderiexp} was taken and after assuming Schytt's
 equation to hold we find that the index of refraction abides by
@@ -965,28 +980,13 @@ the detector are specified, the ray tracing software developed in complience
 with this exponential density profile is called the \textit{analytic ray
 tracer}.
 
-There is one big downside however: looking at measurements of the density i.f.o
-depth as shown in figure \ref{fig:DensityMeasurements} 
-\begin{figure}
-  \centering
-	\includegraphics[width=0.5\textwidth]{Density_measurements2.pdf}
-	\caption{Measurements of the density (kg/m$^3$) i.f.o the depth with exponential fit}
-	\label{fig:DensityMeasurements}
-\end{figure}
-And fitting the "exponential model" of 
-the form
-\begin{equation}
-	a(b + c e^{z/d}) = \rho
-\end{equation}
-it seems that the ice actually doesn't follow this exponential curve perfectly
-but would more closely follow some kind of higher order function. this
-discrepency between the exponential model and the actual data implies that the
-analytic ray tracer will make the wrong predictions.  This is why the
-development of a different ray tracer was needed which will be able to handle
-more complex ice models, one such ray tracer will be explained in section
-\ref{sec:Iterative} but this ray tracer has it's shortcomings. That's why the
-development of a new ray tracer was needed which is the partial work of this
-thesis and we'll get to that ray tracer in chapter \ref{chapter:hybrid}.
+The discrepency between the single exponential model and the actual data
+implies that the analytic ray tracer will make the wrong predictions.  This is
+why the development of a different ray tracer was needed which will be able to
+handle more complex ice models, one such ray tracer will be explained in
+section \ref{sec:Iterative} but this ray tracer has it's shortcomings. That's
+why the development of a new ray tracer was needed which is the partial work of
+this thesis and we'll get to that ray tracer in chapter \ref{chapter:hybrid}.
 
 Lastly there is an effect which might become important in the future:
 birefringence.  Up until now have implicitly assumed that ice is isotropic
@@ -1010,7 +1010,7 @@ first part of the explanation is illustrated in figure \ref{fig:Illustration of
 iterative algorithm}.  Say we have a neutrino interaction point $\mathbf{X}_i$
 (the red cross on the figure) and a detector located at $\mathbf{X}_d$ (the
 blue dot on the figure), the algorithm starts by constructing an
-\textit{observer} sphere with the detector located at $\mathbf{X}_d$ at the
+\textit{observer} sphere with radius $r_1$ and the detector located at $\mathbf{X}_d$ at the
 center.  This means that any ray that gets shot and propagates to the sphere
 will get stopped ans count as a solution.  Then, to reduce the time spent simulating there's also an observer placed
 just above the surface as a ray that escapes the ice won't come back and one
@@ -1022,9 +1022,19 @@ have to look for solutions within the angle $\Omega$ which is just the angle the
 makes with the interaction vertex.
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{algoillu.pdf}
+  \includegraphics[width=0.7\textwidth]{algoillu.pdf}
   \caption{Illustration of the workings of the iterative algorithm}
   \label{fig:Illustration of iterative algorithm}
+\end{figure}
+Now that we have our setup we'll just iteratively shoot rays from
+the neutrino interaction point starting at an angle $\delta \theta$ 
+then at an angle $2\delta \theta$, $3\delta \theta$,... Until
+we have reached $\Omega$. This process is illustrated in figure 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{algoillu.pdf}
+  \caption{Illustration of the steps of the iterative ray tracer}
+  \label{fig:IlluIterative}
 \end{figure}
 
 \chapter{Detector}
