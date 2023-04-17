@@ -199,9 +199,10 @@ Due to the ice model seeming to deviate from the theoretically expected single e
 develop a new algorithm to find the paths the radio waves could take with more complex ice models. 
 The software used within this thesis to figure out the path radiowaves take is called \textit{radiopropa}.
 Even though this software can be used to work with most kinds of ice models, it still needs to be used within
-some kind of algorithm to be useful. Such an algorithm has already been developed but it had its shortcomings,
+some kind of algorithm to be useful. Such an algorithm has already been developed called the \textit{Iterative
+ray tracer} as will be explained in section \ref{sec:Iterative} but it had its shortcomings,
 that's why in this thesis a new algorithm was developed called the \textit{hybrid ray tracer} which is explained
-in section \ref{chapter:hybrid}. This algorithm makes it possible to both find a more accurate and faster solution.
+in chapter \ref{chapter:hybrid}. This algorithm makes it possible to both find a more accurate and faster solution.
 
 It is, however, crucial to make sure we actually need a new kind of ice model. The measuring of the index of refraction
 can be accomplished indirectly through weather balloon fly-bys as is explained in chapter \ref{chap:WB}. Every day
@@ -258,13 +259,16 @@ verwacht men een exponentiele afhankelijkheid van de dichtheid met de diepte, ma
 af te wijken van het theoretische model. 
 
 De ray tracing simulaties die gebruikt worden om na te gaan waar de neutrino
-vandaan komt zijn sterk afhankelijk van het ijsmodel.  Er werd vroeger een algoritme gemaakt dewelke enkel 
-met het exponentieel model kan omgaan, maar door de recent gevonden tekortkomingen aan dit ijsmodel bleek 
-het nodig een nieuw algoritme te bedenken. Zo'n algoritme, genaamd de \textit{iterative ray tracer} werd 
-daarom uitgevonden maar bleek enkele tekortkomingen te hebben. Daarom bleek het nodig om een nieuw soort
-algoritme uit te vinden dewelke steunt op dat algoritme genaamd de \textit{hybrid ray tracer}, dit algoritme
-kan gevonden worden in sectie \ref{chapter:hybrid}. Dit algoritme maakt het mogelijk om beide een meer accurate
-oplossing te vinden maar deze ook sneller te vinden.
+vandaan komt zijn sterk afhankelijk van het ijsmodel.  Er werd vroeger een
+algoritme gemaakt dewelke enkel met het exponentieel model kan omgaan, maar
+door de recent gevonden tekortkomingen aan dit ijsmodel bleek het nodig een
+nieuw algoritme te bedenken. Zo'n algoritme, genaamd de \textit{iterative ray
+tracer} werd daarom uitgevonden (zie sectie \ref{sec:Iterative} maar bleek
+enkele tekortkomingen te hebben. Daarom bleek het nodig om een nieuw soort
+algoritme uit te vinden dewelke steunt op dat algoritme genaamd de
+\textit{hybrid ray tracer}, dit algoritme kan gevonden worden in hoofdstuk
+\ref{chapter:hybrid}. Dit algoritme maakt het mogelijk om beide een meer
+accurate oplossing te vinden maar deze ook sneller te vinden.
 
 Maar om over te schakelen op een nieuw ijsmodel met een anders algoritme is het nodig aan te tonen dat er effectief
 een groot verschil is tussen het theoretische exponentiële model en de echte refractieindex, om dit aan te tonen 
@@ -856,22 +860,25 @@ the refracted angle can be found from Snell's law:
 Where n is the index of refraction, $\theta$ the angle with respect to the
 surface normal and "i" and "o" indicating incoming and outgoing respectively.
 The system we'll consider however, isn't homogeneous with some specified
-boundary, it's continous: ice in greenland has a continously varying density.
-Because of this we can't work with Snell's law but we'll have to take a look at
-the continuous version to figure out how these rays propagate. A path of a ray
-$\mathbf{r}(s)$ with path parameter s in a medium with index of refraction
-n($\mathbf{r}$) is described by the eikonal equation:
+boundary, it's continous: ice in greenland has a continously varying density and
+index of refraction.
+
+How do we know how the waves propagate in a medium?  The software we'll be
+using to simulate how the radio waves behave is called \textit{Radiopropa}
+\cite{Winchen_2019} and as  simulations of the wave propagation in full detail
+with the finite-differences-time-domain (FDTD) technique \cite{1138693} are,
+even though they are more accurate, too time consuming. Have the authors of
+radiopropa chosen to build their program on geometrical optics, i.e ray
+tracing. A path of a ray $\mathbf{r}(s)$ with path parameter s in a medium
+with index of refraction n($\mathbf{r}$) is described by the eikonal
+equation\cite{herman2019treatise}:
 \begin{equation}
 	\frac{d}{ds}\left(n(\mathbf{r})\frac{d\mathbf{r}}{ds}\right) = \mathbf{\nabla} n
 \end{equation}
-This is the "continuous version of Snell's law" which we'll call the
-\textit{snell's gradient law}.
-
-The software we'll be using for ray reconstruction is called "radiopropa"
-\cite{Winchen_2019} and in radiopropa the local paraxial approximation is used,
-i.e if we assume that in any individual step of the algorithm the
-change of the refractive index along the path ds is small it's possible to
-re-write the equation as:
+in radiopropa the local paraxial approximation (small angle approximation) is
+used, i.e if we assume that in any individual step of the algorithm the change
+of the refractive index along the path ds is small it's possible to re-write
+the equation as:
 \begin{equation}
 	n(\mathbf{r})\frac{d^2\mathbf{r}}{ds^2} \approx \mathbf{\nabla} n
 	\label{eqn:radiopropaformula}
@@ -891,14 +898,6 @@ ice bonds there will be more air trapped inbetween the molecules closer to the
 surface than at greater depths where the pressure due to the overhead ice
 prevents this.  Due to this air being trapped the density of ice will be
 smaller closer to the surface than at greater depth.  
-
-Equation \ref{eqn:radiopropaformula}, and thus the path, depends on the index
-of refraction on a given location.  The dependence of the index of refraction
-on density for ice can approximately be given by the Schytt equation:
-\begin{equation} n(x,y,z) \approx 1 + 0.78\rho(x,y,z)/\rho_0 \label{eqn:Schytt}
-\end{equation} Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the
-density for solid ice (917 kg/m³). We thus need to know how the density of
-ice behaves with depth to understand how we should ray trace.
 
 Purely from classical gravity and density considerations it can be derived that
 the density scales exponentially. To see this let's consider a sheet of ice in
@@ -943,21 +942,25 @@ And after again adding an offset, we get:
 \begin{equation}
 	\rho = \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}} + B
 \end{equation}
-
-For the development of the simulation software the first equation (equation \ref{eqn:myderiexp}) was
-taken and after assuming Schytt's equation to hold (i.e $n \propto \rho$) we find that the
-index of refraction abides by
+Equation \ref{eqn:radiopropaformula}, and thus the path, depends on the index
+of refraction on a given location.  The dependence of the index of refraction
+on density for ice can approximately be given by the Schytt equation:
+\begin{equation} n(x,y,z) \approx 1 + 0.78\rho(x,y,z)/\rho_0 \label{eqn:Schytt}
+\end{equation} Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the
+density for solid ice (917 kg/m³).  For the development of the simulation
+software equation \ref{eqn:myderiexp} was taken and after assuming Schytt's
+equation to hold we find that the index of refraction abides by
 \begin{equation}
 	\label{eqn:expn}
 	n(z) = n_{ice} - \Delta n e^{z/z_0}
 \end{equation}
 with $n_{ice}$ the refractive index of solid ice and $\Delta n = n_{ice} - n_s$
 with $n_s$ the index of refraction of snow. This exponential dependency of the
-index of refraction on depth is called "the exponential model".  
+index of refraction on depth is called "the single exponential model".  
 
-This exponential model has a huge advantage as it's analytically solvable,
-meaning that we know instantly which direction we'll have to shoot our ray in
-(as mentioned previously) after the location of the neutrino interaction and
+This single exponential model has a huge advantage as it's analytically
+solvable, meaning that we can know which direction we'll have to shoot our ray
+in (as mentioned previously) after the location of the neutrino interaction and
 the detector are specified, the ray tracing software developed in complience
 with this exponential density profile is called the \textit{analytic ray
 tracer}.
@@ -980,8 +983,10 @@ but would more closely follow some kind of higher order function. this
 discrepency between the exponential model and the actual data implies that the
 analytic ray tracer will make the wrong predictions.  This is why the
 development of a different ray tracer was needed which will be able to handle
-more complex ice models, we'll get to this ray tracer in
-chapter \ref{chapter:hybrid}.
+more complex ice models, one such ray tracer will be explained in section
+\ref{sec:Iterative} but this ray tracer has it's shortcomings. That's why the
+development of a new ray tracer was needed which is the partial work of this
+thesis and we'll get to that ray tracer in chapter \ref{chapter:hybrid}.
 
 Lastly there is an effect which might become important in the future:
 birefringence.  Up until now have implicitly assumed that ice is isotropic
@@ -993,26 +998,41 @@ implying two different types of waves each propagating with a different speed
 as illustrated in figure \ref{fig:Fresnel}. Which of the two speeds in a
 certain direction is then dependent on the polarization of the wave, which in
 our case thus depends on the Cherenkov cone. The optical property coming from
-the anisotropic nature of the material is what's called \texit{birefringence}.
+the anisotropic nature of the material is what's called \textit{birefringence}.
 Birefringence has been extensively researched for implementation in the
 simulation software NuRadioMC used in the RNO-G group \cite{Heyer2023}.
+
+\section{Iterative ray tracer}
+\label{sec:Iterative}
+The iterative ray tracer \cite{2022icrc.confE1027O}, as can be derived from
+it's name, iteratively searches the path a ray might take. The workings of the
+first part of the explanation is illustrated in figure \ref{fig:Illustration of
+iterative algorithm}.  Say we have a neutrino interaction point $\mathbf{X}_i$
+(the red cross on the figure) and a detector located at $\mathbf{X}_d$ (the
+blue dot on the figure), the algorithm starts by constructing an
+\textit{observer} sphere with the detector located at $\mathbf{X}_d$ at the
+center.  This means that any ray that gets shot and propagates to the sphere
+will get stopped ans count as a solution.  Then, to reduce the time spent simulating there's also an observer placed
+just above the surface as a ray that escapes the ice won't come back and one
+just behind the detector looking from the point of the interaction vertex $\mathbf{X}_i$ as
+a ray is not able to reach the detector anymore after it has passed it in the
+lateral direction. Finally it's noted that due to the way the ice's index of refraction
+continuously increasing downwards, rays can't propagate upwards, this means that we only 
+have to look for solutions within the angle $\Omega$ which is just the angle the detector
+makes with the interaction vertex.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{algoillu.pdf}
+  \caption{Illustration of the workings of the iterative algorithm}
+  \label{fig:Illustration of iterative algorithm}
+\end{figure}
+
+\chapter{Detector}
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/Fresnel.pdf}
   \caption{Wave surface of Fresnel with two sheets}
   \label{fig:Fresnel}
-\end{figure}
-\begin{figure}
-  \begin{minipage}{0.49\textwidth}
-      \centering
-      \includegraphics[height=2.8cm]{figures/GreenlandFlag.pdf}
-  \end{minipage}
-  \begin{minipage}{0.49\textwidth}
-      \centering
-      \includegraphics[height=2.8cm]{figures/CoatOfArms.pdf}
-  \end{minipage}
-  \caption{Flag (left) and Coat of arms (right) of Greenland}
-  \label{fig:FlagAndArms}
 \end{figure}
 \section{Introduction}
 Both cosmic ray and neutrino detectors face the same main problem at the
@@ -1032,6 +1052,7 @@ detectors further apart. The proposed location was Greenland, an island country
 in North America and part of the Kingdom of Denmark which has large ice sheets.
 An orthographic projection projection of greenland is shown in figure
 \ref{fig:GreenlandOP} and both Greenland's flag and it's code of arms are shown
+(???) This needs to be deleted
 in figure \ref{fig:FlagAndArms}, the flag sports the same colors as it's parent
 country's flag Denmark. The flag is designed by Thue Christiansen who described
 the white stripe as representing the glaciers and ice cap, which cover more
@@ -1170,7 +1191,7 @@ a certain part of the observed frequency spectrum
 \section{Shortcomings of the exponential ice model}
 As mentioned in section \ref{section:Ice Model}, complex ice models will be
 necessary moving forward as the exponential ice model fails to fit the density
-curve.  The ideal software for radio wave propagation through ice is
+curve.  The software for radio wave propagation through ice the RNO-G team chose is
 radiopropa\cite{Winchen_2019}, but due to the way it works you'll have to know
 the start point, the end point and the launch angle of your ray to work out the
 path. This isn't difficult for the analytic model as it's exactly solvable but
@@ -1222,10 +1243,6 @@ We place an observer plane directly behind the detector (with normal vector
 $\mathbf{u}$, no rays can propagate back after crossing) and an observer above
 the surface (as no rays could make it back after escaping the ice) our full
 setup is then what's illustrated in the figure below
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.6\textwidth]{algoillu.pdf}
-\end{figure}\\
 
 Here the red cross is the radio source, the blue horizontal line is the ice-air
 boundary surface, the blue dot to the right is the detector and the green

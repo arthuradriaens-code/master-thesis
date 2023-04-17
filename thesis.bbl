@@ -74,6 +74,11 @@ M.~Grabe.
 \newblock {\em Measurement Uncertainties in Science and Technology}.
 \newblock Springer Berlin Heidelberg, 2005.
 
+\bibitem{herman2019treatise}
+R.A. Herman.
+\newblock {\em A Treatise on Geometrical Optics}.
+\newblock Creative Media Partners, LLC, 2019.
+
 \bibitem{Heyer2023}
 Nils Heyer and Christian Glaser.
 \newblock First-principle calculation of birefringence effects for in-ice radio
@@ -136,5 +141,12 @@ Tobias Winchen.
 \newblock {RadioPropa} {\textemdash} a modular raytracer for in-matter radio
   propagation.
 \newblock {\em {EPJ} Web of Conferences}, 216:03002, 2019.
+
+\bibitem{1138693}
+Kane Yee.
+\newblock Numerical solution of initial boundary value problems involving
+  maxwell's equations in isotropic media.
+\newblock {\em IEEE Transactions on Antennas and Propagation}, 14(3):302--307,
+  1966.
 
 \end{thebibliography}
