@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex thesis"] 1681752374 "thesis.aux" "thesis.bbl" "thesis" 1681752477
+["bibtex thesis"] 1681759847 "thesis.aux" "thesis.bbl" "thesis" 1681760747
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "sources.bib" 1681747655 16464 3a0fc7dd4f571ec313818ba42864e4ce ""
-  "thesis.aux" 1681752477 22627 1605b7c905273d900d686ea372ad1ab7 "pdflatex"
+  "thesis.aux" 1681760746 22631 b643d53538bbd267854c29d1a1cf4c34 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1681752474 "thesis.tex" "thesis.pdf" "thesis" 1681752477
+["pdflatex"] 1681760743 "thesis.tex" "thesis.pdf" "thesis" 1681760747
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1650183167 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -305,6 +305,7 @@
   "figures//FitChannel7.pdf" 1681721839 53438 f82970b5093e7c51c58a6124cb4b74e1 ""
   "figures//Frequencies.pdf" 1680004967 46105 3407f4f35a6791829f41ebf391b53c92 ""
   "figures//GreenlandHeight.png" 1680004967 2057375 271e85c3d732be0ecc47301ed80fe2bd ""
+  "figures//IterativeWorkings.png" 1681760339 173741 86e87b76c95258b574a9c148c118ad0b ""
   "figures//ModulatedCh6.pdf" 1680173422 22505 42f7f15b71277d472407259d5f840d12 ""
   "figures//ModulatedCh7.pdf" 1680173452 19490 f2372ab03541153cf168f3116c789e40 ""
   "figures//NormedCorrelation.pdf" 1680004967 15218 6e529a9a7542cbb0171c665bf95332d0 ""
@@ -348,12 +349,12 @@
   "tables/EventsBelow5DegPart1.csv" 1681721839 2676 f048f4026645bb21a3375da785be51c5 ""
   "tables/EventsBelow5DegPart2.csv" 1681721839 4412 20a921dadcc63ea94488d448b6c6cad5 ""
   "tables/EventsBelow5DegPart3.csv" 1681721839 3343 9fb1a492d71193e8d3fa7ee63a9e8446 ""
-  "thesis.aux" 1681752477 22627 1605b7c905273d900d686ea372ad1ab7 "pdflatex"
-  "thesis.bbl" 1681752374 6616 799a9b70a5aa063f8b6c3184bbe56e47 "bibtex thesis"
-  "thesis.listing" 1681752476 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
-  "thesis.out" 1681752477 8104 689ad7c4cf30934f912c4e15561e1341 "pdflatex"
-  "thesis.tex" 1681752473 112125 37fed0f613820715bd08d120aec327e6 ""
-  "thesis.toc" 1681752477 3963 c0f8448027a056287cd9415e49ce4440 "pdflatex"
+  "thesis.aux" 1681760746 22631 b643d53538bbd267854c29d1a1cf4c34 "pdflatex"
+  "thesis.bbl" 1681759847 6616 799a9b70a5aa063f8b6c3184bbe56e47 "bibtex thesis"
+  "thesis.listing" 1681760746 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
+  "thesis.out" 1681760746 8104 689ad7c4cf30934f912c4e15561e1341 "pdflatex"
+  "thesis.tex" 1681760743 112855 d460967533f90774ed8750130e25671f ""
+  "thesis.toc" 1681760746 3963 efaa3a0b7110dfb690c321539919b881 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.listing"

@@ -939,19 +939,17 @@ $\rho_i$ the density of pure ice, this yields\cite{herron_langway_1980}:
 	\frac{\rho}{\rho_i-\rho} &= e^{A\rho_iz + C} := Ae^{z/z_0}\\
 	\rho &= \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}}
 \end{align}
-Note that Schytt only worked with equation \ref{herron_langway_1980}, the
-further derivation was my doing.  After again adding an offset, we get:
-\begin{equation}
-	\rho = \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}} + B
-\end{equation}
-Figure \ref{fig:DensityMeasurements} shows how these functions fit the density
-curve.  There is one big downside however, it seems that the ice actually
-doesn't follow these exponential curves perfectly but would more closely follow
-some kind of higher order function.
+Note that Schytt worked with equation \ref{eqn:SchyttEnd} but we found
+the further derivation useful.
+
+Figure \ref{fig:DensityMeasurements} shows how both of these functions fit the
+density curve.  There is one big downside however, it seems that the ice
+actually doesn't follow these exponential curves perfectly but would more
+closely follow some kind of higher order function.
 \begin{figure}
   \centering
 	\includegraphics[width=0.5\textwidth]{Density_measurements2.pdf}
-	\caption{Illustration of the shortcomings of the analitical models}
+	\caption{Illustration of the shortcomings of the analytical models}
 	\label{fig:DensityMeasurements}
 \end{figure}
 
@@ -976,17 +974,17 @@ index of refraction on depth is called "the single exponential model".
 This single exponential model has a huge advantage as it's analytically
 solvable, meaning that we can know which direction we'll have to shoot our ray
 in (as mentioned previously) after the location of the neutrino interaction and
-the detector are specified, the ray tracing software developed in complience
-with this exponential density profile is called the \textit{analytic ray
-tracer}.
+the detector are specified, the ray tracing algorithm developed using this
+exponential index is called the \textit{analytic ray tracer}.
 
-The discrepency between the single exponential model and the actual data
-implies that the analytic ray tracer will make the wrong predictions.  This is
-why the development of a different ray tracer was needed which will be able to
-handle more complex ice models, one such ray tracer will be explained in
-section \ref{sec:Iterative} but this ray tracer has it's shortcomings. That's
-why the development of a new ray tracer was needed which is the partial work of
-this thesis and we'll get to that ray tracer in chapter \ref{chapter:hybrid}.
+The discrepency between the single exponential model and the actual data for
+the density implies that the analytic ray tracer will make the wrong
+predictions.  This is why the development of a different ray tracer was needed
+which will be able to handle more complex ice models, one such ray tracer will
+be explained in section \ref{sec:Iterative} but this ray tracer has it's
+shortcomings. That's why the development of a new ray tracer was needed which
+is the partial work of this thesis and we'll get to that ray tracer in chapter
+\ref{chapter:hybrid}.
 
 Lastly there is an effect which might become important in the future:
 birefringence.  Up until now have implicitly assumed that ice is isotropic
@@ -1001,6 +999,12 @@ our case thus depends on the Cherenkov cone. The optical property coming from
 the anisotropic nature of the material is what's called \textit{birefringence}.
 Birefringence has been extensively researched for implementation in the
 simulation software NuRadioMC used in the RNO-G group \cite{Heyer2023}.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/Fresnel.pdf}
+  \caption{Wave surface of Fresnel with two sheets}
+  \label{fig:Fresnel}
+\end{figure}
 
 \section{Iterative ray tracer}
 \label{sec:Iterative}
@@ -1010,10 +1014,12 @@ first part of the explanation is illustrated in figure \ref{fig:Illustration of
 iterative algorithm}.  Say we have a neutrino interaction point $\mathbf{X}_i$
 (the red cross on the figure) and a detector located at $\mathbf{X}_d$ (the
 blue dot on the figure), the algorithm starts by constructing an
-\textit{observer} sphere with radius $r_1$ and the detector located at $\mathbf{X}_d$ at the
+\textit{observer} sphere with radius $r_1$ with the detector, located at $\mathbf{X}_d$, at the
 center.  This means that any ray that gets shot and propagates to the sphere
-will get stopped ans count as a solution.  Then, to reduce the time spent simulating there's also an observer placed
-just above the surface as a ray that escapes the ice won't come back and one
+will get stopped and counts as a solution.  Then, to reduce the time spent simulating, there are also observers placed
+whose purpuse is to stop the ray tracing but not count the observed signal as a solution.
+One such observer is placed 
+just above the ice surface as a ray that escapes the ice won't come back and one
 just behind the detector looking from the point of the interaction vertex $\mathbf{X}_i$ as
 a ray is not able to reach the detector anymore after it has passed it in the
 lateral direction. Finally it's noted that due to the way the ice's index of refraction
@@ -1026,24 +1032,27 @@ makes with the interaction vertex.
   \caption{Illustration of the workings of the iterative algorithm}
   \label{fig:Illustration of iterative algorithm}
 \end{figure}
-Now that we have our setup we'll just iteratively shoot rays from
-the neutrino interaction point starting at an angle $\delta \theta$ 
-then at an angle $2\delta \theta$, $3\delta \theta$,... Until
-we have reached $\Omega$. This process is illustrated in figure 
+Now that we have our setup we'll just iteratively shoot rays from the neutrino
+interaction point starting at an angle $\delta \theta_1$ then at an angle
+$2\delta \theta_1$, $3\delta \theta_1$,... Until we have reached $\Omega$. This
+process is illustrated on the left side of figure \ref{fig:IterativeWorkings}.
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{algoillu.pdf}
+  \includegraphics[width=0.7\textwidth]{IterativeWorkings.png}
   \caption{Illustration of the steps of the iterative ray tracer}
-  \label{fig:IlluIterative}
+  \label{fig:IterativeWorkings}
 \end{figure}
+After we have gone over all the different launch angles we'll have some
+solutions (marked in green) and some whom don't end up on the detector (marked
+in red) we can now make the observer sphere's radius smaller ($r_2 < r_1$) and
+the step size of the angle smaller ($\delta \theta_2 < \delta \theta_1$).  And
+again iteratively find the rays which end up on the sphere, only this time
+looking within the angles of the solutions of the previous step. We can keep on
+making the sphere and step size smaller in iterative steps until we've reached
+the precision we want. We then take, for each bunch of solutions, the most normal to
+the detector as the final solutions.
 
 \chapter{Detector}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{figures/Fresnel.pdf}
-  \caption{Wave surface of Fresnel with two sheets}
-  \label{fig:Fresnel}
-\end{figure}
 \section{Introduction}
 Both cosmic ray and neutrino detectors face the same main problem at the
 highest energies: the steeply falling flux (as was previously discussed in
