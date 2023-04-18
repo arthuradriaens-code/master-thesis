@@ -52,6 +52,7 @@
 %------
 % Font
 %------
+\pagenumbering{Roman}
 %\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc} % allows non-ascii input characters
 \usepackage{tikz-feynman}
@@ -129,7 +130,7 @@ and the analysis of ice properties using weather balloons}}
 }
 
 % The third infobox at bottom of titlepage
-\infoboxc{Accompanist: 
+\infoboxc{Supervisor: 
 \begin{tabular}[t]{ll}
     Bob Oeyen &  Bob.Oeyen@ugent.be\\
 \end{tabular}
@@ -155,6 +156,7 @@ and the analysis of ice properties using weather balloons}}
 \shipout\null
 \newpage
 \chapter*{Summary}
+\addcontentsline{toc}{chapter}{Summary}
 Outside our earth various kinds of events take place which we wish to 
 observe: Black hole outbursts, supernovae, cosmic jets, ...
 These events produce various kinds of messengers which are useful in
@@ -217,6 +219,7 @@ These all show a discrepency with the exponential model as is shown in figure (?
 
 \newpage
 \chapter*{Samenvatting}
+\addcontentsline{toc}{chapter}{Samenvatting}
 Er gebeuren verscheidene gebeurtenissen in het heelal dewelke we wensen
 te detecteren, zoals Black hole outbursts, supernovae, cosmic jets, ...
 Al deze gebeurtenissen produceren vormen van informatie dewelke we kunnen
@@ -281,7 +284,20 @@ Na deze procedure op enkele evenementen toe te passen werd de volgende data gevo
 (???)
 Hier is een duidelijke tekortkoming van het exponentieel model te zien.
 \newpage
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\newpage
+% ------------ TABLE OF CONTENTS ---------
+{\hypersetup{hidelinks}\tableofcontents} % hide link color in toc
+\newpage
+
+
+% =====================================================================
+% Main matter
+% =====================================================================
 \chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\pagenumbering{arabic}
 Outside our earth various kinds of events take place which we wish to 
 observe: Black hole outbursts, supernovae, cosmic jets, ...
 These events produce various kinds of messengers which are useful in
@@ -328,14 +344,7 @@ a new algorithm will be developed which makes it possible to work with more
 complex ice models and the verification of the shortcomings of the exponential
 model, which is now the only model that gets used, will be layed out.
 
-% ------------ TABLE OF CONTENTS ---------
-{\hypersetup{hidelinks}\tableofcontents} % hide link color in toc
-\newpage
 
-
-% =====================================================================
-% Main matter
-% =====================================================================
 \chapter{Neutrino as Astroparticle}
 %\includegraphics[width=0.5\textwidth]{standard_model.png}
 When looking at phenomena outside our earth the astronomer will turn to
@@ -1049,7 +1058,7 @@ the step size of the angle smaller ($\delta \theta_2 < \delta \theta_1$).  And
 again iteratively find the rays which end up on the sphere, only this time
 looking within the angles of the solutions of the previous step. We can keep on
 making the sphere and step size smaller in iterative steps until we've reached
-the precision we want. We then take, for each bunch of solutions, the most normal to
+the precision we want. We then take, for each bunch of solutions within a , the most normal to
 the detector as the final solutions.
 
 \chapter{Detector}
@@ -1869,20 +1878,67 @@ in 403.125MHz}.
 	\caption{recorded frequencies on detector 23 at 2022/08/29 11:18:32}
 	\label{fig:freqs67}
 \end{figure}
-We know that the signal sent out by the weather balloon has a "observed" frequency of
-403.125MHz. As the data is measured in nanoseconds the frequency is:
+We know that the signal sent out by the weather balloon has a frequency of
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{Frequencies.pdf}
+  \caption{Frequencies sent out by the weather balloon}
+  \label{fig:BalloonFreq}
+\end{figure}
+403MHz as can be seen on figure \ref{fig:BalloonFreq}. 
+As the data is measured in nanoseconds the frequency is:
 \begin{equation}
 	f = 403.125\text{MHz} = 403.125\times 10^{-3} \frac{1}{\text{ns}}
 \end{equation}
-Looking at the data in figure \ref{fig:voltage67} we see that we'll have to 
-do some processing before fitting a sine of the form
+Taking a closer look at the frequency spectrum however we see that we'll have
+to pass the signal through a bandpass filter as the Vpol antennae are only
+sensitive for frequencies between 150 and 600MHz \cite{Aguilar_2021}.  
+After doing this we have some voltage response as shown in figure 
+\ref{fig:VoltageAfterFilter}, we wish to find a sine wave in this signal.
+
+To find a sine wave herein we'll use scipys signal correlation function but for that
+we'll need a template to correlate with the data. The template we'll be choosing is
+of course the sine function but it's important to notice that the channel has a certain
+sampling rate, namely 3.2GHz. This would imply a timing accuracy of 
 \begin{equation}
-	\mathcal{S} = A\cdot\sin\left(\omega t + T\right)
+	\Delta t = \frac{1}{\text{sampling rate}} = \frac{1}{3.2\text{GHz}} = \frac{1}{3.2}ns = 0.3125ns 
+\end{equation}
+if we wish this to be higher we'll have to upsample the signal, we'll upsample it
+to 10GHz impying a timely accuracy of 0.1ns.
+
+Our template sine which we'll correlate to the data
+will also need to have this sampling rate, next we'll also need to give the sine
+a certain amplitude, as we don't have a system for finding this yet let's for now
+assume an amplitude $A = 0.007$ (this shouldn't impact the correlation). 
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figures/VoltageAfterFilter.pdf}
+	\caption{Recorded voltage i.f.o time in vpol antenna 6 after passing through the butterworth filter}
+	\label{fig:VoltageAfterFilter}
+\end{figure}
+Our template thus looks like this:
+\begin{equation}
+	\mathcal{S} = A\cdot\sin\left(\omega(t + T)\right) 
 \end{equation}
 with
 \begin{equation}
 	\omega = 2\pi f
 \end{equation}
+Herein $t$ is an array going from 0 to $3/f$ as to be able to fit 3 periods
+with intervals of 0.1ns.  We'll vary $T$ with this stepsize and record the
+correlation, all of this is done using the radiotools helper module, after this
+we get what's (partially) shown in figure \ref{fig:CorrCh6}.
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figures/CorrelationCh6.pdf}
+	\caption{Zoom on the correlation i.f.o the time for channel 6}
+	\label{fig:CorrCh6}
+\end{figure}
+Herein the peaks represent the maximal correlation, if we now do the same for channel
+5 we have two correlation functions, if we correlate these with eachother we'll get the
+difference in timing between the channels.
+
+\chapter{To be deleted}
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{RawChannel6.pdf}
@@ -2039,12 +2095,6 @@ answer is thus:
 Which has the expected answer within the margin of error. We are aware that this event 
 also shows a peak in the frequency spectrum for channel 5 but the data deviates slightly
 from an AM signal and thus didn't seem to be usable due to the difficulty of fitting it. 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{Frequencies.pdf}
-  \caption{Frequencies sent out by the weather balloon}
-  \label{fig:BalloonFreq}
-\end{figure}
 \newpage
 \section{Fitting the index: deep components}
 %\subsection{Station 24 run 646 event 373 Channels 0,1,2,3}
