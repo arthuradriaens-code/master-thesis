@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.14)  18 APR 2023 14:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.8)  20 APR 2023 15:08
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1321,193 +1321,153 @@ File: ./figures//WeatherBalloonClosePositionReconstruction.pdf Graphic file (typ
 <use ./figures//WeatherBalloonClosePositionReconstruction.pdf>
 Package pdftex.def Info: ./figures//WeatherBalloonClosePositionReconstruction.pdf  used on input line 1706.
 (pdftex.def)             Requested size: 409.71692pt x 221.75487pt.
-[37 <./figures//EpsilonIFODirectSnell.pdf>] [38 <./figures//StartAndStop10Illu.pdf>] [39 <./figures//PathSMT_20220820_111609.pdf> <./figures//WeatherBalloonPath.png>] [40 <./figures//WeatherBalloonPositionReconstruction.pdf> <./figures//WeatherBalloonClosePositionReconstruction.pdf>] [41]
+[37 <./figures//EpsilonIFODirectSnell.pdf>] [38 <./figures//StartAndStop10Illu.pdf>] [39 <./figures//PathSMT_20220820_111609.pdf> <./figures//WeatherBalloonPath.png>] [40 <./figures//WeatherBalloonPositionReconstruction.pdf> <./figures//WeatherBalloonClosePositionReconstruction.pdf>] [41] [42]
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1784.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1810.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1784.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1810.
+
+Missing character: There is no ° in font cmr10!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1811.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1811.
 
 Missing character: There is no ° in font cmr10!
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1786.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1818.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1786.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1818.
 
 Missing character: There is no ° in font cmr10!
-<./figures//29-08-Encounter.png, id=1461, 371.88937pt x 298.96957pt>
-File: ./figures//29-08-Encounter.png Graphic file (type png)
-<use ./figures//29-08-Encounter.png>
-Package pdftex.def Info: ./figures//29-08-Encounter.png  used on input line 1797.
-(pdftex.def)             Requested size: 182.09486pt x 146.39145pt.
 \openout9 = `thesis.listing'.
 
-(./_minted-thesis/A0799BBB936EA15E20075B9D6F60097B0F797E22429BB5A758097AEB8DC94FDC.pygtex) [42 <./figures//29-08-Encounter.png>]
+(./_minted-thesis/A0799BBB936EA15E20075B9D6F60097B0F797E22429BB5A758097AEB8DC94FDC.pygtex)
 \openout9 = `thesis.listing'.
 
- (./_minted-thesis/4BA5E49E26F48AF602A5D1D95AE96A310F797E22429BB5A758097AEB8DC94FDC.pygtex)
-<./figures//23-489-6-freq.pdf, id=1477, 706.0779pt x 333.16472pt>
-File: ./figures//23-489-6-freq.pdf Graphic file (type pdf)
-<use ./figures//23-489-6-freq.pdf>
-Package pdftex.def Info: ./figures//23-489-6-freq.pdf  used on input line 1873.
-(pdftex.def)             Requested size: 223.07211pt x 105.25754pt.
-<./figures//23-489-7-freq.pdf, id=1478, 706.0779pt x 333.16472pt>
-File: ./figures//23-489-7-freq.pdf Graphic file (type pdf)
-<use ./figures//23-489-7-freq.pdf>
-Package pdftex.def Info: ./figures//23-489-7-freq.pdf  used on input line 1876.
-(pdftex.def)             Requested size: 223.07211pt x 105.25754pt.
-<./figures//Frequencies.pdf, id=1479, 911.75127pt x 758.91428pt>
+ (./_minted-thesis/4BA5E49E26F48AF602A5D1D95AE96A310F797E22429BB5A758097AEB8DC94FDC.pygtex) [43]
+<figures/23-800-0-freq.pdf, id=1482, 462.52798pt x 346.89601pt>
+File: figures/23-800-0-freq.pdf Graphic file (type pdf)
+<use figures/23-800-0-freq.pdf>
+Package pdftex.def Info: figures/23-800-0-freq.pdf  used on input line 1894.
+(pdftex.def)             Requested size: 223.07211pt x 167.30746pt.
+<figures/23-800-3-freq.pdf, id=1483, 462.52798pt x 346.89601pt>
+File: figures/23-800-3-freq.pdf Graphic file (type pdf)
+<use figures/23-800-3-freq.pdf>
+Package pdftex.def Info: figures/23-800-3-freq.pdf  used on input line 1897.
+(pdftex.def)             Requested size: 223.07211pt x 167.30746pt.
+<./figures//Frequencies.pdf, id=1485, 911.75127pt x 758.91428pt>
 File: ./figures//Frequencies.pdf Graphic file (type pdf)
 <use ./figures//Frequencies.pdf>
-Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1884.
+Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1909.
 (pdftex.def)             Requested size: 227.62206pt x 189.46176pt.
- [43 <./figures//23-489-6-freq.pdf> <./figures//23-489-7-freq.pdf>]
-<figures/VoltageAfterFilter.pdf, id=1570, 706.0779pt x 333.16472pt>
+<figures/VoltageAfterFilter.pdf, id=1487, 629.4717pt x 316.54259pt>
 File: figures/VoltageAfterFilter.pdf Graphic file (type pdf)
 <use figures/VoltageAfterFilter.pdf>
-Package pdftex.def Info: figures/VoltageAfterFilter.pdf  used on input line 1915.
-(pdftex.def)             Requested size: 455.24411pt x 214.81079pt.
-<figures/CorrelationCh6.pdf, id=1572, 883.13942pt x 560.0925pt>
-File: figures/CorrelationCh6.pdf Graphic file (type pdf)
-<use figures/CorrelationCh6.pdf>
-Package pdftex.def Info: figures/CorrelationCh6.pdf  used on input line 1933.
-(pdftex.def)             Requested size: 455.24411pt x 288.72006pt.
- [44 <./figures//Frequencies.pdf>] [45 <./figures/VoltageAfterFilter.pdf> <./figures/CorrelationCh6.pdf>]
+Package pdftex.def Info: figures/VoltageAfterFilter.pdf  used on input line 1922.
+(pdftex.def)             Requested size: 455.24411pt x 228.92479pt.
+ [44 <./figures/23-800-0-freq.pdf> <./figures/23-800-3-freq.pdf>] [45 <./figures//Frequencies.pdf> <./figures/VoltageAfterFilter.pdf>]
+<figures/CorrelationCh0.pdf, id=1620, 591.8913pt x 334.61009pt>
+File: figures/CorrelationCh0.pdf Graphic file (type pdf)
+<use figures/CorrelationCh0.pdf>
+Package pdftex.def Info: figures/CorrelationCh0.pdf  used on input line 1953.
+(pdftex.def)             Requested size: 455.24411pt x 257.36464pt.
+<figures/crosscorrelation.pdf, id=1624, 548.52928pt x 302.0886pt>
+File: figures/crosscorrelation.pdf Graphic file (type pdf)
+<use figures/crosscorrelation.pdf>
+Package pdftex.def Info: figures/crosscorrelation.pdf  used on input line 1980.
+(pdftex.def)             Requested size: 409.71692pt x 225.64859pt.
+<figures/IlluCorr.pdf, id=1625, 265.22629pt x 146.51628pt>
+File: figures/IlluCorr.pdf Graphic file (type pdf)
+<use figures/IlluCorr.pdf>
+Package pdftex.def Info: figures/IlluCorr.pdf  used on input line 1987.
+(pdftex.def)             Requested size: 409.71692pt x 226.33998pt.
+ [46 <./figures/CorrelationCh0.pdf>] [47 <./figures/crosscorrelation.pdf> <./figures/IlluCorr.pdf>] [48]
 Chapter 6.
-<./figures//RawChannel6.pdf, id=1659, 1628.9658pt x 881.69403pt>
+<./figures//RawChannel6.pdf, id=1721, 1628.9658pt x 881.69403pt>
 File: ./figures//RawChannel6.pdf Graphic file (type pdf)
 <use ./figures//RawChannel6.pdf>
-Package pdftex.def Info: ./figures//RawChannel6.pdf  used on input line 1944.
+Package pdftex.def Info: ./figures//RawChannel6.pdf  used on input line 2017.
 (pdftex.def)             Requested size: 223.07211pt x 120.73215pt.
-<./figures//RawChannel7.pdf, id=1660, 1628.9658pt x 881.69403pt>
+<./figures//RawChannel7.pdf, id=1722, 1628.9658pt x 881.69403pt>
 File: ./figures//RawChannel7.pdf Graphic file (type pdf)
 <use ./figures//RawChannel7.pdf>
-Package pdftex.def Info: ./figures//RawChannel7.pdf  used on input line 1947.
+Package pdftex.def Info: ./figures//RawChannel7.pdf  used on input line 2020.
 (pdftex.def)             Requested size: 223.07211pt x 120.73215pt.
-[46
+[49
 
  <./figures//RawChannel6.pdf> <./figures//RawChannel7.pdf>]
-<./figures//FitChannel6.pdf, id=1745, 1628.9658pt x 881.69403pt>
+<./figures//FitChannel6.pdf, id=1806, 1628.9658pt x 881.69403pt>
 File: ./figures//FitChannel6.pdf Graphic file (type pdf)
 <use ./figures//FitChannel6.pdf>
-Package pdftex.def Info: ./figures//FitChannel6.pdf  used on input line 2038.
+Package pdftex.def Info: ./figures//FitChannel6.pdf  used on input line 2111.
 (pdftex.def)             Requested size: 223.07211pt x 120.73215pt.
-<./figures//FitChannel7.pdf, id=1746, 1628.9658pt x 881.69403pt>
+<./figures//FitChannel7.pdf, id=1807, 1628.9658pt x 881.69403pt>
 File: ./figures//FitChannel7.pdf Graphic file (type pdf)
 <use ./figures//FitChannel7.pdf>
-Package pdftex.def Info: ./figures//FitChannel7.pdf  used on input line 2041.
+Package pdftex.def Info: ./figures//FitChannel7.pdf  used on input line 2114.
 (pdftex.def)             Requested size: 223.07211pt x 120.73215pt.
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 2047.
+(hyperref)                than one, level fixed on input line 2120.
 
-[47]
-<./figures//ModulatedCh6.pdf, id=1761, 499.3857pt x 213.19649pt>
+[50]
+<./figures//ModulatedCh6.pdf, id=1822, 499.3857pt x 213.19649pt>
 File: ./figures//ModulatedCh6.pdf Graphic file (type pdf)
 <use ./figures//ModulatedCh6.pdf>
-Package pdftex.def Info: ./figures//ModulatedCh6.pdf  used on input line 2063.
+Package pdftex.def Info: ./figures//ModulatedCh6.pdf  used on input line 2136.
 (pdftex.def)             Requested size: 223.07211pt x 95.23485pt.
-<./figures//ModulatedCh7.pdf, id=1762, 499.3857pt x 213.19649pt>
+<./figures//ModulatedCh7.pdf, id=1823, 499.3857pt x 213.19649pt>
 File: ./figures//ModulatedCh7.pdf Graphic file (type pdf)
 <use ./figures//ModulatedCh7.pdf>
-Package pdftex.def Info: ./figures//ModulatedCh7.pdf  used on input line 2066.
+Package pdftex.def Info: ./figures//ModulatedCh7.pdf  used on input line 2139.
 (pdftex.def)             Requested size: 223.07211pt x 95.23485pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[48 <./figures//FitChannel6.pdf> <./figures//FitChannel7.pdf> <./figures//ModulatedCh6.pdf> <./figures//ModulatedCh7.pdf>] [49]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 2151--2151
+[51 <./figures//FitChannel6.pdf> <./figures//FitChannel7.pdf> <./figures//ModulatedCh6.pdf> <./figures//ModulatedCh7.pdf>] [52]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2225--2225
 [][] 
  []
 
-[50
+[53
 
 ]
 Appendix A.
-[51
+[54
 
 ]
 Appendix B.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 2179.
+(hyperref)                removing `\\' on input line 2253.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2181--2184
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2255--2258
 []
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2181--2184
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2255--2258
 []
  []
 
 
-Overfull \hbox (47.2721pt too wide) in paragraph at lines 2181--2184
+Overfull \hbox (47.2721pt too wide) in paragraph at lines 2255--2258
 [] 
- []
-
-[52
-
-]
-Overfull \vbox (6.91837pt too high) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (13.59999pt): 
-(fancyhdr)                Make it at least 25.22153pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.22153pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
-
-[53]
-
-Package fancyhdr Warning: \headheight is too small (13.59999pt): 
-(fancyhdr)                Make it at least 25.22153pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.22153pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
-
-[54]
-Appendix C.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 2184.
-
-
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2187--2188
-[][] 
- []
-
-
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2190--2191
-[][] 
- []
-
-
-LaTeX Warning: Float too large for page by 12.41837pt on input line 2191.
-
-
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2193--2194
-[][] 
- []
-
-
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2196--2197
-[][] 
- []
-
-
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2199--2200
-[][] 
  []
 
 [55
 
 ]
+Overfull \vbox (6.91837pt too high) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (13.59999pt): 
 (fancyhdr)                Make it at least 25.22153pt, for example:
@@ -1524,6 +1484,42 @@ Package fancyhdr Warning: \headheight is too small (13.59999pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
 
 [57]
+Appendix C.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 2258.
+
+
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2261--2262
+[][] 
+ []
+
+
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2264--2265
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 12.41837pt on input line 2265.
+
+
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2267--2268
+[][] 
+ []
+
+
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2270--2271
+[][] 
+ []
+
+
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2273--2274
+[][] 
+ []
+
+[58
+
+]
 
 Package fancyhdr Warning: \headheight is too small (13.59999pt): 
 (fancyhdr)                Make it at least 25.22153pt, for example:
@@ -1531,7 +1527,7 @@ Package fancyhdr Warning: \headheight is too small (13.59999pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
 
-[58]
+[59]
 
 Package fancyhdr Warning: \headheight is too small (13.59999pt): 
 (fancyhdr)                Make it at least 25.22153pt, for example:
@@ -1539,33 +1535,49 @@ Package fancyhdr Warning: \headheight is too small (13.59999pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
 
-[59] (./thesis.bbl
+[60]
+
+Package fancyhdr Warning: \headheight is too small (13.59999pt): 
+(fancyhdr)                Make it at least 25.22153pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.22153pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
+
+[61]
+
+Package fancyhdr Warning: \headheight is too small (13.59999pt): 
+(fancyhdr)                Make it at least 25.22153pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.22153pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
+
+[62] (./thesis.bbl
 Overfull \hbox (6.0pt too wide) in paragraph at lines 1--1
 [][] 
  []
 
-[60
+[63
 
-] [61]) [62] (./thesis.aux)
+] [64]) [65] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 7C91E5EB2D24A75FDAEBEDA63F000691;8632.
+(rerunfilecheck)             Checksum: 6D78B26C2655B0907006D4430698C727;8632.
  ) 
 Here is how much of TeX's memory you used:
- 33365 strings out of 478238
- 700498 string characters out of 5850456
- 1123264 words of memory out of 5000000
- 50610 multiletter control sequences out of 15000+600000
+ 33379 strings out of 478238
+ 700698 string characters out of 5850457
+ 1123654 words of memory out of 5000000
+ 50615 multiletter control sequences out of 15000+600000
  489965 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,17n,90p,1195b,2026s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on thesis.pdf (71 pages, 5451318 bytes).
+Output written on thesis.pdf (74 pages, 5489929 bytes).
 PDF statistics:
- 2175 PDF objects out of 2487 (max. 8388607)
- 1203 compressed objects within 13 object streams
- 294 named destinations out of 1000 (max. 500000)
- 688 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2240 PDF objects out of 2487 (max. 8388607)
+ 1238 compressed objects within 13 object streams
+ 302 named destinations out of 1000 (max. 500000)
+ 693 words of extra memory for PDF output out of 10000 (max. 10000000)
 
