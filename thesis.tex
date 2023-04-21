@@ -915,26 +915,9 @@ sheet of ice exerts on the ice just below it is:
 \begin{equation}
 	d\sigma = \frac{dF}{A} = -\frac{gdM}{A} = -g\frac{A\rho(z)dz}{A} = -g\rho(z)dz
 \end{equation}
-with $\rho(z)$ the depth-dependent density. Now we can assume that in the
-densification of the firm the added pressure is linearly proportional to the
-change in density
-\begin{align}
-	d\rho &= A\rho(z)dz\\
-	\frac{d\rho}{\rho} &= Adz
-\end{align}
-integrating the left side from $\rho_0$ to $\rho$ and the right side from 0 to z we get:
-\begin{align}
-ln\left(\frac{\rho}{\rho_0}\right) &= Az := z/z_0\\
-	\rho = \rho_0 e^{z/z_0}
-\end{align}
-Now as theoretically we can't expect the density to decrease forever we add an offset:
-\begin{equation}
-	\label{eqn:myderiexp}
-	\rho = \rho_0 e^{z/z_0} + B
-\end{equation}
-And we're done! Schytt did a derivation similar in nature but with a different
-assumption resulting in a different equation. He assumed the proportional
-change in air space to be proportional to the change in pressure:
+with $\rho(z)$ the depth-dependent density. Schytt assumed the
+proportional change in air space to be proportional to the change in
+pressure:
 \begin{equation}
 	\frac{dV}{V} \propto d\sigma
 \end{equation}
@@ -949,12 +932,17 @@ $\rho_i$ the density of pure ice, this yields\cite{herron_langway_1980}:
 	\rho &= \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}}
 \end{align}
 Note that Schytt worked with equation \ref{eqn:SchyttEnd} but we found
-the further derivation useful.
-
-Figure \ref{fig:DensityMeasurements} shows how both of these functions fit the
-density curve.  There is one big downside however, it seems that the ice
-actually doesn't follow these exponential curves perfectly but would more
-closely follow some kind of higher order function.
+the further derivation useful. Schytt also empirically fitted the
+following function:
+\begin{equation}
+	\label{eqn:myderiexp}
+	\rho = \rho_0 e^{z/z_0} + B
+\end{equation}
+Figure \ref{fig:DensityMeasurements} shows how both of these
+functions fit the density curve.  There is one big downside however,
+it seems that the ice actually doesn't follow these exponential
+curves perfectly but would more closely follow some kind of higher
+order function.
 \begin{figure}
   \centering
 	\includegraphics[width=0.5\textwidth]{Density_measurements2.pdf}
@@ -1545,7 +1533,7 @@ play a role in the accuracy, the angle however gives a good starting point.
 To determine this our method works as follows: 
 
 we vary the position of the weather balloon in the x direction (keeping the
-height constant), simulate the ray path to the channels 0 to 3 and then fit n
+height constant at 500m), simulate the ray path to the channels 0 to 3 and then fit n
 such that the difference between the reconstructed angle (from the plane wave
 method) and the direct angle (angle between the middle of channels 0-3 and the
 balloon) is the smallest possible.  Then we compare the n we have fit to the
@@ -1707,6 +1695,18 @@ predictions won't be accurate.
 	\caption{Example plane wave reconstruction of near-flying weather balloon position}
 	\label{fig:WeatherBalloonClosePositionReconstruction}
 \end{figure}
+\subsection{Influence of height on Epsilon}
+In the previous sections we've assumed the height to be 500m, does changing this influence the behaviour of $\epsilon$ in some way?
+The answer is, at first surprisingly, yes. As can be seen in figure \ref{fig:EpsWithHeight}.
+\begin{figure}
+	\centering
+	\includegraphics[height=0.5\textheight]{figures/EpsilonWithHeight.pdf}
+	\caption{How varying the height influences $\epsilon$ over the same angles}
+	\label{fig:EpsWithHeight}
+\end{figure}
+This has, as a consequence, that if we manage to get a hold on some
+usable data (say the balloon's angle is less than 5°) the $\epsilon$
+might still be quite large (if the height is really large).
 \newpage
 \section{Error on prediction}
 Running ahead on the actual measurements, let's estimate how accurate our
@@ -1991,26 +1991,77 @@ in timing between the peaks which can be found from correlating the two}
 	\label{fig:CorrIllu}
 \end{figure}
 Analogously we can use channels 0,1,2 and 3 in various combinations.
-In full all possibilities are (in order of increasing depth):
+In full all possibilities are (in order of increasing depth)
 \footnote{In all calculations the channel 1 had the least good
 signal, as such if these calculations ever get revised try to take
-this into account}
+this into account}\footnote{we also left out the possibility of
+combinations as 0\&1\&2\&3 as the error would be too large
+but these are possible with the program}:
 \begin{center}
 \begin{tabular}{||c c c c c c c c||}
  \hline
  Depth (m) & Station id & channels & Run:Event & n$_\text{exp}$ & n$_\text{fit}$ & $\epsilon$ & n$_\text{corr}$\\ [0.5ex]
  \hline\hline
  -92.24 & 23 & 2\&3 & 800:1867 & 1.737 & 1.867 & 4.605\% & 1.784 $\pm$ 0.071 \\
- -93.07 & 23 & 0\&2\&3 & 800:1867 & 1.738 & 1.845 & 4.628\% & 1.763 $\pm$ 0.084 \\
+ -92.75 & 23 & 1\&3 & 800:1867 & 1.738 & 1.800 & 4.611\% & 1.721 $\pm$ 0.036 \\
  -93.23 & 23 & 0\&3 & 800:1867 & 1.738 & 1.819 & 4.617\% & 1.739 $\pm$ 0.024 \\
- -93.24 & 23 & 0\&1\&2\&3 & 800:1867 & 1.738 & 1.819 & 4.616\% & 1.739 $\pm$ 0.136 \\
  -93.24 & 23 & 1\&2 & 800:1867 & 1.738 & 1.735 & 4.616\% & 1.659 $\pm$ 0.074 \\
  -93.73 & 23 & 0\&2 & 800:1867 & 1.739 & 1.845 & 4.621\% & 1.763 $\pm$ 0.036 \\
  -94.23 & 23 & 0\&1 & 800:1867 & 1.739 & 1.858 & 4.626\% & 1.776 $\pm$ 0.073 \\
  \hline
 \end{tabular}
 \end{center}
-
+\subsection{Channels 6 and 7}
+A very interesting depth is between channels 5 and 7  as, looking at
+the density profile shown in figure \ref{fig:DensityMeasurements}
+this is where the actual density deviates the most from the models.
+The event we'll be using is recorded in detector 21 at the 26th of
+july 11:18:41 and falls within the $<5$° mark:
+\begin{center}
+\begin{tabular}{||c c c c c c c c||}
+ \hline
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exp}$ & n$_\text{fit}$ & $\epsilon$ & n$_\text{corr}$\\ [0.5ex]
+ \hline\hline
+ -48.16 & 21 & 6\&7 & 1441:117 & 1.640 & 1.631 & -0.02\% & 1.631 $\pm$ 0.004 \\
+ -58.38 & 21 & 5\&7 & 1441:117 & 1.674 & 1.665 & -0.23\% & 1.669 $\pm$ 0.002 \\
+ -68.2 & 21 & 5\&6 & 1441:117 & 1.698 & 1.692 & 0.02\% & 1.692 $\pm$ 0.003 \\
+ \hline
+\end{tabular}
+\end{center}
+Let's use Schytt's equation \ref{eqn:Schytt} to see where
+on the density vs depth curve these values lie:
+\begin{align}
+	n(z) &\approx 1 + 0.78\rho/\rho_0\\
+	\rho_0(n(z) - 1) &\approx 0.78\rho\\
+	\frac{\rho_0}{0.78}(n(z) - 1) &\approx \rho\\
+	\rho &\approx 1175.641(n(z) - 1)\frac{\text{kg}}{\text{m}^3}\\
+\end{align}
+The error propagation is also quite easy:
+\begin{equation}
+	\delta \rho = 1175.641\delta n
+\end{equation}
+If we use these equations the corrected indices of refraction
+correspond to the densities:
+\begin{center}
+\begin{tabular}{||c c||}
+ \hline
+ Depth (m) & $\rho_\text{corr}$\\ [0.5ex]
+ \hline\hline
+ -48.16 & 741.830 $\pm$ 4.703 \\
+ -58.38 & 786.504 $\pm$ 2.351 \\
+ -68.2 & 813.544 $\pm$ 3.527 \\
+ \hline
+\end{tabular}
+\end{center}
+If we plot this we get what's shown in figure
+\ref{fig:BalloonDensity6And7}
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{6And7DensityFromBalloon.pdf}
+	\caption{graph showing where the balloon data density is with
+	respect to the other measurements and the exponential model}
+	\label{fig:BalloonDensity6And7}
+\end{figure}
 \chapter{To be deleted}
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}

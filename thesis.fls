@@ -1614,6 +1614,11 @@ INPUT ./figures//WeatherBalloonClosePositionReconstruction.pdf
 INPUT ./figures//WeatherBalloonClosePositionReconstruction.pdf
 INPUT ./figures//WeatherBalloonClosePositionReconstruction.pdf
 INPUT ./figures//WeatherBalloonClosePositionReconstruction.pdf
+INPUT ./figures/EpsilonWithHeight.pdf
+INPUT ./figures/EpsilonWithHeight.pdf
+INPUT figures/EpsilonWithHeight.pdf
+INPUT ./figures/EpsilonWithHeight.pdf
+INPUT ./figures/EpsilonWithHeight.pdf
 OUTPUT thesis.listing
 INPUT ./thesis.listing
 INPUT ./thesis.listing
@@ -1673,6 +1678,11 @@ INPUT ./figures/IlluCorr.pdf
 INPUT figures/IlluCorr.pdf
 INPUT ./figures/IlluCorr.pdf
 INPUT ./figures/IlluCorr.pdf
+INPUT ./figures//6And7DensityFromBalloon.pdf
+INPUT ./figures//6And7DensityFromBalloon.pdf
+INPUT ./figures//6And7DensityFromBalloon.pdf
+INPUT ./figures//6And7DensityFromBalloon.pdf
+INPUT ./figures//6And7DensityFromBalloon.pdf
 INPUT ./figures//RawChannel6.pdf
 INPUT ./figures//RawChannel6.pdf
 INPUT ./figures//RawChannel6.pdf

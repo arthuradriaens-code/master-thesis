@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex thesis"] 1681995371 "thesis.aux" "thesis.bbl" "thesis" 1681996085
+["bibtex thesis"] 1682010605 "thesis.aux" "thesis.bbl" "thesis" 1682010727
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "sources.bib" 1681747655 16464 3a0fc7dd4f571ec313818ba42864e4ce ""
-  "thesis.aux" 1681996084 24603 234fbf16c9f82bf2a996dd7f03d48f72 "pdflatex"
+  "thesis.aux" 1682010726 25587 3208b29533773fe70e642cce91aa60b5 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1681996081 "thesis.tex" "thesis.pdf" "thesis" 1681996085
+["pdflatex"] 1682010723 "thesis.tex" "thesis.pdf" "thesis" 1682010727
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1650183167 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -290,6 +290,7 @@
   "cls/ugent-doc.cls" 1681721839 6432 c7758809175a90161407cf5c3b9a0358 ""
   "cls/ugent-en.pdf" 1680004967 13833 4aa4f0ec00981d4528b955edd3415aee ""
   "cls/we-en.pdf" 1680004967 12104 0a8a09359de713b3e02d8dc52d98b663 ""
+  "figures//6And7DensityFromBalloon.pdf" 1682009479 21820 7fb11e1309c0d2a530ba2e5490a032c2 ""
   "figures//BalloonDrawing.pdf" 1681721839 1602 20be567ae72685a76408e3b7601137f8 ""
   "figures//Binding_energy_curve.png" 1680004967 18133 8d69e796b7b85ad980ec62b9bfc802b1 ""
   "figures//BobsWeatherBalloonHeight.pdf" 1680004967 11166 8819f6032241e4b6828a9a23efc63ac8 ""
@@ -325,6 +326,7 @@
   "figures/23-800-0-freq.pdf" 1681901489 19685 4ffcb01e7cff951a5802be82ccc512ca ""
   "figures/23-800-3-freq.pdf" 1681901563 19533 275282db9e92ea6a817cd5bcf94ae508 ""
   "figures/CorrelationCh0.pdf" 1681902900 21780 abcd035076820e6f63f5419fd9b0c453 ""
+  "figures/EpsilonWithHeight.pdf" 1681908625 16889 20ba10806125a55f5d63e601d95b514b ""
   "figures/Fresnel.pdf" 1681721839 8576 9d27da52286a82076e789a69ca0c953d ""
   "figures/GreenlandOP.pdf" 1681721839 119588 069a5ea0fad8e198aada6a12b2d0b9e8 ""
   "figures/IlluCorr.pdf" 1681905732 13995 a557a1dc68617e068c4b82d39c9a0b57 ""
@@ -352,12 +354,12 @@
   "tables/EventsBelow5DegPart1.csv" 1681721839 2676 f048f4026645bb21a3375da785be51c5 ""
   "tables/EventsBelow5DegPart2.csv" 1681721839 4412 20a921dadcc63ea94488d448b6c6cad5 ""
   "tables/EventsBelow5DegPart3.csv" 1681721839 3343 9fb1a492d71193e8d3fa7ee63a9e8446 ""
-  "thesis.aux" 1681996084 24603 234fbf16c9f82bf2a996dd7f03d48f72 "pdflatex"
-  "thesis.bbl" 1681995371 6848 96d4ba86556df201f11e9151e78acb67 "bibtex thesis"
-  "thesis.listing" 1681996084 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
-  "thesis.out" 1681996084 8632 6d78b26c2655b0907006d4430698c727 "pdflatex"
-  "thesis.tex" 1681996079 118966 ab2c62252d429def49ffaa65ee5ea166 ""
-  "thesis.toc" 1681996084 4240 aed441610bb00258aa108d4a6baf0f5d "pdflatex"
+  "thesis.aux" 1682010726 25587 3208b29533773fe70e642cce91aa60b5 "pdflatex"
+  "thesis.bbl" 1682010605 6848 96d4ba86556df201f11e9151e78acb67 "bibtex thesis"
+  "thesis.listing" 1682010726 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
+  "thesis.out" 1682010726 9007 ce506f2a8cfcb5bd15f1771331993cf9 "pdflatex"
+  "thesis.tex" 1682010723 121073 f07e68bbd3e59a31bf1cf1b2810d26fd ""
+  "thesis.toc" 1682010726 4428 97e38cc624711ef8cdc209e90f124037 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.listing"
