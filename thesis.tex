@@ -748,6 +748,7 @@ kinds of events.  With the charged current interaction (mediated by the $W^\pm$
 bosons) this isn't a problem however as the full neutrino energy ends up in the
 resulting cascades.
 \section{Askaryan effect}
+\label{sec:Askaryan}
 For a particle shower to emit strong radio signals, two conditions have to be met:
 \begin{itemize}
 	\item There needs to be a separation of positive and negative charges in the shower front 
@@ -1016,13 +1017,13 @@ center.  This means that any ray that gets shot and propagates to the sphere
 will get stopped and counts as a solution.  Then, to reduce the time spent simulating, there are also observers placed
 whose purpuse is to stop the ray tracing but not count the observed signal as a solution.
 One such observer is placed 
-just above the ice surface as a ray that escapes the ice won't come back and one
-just behind the detector looking from the point of the interaction vertex $\mathbf{X}_i$ as
+just above the ice surface as a ray that escapes the ice won't be able to make it back, and one
+is placed just behind the detector looking from the point of the interaction vertex $\mathbf{X}_i$ as
 a ray is not able to reach the detector anymore after it has passed it in the
 lateral direction. Finally it's noted that due to the way the ice's index of refraction
-continuously increasing downwards, rays can't propagate upwards, this means that we only 
-have to look for solutions within the angle $\Omega$ which is just the angle the detector
-makes with the interaction vertex.
+continuously increases with depth, rays can't propagate upwards, this means that we only 
+have to look for solutions within the angle $\Omega$ which is just the zenith angle the detector
+makes with the bottom of the observer sphere.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{algoillu.pdf}
@@ -1030,8 +1031,8 @@ makes with the interaction vertex.
   \label{fig:Illustration of iterative algorithm}
 \end{figure}
 Now that we have our setup we'll just iteratively shoot rays from the neutrino
-interaction point starting at an angle $\delta \theta_1$ then at an angle
-$2\delta \theta_1$, $3\delta \theta_1$,... Until we have reached $\Omega$. This
+interaction point starting at an angle $\Delta \theta_1$ then at an angle
+$2\Delta \theta_1$, $3\Delta \theta_1$,... Until we have reached $\Omega$. This
 process is illustrated on the left side of figure \ref{fig:IterativeWorkings}.
 \begin{figure}
   \centering
@@ -1042,47 +1043,39 @@ process is illustrated on the left side of figure \ref{fig:IterativeWorkings}.
 After we have gone over all the different launch angles we'll have some
 solutions (marked in green) and some whom don't end up on the detector (marked
 in red) we can now make the observer sphere's radius smaller ($r_2 < r_1$) and
-the step size of the angle smaller ($\delta \theta_2 < \delta \theta_1$).  And
+the step size of the angle smaller ($\Delta \theta_2 < \Delta \theta_1$).  And
 again iteratively find the rays which end up on the sphere, only this time
 looking within the angles of the solutions of the previous step. We can keep on
 making the sphere and step size smaller in iterative steps until we've reached
-the precision we want. We then take, for each bunch of solutions within a , the most normal to
-the detector as the final solutions.
+the precision we want. We then take, for each bunch of solutions within an
+angle interval, the most normal to the detector as the final solutions.
 
 \chapter{Detector}
 \section{Introduction}
 Both cosmic ray and neutrino detectors face the same main problem at the
 highest energies: the steeply falling flux (as was previously discussed in
 chapter 2) requires large effective areas, which leads to the construction of
-neutrino detectors with volumes on the cubic kilometer scale: IceCube.  But
-even IceCube has it's limitations, it's still too small to observe neutrino
-events above the PeV scale, that's why a new detector was needed which was even
-bigger.  We could just make IceCube bigger but this would cost a lot of money
-as the individual detectors need to be spaced closely as IceCube works in the
-visible spectrum for which the attenuation length is quite short. The proposed
-solution was to work with radiowave detectors, leveraging the Askaryan effect
-which has been previously explored e.g in the NuMoon project.  Besides the
-advantage radiowaves have due to their abundance, they can also propagate way
-further in ice than visible light making it possible to space the individual
-detectors further apart. The proposed location was Greenland, an island country
-in North America and part of the Kingdom of Denmark which has large ice sheets.
-An orthographic projection projection of greenland is shown in figure
-\ref{fig:GreenlandOP} and both Greenland's flag and it's code of arms are shown
-(???) This needs to be deleted
-in figure \ref{fig:FlagAndArms}, the flag sports the same colors as it's parent
-country's flag Denmark. The flag is designed by Thue Christiansen who described
-the white stripe as representing the glaciers and ice cap, which cover more
-than 80\% of the island; the red stripe, the ocean; the red semicircle, the
-sun, with its bottom part sunk in the ocean; and the white semicircle, the
-icebergs and pack ice. The design is also reminiscent of the setting Sun
-half-submerged below the horizon and reflected on the sea.
+neutrino detectors with volumes on the cubic kilometer scale like
+IceCube\cite{IceCubeTechnical} which works on the principle of detection
+neutrinos with visible light.  But even IceCube has it's limitations, it's
+still too small to observe neutrino events above the 10 PeV
+scale\cite{IceCubeGen2}, that's why a new detector was needed which was even
+bigger and able to observe Cosmogenic neutrinos.  We could just make IceCube
+bigger but this would cost a lot of money as the individual detectors need to
+be spaced closely as the attenuation length is quite short for visible spectrum
+light in ice.  The proposed solution was to work with radiowave detectors,
+leveraging the previously discussed Askaryan effect (see section \ref{sec:Askaryan}), which has been utilized in projects
+like NuMoon\cite{numoon} project, ANITA\cite{ANITA},ARA\cite{ARA},RICE\cite{RICE}... .  Besides the advantage radiowaves have due to their abundance,
+they can also propagate way further in ice than visible light making it
+possible to space the individual detectors further apart. The proposed location
+was Greenland, an island country in North America and part of the Kingdom of
+Denmark which has large ice sheets.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/GreenlandOP.pdf}
   \caption{orthographic projection of Greenland}
   \label{fig:GreenlandOP}
 \end{figure}
-\newpage
 The proposal for RNO-G, which was later funded and now in the construction
 phase, is it be an array of autonomous radio stations each of which having both
 surface channels and various deep channels resulting in a total of 24 channels

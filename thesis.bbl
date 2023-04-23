@@ -5,11 +5,41 @@ Measurement of the multi-{TeV} neutrino interaction cross-section with
   {IceCube} using earth absorption.
 \newblock {\em Nature}, 551(7682):596--600, nov 2017.
 
+\bibitem{IceCubeGen2}
+M.~G. Aartsen, M.~Ackermann, J.~Adams, J.~A. Aguilar, et~al.
+\newblock Neutrino astronomy with the next generation icecube neutrino
+  observatory, 2019.
+
+\bibitem{IceCubeTechnical}
+M.G. Aartsen, M.~Ackermann, J.~Adams, J.A. Aguilar, et~al.
+\newblock The {IceCube} neutrino observatory: instrumentation and online
+  systems.
+\newblock {\em Journal of Instrumentation}, 12(03):P03012--P03012, mar 2017.
+
 \bibitem{Aguilar_2021}
 J.A. Aguilar, P.~Allison, J.J. Beatty, et~al.
 \newblock Design and sensitivity of the radio neutrino observatory in greenland
   ({RNO}-g).
 \newblock {\em Journal of Instrumentation}, 16(03):P03025, mar 2021.
+
+\bibitem{ARA}
+P.~Allison, R.~Bard, J.{\hspace{0.167em} }J. Beatty, D.{\hspace{0.167em}}Z.
+  Besson, C.~Bora, C.-C. Chen, C.-H. Chen, P.~Chen, A.~Christenson,
+  A.~Connolly, J.~Davies, M.~Duvernois, B.~Fox, R.~Gaior,
+  P.{\hspace{0.167em}}W. Gorham, K.~Hanson, J.~Haugen, B.~Hill,
+  K.{\hspace{0.167em}}D. Hoffman, E.~Hong, S.-Y. Hsu, L.~Hu, J.-J. Huang,
+  M.-H.{\hspace{0.167em}}A. Huang, A.~Ishihara, A.~Karle,
+  J.{\hspace{0.167em}}L. Kelley, D.~Kennedy, I.~Kravchenko, T.~Kuwabara,
+  H.~Landsman, A.~Laundrie, C.-J. Li, T.{\hspace{0.167em}}C. Liu, M.-Y. Lu,
+  L.~Macchiarulo, K.~Mase, T.~Meures, R.~Meyhandan, C.~Miki, R.~Morse, J.~Nam,
+  R.{\hspace{0.167em}}J. Nichol, G.~Nir, A.~Novikov, A.~O'Murchadha,
+  C.~Pfendner, K.~Ratzlaff, M.~Relich, M.~Richman, L.~Ritter, B.~Rotter,
+  P.~Sandstrom, P.~Schellin, A.~Shultz, D.~Seckel, Y.-S. Shiao, J.~Stockham,
+  M.~Stockham, J.~Touart, G.{\hspace{0.167em}}S. Varner, M.-Z. Wang, S.-H.
+  Wang, Y.~Yang, S.~Yoshida, and R.~Young and.
+\newblock Performance of two askaryan radio array stations and first results in
+  the search for ultrahigh energy neutrinos.
+\newblock {\em Physical Review D}, 93(8), apr 2016.
 
 \bibitem{Askaryan}
 G~A Askaryan.
@@ -31,6 +61,11 @@ S.W. Barwick, E.C. Berg, D.Z. Besson, G.~Gaswint, C.~Glaser, A.~Hallgren, J.C.
 \bibitem{AGNNeutrino}
 Federica Bradascio.
 \newblock Search for high-energy neutrinos from agn cores, 2019.
+
+\bibitem{numoon}
+S.~Buitink, J.~Bacelar, R.~Braun, G.~de~Bruyn, H.~Falcke, O.~Scholten,
+  K.~Singh, B.~Stappers, R.~Strom, and R.~al~Yahyaoui.
+\newblock The numoon experiment: first results, 2008.
 
 \bibitem{BetaCapture}
 Jr. {Cowan}, C.~L., F.~{Reines}, F.~B. {Harrison}, H.~W. {Kruse}, and A.~D.
@@ -130,6 +165,13 @@ Demosthenes {Kazanas}.
   Energy Gamma-Ray Astronomy: International Symposium}, volume 558 of {\em
   American Institute of Physics Conference Series}, pages 370--380, April 2001.
 
+\bibitem{RICE}
+I.~Kravchenko, S.~Hussain, D.~Seckel, D.~Besson, E.~Fensholt, J.~Ralston,
+  J.~Taylor, K.~Ratzlaff, and R.~Young.
+\newblock Updated results from the {RICE} experiment and future prospects for
+  ultra-high energy neutrino detection at the south pole.
+\newblock {\em Physical Review D}, 85(6), mar 2012.
+
 \bibitem{Melson_2015}
 Tobias Melson, Hans-Thomas Janka, Robert Bollig, Florian Hanke, Andreas Marek,
   and Bernhard Müller.
@@ -143,6 +185,13 @@ B.~{Oeyen}, I.~{Plaisier}, A.~{Nelles}, C.~{Glaser}, and T.~{Winchen}.
   RadioPropa ray tracer}.
 \newblock In {\em 37th International Cosmic Ray Conference. 12-23 July 2021.
   Berlin}, page 1027, March 2022.
+
+\bibitem{ANITA}
+H.~Schoorlemmer, K.~Belov, A.~Romero-Wolf, D.~García-Fernández, V.~Bugaev,
+  et~al.
+\newblock Energy and flux measurements of ultra-high energy cosmic rays
+  observed during the first anita flight.
+\newblock {\em Astroparticle Physics}, 77:32--43, 2016.
 
 \bibitem{Welling_2021}
 C.~Welling, P.~Frank, T.~En{\ss}lin, and A.~Nelles.
