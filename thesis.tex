@@ -643,7 +643,7 @@ photons with various telescopes and muons with a muon detector.
 \section{Current research}
 Talk about first IceCUBE something?
 \newpage
-\chapter{Radio detection of neutrinos}
+\chapter{Detector}
 \section{Neutrino interactions in ice}
 As neutrinos propagate through ice they can interact weakly. The main
 mechanisms of interaction is by charged (W boson) and neutral current (Z boson)
@@ -844,6 +844,148 @@ and horizontal polarization information is needed.
 	\centering
 	\includegraphics[width=0.5\textwidth]{illu_polarization.pdf}
 \end{figure}
+
+\section{Introduction}
+Both cosmic ray and neutrino detectors face the same main problem at the
+highest energies: the steeply falling flux (as was previously discussed in
+chapter 2) requires large effective areas, which leads to the construction of
+neutrino detectors with volumes on the cubic kilometer scale like
+IceCube\cite{IceCubeTechnical} which works on the principle of detection
+neutrinos with visible light.  But even IceCube has it's limitations, it's
+still too small to observe neutrino events above the 10 PeV
+scale\cite{IceCubeGen2}, that's why a new detector was needed which was even
+bigger and able to observe Cosmogenic neutrinos.  We could just make IceCube
+bigger but this would cost a lot of money as the individual detectors need to
+be spaced closely as the attenuation length is quite short for light in the visible spectrum
+propagating through ice.  The proposed solution was to work with radiowave detectors,
+leveraging the previously discussed Askaryan effect (see section
+\ref{sec:Askaryan}).  Besides the advantage radiowaves have due to their abundance, they can also
+propagate way further in ice than visible light making it possible to space the
+individual detectors further apart. The proposed location was Greenland, an
+island country in North America and part of the Kingdom of Denmark which has
+large ice sheets.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/GreenlandOP.pdf}
+  \caption{orthographic projection of Greenland}
+  \label{fig:GreenlandOP}
+\end{figure}
+The proposal for RNO-G, which was later funded and now in the construction
+phase, is for it to be an array of autonomous radio stations each of which having both
+surface channels and various deep channels resulting in a total of 24 channels
+per station. The whole project builds heavily on the knowledge obtained through
+previous radio based neutrino detectors like the NuMoon\cite{numoon} project,
+ANITA\cite{ANITA},ARA\cite{ARA},RICE\cite{RICE},...
+\section{Hardware}
+One such detector is illustrated in figure \ref{fig:detector}, the plan is to
+build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
+that all the individual detectors are named after various species living in
+greenland (in the native tongue)}. Looking closely at one such detector we see
+just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are used
+to detect air shower muon signals as muons will also generate cherenkov
+radiation in the ice whose signals can then be filtered out.  Aside form these
+surface detectors there are also deep components of the detector which can be
+split up in three parts: Two \textit{helper strings} and the \textit{power
+string}.
+
+The helper strings are the 2 vertical cables shown on the right of figure
+\ref{fig:detector} each housing 2 vertically polarized antennas (Vpols), one
+quadslot antenna for the horizontal polarization component (Hpol) and one radio
+pulser on each helper string which can be used to generate calibration signals.
+As was mentioned in the previous chapter the polarization can be used to
+distinguish between possible cherenkov cones generating the same resulting
+pulse, that's why both the helper and power string are equiped with both kinds
+of polarized antennas.
+
+The power string (the leftmost vertical cable) is more densely instrumented
+than the helper strings: At the bottom it houses a set of four Vpol and two
+Hpol antennas with a spacing of 1m called the \textit{phased array} and further
+up the string, with a spacing of 20m, are three more Vpol antennas.
+
+The signal from each of the deep antennae are fed into a low-noise amplifier
+directly above it, from there the signal is send to the data acquisition (DAQ)
+system at the surface via a Radio Frequency over Fiber (RFoF) cable.  The
+signals coming from the surface antennae are first passed through a Bandpass
+filter of 80-750MHz\footnote{i.e a filter that only lets frequencies in this
+range pass} prior to both them and the deep component signal ending up in the
+RAdio DIgitizer and Auxiliary Neutrino Trigger (RADIANT), there it's again
+amplified, digitized and saved onto an SD card. This data is then transmitted
+via a Long Term Evolution (LTE) telecommunications network to a local
+server\footnote{There is additionally a Long Range Wide Area Network (LoRaWAN)
+antenna as backup in case of problems with the LTE network}, from where it is
+sent via a sattelite link.
+
+As a power source, battery banks are used whom are charged via solar panels.
+But as there is't enough light during the Greenland winters, there're plans to
+build wind turbines (with one of the problems being the possibly detectable RF
+noise the 'engine' would produce).
+
+It can,however, pose a challenge to reconstruct the radio signals produced by
+the Cherenkov radiation as they are often obscured by background
+noise. A solution used in RadioReco is Information Field Theory
+(IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021}
+which uses Bayesian inference to calculate the most likely radio
+signal, given recorded data.  
+
+As was previously explained the radio signal from a neutrino often travels
+along both direct and refracted paths (designated DnR) to the deep array. 
+This double pulse characteristic would be a smoking-gun signature of an in-ice
+source. The two helper strings are needed for a full direction reconstruction.
+Three independent measurements are needed for azimuthal information, which is
+provided by the Vpol (Vertical polarization) antennas and placing the Hpol
+(Horizontal polarization) antennas at different depths on every string, both
+zentih and azimuth information will be provided for those signals. The helper
+strings' calibration pulsers, as well as one on the surface, will ensure
+regular monitoring of the performance of the station and provide information
+useful for precise calibration of the antenna geometry.
+
+Christoph Welling did an investigation into energy reconstruction from the
+received signals\cite{Welling_2019} for air showers in one single station (as
+the RNO-G stations are so far apart this is the case here aswell) and he
+noticed that it is nescessary to know if the detector who observes an event
+falls inside or outside the Cherenkov cone to accurately reconstruct the
+primary particle energy as most over-estimated energies in his simulations are
+caused by events viewed from within the Cherenkov ring being mistaken for
+events outside of it. He went on to show that, if we somehow know if the shower
+was seen from inside or outside the ring from some extra source, that most
+outliers in the energy disappeared. It is shown by Hiller et
+al.\cite{Hiller_2017} that the combination of a muon detector with the radio
+detector might make the issue of confusion between being within or outside of
+the Cherenkov-ring disappear. Because of this the RNO-G stations are fitted
+with surface Log Periodic Dipole Antennas (LPDA), capable of detecting muons.
+Note that this is for air showers, the radio signal from neutrinos show
+additional complexities.
+\newpage
+\section{Reconstruction: Lookup tables}
+The main simulation code we'll be using consists of 2 parts:
+NuRadioMC\cite{Glaser_2020} and NuRadioReco\cite{Glaser_2019}. NuRadioMC uses
+Monte Carlo simulations to generate neutrino events in the ice and how they
+propagate to the various channels. NuRadioReco is reconstruction software, it
+simulates how the various detectors would respond to the detected radiowaves.
+The plan is to simulate a lot of neutrino events and record the detector
+responses in a giant database then, when an actual neutrino event occurs, we'll
+only have to look in the database and match the actual detector response to the
+simulated detector responses, thus finding the origin.
+\section{Reconstruction: Butterworth filters}
+Sometimes it is necessary to only let through a certain part of
+the frequency spectrum that's recorded, an elegant way to accomplish
+this is by using a Butterworth filter. This is a filter that's
+applied afterwards on the measurements and only let's through 
+a certain part of the observed frequency spectrum
+
+\begin{figure}
+	\centering
+	\includegraphics[height=0.9\textheight]{figures/detector.pdf}	
+	\caption{illustration of the detector}
+	\label{fig:detector}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{figures/station-map.png}	
+	\caption{map of the station}
+	\label{fig:station map}
+\end{figure}
+\chapter{Ray tracing}
 \section{Wave propagation}
 \begin{figure}[h!]
 	\centering
@@ -1050,147 +1192,6 @@ making the sphere and step size smaller in iterative steps until we've reached
 the precision we want. We then take, for each bunch of solutions within an
 angle interval, the most normal to the detector as the final solutions.
 
-\chapter{Detector}
-\section{Introduction}
-Both cosmic ray and neutrino detectors face the same main problem at the
-highest energies: the steeply falling flux (as was previously discussed in
-chapter 2) requires large effective areas, which leads to the construction of
-neutrino detectors with volumes on the cubic kilometer scale like
-IceCube\cite{IceCubeTechnical} which works on the principle of detection
-neutrinos with visible light.  But even IceCube has it's limitations, it's
-still too small to observe neutrino events above the 10 PeV
-scale\cite{IceCubeGen2}, that's why a new detector was needed which was even
-bigger and able to observe Cosmogenic neutrinos.  We could just make IceCube
-bigger but this would cost a lot of money as the individual detectors need to
-be spaced closely as the attenuation length is quite short for light in the visible spectrum
-propagating through ice.  The proposed solution was to work with radiowave detectors,
-leveraging the previously discussed Askaryan effect (see section
-\ref{sec:Askaryan}).  Besides the advantage radiowaves have due to their abundance, they can also
-propagate way further in ice than visible light making it possible to space the
-individual detectors further apart. The proposed location was Greenland, an
-island country in North America and part of the Kingdom of Denmark which has
-large ice sheets.
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{figures/GreenlandOP.pdf}
-  \caption{orthographic projection of Greenland}
-  \label{fig:GreenlandOP}
-\end{figure}
-The proposal for RNO-G, which was later funded and now in the construction
-phase, is for it to be an array of autonomous radio stations each of which having both
-surface channels and various deep channels resulting in a total of 24 channels
-per station. The whole project builds heavily on the knowledge obtained through
-previous radio based neutrino detectors like the NuMoon\cite{numoon} project,
-ANITA\cite{ANITA},ARA\cite{ARA},RICE\cite{RICE},...
-\section{Hardware}
-One such detector is illustrated in figure \ref{fig:detector}, the plan is to
-build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
-that all the individual detectors are named after various species living in
-greenland (in the native tongue)}. Looking closely at one such detector we see
-just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are used
-to detect air shower muon signals as muons will also generate cherenkov
-radiation in the ice whose signals can then be filtered out.  Aside form these
-surface detectors there are also deep components of the detector which can be
-split up in three parts: Two \textit{helper strings} and the \textit{power
-string}.
-
-The helper strings are the 2 vertical cables shown on the right of figure
-\ref{fig:detector} each housing 2 vertically polarized antennas (Vpols), one
-quadslot antenna for the horizontal polarization component (Hpol) and one radio
-pulser on each helper string which can be used to generate calibration signals.
-As was mentioned in the previous chapter the polarization can be used to
-distinguish between possible cherenkov cones generating the same resulting
-pulse, that's why both the helper and power string are equiped with both kinds
-of polarized antennas.
-
-The power string (the leftmost vertical cable) is more densely instrumented
-than the helper strings: At the bottom it houses a set of four Vpol and two
-Hpol antennas with a spacing of 1m called the \textit{phased array} and further
-up the string, with a spacing of 20m, are three more Vpol antennas.
-
-The signal from each of the deep antennae are fed into a low-noise amplifier
-directly above it, from there the signal is send to the data acquisition (DAQ)
-system at the surface via a Radio Frequency over Fiber (RFoF) cable.  The
-signals coming from the surface antennae are first passed through a Bandpass
-filter of 80-750MHz\footnote{i.e a filter that only lets frequencies in this
-range pass} prior to both them and the deep component signal ending up in the
-RAdio DIgitizer and Auxiliary Neutrino Trigger (RADIANT), there it's again
-amplified, digitized and saved onto an SD card. This data is then transmitted
-via a Long Term Evolution (LTE) telecommunications network to a local
-server\footnote{There is additionally a Long Range Wide Area Network (LoRaWAN)
-antenna as backup in case of problems with the LTE network}, from where it is
-sent via a sattelite link.
-
-As a power source, battery banks are used whom are charged via solar panels.
-But as there is't enough light during the Greenland winters, there're plans to
-build wind turbines (with one of the problems being the possibly detectable RF
-noise the 'engine' would produce).
-
-It can,however, pose a challenge to reconstruct the radio signals produced by
-the Cherenkov radiation as they are often obscured by background
-noise. A solution used in RadioReco is Information Field Theory
-(IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021}
-which uses Bayesian inference to calculate the most likely radio
-signal, given recorded data.  
-
-As was previously explained the radio signal from a neutrino often travels
-along both direct and refracted paths (designated DnR) to the deep array. 
-This double pulse characteristic would be a smoking-gun signature of an in-ice
-source. The two helper strings are needed for a full direction reconstruction.
-Three independent measurements are needed for azimuthal information, which is
-provided by the Vpol (Vertical polarization) antennas and placing the Hpol
-(Horizontal polarization) antennas at different depths on every string, both
-zentih and azimuth information will be provided for those signals. The helper
-strings' calibration pulsers, as well as one on the surface, will ensure
-regular monitoring of the performance of the station and provide information
-useful for precise calibration of the antenna geometry.
-
-Christoph Welling did an investigation into energy reconstruction from the
-received signals\cite{Welling_2019} for air showers in one single station (as
-the RNO-G stations are so far apart this is the case here aswell) and he
-noticed that it is nescessary to know if the detector who observes an event
-falls inside or outside the Cherenkov cone to accurately reconstruct the
-primary particle energy as most over-estimated energies in his simulations are
-caused by events viewed from within the Cherenkov ring being mistaken for
-events outside of it. He went on to show that, if we somehow know if the shower
-was seen from inside or outside the ring from some extra source, that most
-outliers in the energy disappeared. It is shown by Hiller et
-al.\cite{Hiller_2017} that the combination of a muon detector with the radio
-detector might make the issue of confusion between being within or outside of
-the Cherenkov-ring disappear. Because of this the RNO-G stations are fitted
-with surface Log Periodic Dipole Antennas (LPDA), capable of detecting muons.
-Note that this is for air showers, the radio signal from neutrinos show
-additional complexities.
-\newpage
-\section{Reconstruction: Lookup tables}
-The main simulation code we'll be using consists of 2 parts:
-NuRadioMC\cite{Glaser_2020} and NuRadioReco\cite{Glaser_2019}. NuRadioMC uses
-Monte Carlo simulations to generate neutrino events in the ice and how they
-propagate to the various channels. NuRadioReco is reconstruction software, it
-simulates how the various detectors would respond to the detected radiowaves.
-The plan is to simulate a lot of neutrino events and record the detector
-responses in a giant database then, when an actual neutrino event occurs, we'll
-only have to look in the database and match the actual detector response to the
-simulated detector responses, thus finding the origin.
-\section{Reconstruction: Butterworth filters}
-Sometimes it is necessary to only let through a certain part of
-the frequency spectrum that's recorded, an elegant way to accomplish
-this is by using a Butterworth filter. This is a filter that's
-applied afterwards on the measurements and only let's through 
-a certain part of the observed frequency spectrum
-
-\begin{figure}
-	\centering
-	\includegraphics[height=0.9\textheight]{figures/detector.pdf}	
-	\caption{illustration of the detector}
-	\label{fig:detector}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=\textwidth]{figures/station-map.png}	
-	\caption{map of the station}
-	\label{fig:station map}
-\end{figure}
 
 \chapter{Hybrid Ray tracer}
 \label{chapter:hybrid}
