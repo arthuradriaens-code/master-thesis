@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.3)  23 APR 2023 13:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.3)  23 APR 2023 14:58
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1055,280 +1055,266 @@ File: ./figures//illu_polarization.pdf Graphic file (type pdf)
 <use ./figures//illu_polarization.pdf>
 Package pdftex.def Info: ./figures//illu_polarization.pdf  used on input line 845.
 (pdftex.def)             Requested size: 227.62206pt x 124.15926pt.
-<./figures//path_illustration.pdf, id=480, 462.52798pt x 346.89601pt>
-File: ./figures//path_illustration.pdf Graphic file (type pdf)
-<use ./figures//path_illustration.pdf>
-Package pdftex.def Info: ./figures//path_illustration.pdf  used on input line 850.
-(pdftex.def)             Requested size: 318.66948pt x 239.01443pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[12 <./figures//Cherenkov-reactor.jpg> <./figures//Cherenkov.pdf> <./figures//illu_polarization.pdf
-
-pdfTeX warning: pdflatex (file ./figures//illu_polarization.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [13 <./figures//path_illustration.pdf>]
-<./figures//Density_measurements2.pdf, id=558, 638.385pt x 647.41875pt>
-File: ./figures//Density_measurements2.pdf Graphic file (type pdf)
-<use ./figures//Density_measurements2.pdf>
-Package pdftex.def Info: ./figures//Density_measurements2.pdf  used on input line 949.
-(pdftex.def)             Requested size: 227.62206pt x 230.83795pt.
- [14]
-<figures/Fresnel.pdf, id=584, 204.20042pt x 194.329pt>
-File: figures/Fresnel.pdf Graphic file (type pdf)
-<use figures/Fresnel.pdf>
-Package pdftex.def Info: figures/Fresnel.pdf  used on input line 1002.
-(pdftex.def)             Requested size: 227.62206pt x 216.6299pt.
-<./figures//algoillu.pdf, id=587, 437.63727pt x 158.5893pt>
-File: ./figures//algoillu.pdf Graphic file (type pdf)
-<use ./figures//algoillu.pdf>
-Package pdftex.def Info: ./figures//algoillu.pdf  used on input line 1029.
-(pdftex.def)             Requested size: 318.66948pt x 115.47882pt.
-<./figures//IterativeWorkings.png, id=589, 688.69058pt x 264.52223pt>
-File: ./figures//IterativeWorkings.png Graphic file (type png)
-<use ./figures//IterativeWorkings.png>
-Package pdftex.def Info: ./figures//IterativeWorkings.png  used on input line 1039.
-(pdftex.def)             Requested size: 318.66948pt x 122.39612pt.
- [15 <./figures//Density_measurements2.pdf>] [16 <./figures/Fresnel.pdf> <./figures//algoillu.pdf
-
-pdfTeX warning: pdflatex (file ./figures//algoillu.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [17 <./figures//IterativeWorkings.png>]
-Chapter 3.
-<figures/GreenlandOP.pdf, id=639, 416.34848pt x 416.34848pt>
+<figures/GreenlandOP.pdf, id=483, 416.34848pt x 416.34848pt>
 File: figures/GreenlandOP.pdf Graphic file (type pdf)
 <use figures/GreenlandOP.pdf>
-Package pdftex.def Info: figures/GreenlandOP.pdf  used on input line 1075.
+Package pdftex.def Info: figures/GreenlandOP.pdf  used on input line 869.
 (pdftex.def)             Requested size: 227.62206pt x 227.62013pt.
-[18
+ [12 <./figures//Cherenkov-reactor.jpg> <./figures//Cherenkov.pdf> <./figures//illu_polarization.pdf
 
-] [19 <./figures/GreenlandOP.pdf>] [20]
-<figures/detector.pdf, id=689, 1031.89519pt x 1626.58693pt>
+pdfTeX warning: pdflatex (file ./figures//illu_polarization.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] [13 <./figures/GreenlandOP.pdf>] [14]
+<figures/detector.pdf, id=543, 1031.89519pt x 1626.58693pt>
 File: figures/detector.pdf Graphic file (type pdf)
 <use figures/detector.pdf>
-Package pdftex.def Info: figures/detector.pdf  used on input line 1184.
+Package pdftex.def Info: figures/detector.pdf  used on input line 978.
 (pdftex.def)             Requested size: 401.25659pt x 632.50047pt.
-<figures/station-map.png, id=690, 614.57953pt x 794.97pt>
+<figures/station-map.png, id=544, 614.57953pt x 794.97pt>
 File: figures/station-map.png Graphic file (type png)
 <use figures/station-map.png>
-Package pdftex.def Info: figures/station-map.png  used on input line 1190.
+Package pdftex.def Info: figures/station-map.png  used on input line 984.
 (pdftex.def)             Requested size: 455.24411pt x 588.8751pt.
- [21] [22 <./figures/detector.pdf>] [23 <./figures/station-map.png>]
+ [15] [16 <./figures/detector.pdf>] [17 <./figures/station-map.png>]
+Chapter 3.
+<./figures//path_illustration.pdf, id=605, 462.52798pt x 346.89601pt>
+File: ./figures//path_illustration.pdf Graphic file (type pdf)
+<use ./figures//path_illustration.pdf>
+Package pdftex.def Info: ./figures//path_illustration.pdf  used on input line 992.
+(pdftex.def)             Requested size: 318.66948pt x 239.01443pt.
+[18
+
+ <./figures//path_illustration.pdf>] [19]
+<./figures//Density_measurements2.pdf, id=675, 638.385pt x 647.41875pt>
+File: ./figures//Density_measurements2.pdf Graphic file (type pdf)
+<use ./figures//Density_measurements2.pdf>
+Package pdftex.def Info: ./figures//Density_measurements2.pdf  used on input line 1091.
+(pdftex.def)             Requested size: 227.62206pt x 230.83795pt.
+ [20 <./figures//Density_measurements2.pdf>]
+<figures/Fresnel.pdf, id=709, 204.20042pt x 194.329pt>
+File: figures/Fresnel.pdf Graphic file (type pdf)
+<use figures/Fresnel.pdf>
+Package pdftex.def Info: figures/Fresnel.pdf  used on input line 1144.
+(pdftex.def)             Requested size: 227.62206pt x 216.6299pt.
+<./figures//algoillu.pdf, id=712, 437.63727pt x 158.5893pt>
+File: ./figures//algoillu.pdf Graphic file (type pdf)
+<use ./figures//algoillu.pdf>
+Package pdftex.def Info: ./figures//algoillu.pdf  used on input line 1171.
+(pdftex.def)             Requested size: 318.66948pt x 115.47882pt.
+<./figures//IterativeWorkings.png, id=714, 688.69058pt x 264.52223pt>
+File: ./figures//IterativeWorkings.png Graphic file (type png)
+<use ./figures//IterativeWorkings.png>
+Package pdftex.def Info: ./figures//IterativeWorkings.png  used on input line 1181.
+(pdftex.def)             Requested size: 318.66948pt x 122.39612pt.
+ [21 <./figures/Fresnel.pdf>] [22 <./figures//algoillu.pdf> <./figures//IterativeWorkings.png>]
 Chapter 4.
-[24
+[23
 
 ]
 File: ./figures//algoillu.pdf Graphic file (type pdf)
 <use ./figures//algoillu.pdf>
-Package pdftex.def Info: ./figures//algoillu.pdf  used on input line 1260.
+Package pdftex.def Info: ./figures//algoillu.pdf  used on input line 1261.
 (pdftex.def)             Requested size: 318.66948pt x 115.47882pt.
-<./figures//begin_explanation.png, id=764, 372.72583pt x 346.62833pt>
+<./figures//begin_explanation.png, id=761, 372.72583pt x 346.62833pt>
 File: ./figures//begin_explanation.png Graphic file (type png)
 <use ./figures//begin_explanation.png>
-Package pdftex.def Info: ./figures//begin_explanation.png  used on input line 1275.
+Package pdftex.def Info: ./figures//begin_explanation.png  used on input line 1276.
 (pdftex.def)             Requested size: 227.62206pt x 211.68626pt.
-<./figures//PrincipleHybridIllu.pdf, id=766, 603.19843pt x 415.41025pt>
+<./figures//PrincipleHybridIllu.pdf, id=763, 603.19843pt x 415.41025pt>
 File: ./figures//PrincipleHybridIllu.pdf Graphic file (type pdf)
 <use ./figures//PrincipleHybridIllu.pdf>
-Package pdftex.def Info: ./figures//PrincipleHybridIllu.pdf  used on input line 1290.
+Package pdftex.def Info: ./figures//PrincipleHybridIllu.pdf  used on input line 1291.
 (pdftex.def)             Requested size: 227.62206pt x 156.76094pt.
- [25] [26 <./figures//begin_explanation.png> <./figures//PrincipleHybridIllu.pdf>]
-<figures/PrincipleNormIllu.pdf, id=797, 603.19843pt x 415.41025pt>
+ [24] [25 <./figures//begin_explanation.png> <./figures//PrincipleHybridIllu.pdf>]
+<figures/PrincipleNormIllu.pdf, id=793, 603.19843pt x 415.41025pt>
 File: figures/PrincipleNormIllu.pdf Graphic file (type pdf)
 <use figures/PrincipleNormIllu.pdf>
-Package pdftex.def Info: figures/PrincipleNormIllu.pdf  used on input line 1336.
+Package pdftex.def Info: figures/PrincipleNormIllu.pdf  used on input line 1337.
 (pdftex.def)             Requested size: 318.66948pt x 219.46278pt.
- [27 <./figures/PrincipleNormIllu.pdf>]
+ [26 <./figures/PrincipleNormIllu.pdf>]
 
 pdfTeX warning: pdflatex (file ./figures/NormVsTime.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/NormVsTime.pdf, id=822, 1373.13pt x 609.23611pt>
+<figures/NormVsTime.pdf, id=818, 1373.13pt x 609.23611pt>
 File: figures/NormVsTime.pdf Graphic file (type pdf)
 <use figures/NormVsTime.pdf>
-Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 1357.
+Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 1358.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/NormVsSigmaTime.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/NormVsSigmaTime.pdf, id=823, 1373.13pt x 609.23611pt>
+<figures/NormVsSigmaTime.pdf, id=819, 1373.13pt x 609.23611pt>
 File: figures/NormVsSigmaTime.pdf Graphic file (type pdf)
 <use figures/NormVsSigmaTime.pdf>
-Package pdftex.def Info: figures/NormVsSigmaTime.pdf  used on input line 1360.
+Package pdftex.def Info: figures/NormVsSigmaTime.pdf  used on input line 1361.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 File: figures/NormVsTime.pdf Graphic file (type pdf)
 <use figures/NormVsTime.pdf>
-Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 1368.
+Package pdftex.def Info: figures/NormVsTime.pdf  used on input line 1369.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/NormVsSigmaAZ.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/NormVsSigmaAZ.pdf, id=824, 1373.13pt x 609.23611pt>
+<figures/NormVsSigmaAZ.pdf, id=820, 1373.13pt x 609.23611pt>
 File: figures/NormVsSigmaAZ.pdf Graphic file (type pdf)
 <use figures/NormVsSigmaAZ.pdf>
-Package pdftex.def Info: figures/NormVsSigmaAZ.pdf  used on input line 1371.
+Package pdftex.def Info: figures/NormVsSigmaAZ.pdf  used on input line 1372.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsTime2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/ZtolVsTime2.pdf, id=828, 1373.13pt x 609.23611pt>
+<figures/ZtolVsTime2.pdf, id=824, 1373.13pt x 609.23611pt>
 File: figures/ZtolVsTime2.pdf Graphic file (type pdf)
 <use figures/ZtolVsTime2.pdf>
-Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 1389.
+Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 1390.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaTime.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/ZtolVsSigmaTime.pdf, id=829, 1373.13pt x 609.23611pt>
+<figures/ZtolVsSigmaTime.pdf, id=825, 1373.13pt x 609.23611pt>
 File: figures/ZtolVsSigmaTime.pdf Graphic file (type pdf)
 <use figures/ZtolVsSigmaTime.pdf>
-Package pdftex.def Info: figures/ZtolVsSigmaTime.pdf  used on input line 1392.
+Package pdftex.def Info: figures/ZtolVsSigmaTime.pdf  used on input line 1393.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 File: figures/ZtolVsTime2.pdf Graphic file (type pdf)
 <use figures/ZtolVsTime2.pdf>
-Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 1401.
+Package pdftex.def Info: figures/ZtolVsTime2.pdf  used on input line 1402.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
 
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaAZ.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/ZtolVsSigmaAZ.pdf, id=830, 1373.13pt x 609.23611pt>
+<figures/ZtolVsSigmaAZ.pdf, id=826, 1373.13pt x 609.23611pt>
 File: figures/ZtolVsSigmaAZ.pdf Graphic file (type pdf)
 <use figures/ZtolVsSigmaAZ.pdf>
-Package pdftex.def Info: figures/ZtolVsSigmaAZ.pdf  used on input line 1404.
+Package pdftex.def Info: figures/ZtolVsSigmaAZ.pdf  used on input line 1405.
 (pdftex.def)             Requested size: 364.19667pt x 161.58624pt.
-[28 <./figures/NormVsTime.pdf> <./figures/NormVsSigmaTime.pdf
+[27 <./figures/NormVsTime.pdf> <./figures/NormVsSigmaTime.pdf
 
 pdfTeX warning: pdflatex (file ./figures/NormVsSigmaTime.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [29 <./figures/NormVsSigmaAZ.pdf> <./figures/ZtolVsTime2.pdf
+>] [28 <./figures/NormVsSigmaAZ.pdf> <./figures/ZtolVsTime2.pdf
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsTime2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./figures/ZtolVsSigmaTime.pdf
 
 pdfTeX warning: pdflatex (file ./figures/ZtolVsSigmaTime.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<figures/subplotofallstepsphere.pdf, id=881, 1040.68805pt x 624.41281pt>
+<figures/subplotofallstepsphere.pdf, id=877, 1040.68805pt x 624.41281pt>
 File: figures/subplotofallstepsphere.pdf Graphic file (type pdf)
 <use figures/subplotofallstepsphere.pdf>
-Package pdftex.def Info: figures/subplotofallstepsphere.pdf  used on input line 1431.
+Package pdftex.def Info: figures/subplotofallstepsphere.pdf  used on input line 1432.
 (pdftex.def)             Requested size: 455.24411pt x 273.15135pt.
-<figures/SphereAndStepFinal.pdf, id=882, 894.34125pt x 570.13pt>
+<figures/SphereAndStepFinal.pdf, id=878, 894.34125pt x 570.13pt>
 File: figures/SphereAndStepFinal.pdf Graphic file (type pdf)
 <use figures/SphereAndStepFinal.pdf>
-Package pdftex.def Info: figures/SphereAndStepFinal.pdf  used on input line 1436.
+Package pdftex.def Info: figures/SphereAndStepFinal.pdf  used on input line 1437.
 (pdftex.def)             Requested size: 455.24411pt x 290.21439pt.
- [30 <./figures/ZtolVsSigmaAZ.pdf>] [31 <./figures/subplotofallstepsphere.pdf> <./figures/SphereAndStepFinal.pdf>]
-<figures/hybrid_comparison_N_1000.pdf, id=976, 462.52798pt x 346.89601pt>
+ [29 <./figures/ZtolVsSigmaAZ.pdf>] [30 <./figures/subplotofallstepsphere.pdf> <./figures/SphereAndStepFinal.pdf>]
+<figures/hybrid_comparison_N_1000.pdf, id=972, 462.52798pt x 346.89601pt>
 File: figures/hybrid_comparison_N_1000.pdf Graphic file (type pdf)
 <use figures/hybrid_comparison_N_1000.pdf>
-Package pdftex.def Info: figures/hybrid_comparison_N_1000.pdf  used on input line 1460.
+Package pdftex.def Info: figures/hybrid_comparison_N_1000.pdf  used on input line 1461.
 (pdftex.def)             Requested size: 245.38068pt x 184.03926pt.
 
-Overfull \hbox (22.30856pt too wide) in paragraph at lines 1460--1461
+Overfull \hbox (22.30856pt too wide) in paragraph at lines 1461--1462
 [][] 
  []
 
-<figures/iterative_comparison_N_1000.pdf, id=977, 462.52798pt x 346.89601pt>
+<figures/iterative_comparison_N_1000.pdf, id=973, 462.52798pt x 346.89601pt>
 File: figures/iterative_comparison_N_1000.pdf Graphic file (type pdf)
 <use figures/iterative_comparison_N_1000.pdf>
-Package pdftex.def Info: figures/iterative_comparison_N_1000.pdf  used on input line 1465.
+Package pdftex.def Info: figures/iterative_comparison_N_1000.pdf  used on input line 1466.
 (pdftex.def)             Requested size: 245.38068pt x 184.03926pt.
 
-Overfull \hbox (22.30856pt too wide) in paragraph at lines 1465--1466
+Overfull \hbox (22.30856pt too wide) in paragraph at lines 1466--1467
 [][] 
  []
 
-[32 <./figures/hybrid_comparison_N_1000.pdf> <./figures/iterative_comparison_N_1000.pdf>]
+[31 <./figures/hybrid_comparison_N_1000.pdf> <./figures/iterative_comparison_N_1000.pdf>]
 Chapter 5.
-<./figures//weerballontraject.pdf, id=1062, 1628.9658pt x 881.69403pt>
+<./figures//weerballontraject.pdf, id=1058, 1628.9658pt x 881.69403pt>
 File: ./figures//weerballontraject.pdf Graphic file (type pdf)
 <use ./figures//weerballontraject.pdf>
-Package pdftex.def Info: ./figures//weerballontraject.pdf  used on input line 1522.
+Package pdftex.def Info: ./figures//weerballontraject.pdf  used on input line 1523.
 (pdftex.def)             Requested size: 318.66948pt x 172.4745pt.
-<./figures//planewave.pdf, id=1063, 226.42545pt x 253.46902pt>
+<./figures//planewave.pdf, id=1059, 226.42545pt x 253.46902pt>
 File: ./figures//planewave.pdf Graphic file (type pdf)
 <use ./figures//planewave.pdf>
-Package pdftex.def Info: ./figures//planewave.pdf  used on input line 1528.
+Package pdftex.def Info: ./figures//planewave.pdf  used on input line 1529.
 (pdftex.def)             Requested size: 318.66948pt x 356.75708pt.
-[33
+[32
 
-] [34 <./figures//weerballontraject.pdf> <./figures//planewave.pdf>]
+] [33 <./figures//weerballontraject.pdf> <./figures//planewave.pdf>]
 \tcb@out=\write9
 \openout9 = `thesis.listing'.
 
  (./_minted-thesis/default.pygstyle) (./_minted-thesis/5F9D1189DE60F867F1B69EF3864FDF890F797E22429BB5A758097AEB8DC94FDC.pygtex)
-<./figures//NormedCorrelation.pdf, id=1137, 1628.9658pt x 881.69403pt>
+<./figures//NormedCorrelation.pdf, id=1132, 1628.9658pt x 881.69403pt>
 File: ./figures//NormedCorrelation.pdf Graphic file (type pdf)
 <use ./figures//NormedCorrelation.pdf>
-Package pdftex.def Info: ./figures//NormedCorrelation.pdf  used on input line 1578.
+Package pdftex.def Info: ./figures//NormedCorrelation.pdf  used on input line 1579.
 (pdftex.def)             Requested size: 364.19667pt x 197.12141pt.
-<./figures//SummedCorrelation.pdf, id=1138, 1628.9658pt x 881.69403pt>
+<./figures//SummedCorrelation.pdf, id=1133, 1628.9658pt x 881.69403pt>
 File: ./figures//SummedCorrelation.pdf Graphic file (type pdf)
 <use ./figures//SummedCorrelation.pdf>
-Package pdftex.def Info: ./figures//SummedCorrelation.pdf  used on input line 1584.
+Package pdftex.def Info: ./figures//SummedCorrelation.pdf  used on input line 1585.
 (pdftex.def)             Requested size: 455.24411pt x 246.40176pt.
- [35 <./figures//NormedCorrelation.pdf>]
-<./figures//EpsilonIFODirect.pdf, id=1190, 771.1209pt x 638.1441pt>
+ [34 <./figures//NormedCorrelation.pdf>]
+<./figures//EpsilonIFODirect.pdf, id=1186, 771.1209pt x 638.1441pt>
 File: ./figures//EpsilonIFODirect.pdf Graphic file (type pdf)
 <use ./figures//EpsilonIFODirect.pdf>
-Package pdftex.def Info: ./figures//EpsilonIFODirect.pdf  used on input line 1634.
+Package pdftex.def Info: ./figures//EpsilonIFODirect.pdf  used on input line 1635.
 (pdftex.def)             Requested size: 318.66948pt x 263.72455pt.
-<./figures//BobsWeatherBalloonHeight.pdf, id=1191, 1099.10625pt x 571.38469pt>
+<./figures//BobsWeatherBalloonHeight.pdf, id=1187, 1099.10625pt x 571.38469pt>
 File: ./figures//BobsWeatherBalloonHeight.pdf Graphic file (type pdf)
 <use ./figures//BobsWeatherBalloonHeight.pdf>
-Package pdftex.def Info: ./figures//BobsWeatherBalloonHeight.pdf  used on input line 1640.
+Package pdftex.def Info: ./figures//BobsWeatherBalloonHeight.pdf  used on input line 1641.
 (pdftex.def)             Requested size: 318.66948pt x 165.66243pt.
-<./figures//GreenlandHeight.png, id=1197, 489.12738pt x 416.25513pt>
+<./figures//GreenlandHeight.png, id=1193, 489.12738pt x 416.25513pt>
 File: ./figures//GreenlandHeight.png Graphic file (type png)
 <use ./figures//GreenlandHeight.png>
-Package pdftex.def Info: ./figures//GreenlandHeight.png  used on input line 1655.
+Package pdftex.def Info: ./figures//GreenlandHeight.png  used on input line 1656.
 (pdftex.def)             Requested size: 182.09486pt x 154.9647pt.
- [36 <./figures//SummedCorrelation.pdf>] [37 <./figures//EpsilonIFODirect.pdf> <./figures//BobsWeatherBalloonHeight.pdf>] [38 <./figures//GreenlandHeight.png (PNG copy)>]
-<./figures//EpsilonIFODirectSnell.pdf, id=1309, 564.42871pt x 421.3341pt>
+ [35 <./figures//SummedCorrelation.pdf>] [36 <./figures//EpsilonIFODirect.pdf> <./figures//BobsWeatherBalloonHeight.pdf>] [37 <./figures//GreenlandHeight.png (PNG copy)>]
+<./figures//EpsilonIFODirectSnell.pdf, id=1305, 564.42871pt x 421.3341pt>
 File: ./figures//EpsilonIFODirectSnell.pdf Graphic file (type pdf)
 <use ./figures//EpsilonIFODirectSnell.pdf>
-Package pdftex.def Info: ./figures//EpsilonIFODirectSnell.pdf  used on input line 1738.
+Package pdftex.def Info: ./figures//EpsilonIFODirectSnell.pdf  used on input line 1739.
 (pdftex.def)             Requested size: 318.66948pt x 237.88705pt.
 
 
 pdfTeX warning: pdflatex (file ./figures//StartAndStop10Illu.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<./figures//StartAndStop10Illu.pdf, id=1310, 426.92834pt x 509.23584pt>
+<./figures//StartAndStop10Illu.pdf, id=1306, 426.92834pt x 509.23584pt>
 File: ./figures//StartAndStop10Illu.pdf Graphic file (type pdf)
 <use ./figures//StartAndStop10Illu.pdf>
-Package pdftex.def Info: ./figures//StartAndStop10Illu.pdf  used on input line 1748.
+Package pdftex.def Info: ./figures//StartAndStop10Illu.pdf  used on input line 1749.
 (pdftex.def)             Requested size: 318.66948pt x 380.12323pt.
 
 
 pdfTeX warning: pdflatex (file ./figures//PathSMT_20220820_111609.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<./figures//PathSMT_20220820_111609.pdf, id=1311, 682.55pt x 651.09918pt>
+<./figures//PathSMT_20220820_111609.pdf, id=1307, 682.55pt x 651.09918pt>
 File: ./figures//PathSMT_20220820_111609.pdf Graphic file (type pdf)
 <use ./figures//PathSMT_20220820_111609.pdf>
-Package pdftex.def Info: ./figures//PathSMT_20220820_111609.pdf  used on input line 1756.
+Package pdftex.def Info: ./figures//PathSMT_20220820_111609.pdf  used on input line 1757.
 (pdftex.def)             Requested size: 318.66948pt x 303.98991pt.
-<./figures//WeatherBalloonPath.png, id=1312, 739.26187pt x 447.31326pt>
+<./figures//WeatherBalloonPath.png, id=1308, 739.26187pt x 447.31326pt>
 File: ./figures//WeatherBalloonPath.png Graphic file (type png)
 <use ./figures//WeatherBalloonPath.png>
-Package pdftex.def Info: ./figures//WeatherBalloonPath.png  used on input line 1762.
+Package pdftex.def Info: ./figures//WeatherBalloonPath.png  used on input line 1763.
 (pdftex.def)             Requested size: 318.66948pt x 192.81873pt.
-<./figures//WeatherBalloonPositionReconstruction.pdf, id=1313, 1628.9658pt x 881.69403pt>
+<./figures//WeatherBalloonPositionReconstruction.pdf, id=1309, 1628.9658pt x 881.69403pt>
 File: ./figures//WeatherBalloonPositionReconstruction.pdf Graphic file (type pdf)
 <use ./figures//WeatherBalloonPositionReconstruction.pdf>
-Package pdftex.def Info: ./figures//WeatherBalloonPositionReconstruction.pdf  used on input line 1770.
+Package pdftex.def Info: ./figures//WeatherBalloonPositionReconstruction.pdf  used on input line 1771.
 (pdftex.def)             Requested size: 409.71692pt x 221.75487pt.
-<./figures//WeatherBalloonClosePositionReconstruction.pdf, id=1314, 1628.9658pt x 881.69403pt>
+<./figures//WeatherBalloonClosePositionReconstruction.pdf, id=1310, 1628.9658pt x 881.69403pt>
 File: ./figures//WeatherBalloonClosePositionReconstruction.pdf Graphic file (type pdf)
 <use ./figures//WeatherBalloonClosePositionReconstruction.pdf>
-Package pdftex.def Info: ./figures//WeatherBalloonClosePositionReconstruction.pdf  used on input line 1776.
+Package pdftex.def Info: ./figures//WeatherBalloonClosePositionReconstruction.pdf  used on input line 1777.
 (pdftex.def)             Requested size: 409.71692pt x 221.75487pt.
-<figures/EpsilonWithHeight.pdf, id=1316, 377.24939pt x 469.0323pt>
+<figures/EpsilonWithHeight.pdf, id=1312, 377.24939pt x 469.0323pt>
 File: figures/EpsilonWithHeight.pdf Graphic file (type pdf)
 <use figures/EpsilonWithHeight.pdf>
-Package pdftex.def Info: figures/EpsilonWithHeight.pdf  used on input line 1785.
+Package pdftex.def Info: figures/EpsilonWithHeight.pdf  used on input line 1786.
 (pdftex.def)             Requested size: 282.64276pt x 351.39154pt.
-[39 <./figures//EpsilonIFODirectSnell.pdf>] [40 <./figures//StartAndStop10Illu.pdf>] [41 <./figures//PathSMT_20220820_111609.pdf> <./figures//WeatherBalloonPath.png>] [42 <./figures//WeatherBalloonPositionReconstruction.pdf> <./figures//WeatherBalloonClosePositionReconstruction.pdf>] [43 <./figures/EpsilonWithHeight.pdf>] [44] [45]
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1892.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1892.
-
-Missing character: There is no ° in font cmr10!
+[38 <./figures//EpsilonIFODirectSnell.pdf>] [39 <./figures//StartAndStop10Illu.pdf>] [40 <./figures//PathSMT_20220820_111609.pdf> <./figures//WeatherBalloonPath.png>] [41 <./figures//WeatherBalloonPositionReconstruction.pdf> <./figures//WeatherBalloonClosePositionReconstruction.pdf>] [42 <./figures/EpsilonWithHeight.pdf>] [43] [44]
 
 LaTeX Warning: Command \textdegree invalid in math mode on input line 1893.
 
@@ -1337,10 +1323,17 @@ LaTeX Warning: Command \textdegree invalid in math mode on input line 1893.
 
 Missing character: There is no ° in font cmr10!
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1900.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1894.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 1900.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1894.
+
+Missing character: There is no ° in font cmr10!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1901.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1901.
 
 Missing character: There is no ° in font cmr10!
 \openout9 = `thesis.listing'.
@@ -1348,86 +1341,86 @@ Missing character: There is no ° in font cmr10!
 (./_minted-thesis/A0799BBB936EA15E20075B9D6F60097B0F797E22429BB5A758097AEB8DC94FDC.pygtex)
 \openout9 = `thesis.listing'.
 
- (./_minted-thesis/4BA5E49E26F48AF602A5D1D95AE96A310F797E22429BB5A758097AEB8DC94FDC.pygtex) [46]
-<figures/23-800-0-freq.pdf, id=1572, 462.52798pt x 346.89601pt>
+ (./_minted-thesis/4BA5E49E26F48AF602A5D1D95AE96A310F797E22429BB5A758097AEB8DC94FDC.pygtex) [45]
+<figures/23-800-0-freq.pdf, id=1567, 462.52798pt x 346.89601pt>
 File: figures/23-800-0-freq.pdf Graphic file (type pdf)
 <use figures/23-800-0-freq.pdf>
-Package pdftex.def Info: figures/23-800-0-freq.pdf  used on input line 1976.
+Package pdftex.def Info: figures/23-800-0-freq.pdf  used on input line 1977.
 (pdftex.def)             Requested size: 223.07211pt x 167.30746pt.
-<figures/23-800-3-freq.pdf, id=1573, 462.52798pt x 346.89601pt>
+<figures/23-800-3-freq.pdf, id=1568, 462.52798pt x 346.89601pt>
 File: figures/23-800-3-freq.pdf Graphic file (type pdf)
 <use figures/23-800-3-freq.pdf>
-Package pdftex.def Info: figures/23-800-3-freq.pdf  used on input line 1979.
+Package pdftex.def Info: figures/23-800-3-freq.pdf  used on input line 1980.
 (pdftex.def)             Requested size: 223.07211pt x 167.30746pt.
-<./figures//Frequencies.pdf, id=1575, 911.75127pt x 758.91428pt>
+<./figures//Frequencies.pdf, id=1570, 911.75127pt x 758.91428pt>
 File: ./figures//Frequencies.pdf Graphic file (type pdf)
 <use ./figures//Frequencies.pdf>
-Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1991.
+Package pdftex.def Info: ./figures//Frequencies.pdf  used on input line 1992.
 (pdftex.def)             Requested size: 227.62206pt x 189.46176pt.
-<figures/VoltageAfterFilter.pdf, id=1577, 629.4717pt x 316.54259pt>
+<figures/VoltageAfterFilter.pdf, id=1572, 629.4717pt x 316.54259pt>
 File: figures/VoltageAfterFilter.pdf Graphic file (type pdf)
 <use figures/VoltageAfterFilter.pdf>
-Package pdftex.def Info: figures/VoltageAfterFilter.pdf  used on input line 2004.
+Package pdftex.def Info: figures/VoltageAfterFilter.pdf  used on input line 2005.
 (pdftex.def)             Requested size: 455.24411pt x 228.92479pt.
- [47 <./figures/23-800-0-freq.pdf> <./figures/23-800-3-freq.pdf>] [48 <./figures//Frequencies.pdf> <./figures/VoltageAfterFilter.pdf>]
-<figures/CorrelationCh0.pdf, id=1709, 591.8913pt x 334.61009pt>
+ [46 <./figures/23-800-0-freq.pdf> <./figures/23-800-3-freq.pdf>] [47 <./figures//Frequencies.pdf> <./figures/VoltageAfterFilter.pdf>]
+<figures/CorrelationCh0.pdf, id=1705, 591.8913pt x 334.61009pt>
 File: figures/CorrelationCh0.pdf Graphic file (type pdf)
 <use figures/CorrelationCh0.pdf>
-Package pdftex.def Info: figures/CorrelationCh0.pdf  used on input line 2035.
+Package pdftex.def Info: figures/CorrelationCh0.pdf  used on input line 2036.
 (pdftex.def)             Requested size: 455.24411pt x 257.36464pt.
-<figures/crosscorrelation.pdf, id=1713, 548.52928pt x 302.0886pt>
+<figures/crosscorrelation.pdf, id=1709, 548.52928pt x 302.0886pt>
 File: figures/crosscorrelation.pdf Graphic file (type pdf)
 <use figures/crosscorrelation.pdf>
-Package pdftex.def Info: figures/crosscorrelation.pdf  used on input line 2062.
+Package pdftex.def Info: figures/crosscorrelation.pdf  used on input line 2063.
 (pdftex.def)             Requested size: 409.71692pt x 225.64859pt.
-<figures/IlluCorr.pdf, id=1714, 265.22629pt x 146.51628pt>
+<figures/IlluCorr.pdf, id=1710, 265.22629pt x 146.51628pt>
 File: figures/IlluCorr.pdf Graphic file (type pdf)
 <use figures/IlluCorr.pdf>
-Package pdftex.def Info: figures/IlluCorr.pdf  used on input line 2069.
+Package pdftex.def Info: figures/IlluCorr.pdf  used on input line 2070.
 (pdftex.def)             Requested size: 409.71692pt x 226.33998pt.
- [49 <./figures/CorrelationCh0.pdf>] [50 <./figures/crosscorrelation.pdf> <./figures/IlluCorr.pdf>]
-<./figures//6And7DensityFromBalloon.pdf, id=1809, 880.28876pt x 658.46pt>
+ [48 <./figures/CorrelationCh0.pdf>] [49 <./figures/crosscorrelation.pdf> <./figures/IlluCorr.pdf>]
+<./figures//6And7DensityFromBalloon.pdf, id=1804, 880.28876pt x 658.46pt>
 File: ./figures//6And7DensityFromBalloon.pdf Graphic file (type pdf)
 <use ./figures//6And7DensityFromBalloon.pdf>
-Package pdftex.def Info: ./figures//6And7DensityFromBalloon.pdf  used on input line 2142.
+Package pdftex.def Info: ./figures//6And7DensityFromBalloon.pdf  used on input line 2143.
 (pdftex.def)             Requested size: 455.24411pt x 340.52234pt.
- [51] [52 <./figures//6And7DensityFromBalloon.pdf>]
+ [50] [51 <./figures//6And7DensityFromBalloon.pdf>]
 Chapter 6.
-[53
+[52
 
-] [54]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 2223--2223
+] [53]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2224--2224
 [][] 
  []
 
-[55
+[54
 
 ]
 Appendix A.
-[56
+[55
 
 ]
 Appendix B.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 2251.
+(hyperref)                removing `\\' on input line 2252.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2253--2256
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2254--2257
 []
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2253--2256
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2254--2257
 []
  []
 
 
-Overfull \hbox (47.2721pt too wide) in paragraph at lines 2253--2256
+Overfull \hbox (47.2721pt too wide) in paragraph at lines 2254--2257
 [] 
  []
 
-[57
+[56
 
 ]
 Overfull \vbox (6.91837pt too high) has occurred while \output is active []
@@ -1440,7 +1433,7 @@ Package fancyhdr Warning: \headheight is too small (13.59999pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
 
-[58]
+[57]
 
 Package fancyhdr Warning: \headheight is too small (13.59999pt): 
 (fancyhdr)                Make it at least 25.22153pt, for example:
@@ -1448,43 +1441,51 @@ Package fancyhdr Warning: \headheight is too small (13.59999pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
 
-[59]
+[58]
 Appendix C.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 2256.
+(hyperref)                removing `\\' on input line 2257.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2259--2260
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2260--2261
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2262--2263
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2263--2264
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 12.41837pt on input line 2263.
+LaTeX Warning: Float too large for page by 12.41837pt on input line 2264.
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2265--2266
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2266--2267
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2268--2269
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2269--2270
 [][] 
  []
 
 
-Overfull \hbox (17.2721pt too wide) in paragraph at lines 2271--2272
+Overfull \hbox (17.2721pt too wide) in paragraph at lines 2272--2273
 [][] 
  []
 
-[60
+[59
 
 ]
+
+Package fancyhdr Warning: \headheight is too small (13.59999pt): 
+(fancyhdr)                Make it at least 25.22153pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.22153pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
+
+[60]
 
 Package fancyhdr Warning: \headheight is too small (13.59999pt): 
 (fancyhdr)                Make it at least 25.22153pt, for example:
@@ -1508,38 +1509,30 @@ Package fancyhdr Warning: \headheight is too small (13.59999pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
 
-[63]
-
-Package fancyhdr Warning: \headheight is too small (13.59999pt): 
-(fancyhdr)                Make it at least 25.22153pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.22153pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-11.62154pt}.
-
-[64] (./thesis.bbl
+[63] (./thesis.bbl
 Overfull \hbox (6.0pt too wide) in paragraph at lines 1--1
 [][] 
  []
 
-[65
+[64
 
-] [66]) [67] (./thesis.aux)
+] [65]) [66] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: B1ED2F11834CDDB1CDE40338C900D60C;9097.
+(rerunfilecheck)             Checksum: 203B188F908B6E34B02BAEE277AF36D8;9078.
  ) 
 Here is how much of TeX's memory you used:
- 33355 strings out of 478238
- 699868 string characters out of 5850457
- 1123779 words of memory out of 5000000
+ 33354 strings out of 478238
+ 699885 string characters out of 5850457
+ 1123780 words of memory out of 5000000
  50597 multiletter control sequences out of 15000+600000
  489965 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,17n,90p,1195b,2026s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb>
-Output written on thesis.pdf (76 pages, 5344946 bytes).
+Output written on thesis.pdf (75 pages, 5344362 bytes).
 PDF statistics:
- 2104 PDF objects out of 2487 (max. 8388607)
- 1251 compressed objects within 13 object streams
- 300 named destinations out of 1000 (max. 500000)
+ 2100 PDF objects out of 2487 (max. 8388607)
+ 1249 compressed objects within 13 object streams
+ 299 named destinations out of 1000 (max. 500000)
  697 words of extra memory for PDF output out of 10000 (max. 10000000)
 

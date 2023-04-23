@@ -15,40 +15,40 @@
 \contentsline {subsection}{\numberline {1.2.7}Cosmogenic neutrinos}{8}{subsection.1.2.7}%
 \contentsline {subsection}{\numberline {1.2.8}How do they fit into the full detector spectrum?}{8}{subsection.1.2.8}%
 \contentsline {section}{\numberline {1.3}Current research}{9}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Radio detection of neutrinos}{10}{chapter.2}%
+\contentsline {chapter}{\numberline {2}Radio neutrino detection}{10}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Neutrino interactions in ice}{10}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Askaryan effect}{11}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Wave propagation}{12}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Ice model}{14}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Iterative ray tracer}{16}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Detector}{18}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{18}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Hardware}{18}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Reconstruction: Lookup tables}{21}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Reconstruction: Butterworth filters}{21}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Hybrid Ray tracer}{24}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Shortcomings of the exponential ice model}{24}{section.4.1}%
-\contentsline {section}{\numberline {4.2}How it works}{24}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Performance Optimalisation}{27}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Length of the normal vector}{27}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}ztol}{28}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Sphere Size \& Step Size}{28}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Conclusion of optimization}{30}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Expansion}{32}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Weather Balloon}{33}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Plane Wave Reconstruction}{33}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Is the goal feasible?}{36}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Refraction at the surface}{38}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Influence of height on Epsilon}{43}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Error on prediction}{44}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Fitting the index: Channels 0 and 3}{46}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Spatial data}{46}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Signal analysis and initial guesses}{47}{subsection.5.4.2}%
-\contentsline {section}{\numberline {5.5}Channels 6 and 7}{51}{section.5.5}%
-\contentsline {chapter}{\numberline {6}To be deleted}{53}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Fitting the index: deep components}{54}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Station 23 run 800 event 1867 Channels 0 and 3}{54}{subsection.6.1.1}%
-\contentsline {section}{\numberline {6.2}Special test: Channels 7 and 13}{54}{section.6.2}%
-\contentsline {chapter}{\numberline {A}List of abbreviations}{56}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Balloon passbys under 5°\\ in the summer of 2022}{57}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Balloon passbys under 10°\\ in the summer of 2022}{60}{appendix.C}%
+\contentsline {section}{\numberline {2.3}RNO-G}{12}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Hardware}{13}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Reconstruction: Lookup tables}{15}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Reconstruction: Butterworth filters}{15}{subsection.2.3.3}%
+\contentsline {chapter}{\numberline {3}Ray tracing}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Wave propagation}{18}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Ice model}{19}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Iterative ray tracer}{22}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Hybrid Ray tracer}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Shortcomings of the exponential ice model}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}How it works}{23}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Performance Optimalisation}{26}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Length of the normal vector}{26}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}ztol}{27}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Sphere Size \& Step Size}{27}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Conclusion of optimization}{29}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Expansion}{31}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Weather Balloon}{32}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Plane Wave Reconstruction}{32}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Is the goal feasible?}{35}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Refraction at the surface}{37}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Influence of height on Epsilon}{42}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Error on prediction}{43}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Fitting the index: Channels 0 and 3}{45}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Spatial data}{45}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Signal analysis and initial guesses}{46}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Channels 6 and 7}{50}{section.5.5}%
+\contentsline {chapter}{\numberline {6}To be deleted}{52}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Fitting the index: deep components}{53}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Station 23 run 800 event 1867 Channels 0 and 3}{53}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Special test: Channels 7 and 13}{53}{section.6.2}%
+\contentsline {chapter}{\numberline {A}List of abbreviations}{55}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Balloon passbys under 5°\\ in the summer of 2022}{56}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Balloon passbys under 10°\\ in the summer of 2022}{59}{appendix.C}%

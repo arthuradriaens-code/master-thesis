@@ -643,7 +643,7 @@ photons with various telescopes and muons with a muon detector.
 \section{Current research}
 Talk about first IceCUBE something?
 \newpage
-\chapter{Detector}
+\chapter{Radio neutrino detection}
 \section{Neutrino interactions in ice}
 As neutrinos propagate through ice they can interact weakly. The main
 mechanisms of interaction is by charged (W boson) and neutral current (Z boson)
@@ -845,7 +845,7 @@ and horizontal polarization information is needed.
 	\includegraphics[width=0.5\textwidth]{illu_polarization.pdf}
 \end{figure}
 
-\section{Introduction}
+\section{RNO-G}
 Both cosmic ray and neutrino detectors face the same main problem at the
 highest energies: the steeply falling flux (as was previously discussed in
 chapter 2) requires large effective areas, which leads to the construction of
@@ -876,7 +876,7 @@ surface channels and various deep channels resulting in a total of 24 channels
 per station. The whole project builds heavily on the knowledge obtained through
 previous radio based neutrino detectors like the NuMoon\cite{numoon} project,
 ANITA\cite{ANITA},ARA\cite{ARA},RICE\cite{RICE},...
-\section{Hardware}
+\subsection{Hardware}
 One such detector is illustrated in figure \ref{fig:detector}, the plan is to
 build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
 that all the individual detectors are named after various species living in
@@ -956,7 +956,7 @@ with surface Log Periodic Dipole Antennas (LPDA), capable of detecting muons.
 Note that this is for air showers, the radio signal from neutrinos show
 additional complexities.
 \newpage
-\section{Reconstruction: Lookup tables}
+\subsection{Reconstruction: Lookup tables}
 The main simulation code we'll be using consists of 2 parts:
 NuRadioMC\cite{Glaser_2020} and NuRadioReco\cite{Glaser_2019}. NuRadioMC uses
 Monte Carlo simulations to generate neutrino events in the ice and how they
@@ -966,7 +966,7 @@ The plan is to simulate a lot of neutrino events and record the detector
 responses in a giant database then, when an actual neutrino event occurs, we'll
 only have to look in the database and match the actual detector response to the
 simulated detector responses, thus finding the origin.
-\section{Reconstruction: Butterworth filters}
+\subsection{Reconstruction: Butterworth filters}
 Sometimes it is necessary to only let through a certain part of
 the frequency spectrum that's recorded, an elegant way to accomplish
 this is by using a Butterworth filter. This is a filter that's
