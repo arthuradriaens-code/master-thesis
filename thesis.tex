@@ -284,8 +284,8 @@ Na deze procedure op enkele evenementen toe te passen werd de volgende data gevo
 (???)
 Hier is een duidelijke tekortkoming van het exponentieel model te zien.
 \newpage
-\chapter*{Acknowledgements}
-\addcontentsline{toc}{chapter}{Acknowledgements}
+\chapter*{Dankwoord}
+\addcontentsline{toc}{chapter}{Dankwoord}
 \newpage
 % ------------ TABLE OF CONTENTS ---------
 {\hypersetup{hidelinks}\tableofcontents} % hide link color in toc
@@ -1285,9 +1285,10 @@ function \textit{delta\_z} as, given a certain launch angle, propagating the ray
 onto the vertical observer and returning the
 distance from the point where it lands on the plane to the detector, as
 illustrated on figure \ref{fig:PrincipleHybridIllu} (i.e it returns the value $\Delta z$).
-\begin{figure}[h!]
+\begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{PrincipleHybridIllu.pdf}
+  \caption{Principle behind the minimization in the hybrid ray tracer}
   \label{fig:PrincipleHybridIllu}
 \end{figure}
 The function we'll minimize is then delta\_z\_squared which just squares the
@@ -1467,7 +1468,7 @@ part of the hybrid ray tracer gets re-written in a compiled language.
 \end{minipage}
 \end{figure*}
 
-\subsection{Expansion}
+\section{Expansion}
 Using the ray tracer as it is now defined makes us unable to calculate paths by \textit{secondaries}.
 When your ice model has some kind of added complexity like a reflective bottom or a discontinuity layer 
 (like what will be the case for our air-bourne balloon in the next chapter)
@@ -1475,7 +1476,7 @@ you'll need to account for secondaries, these are additional rays like an extra 
 only consider say the reflected ray, whilst a refracted ray generated at such a discontinuity might actually end
 up closer to the detector.
 
-To implement secondaries, we'll just check if there are any found at the \delta\_z algorithm and if so loop over them,
+To implement secondaries, we'll just check if there are any found at the delta\_z algorithm and if so loop over them,
 keeping the original ray's $\Delta z$ in mind as the "global best" and looking if any of the secondary rays' $\Delta z$ is 
 lower than the "global best" if so this will be considered the new final ray which gets returned and the $\Delta z$ that
 gets returned is the new "global best" originating from the secondary, if there is no secondary ending closer than the "original" ray than the original ray with it's $\Delta z$ is returned.
@@ -2092,7 +2093,7 @@ but these are possible with the program}:
  \hline
 \end{tabular}
 \end{center}
-\subsection{Channels 6 and 7}
+\section{Channels 6 and 7}
 A very interesting depth is between channels 5 and 7  as, looking at
 the density profile shown in figure \ref{fig:DensityMeasurements}
 this is where the actual density deviates the most from the models.
@@ -2117,7 +2118,7 @@ on the density vs depth curve these values lie:
 	\frac{\rho_0}{0.78}(n(z) - 1) &\approx \rho\\
 	\rho &\approx 1175.641(n(z) - 1)\frac{\text{kg}}{\text{m}^3}\\
 \end{align}
-The error propagation is also quite easy:
+The error propagation is also quite easily found:
 \begin{equation}
 	\delta \rho = 1175.641\delta n
 \end{equation}
@@ -2144,141 +2145,6 @@ If we plot this we get what's shown in figure
 	\label{fig:BalloonDensity6And7}
 \end{figure}
 \chapter{To be deleted}
-\begin{figure}
-	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{RawChannel6.pdf}
-	\end{minipage}
-	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{RawChannel7.pdf}
-	\end{minipage}
-	\caption{recorded voltage i.f.o time on detector 23 at 2022/08/29 11:18:32 for
-	channels 6 and 7}
-	\label{fig:voltage67}
-\end{figure}
-Let's first pass this signal through a sixth order butterworth filter with a
-passband of [0.4031249, 0.4031251]\footnote{This is a filter that only let's
-frequencies pass whom are within the passband, here it will let 0.403125 pass}. 
-Doing this we notice that the signal looks as shown
-in figure \ref{fig:ModulatedChannels}, where it's clear that even though the
-balloon indeed sends out a sinusoidal 403MHz frequency, this signal is
-amplitude modulated (AM).  Meaning that we have a sinusoidial
-carrier signal $c(t)$:
-\begin{equation}
-  c(t) = A \sin(2\pi f_c t)
-\end{equation}
-with a message signal
-\begin{equation}
-  m(t) = Am \cos(2\pi f_m t + \phi)
-\end{equation}
-These two modulated together thus has the form
-\begin{equation}
-  V(t) = \left[1 + \frac{m(t)}{A}\right]c(t) = A\sin(2\pi f_c t)[1 + m\cos(2\pi f_m  t + \phi)]
-\end{equation}
-With a little correction that, due to the nature of observing the signal, there will be another phase:
-\begin{equation}
-  V(t) = A\sin(2\pi f_c t + \phi_1)[1 + m\cos(2\pi f_m  t + \phi_2)]
-\end{equation}
-Herein the carrier frequency is given by $f_c = 0.403125$ as previously
-established but with the other parameters seemingly unknown which we'll have to
-fit to the measured data.  We can, however, do some educated guesses which will
-help the fitting algorithm.  The first guess we'll do is establish the maximum
-value, as we have implemented an algorithm of finding the envelope functions
-(in green and orange on figure \ref{fig:ModulatedChannels}), this is as simple
-as calling the max function on the high envelope. Looking at our function this
-max value corresponds to
-\begin{equation}
-  e_{highmax} = A(1 + m) := E_1
-\end{equation}
-The minimal value of our high envelope function corresponds to the minimal value of the message signal, due to symmetry
-it's actually easier to just look at the absolute maximal values of the low envelope:
-\begin{equation}
-  |e_{lowmax}| = A(1-m) := E_2
-\end{equation}
-combining these two we get an equation for A and one for m:
-\begin{align}
-  m &= \frac{\frac{E_1}{E_2} - 1}{\frac{E_1}{E_2} + 1}\\
-  A &= \frac{E_1}{1+m}\\
-\end{align}
-The frequency of the message signal can also be found from looking at the
-difference between subsequent "bumps", these will be spaced some time T apart,
-from which an initial guess for the message frequency can be found as $f_m =
-1/T$. The only thing left to find is the phases $\phi_i$, we'll just fit these
-with an initial smart guess, for which I'll first have to talk about cable
-delays which we'll denote as $t^d$.
-We get the delay for the individual channels with the get\_cable\_delay
-module, these later on need to be substracted from the fit.
-
-The difference in timing can be found from using the different $\phi$'s we will fit;
-this is easy to see from the following example: Consider a sine wave 
-\begin{equation}
-  sin(\omega t)
-\end{equation}
-This reaches a certain value x after a time $t_x$:
-\begin{equation}
-  t_x = \frac{1}{\omega}\sin^{-1}(x)
-\end{equation}
-Now a sine wave with an offset of $-\phi$ 
-\begin{equation}
-  sin(\omega t - \phi)
-\end{equation}
-reaches this same x only after a time
-\begin{equation}
-  t_x = \frac{1}{\omega}\left(\sin^{-1}(x) + \phi\right)
-\end{equation}
-i.e a difference of $\phi/\omega$. 
-
-Knowing this relationship is useful for finding an initial guess for $\phi$ as
-the recorded travel times $T_i$ are of the form $T = -\phi/\omega - t^d$ and we
-know that the travel times should be around 4200 ns from a simple simulation
-using the greenland simple ice model, meaning that our guess for $\phi$ is in
-the neighborhood of $-\omega(4200-t^d)$ and should give the smallest
-correlation function; doing this for this example we get that the $\phi$ for
-channel 6 should be -752, and channel 7 we give as initial guess the final fit
-of channel 6 as this channel is higher and will thus have less travel time implying a
-higher $\phi$ (the algorithm seems to fit the $\phi$ upwards).  Fitting this function
-with the initial guesses you get what's shown on figure
-\ref{fig:FittedVoltage67}, i.e a perfect fit on the data.
-\begin{figure}
-	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{FitChannel6.pdf}
-	\end{minipage}
-	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{FitChannel7.pdf}
-	\end{minipage}
-	\caption{recorded voltage i.f.o time on detector 23 at 2022/08/29 11:18:32 for
-	channels 6 and 7}
-	\label{fig:FittedVoltage67}
-\end{figure}
-\subsection{Difference in timing}
-The signals detected in the channels have the form 
-\begin{align}
-  V(t) &= \sin(\omega_c t + \phi_c)\left[1 + m\cos(\omega_m t + \phi_m)\right]\\
-  &= \sin(\omega_c(t + \phi_c/\omega_c))\left[1 + m\cos(\omega_m( t + \phi_m/\omega_m))\right]\\
-  &:= \sin(\omega_c(t + T_c))\left[1 + m\cos(\omega_m( t + T_m))\right]
-\end{align}
-Now, for the plane wave reconstruction, we want to know the difference between
-the arrival times for channels 6 and 7.  We take it to be sufficient to let the
-offset in time be the offset on the message as the offset on the carrier is 
-sufficiently small, i.e
-\begin{equation}
-  \Delta T := T_6 - T_7 = T_6^m - T_7^m
-\end{equation}
-\begin{figure}
-	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ModulatedCh6.pdf}
-	\end{minipage}
-	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ModulatedCh7.pdf}
-	\end{minipage}
-	\caption{recorded voltage i.f.o time on detector 23 at 2022/08/29 11:18:32 for
-	channels 6 and 7}
-	\label{fig:ModulatedChannels}
-\end{figure}
-our actual difference
-in timing is thus:
-\begin{equation}
-	t_6 - t_7 = T_6 - T_7 - (t_6^d - t_7^d) = \Delta T - (t_6^d - t_7^d)
-\end{equation}
 Now going through the full calculation (i.e minimizing the correlation function
 for different n given the time difference and finding the minimal distance
 between reconstruction and balloon position)\footnote{Note that we used Snell's

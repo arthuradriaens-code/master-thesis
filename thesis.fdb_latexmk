@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex thesis"] 1682171179 "thesis.aux" "thesis.bbl" "thesis" 1682171181
+["bibtex thesis"] 1682249862 "thesis.aux" "thesis.bbl" "thesis" 1682249864
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1650183167 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "sources.bib" 1682171164 21355 48f2f4cb95545eaa99b24bb2fd70cbc5 ""
-  "thesis.aux" 1682171181 25906 53cd49e9974264fcd7a217023c88c982 "pdflatex"
+  "thesis.aux" 1682249864 25791 8b9b000119f8149b5c78705e2a98455b "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1682171179 "thesis.tex" "thesis.pdf" "thesis" 1682171181
+["pdflatex"] 1682249862 "thesis.tex" "thesis.pdf" "thesis" 1682249864
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1650183167 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -299,18 +299,12 @@
   "figures//Density_measurements2.pdf" 1682099246 20516 89292901f6e26c8739b04a33433a5f02 ""
   "figures//EpsilonIFODirect.pdf" 1677795572 22339 556a5150f54fc466925fe5e559eb8788 ""
   "figures//EpsilonIFODirectSnell.pdf" 1679230914 22073 8be6cbc71288da24501d3127b19f5403 ""
-  "figures//FitChannel6.pdf" 1680339968 54451 f322d7a27b48d0e57c4f5b5f6acb2303 ""
-  "figures//FitChannel7.pdf" 1680341411 53438 f82970b5093e7c51c58a6124cb4b74e1 ""
   "figures//Frequencies.pdf" 1678382228 46105 3407f4f35a6791829f41ebf391b53c92 ""
   "figures//GreenlandHeight.png" 1678359323 2057375 271e85c3d732be0ecc47301ed80fe2bd ""
   "figures//IterativeWorkings.png" 1682099246 173741 86e87b76c95258b574a9c148c118ad0b ""
-  "figures//ModulatedCh6.pdf" 1680280137 22505 42f7f15b71277d472407259d5f840d12 ""
-  "figures//ModulatedCh7.pdf" 1680280137 19490 f2372ab03541153cf168f3116c789e40 ""
   "figures//NormedCorrelation.pdf" 1677761408 15218 6e529a9a7542cbb0171c665bf95332d0 ""
   "figures//PathSMT_20220820_111609.pdf" 1678376279 51830 0306a0fcf20fa99a65b9fbd60fef5801 ""
   "figures//PrincipleHybridIllu.pdf" 1675386228 6902 cc6257e791eb9354bc0329934eff43cb ""
-  "figures//RawChannel6.pdf" 1680340848 25890 1606b5a24718960e0e3bfcc44eb7db7e ""
-  "figures//RawChannel7.pdf" 1680340954 25850 bc7c536b3a0f1e6c60029bc971faa16f ""
   "figures//StartAndStop10Illu.pdf" 1678379123 33579 51800049d41e03de23afd44f41faeeae ""
   "figures//SummedCorrelation.pdf" 1677761437 12680 e370f7d57ecddb7ce45ccf9b0f1fc724 ""
   "figures//WeatherBalloonClosePositionReconstruction.pdf" 1677762020 15844 51db08f2c50468144e11cfc4fbbb6e22 ""
@@ -354,12 +348,12 @@
   "tables/EventsBelow5DegPart1.csv" 1680879451 2676 f048f4026645bb21a3375da785be51c5 ""
   "tables/EventsBelow5DegPart2.csv" 1680879442 4412 20a921dadcc63ea94488d448b6c6cad5 ""
   "tables/EventsBelow5DegPart3.csv" 1680879465 3343 9fb1a492d71193e8d3fa7ee63a9e8446 ""
-  "thesis.aux" 1682171181 25906 53cd49e9974264fcd7a217023c88c982 "pdflatex"
-  "thesis.bbl" 1682171179 9220 f6dd2b8e1979bd862090eef4bc0d339d "bibtex thesis"
-  "thesis.listing" 1682171181 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
-  "thesis.out" 1682171181 9007 ce506f2a8cfcb5bd15f1771331993cf9 "pdflatex"
-  "thesis.tex" 1682171173 120706 62f6637b6c66162b762f2acf30088935 ""
-  "thesis.toc" 1682171181 4428 3dff4b2cb64140fc08d26a74cbc4b65a "pdflatex"
+  "thesis.aux" 1682249864 25791 8b9b000119f8149b5c78705e2a98455b "pdflatex"
+  "thesis.bbl" 1682249862 9220 f6dd2b8e1979bd862090eef4bc0d339d "bibtex thesis"
+  "thesis.listing" 1682249864 57 4ba5e49e26f48af602a5d1d95ae96a31 "pdflatex"
+  "thesis.out" 1682249864 9097 b1ed2f11834cddb1cde40338c900d60c "pdflatex"
+  "thesis.tex" 1682249858 121190 96b7c4bc17c1b1f5355c7c939c01cd18 ""
+  "thesis.toc" 1682249864 4487 a3ade50ba2281f21a5045b6bae9858b6 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.listing"
