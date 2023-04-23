@@ -58,6 +58,11 @@ S.W. Barwick, E.C. Berg, D.Z. Besson, G.~Gaswint, C.~Glaser, A.~Hallgren, J.C.
 \newblock {\em Journal of Cosmology and Astroparticle Physics},
   2018(07):055--055, jul 2018.
 
+\bibitem{Bellini_2014}
+G.~Bellini, L.~Ludhova, G.~Ranucci, and F.~L. Villante.
+\newblock Neutrino oscillations.
+\newblock {\em Advances in High Energy Physics}, 2014:1--28, 2014.
+
 \bibitem{AGNNeutrino}
 Federica Bradascio.
 \newblock Search for high-energy neutrinos from agn cores, 2019.
@@ -84,6 +89,14 @@ K.~Eguchi, S.~Enomoto, K.~Furuno, J.~Goldman, H.~Hanada, H.~Ikeda, K.~Ikeda,
 \newblock First results from kamland: Evidence for reactor antineutrino
   disappearance.
 \newblock {\em Physical Review Letters}, 90(2), jan 2003.
+
+\bibitem{SuperKamio}
+S.~{Fukuda}, Y.~{Fukuda}, T.~{Hayakawa}, E.~{Ichihara}, M.~{Ishitsuka},
+  Y.~{Itow}, T.~{Kajita}, J.~{Kameda}, K.~{Kaneyuki}, S.~{Kasuga}, {Kobayashi},
+  et~al.
+\newblock {The Super-Kamiokande detector}.
+\newblock {\em Nuclear Instruments and Methods in Physics Research A},
+  501(2):418--462, April 2003.
 
 \bibitem{gaisser_engel_resconi_2016}
 Thomas~K. Gaisser, Ralph Engel, and Elisa Resconi.
@@ -142,11 +155,6 @@ Nils Heyer and Christian Glaser.
   detection of neutrinos.
 \newblock {\em The European Physical Journal C}, 83(2):124, Feb 2023.
 
-\bibitem{Hiller_2017}
-R.~Hiller, P.~A. Bezyazeekov, N.~M. Budnev, et~al.
-\newblock Tunka-rex: energy reconstruction with a single antenna station.
-\newblock {\em {EPJ} Web of Conferences}, 135:01004, 2017.
-
 \bibitem{Huege_2017}
 Tim Huege and Dave Besson.
 \newblock Radio-wave detection of ultra-high-energy neutrinos and cosmic rays.
@@ -172,6 +180,11 @@ I.~Kravchenko, S.~Hussain, D.~Seckel, D.~Besson, E.~Fensholt, J.~Ralston,
   ultra-high energy neutrino detection at the south pole.
 \newblock {\em Physical Review D}, 85(6), mar 2012.
 
+\bibitem{martin2017particle}
+B.R. Martin and G.~Shaw.
+\newblock {\em Particle Physics}.
+\newblock Manchester Physics Series. Wiley, 2017.
+
 \bibitem{Melson_2015}
 Tobias Melson, Hans-Thomas Janka, Robert Bollig, Florian Hanke, Andreas Marek,
   and Bernhard Müller.
@@ -192,20 +205,6 @@ H.~Schoorlemmer, K.~Belov, A.~Romero-Wolf, D.~García-Fernández, V.~Bugaev,
 \newblock Energy and flux measurements of ultra-high energy cosmic rays
   observed during the first anita flight.
 \newblock {\em Astroparticle Physics}, 77:32--43, 2016.
-
-\bibitem{Welling_2021}
-C.~Welling, P.~Frank, T.~En{\ss}lin, and A.~Nelles.
-\newblock Reconstructing non-repeating radio pulses with information field
-  theory.
-\newblock {\em Journal of Cosmology and Astroparticle Physics}, 2021(04):071,
-  apr 2021.
-
-\bibitem{Welling_2019}
-C.~Welling, C.~Glaser, and A.~Nelles.
-\newblock Reconstructing the cosmic-ray energy from the radio signal measured
-  in one single station.
-\newblock {\em Journal of Cosmology and Astroparticle Physics}, 10:075--075,
-  oct 2019.
 
 \bibitem{Winchen_2019}
 Tobias Winchen.

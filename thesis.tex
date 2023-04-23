@@ -397,6 +397,38 @@ The inverse can then also be used to detect neutrinos:
 Which is called beta capture and was first experimentally detected in 1956
 \cite{BetaCapture} also making it the first experimental detection of a
 neutrino.
+\section{Charged and neutral currents}
+As with the strong and electromagnetic interaction whom interact via gluons
+and photons respectively, the weak interaction which is the primary way
+neutrinos interact, is also mediated by the exchange of elementary spin-1
+bosons.  Namely the charged bosons $W^+$ and $W^-$ and the neutral $Z^0$ boson.
+Contrary to the gluons and photons however, these bosons are very massive:
+\begin{equation}
+  M_W = 80.40\text{ GeV }\quad M_Z = 91.19\text{ GeV }
+\end{equation}
+Following general arguments, it can be derived that the
+range of any force is given by the compton wavelength of the particles transmitting it\cite{martin2017particle},
+as the compton wavelenght is given by 
+\begin{equation}
+  \lambda = \frac{h}{mc}
+\end{equation}
+The very large mass of the "force carriers" imply a very short-range
+interaction, in the order of $10^{-3}$fm and can even be treated as a
+zero-range interaction at low energies.
+
+These bosons can couple to leptons (e.g neutrinos, electrons, tauons and muons)
+but also to quarks, if they couple via the charged bosons then the coupling process
+is called a \textit{charged current} reaction and if they couple via the $Z^0$ boson
+than the process is called a \textit{neutral-current} interaction.
+
+A simple interaction is sketched below
+\begin{equation}
+  \mu^- \rightarrow e^- + \bar{\nu}_e + \nu_\mu
+\end{equation}
+here the muon decays via a charged current reaction, note that lepton number needs to be conserved.
+This means that, as on the left side of the reaction we have $\ell_\mu = 1$ and $\ell_e = 0$ this needs
+to be the case on the right side. The lepton number is conserved as a muon neutrino counts for $\ell_\mu = 1$
+and an electron anti-neutrino counts for $\ell_e = -1$
 \section{Neutrino sources}
 As shown in figure \ref{figure:Neutrino fluxes} there are various kinds of
 neutrino sources, we'll discuss these one by one in order leaving out the
@@ -649,10 +681,26 @@ photons with various telescopes and muons with a muon detector.
 Talk about first IceCUBE something?
 \newpage
 \chapter{Radio neutrino detection}
+Neutrinos on their own aren't detectable, unlike say protons we can't expect
+them to produce brehmsstrallung or any other kind of directly observable
+radiation as they aren't charged and thus don't couple to photons. We'll need
+to convert them to charged particles first which then can generate some kind of
+detectable signal.  
+
+To this end we'll need a big volume in which they can interact to produce
+charged particles, we'll be choosing ice for this.  Even though there are a lot
+of volumes such as the water or rock the ice has a few particular properties
+which make it more usable:
+\begin{itemize}
+  \item contrary to some kind of sediment, ice is mostly see-through for electromagnetic radiation but it's still possible
+    to differentiate between neutrino signals and other particles
+  \item contrary to water as a medium which is used e.g in the Super-Kamiokande detector\cite{SuperKamio}, ice
+    was naturally formed and it isn't needed to construct some kind of dome
+\end{itemize}
 \section{Neutrino interactions in ice}
-As neutrinos propagate through ice they can interact weakly. The main
-mechanisms of interaction is by charged (W boson) and neutral current (Z boson)
-exchange with nuclei \cite{NuRadioMc} as is also depicted in figure
+As neutrinos propagate through ice they can interact weakly with the nuclei.
+The main mechanisms of interaction is via charged- and neutral
+currents\cite{NuRadioMc} as is also depicted in figure
 \ref{fig:NeutrinoNucleusInteraction}.
 \begin{figure}[h!]
 	\begin{minipage}{\textwidth}
@@ -761,24 +809,23 @@ For a particle shower to emit strong radio signals, two conditions have to be me
 \end{itemize}
 The \textit{Askaryan} \cite{Askaryan} effect, which is responsible for the
 production of Askaryan radiation describes the effect at radio frequencies
-which abides by both of these conditions. 
-In general it's a quite difficult effect but we'll give a crude overview.  The previously described interactions
-create a shower of secondary charged particles containing a charge anisotropy.
-This charge imbalance is a result of medium electrons either Compton scattering
-into the advancing shower or annihilating with shower positrons.  In the end
-you have a moving charge anisotropy, propagating faster than the speed of light
-in the medium, creating Cherenkov radiation.  
+which abides by both of these conditions.  In general it's a quite difficult
+effect but we'll give a crude overview.  The previously described interactions
+of the neutrinos with nuclei create a shower of secondary charged particles
+containing a charge anisotropy.  This charge imbalance is a result of medium
+electrons either Compton scattering into the advancing shower or annihilating
+with shower positrons.  In the end you have a moving charge anisotropy,
+propagating faster than the speed of light in the medium, creating Cherenkov
+radiation.  
 
 Cherenkov radiation is like the electromagnetic equivalent of a sonic boom, a
 sonic boom happens when something goes faster than the speed of sound in the
 medium; A particle emits Cherenkov radiation if it goes faster than the speed
-of light in the medium\footnote{The reader who wants a thorough explanation and
-derivation is advised to check out \textit{Chapter 14: Radiation by Moving
-Charges} from the book \textit{Classical Electrodynamics} by Jackson.} .
-Choosing the particle trajectory to lie along the z axis an approximate
-equation can be found\cite{jackson1998classical} for $\frac{\text{d}^2
-\mathscr{J}}{\text{d}\omega \text{d}\Omega}$: the energy radiated per
-elementary unit solid angle and per elementary unit frequency interval
+of light in the medium.  Choosing the particle trajectory to lie along the z
+axis an approximate equation can be found\cite{jackson1998classical} for
+$\frac{\text{d}^2 \mathscr{J}}{\text{d}\omega \text{d}\Omega}$, which is the energy
+radiated per elementary unit solid angle and per elementary unit frequency
+interval:
 \begin{equation}
 	\frac{\text{d}^2 \mathscr{J}(\omega)}{\text{d} \omega \text{d} \Omega} = \frac{q^2}{4\pi}\sqrt{\frac{\mu}{\epsilon}}\beta^2\omega^2\delta^2[\omega(1-\beta \mathbf{e}_r\cdot\mathbf{e}_z)]|\mathbf{e}_r\times\mathbf{e}_z|^2 \label{equation: 4.128 in elektromagnetisme}
 \end{equation}
@@ -786,8 +833,9 @@ Now we can re-write this equation in spherical coordinates, which gives $1-\beta
 \begin{equation}
 \cos(\theta_c) = \frac{1}{\beta} = \frac{c'}{u} = \frac{c}{n}\cdot\frac{1}{u}
 \end{equation}
-With u the local speed of light in the medium and n the index of refraction.
-I.e if $u>\frac{c}{n}$, Cherenkov radiation will
+With u the local speed of light in the medium and n the index of refraction, an optical
+property of a medium which we'll later on thoroughly discuss.
+If $u>\frac{c}{n}$, Cherenkov radiation will
 be emitted along a cone surface with half angle $\frac{\pi}{2}-\theta_c$ as
 illustrated in figure \ref{figure: Cherenkov illustratie}. Integrating equation
 \ref{equation: 4.128 in elektromagnetisme} over the solid angle and formally
@@ -826,6 +874,7 @@ we'll get to in section \ref{section:Ice Model}.
 Now this explains how the signals get generated but logically, from only knowing this
 we'd expect radio waves to almost be non-existent 
 due to the "in blue" nature of Cherenkov radiation. 
+
 This isn't the full story however as we'll need to talk about coherent overlap
 to fully understand the Askaryan effect. This can be intuitively explained as
 follows: generally the shower is of length
@@ -838,6 +887,12 @@ The generated electromagnetic radiation is polarized perpendicular to the
 cherenkov cone, this can be useful to discern between different cherenkov cones whom,
 timely, would generate the same response. This concept is illustrated below in 2D where
 two neutrinos from different directions would generate the same signal in the detector.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{illu_polarization.pdf}
+\end{figure}
+
 If the detector has a way to differentiate between polarization however, there would be no
 doubt where the neutrino originated from as the one producing the yellow cherenkov cone
 would have a downwards polarization and the one producing a green cherenkov cone would have
@@ -845,27 +900,25 @@ an upwards polarization, note that in 3D infinite different cherenkov cones coul
 the same timely signal (think of rotating the cone around a line on the cone) so both vertical
 and horizontal polarization information is needed.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{illu_polarization.pdf}
-\end{figure}
 
 \section{RNO-G}
 Both cosmic ray and neutrino detectors face the same main problem at the
-highest energies: the steeply falling flux (as was previously discussed in
-chapter 2) requires large effective areas, which leads to the construction of
-neutrino detectors with volumes on the cubic kilometer scale like
-IceCube\cite{IceCubeTechnical} which works on the principle of detection
-neutrinos with visible light.  But even IceCube has it's limitations, it's
-still too small to observe neutrino events above the 10 PeV
+highest energies: the steeply falling flux (as was previously seen in figure
+\ref{figure:Neutrino fluxes}) requires large effective areas, which leads to
+the construction of neutrino detectors with volumes on the cubic kilometer
+scale like IceCube\cite{IceCubeTechnical} which works on the principle of
+detection neutrinos with visible light.  But even IceCube has it's limitations,
+it's still too small to observe neutrino events above the 10 PeV
 scale\cite{IceCubeGen2}, that's why a new detector was needed which was even
 bigger and able to observe Cosmogenic neutrinos.  We could just make IceCube
 bigger but this would cost a lot of money as the individual detectors need to
-be spaced closely as the attenuation length is quite short for light in the visible spectrum
-propagating through ice.  The proposed solution was to work with radiowave detectors,
-leveraging the previously discussed Askaryan effect (see section
-\ref{sec:Askaryan}).  Besides the advantage radiowaves have due to their abundance, they can also
-propagate way further in ice than visible light making it possible to space the
+be spaced closely as the attenuation length is quite short for light in the
+visible spectrum propagating through ice.  
+
+The proposed solution was to work with radiowave detectors, leveraging the
+previously discussed Askaryan effect (see section \ref{sec:Askaryan}).  Besides
+the advantage radiowaves have due to their abundance, they can also propagate
+way further in ice than visible light making it possible to space the
 individual detectors further apart. The proposed location was Greenland, an
 island country in North America and part of the Kingdom of Denmark which has
 large ice sheets.
@@ -880,11 +933,11 @@ phase, is for it to be an array of autonomous radio stations each of which havin
 surface channels and various deep channels resulting in a total of 24 channels
 per station. The whole project builds heavily on the knowledge obtained through
 previous radio based neutrino detectors like the NuMoon\cite{numoon} project,
-ANITA\cite{ANITA},ARA\cite{ARA},RICE\cite{RICE},...
+ANITA\cite{ANITA}, ARA\cite{ARA} and RICE\cite{RICE}.
 \subsection{Hardware}
 One such detector is illustrated in figure \ref{fig:detector}, the plan is to
 build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
-that all the individual detectors are named after various species living in
+that all the individual detectors are numbered but also named after various species living in
 greenland (in the native tongue)}. Looking closely at one such detector we see
 just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are used
 to detect air shower muon signals as muons will also generate cherenkov
@@ -897,16 +950,24 @@ The helper strings are the 2 vertical cables shown on the right of figure
 \ref{fig:detector} each housing 2 vertically polarized antennas (Vpols), one
 quadslot antenna for the horizontal polarization component (Hpol) and one radio
 pulser on each helper string which can be used to generate calibration signals.
-As was mentioned in the previous chapter the polarization can be used to
+As was previously mentioned the polarization can be used to
 distinguish between possible cherenkov cones generating the same resulting
 pulse, that's why both the helper and power string are equiped with both kinds
-of polarized antennas.
+of polarized antennae.
 
 The power string (the leftmost vertical cable) is more densely instrumented
 than the helper strings: At the bottom it houses a set of four Vpol and two
 Hpol antennas with a spacing of 1m called the \textit{phased array} and further
 up the string, with a spacing of 20m, are three more Vpol antennas.
+\begin{figure}
+  \centering
+  \copyrightbox[r]{\includegraphics[width=0.9\textwidth]{SysDiagRNOG.png}}{\textcopyright Design and Sensitivity of the Radio Neutrino Observatory in Greenland (RNO-G) by J.A. Aguilar et. al}
+  \caption{System diagram for a RNO-G station}
+  \label{fig:SysDiag}
+\end{figure}
 
+A full system diagram for a RNO-G station is shown in figure \ref{fig:SysDiag}, I'll
+give a walktrough of how data gets collected.
 The signal from each of the deep antennae are fed into a low-noise amplifier
 directly above it, from there the signal is send to the data acquisition (DAQ)
 system at the surface via a Radio Frequency over Fiber (RFoF) cable.  The
@@ -925,15 +986,15 @@ But as there is't enough light during the Greenland winters, there're plans to
 build wind turbines (with one of the problems being the possibly detectable RF
 noise the 'engine' would produce).
 
-It can,however, pose a challenge to reconstruct the radio signals produced by
-the Cherenkov radiation as they are often obscured by background
-noise. A solution used in RadioReco is Information Field Theory
-(IFT) implemented in RadioReco by Welling et al.\cite{Welling_2021}
-which uses Bayesian inference to calculate the most likely radio
-signal, given recorded data.  
-
 As was previously explained the radio signal from a neutrino often travels
-along both direct and refracted paths (designated DnR) to the deep array. 
+along both direct and refracted paths, designated DnR, to the deep array (as shown
+on figure \ref{fig:DnR}).
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{DnR.pdf}
+  \caption{example simulation showing both direct and refracted path from a neutrino vertex (bottom left) to a detector (top right)}
+  \label{fig:DnR}
+\end{figure}
 This double pulse characteristic would be a smoking-gun signature of an in-ice
 source. The two helper strings are needed for a full direction reconstruction.
 Three independent measurements are needed for azimuthal information, which is
@@ -943,54 +1004,37 @@ zentih and azimuth information will be provided for those signals. The helper
 strings' calibration pulsers, as well as one on the surface, will ensure
 regular monitoring of the performance of the station and provide information
 useful for precise calibration of the antenna geometry.
-
-Christoph Welling did an investigation into energy reconstruction from the
-received signals\cite{Welling_2019} for air showers in one single station (as
-the RNO-G stations are so far apart this is the case here aswell) and he
-noticed that it is nescessary to know if the detector who observes an event
-falls inside or outside the Cherenkov cone to accurately reconstruct the
-primary particle energy as most over-estimated energies in his simulations are
-caused by events viewed from within the Cherenkov ring being mistaken for
-events outside of it. He went on to show that, if we somehow know if the shower
-was seen from inside or outside the ring from some extra source, that most
-outliers in the energy disappeared. It is shown by Hiller et
-al.\cite{Hiller_2017} that the combination of a muon detector with the radio
-detector might make the issue of confusion between being within or outside of
-the Cherenkov-ring disappear. Because of this the RNO-G stations are fitted
-with surface Log Periodic Dipole Antennas (LPDA), capable of detecting muons.
-Note that this is for air showers, the radio signal from neutrinos show
-additional complexities.
-\newpage
 \subsection{Reconstruction: Lookup tables}
 The main simulation code we'll be using consists of 2 parts:
 NuRadioMC\cite{Glaser_2020} and NuRadioReco\cite{Glaser_2019}. NuRadioMC uses
-Monte Carlo simulations to generate neutrino events in the ice and how they
-propagate to the various channels. NuRadioReco is reconstruction software, it
-simulates how the various detectors would respond to the detected radiowaves.
-The plan is to simulate a lot of neutrino events and record the detector
-responses in a giant database then, when an actual neutrino event occurs, we'll
-only have to look in the database and match the actual detector response to the
-simulated detector responses, thus finding the origin.
-\subsection{Reconstruction: Butterworth filters}
-Sometimes it is necessary to only let through a certain part of
-the frequency spectrum that's recorded, an elegant way to accomplish
-this is by using a Butterworth filter. This is a filter that's
-applied afterwards on the measurements and only let's through 
-a certain part of the observed frequency spectrum
-
+Monte Carlo simulations to generate neutrino events in the ice and simulates
+how they propagate to the various channels, which will be covered more in-depth
+in the next chapter. NuRadioReco is reconstruction software, it simulates how
+the various detectors would respond to the detected radiowaves. This simulation
+software is needed as the plan is to simulate a lot of neutrino events and
+record the detector responses in a giant database, then, when an actual neutrino
+event occurs, we'll only have to look in the database and match the actual
+detector response to the simulated detector responses, thus finding the origin.
 \begin{figure}
 	\centering
 	\includegraphics[height=0.9\textheight]{figures/detector.pdf}	
 	\caption{diagram showing the numbering and locations of the various antennae}
 	\label{fig:detector}
 \end{figure}
-
 \begin{figure}
 	\includegraphics[width=\textwidth]{figures/station-map.png}	
 	\caption{planned station layout}
 	\label{fig:station map}
 \end{figure}
+
 \chapter{Ray tracing}
+As previously hinted it is necessary to be able to simulate how radio waves
+propagate through the ice to build up a database or just simulate how actual
+events would look like.
+
+It will also become necessary in the last chapter for doing actual measurements,
+that's why in this chapter we'll give a brief introduction to the way radiowave
+paths are found within the NuRadioMC framework.
 \section{Wave propagation}
 \begin{figure}[h!]
 	\centering
@@ -1004,13 +1048,13 @@ shown in figure \ref{fig:PathIllu}.  Here the detector is located at (0,-100)
 and a radio source at (480,-108), note that there are two possible paths
 leading to the detector.
 
-The amount of solutions and how the waves are bent is due to the nature of the
-ice we work in.  In a dielectric medium a ray propagates with it's signal
-wave-speed determined by the local index of refraction as $v = c/n$.   The
-effect on speed isn't the only effect the index of refraction has which we'll
-need to concern ourselves with however, if a ray propagates towards a boundary
-dividing 2 media with different indexes of refraction, the ray will refract and
-the refracted angle can be found from Snell's law:
+The amount of solutions and how the waves are bent are consequences of the
+properties of the ice we work in.  In a dielectric medium a ray propagates with
+it's signal wave-speed determined by the local index of refraction as $v =
+c/n$.   The effect on speed isn't the only effect the index of refraction has
+which we'll need to concern ourselves with however, if a ray propagates towards
+a boundary dividing 2 media with different indexes of refraction, the ray will
+refract and the refracted angle can be found from Snell's law:
 \begin{equation}
 	n_i\sin{\theta_i} = n_o\sin{\theta_o}
 \end{equation}
@@ -1022,10 +1066,10 @@ index of refraction.
 
 How do we know how the waves propagate in a medium?  The software we'll be
 using to simulate how the radio waves behave is called \textit{Radiopropa}
-\cite{Winchen_2019} and as  simulations of the wave propagation in full detail
+\cite{Winchen_2019}. As  simulations of the wave propagation in full detail
 with the finite-differences-time-domain (FDTD) technique \cite{1138693} are,
 even though they are more accurate, too time consuming. Have the authors of
-radiopropa chosen to build their program on geometrical optics, i.e ray
+radiopropa opted to build their program on geometrical optics, i.e ray
 tracing. A path of a ray $\mathbf{r}(s)$ with path parameter s in a medium
 with index of refraction n($\mathbf{r}$) is described by the eikonal
 equation\cite{herman2019treatise}:
@@ -1045,7 +1089,7 @@ go about using this program is thus find a start and end point (e.g a supposed
 neutrino interaction point and a detector respectively), "shoot" your ray in a
 certain direction for which the path will then be iteratively solved using
 radiopropa and if you chose your direction right you have the path a ray might
-take from your start to the end point.  The big complication is this direction
+take from your start to the end point.  The difficulty is this direction
 choosing which we'll get to later.  If there are boundaries (such as defects or
 the surface) these are treated seperately using Snell's law. 
 \section{Ice model}
@@ -1114,7 +1158,7 @@ equation to hold we find that the index of refraction abides by
 \end{equation}
 with $n_{ice}$ the refractive index of solid ice and $\Delta n = n_{ice} - n_s$
 with $n_s$ the index of refraction of snow. This exponential dependency of the
-index of refraction on depth is called "the single exponential model".  
+index of refraction on depth is called the \textit{single exponential model}.  
 
 This single exponential model has a huge advantage as it's analytically
 solvable, meaning that we can know which direction we'll have to shoot our ray
@@ -1131,6 +1175,12 @@ shortcomings. That's why the development of a new ray tracer was needed which
 is the partial work of this thesis and we'll get to that ray tracer in chapter
 \ref{chapter:hybrid}.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/Fresnel.pdf}
+  \caption{Wave surface of Fresnel with two sheets}
+  \label{fig:Fresnel}
+\end{figure}
 Lastly there is an effect which might become important in the future:
 birefringence.  Up until now have implicitly assumed that ice is isotropic
 meaning that both it's permittivity $\varepsilon$ and it's permeability $\mu$
@@ -1140,26 +1190,27 @@ that in every direction two different indices of refraction can be found
 implying two different types of waves each propagating with a different speed
 as illustrated in figure \ref{fig:Fresnel}. Which of the two speeds in a
 certain direction is then dependent on the polarization of the wave, which in
-our case thus depends on the Cherenkov cone. The optical property coming from
-the anisotropic nature of the material is what's called \textit{birefringence}.
-Birefringence has been extensively researched for implementation in the
-simulation software NuRadioMC used in the RNO-G group \cite{Heyer2023}.
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{figures/Fresnel.pdf}
-  \caption{Wave surface of Fresnel with two sheets}
-  \label{fig:Fresnel}
-\end{figure}
-
+our case thus depends on the Askaryan effect (see section \ref{sec:Askaryan}).
+The optical property coming from the anisotropic nature of the material is
+what's called \textit{birefringence}.  Birefringence has been extensively
+researched for implementation in the simulation software NuRadioMC used in the
+RNO-G group \cite{Heyer2023}.
 \section{Iterative ray tracer}
 \label{sec:Iterative}
 The iterative ray tracer \cite{2022icrc.confE1027O}, as can be derived from
 it's name, iteratively searches the path a ray might take. The workings of the
 first part of the explanation is illustrated in figure \ref{fig:Illustration of
-iterative algorithm}.  Say we have a neutrino interaction point $\mathbf{X}_i$
+iterative algorithm}.  
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{algoillu.pdf}
+  \caption{Illustration of the workings of the iterative algorithm}
+  \label{fig:Illustration of iterative algorithm}
+\end{figure}
+Say we have a neutrino interaction point $\mathbf{X}_i$
 (the red cross on the figure) and a detector located at $\mathbf{X}_d$ (the
 blue dot on the figure), the algorithm starts by constructing an
-\textit{observer} sphere with radius $r_1$ with the detector, located at $\mathbf{X}_d$, at the
+\textit{observer} sphere with radius $r_1$ with the detector, located at $\mathbf{X}_d$, as the
 center.  This means that any ray that gets shot and propagates to the sphere
 will get stopped and counts as a solution.  Then, to reduce the time spent simulating, there are also observers placed
 whose purpuse is to stop the ray tracing but not count the observed signal as a solution.
@@ -1171,12 +1222,6 @@ lateral direction. Finally it's noted that due to the way the ice's index of ref
 continuously increases with depth, rays can't propagate upwards, this means that we only 
 have to look for solutions within the angle $\Omega$ which is just the zenith angle the detector
 makes with the bottom of the observer sphere.
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{algoillu.pdf}
-  \caption{Illustration of the workings of the iterative algorithm}
-  \label{fig:Illustration of iterative algorithm}
-\end{figure}
 Now that we have our setup we'll just iteratively shoot rays from the neutrino
 interaction point starting at an angle $\Delta \theta_1$ then at an angle
 $2\Delta \theta_1$, $3\Delta \theta_1$,... Until we have reached $\Omega$. This
@@ -1443,7 +1488,7 @@ by a stepsize of 0.7°.
 	\caption{Green values in variation in sphere and angle step size with report on relative time.}
 	\label{fig:SphereStepFinal}
 \end{figure}
-
+\newpage
 \subsection{Conclusion of optimization}
 How does the hybrid ray tracer perform relative to the iterative ray tracer if we use 
 the previously optimized variables? After doing a simulation of 1000 random source locations with
@@ -1639,7 +1684,7 @@ to be less than 10°.
   \caption{Height data viewed in ROOT}
   \label{fig:BobsWeatherBalloonHeight}
 \end{figure}
-An example path of a weather balloon is shown in figure (???), looking
+An example path of a weather balloon is shown in figure \ref{fig:ExampleBalloonPathCrossing12}, looking
 specifically at the height information recorded by the weather balloon in a
 .root file using ROOT\footnote{\url{https://root.cern/}} (figure
 \ref{fig:BobsWeatherBalloonHeight}), it can be seen that the elevation varies
@@ -1742,33 +1787,22 @@ As you can see we can now go up to 15° and still have a relative accuracy of le
 only drawback of this method is that we need to assume the index of refraction
 to be 1.27 at the surface of the ice, if this isn't the case in some places our
 predictions won't be accurate.
-\begin{figure}
-  \centering
-	\includegraphics[width=0.7\textwidth]{StartAndStop10Illu.pdf}
-  \caption{Illustration of when the angle with the deep array (channels 0-3) with the weather balloon is less than 10 degrees,
-  the green mark indicates when it starts being less than 10 degrees and the red mark when it stops being less than 10 degrees.}
-  \label{fig:ExampleBalloonPathCrossing12LessThan10}
-\end{figure}
 
 \begin{figure}
   \centering
-	\includegraphics[width=0.7\textwidth]{PathSMT_20220820_111609.pdf}
-  \caption{Path traced out by a weather balloon released at 20/08/2022}
+	\includegraphics[width=0.7\textwidth]{BallonPathAllIllu.pdf}
+  \caption{Path traced out by a weather balloon in purple released at 20/08/2022, in yellow you can see when it
+  gets within 10° of detector 12.}
   \label{fig:ExampleBalloonPathCrossing12}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{WeatherBalloonPositionReconstruction.pdf}
+	\includegraphics[width=\textwidth]{WeatherBalloonPositionReconstruction.pdf}
 	\caption{Example plane wave reconstruction of weather balloon position}
 	\label{fig:WeatherBalloonPositionReconstruction}
 \end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{WeatherBalloonClosePositionReconstruction.pdf}
-	\caption{Example plane wave reconstruction of near-flying weather balloon position}
-	\label{fig:WeatherBalloonClosePositionReconstruction}
-\end{figure}
+
 \subsection{Influence of height on Epsilon}
 In the previous sections we've assumed the height of the weather balloon to be
 500m, does changing this height influence the behaviour of $\epsilon$ in some
@@ -2022,10 +2056,16 @@ with
 Herein $t$ is an array going from 0 to $3/f$ as to be able to fit 3 periods
 with intervals of 0.1ns.  This template gets automatically shifted by the radiotools
 correlation module with steps of 0.1ns and each time the correlation with the
-data gets computed as is illustrated in figure (???)
-
-. After this
-we get what's (partially) shown in figure \ref{fig:CorrCh0}.
+data gets computed as is illustrated in figure \ref{fig:SineCorrFull}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/SineDataCorrFull.pdf}
+	\caption{How correlating a sine with data leads to periodic peaks in the correlation function}
+	\label{fig:SineCorrFull}
+\end{figure}
+In real life the data is a bit less perfect and after doing this correlation
+procedure on the real data we get what's (partially) shown in figure
+\ref{fig:CorrCh0}.
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{figures/CorrelationCh0.pdf}
@@ -2036,11 +2076,12 @@ Herein the peaks represent the maximal correlation, if we now do the same for
 channel 3 we have two correlation functions, if we correlate these with
 eachother we'll get the difference in timing between the channels.  This is
 easy to comprehend after taking a look at the illustration shown in figure
-\ref{fig:CorrIllu}. This cross correlation, after taking into account the cable
-delay, is shown in figure \ref{fig:CrossCorr}. Note that multiple peak
-correlations are present, to thus find out which one is the right one we'll do
-a simple simulation from which we know what the approximate time difference is
-and search in this neighbourhood.
+\ref{fig:CorrIllu}. This cross correlation is shown in figure
+\ref{fig:CrossCorr}, the negative offset is caused by accounting for cable
+delay. Note that multiple peak correlations are present, to thus find out which
+one is the right one we'll do a simple simulation using our modified hybrid ray
+tracer from which we know what the approximate time difference is and search in
+this neighbourhood.
 
 Carrying out the full calculation we get the results which are presented below
 (note that the error on the epsilon corrected n was estimated using equation \ref{eqn:errorcorr})
@@ -2132,91 +2173,17 @@ correspond to the densities:
 \end{tabular}
 \end{center}
 If we plot this we get what's shown in figure
-\ref{fig:BalloonDensity6And7}
+\ref{fig:BalloonDensity6And7}.
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{6And7DensityFromBalloon.pdf}
+	\includegraphics[width=\textwidth]{DensityBalloonWithZoom.pdf}
 	\caption{graph showing where the balloon data density is with
 	respect to the other measurements and the exponential model}
 	\label{fig:BalloonDensity6And7}
 \end{figure}
-\chapter{To be deleted}
-Now going through the full calculation (i.e minimizing the correlation function
-for different n given the time difference and finding the minimal distance
-between reconstruction and balloon position)\footnote{Note that we used Snell's
-law} we get that the index for refraction at a depth of 47.714m is 1.6061,
-which is a fairly good estimate as, looking at the measurements depicted in
-figure \ref{fig:DensityMeasurements} a depth of 47.7m would correspond to a
-density of about $710 kg/m^3$, using Schytts equation this would thus give an
-index of refraction of 1.603.  Now using the positional data we can calculate
-the relative accuracy $\epsilon$ which comes to be about $0.39\%$. Our final
-answer is thus:
-\begin{table}[h]
-    \centering
-    \begin{tabular}{c|c|c|c|c|c}
-      depth (m)& station number & run used & event\_id used & channels used & n\\
-      \hline
-      -47.714 & 23 & 691 & 489 & 6,7 & $1.606 \pm 0.006$
-    \end{tabular}
-\end{table}\\
-Which has the expected answer within the margin of error. We are aware that
-this event also shows a peak in the frequency spectrum for channel 5 but the
-data deviates slightly from an AM signal and thus didn't seem to be usable due
-to the difficulty of fitting it. 
-\newpage
-\section{Fitting the index: deep components}
-%\subsection{Station 24 run 646 event 373 Channels 0,1,2,3}
-%Going through the full calculation again, i.e getting the relative balloon
-%position and detector positions, fitting the AM function and thus finding the
-%time offsets, minimizing the correlation function for every index of refraction
-%n whilst recording the difference between the path and the weather balloon
-%location and finally returning the index of refraction for which this
-%difference is the smallest; we get as an index of refraction from fit at a
-%depth of -96.1265m : 1.7648612972259445, if we now calculate the theoretical
-%value (for a greenland simple ice model) of the \textit{relative accuracy}
-%$\epsilon$ we get $3.369\%$. This thus implies a value of
-%\begin{equation}
-%  n = 1.765 \pm 0.059
-%\end{equation}
-%It is quite unfortunate that the uncertainty is that large.
-%Now how does this compare to the expected value from density measurements?
-%Looking at the density measurements shown in figure \ref{fig:DensityMeasurements} 
-%we expect a density of about 860 $kg/m^3$ at a depth of 96.13m, using
-%Schytt's equation with $\rho_0 = 917$ this implies an index of refraction of about 1.73
-%which is within our confidence interval.
-
-\subsection{Station 23 run 800 event 1867 Channels 0 and 3}
-Using guesses $\phi_2^0 = -786.91$ \& $\phi_2^3 = -782$, traveltimes
-[4822.41659697 4806.73065199] are found which have nearly the same difference
-and size as the simulated [4822.16,4805.80]. The minimal correlation was found to be
-$0.334$ns and yielded 1.7475 as index of refraction at a depth of -93.231m.
-Epsilon is calculated to be 4.865\% for this Balloon position, our final result is 
-thus:
-\begin{table}[h]
-    \centering
-    \begin{tabular}{c|c|c|c|c|c}
-      depth (m)& station number & run used & event\_id used & channels used & n\\
-      \hline
-      -93.231& 23 & 800 & 1867 & 0,3 & $1.748 \pm 0.085$
-    \end{tabular}
-\end{table}\\
-From analysis of the density we expect an index of refraction of 1.73 which
-lies inside our confidence interval.
-
-\section{Special test: Channels 7 and 13}
-\begin{table}[h]
-    \centering
-    \begin{tabular}{c|c|c|c|c|c}
-      depth (m)& station number & run used & event\_id used & channels used & n\\
-      \hline
-      -19.11& 23 & 691 & 489 & 7,13 & $1.3777 \pm 0.117$
-    \end{tabular}
-\end{table}
-This test isn't to be used as the error is too large but it might be useful
-to know that a plane wave reconstruction with one of the nearest deep components and
-a surface component is possible.
 
 \chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
 \section*{Proposal of improved measurements}
 As this method seems to be a viable way of measuring the index of refraction,
 it might be a good idea to have a more controllable radio wave source fly
@@ -2232,6 +2199,7 @@ It would also help in the fitting of the AM signal is the message signal had a l
 making it less difficult to fit.
 
 \appendix
+%\pagenumbering{Roman}
 \chapter{List of abbreviations}
 \begin{itemize}
 \item \textbf{AM}: \textbf{A}mplitude \textbf{M}odulated
