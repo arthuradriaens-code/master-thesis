@@ -159,17 +159,17 @@ and the analysis of ice properties using weather balloons}}
 \addcontentsline{toc}{chapter}{Summary}
 Outside our earth various kinds of events take place which we wish to 
 observe: Black hole outbursts, supernovae, cosmic jets, ...
-These events produce various kinds of messengers which are useful in
-detecting them: Gravitational waves, gamma rays, protons,...
+These events produce various kinds of messengers which are useful to obtain
+information on the event: Gravitational waves, gamma rays, protons,...
 But one particle within this set of particles is quite unique and
 the subject of our study: The neutrino. 
 
 The neutrino is unique in that it points back to the event itself.
 Due to the neutrino not having any charge, nearly no mass and 
-interacting weakly it doesn't get bend or absorbed and re-emitted 
-on it's way to us unlike say the proton. This means that if we observe
+interacting weakly it doesn't get bend nor absorbed and re-emitted 
+on it's way to us unlike, say, the proton. This means that if we observe
 a neutrino back here on earth it's very likely that the direction we observe
-it in, is the direction it came from.
+it in is the direction it came from.
 
 We wish to detect a particular type of neutrinos: The ultra high energy (UHE)
 neutrino.  There have been lots of neutrino detectors around but none of them
@@ -204,13 +204,13 @@ Even though this software can be used to work with most kinds of ice models, it 
 some kind of algorithm to be useful. Such an algorithm has already been developed called the \textit{Iterative
 ray tracer} as will be explained in section \ref{sec:Iterative} but it had its shortcomings,
 that's why in this thesis a new algorithm was developed called the \textit{hybrid ray tracer} which is explained
-in chapter \ref{chapter:hybrid}. This algorithm makes it possible to both find a more accurate and faster solution.
+in chapter \ref{chapter:hybrid}. This algorithm makes it possible to both find a more accurate solution and find it faster.
 
 It is, however, crucial to make sure we actually need a new kind of ice model. The measuring of the index of refraction
 can be accomplished indirectly through weather balloon fly-bys as is explained in chapter \ref{chap:WB}. Every day
 in the summer, two times per day a weather balloon is launched from the base camp. This weather balloon is equiped with
-an antenna which sends out a 403MHz AM signal, upon close fly-bys with detectors this signal can be observed in the
-detectors. By looking at the difference in arrival time of the signal the difference in timing can be made out from 
+an antenna which sends out a 403MHz sinusoidal signal, upon close fly-bys with detectors this signal can be observed in the
+detectors. By looking at the difference in arrival time of the signal, the difference in timing can be made out from 
 which a plane wave reconstruction can be done. As the accuracy of this plane wave reconstruction is heavily dependent
 on the local index of refraction in the ice, it can be indirectly measured through this reconstruction.
 After this analysis the following data was found:
@@ -220,8 +220,8 @@ These all show a discrepency with the exponential model as is shown in figure (?
 \newpage
 \chapter*{Samenvatting}
 \addcontentsline{toc}{chapter}{Samenvatting}
-Er gebeuren verscheidene gebeurtenissen in het heelal dewelke we wensen
-te detecteren, zoals Black hole outbursts, supernovae, cosmic jets, ...
+Er vinden verscheidene gebeurtenissen plaats in het heelal waarover we
+meer wensen te weten zoals Black hole outbursts, supernovae, cosmic jets, ...
 Al deze gebeurtenissen produceren vormen van informatie dewelke we kunnen
 infereren door hun op een manier te detecteren zoals de protonen en fotonen
 maar ook verscheidene andere zoals zwaartekracht golven.
@@ -250,8 +250,8 @@ van radiogolven bij interactie van een neutrino in ijs. Aangezien radio golven v
 propageren in ijs dan zichtbaar licht maakt dit het mogelijk om de verscheidene antennes verder
 van elkaar te plaatsen. Enkele experimenten zijn op dit principe gebouwd zoals ARA en ARIANNA,
 uit de expertise van deze experimenten werd dan de Radio Neutrino Observatory in Greenland of RNO-G gemaakt.
-RNO-G moet het mogelijk maken om UHE neutrinos te observeren en deze thesis wenst bij te dragen aan deze 
-detector.
+RNO-G moet het mogelijk maken om UHE neutrinos te observeren en deze thesis wenst bij te dragen aan de ontwikkeling
+van deze detector.
 
 Het blijkt dat de eigenschappen van het ijs een effect hebben op hoe radiogolven zich propageren door het ijs.
 Aangezien RNO-G gebouwd is in groenland op een groot volume ijs en ze werkt op het principe van radiogolven
@@ -266,17 +266,18 @@ vandaan komt zijn sterk afhankelijk van het ijsmodel.  Er werd vroeger een
 algoritme gemaakt dewelke enkel met het exponentieel model kan omgaan, maar
 door de recent gevonden tekortkomingen aan dit ijsmodel bleek het nodig een
 nieuw algoritme te bedenken. Zo'n algoritme, genaamd de \textit{iterative ray
-tracer} werd daarom uitgevonden (zie sectie \ref{sec:Iterative} maar bleek
-enkele tekortkomingen te hebben. Daarom bleek het nodig om een nieuw soort
+tracer} werd daarom uitgevonden (zie sectie \ref{sec:Iterative}) maar bleek
+enkele tekortkomingen te hebben. Daarom vonden wij het nodig om een nieuw soort
 algoritme uit te vinden dewelke steunt op dat algoritme genaamd de
-\textit{hybrid ray tracer}, dit algoritme kan gevonden worden in hoofdstuk
-\ref{chapter:hybrid}. Dit algoritme maakt het mogelijk om beide een meer
-accurate oplossing te vinden maar deze ook sneller te vinden.
+\textit{hybrid ray tracer}, de werking van dit algoritme kan gevonden worden in
+hoofdstuk \ref{chapter:hybrid}. Dit algoritme maakt het mogelijk om beide een
+meer accurate oplossing te vinden maar deze ook sneller te vinden.
 
 Maar om over te schakelen op een nieuw ijsmodel met een anders algoritme is het nodig aan te tonen dat er effectief
 een groot verschil is tussen het theoretische exponentiële model en de echte refractieindex, om dit aan te tonen 
-kunnen we gebruik maken van weerballonnen. Elke dag in de zomer, 2 keer per dag, wordt een weerballon gelanceerd. 
-Deze weerballon beschikt over een antenne dewelke een AM signaal uitstuurt aan 403MHz, als zo'n ballon toevallig
+kunnen we gebruik maken van weerballonnen. Elke dag in de zomer, 2 keer per dag, wordt een weerballon gelanceerd 
+op de RNO-G basis. 
+Deze weerballon beschikt over een antenne dewelke een sinusoïdaal signaal uitstuurt aan 403MHz, als zo'n ballon toevallig
 dicht bij een detector komt zal dit signaal kunnen gedetecteerd worden. Door een plane wave reconstructie te doen
 van dit signaal en gebruik te maken van de positie van de ballon kunnen we infereren wat de locale refractieve index
 is in het ijs. Deze procedure wordt volledig uitgelegd in hoofdstuk \ref{chap:WB}.
@@ -429,36 +430,38 @@ Neutrinos were kept in equilibrium through the interaction
 \end{equation}
 up until the universe cooled down to about 1MeV when they decoupled.
 To estimate the temperature of the neutrinos who decoupled at the start of the universe, 
-we can take a look at conservation of entropy \cite{Dodelson} from which we'll find that:
+we can take a look at conservation of entropy \cite{Dodelson} from which we'll find that
+the temperatures are related by:
 \begin{equation}
 	T_\nu = \left(\frac{4}{11}\right)^{1/3}T_\gamma
 \end{equation}
 Note that they decoupled before the photons making them lower in temperature.
 As $T_\gamma$ is the CMB temperature which, nowadays, is measured to be around
-2.7K or $2.3\times10^{-4}$. This would imply $T_\nu = 1.66\times 10^{-4}$ which
+2.7K or $2.3\times10^{-4}$MeV. This would imply $T_\nu = 1.66\times 10^{-4}$MeV which
 is rougly where the peak flux is located.  these primordial neutrinos are thus very
 low in energy.
 \subsection{Solar neutrinos}
 The sun fuses elements to release energy and thus keeping itself from collapsing in 
 on itself, with most of the various ways particles get fused, neutrinos get released as 
-is shown in figure \ref{fig:SunFusion}.
+is shown in figure \ref{fig:SunFusion} where the neutrinos are electron neutrinos.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/SunFusion.png}
+	\caption{illustration of the full fusion cycle in the sun}
 	\label{fig:SunFusion}
 \end{figure}
 Now with this and some information about the sun like the pressure and mass,
-the so-called "standard solar model" was made. This model predicted a certain
-amount of neutrinos to be hitting the earth from the previously mentioned
+the \textit{standard solar model} was made. This model predicted a certain
+amount of electron neutrinos to be hitting the earth from the previously mentioned
 thermonuclear fusion, it was however 3 times higher than the observed amount of
-neutrinos back at our planet. This led to a little bit of hysteria as this could've meant
+electron neutrinos back at our planet. This led to a little bit of hysteria as this could've meant
 that the sun was dying and we'd see the aftermath only in a couple of years.
 Through various experiments however, it became apparent that this was due to
 the different kinds of neutrinos oscillating into each other on their way to
 earth, i.e 2/3 of the original electron neutrinos had oscillated into mu and
 tau neutrinos. But for them to oscillate into eachother, they not
 only require mass but each flavor also should have a different mass as can be seen
-from an example 2D approximation to the transition probability:
+from an example 2D approximation to the transition probability\cite{Bellini_2014}:
 \begin{equation}
 	P(\nu_e\rightarrow\nu_\mu) = |\braket{\nu_\mu|\psi(L,T)}|^2 = c_\mu c_\mu^* = \sin ^2(2 \theta) \sin ^2\left(\frac{\Delta \phi_{12}}{2}\right)
 \end{equation}
@@ -470,9 +473,9 @@ In full generality (3D):
 \begin{equation}
 	\ket{\nu_\alpha} = \sum_iU_{\alpha i} \ket{\nu_i}
 \end{equation}
-With $U_{\alpha i}$ the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix. 
-This phenomenon has been observed e.g through the descrepency from the observed
-and expected neutrino events coming from a nuclear reactor \cite{Eguchi_2003}.
+With $U_{\alpha i}$ the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix.  This
+phenomenon has been experimentally verified e.g through the descrepency from
+the observed and expected neutrino events coming from a nuclear reactor \cite{Eguchi_2003}.
 \subsection{Supernovae}
 \label{sec:supernovae}
 A star starts its life as a ball of pure hydrogen. At the core, due to the
@@ -480,23 +483,25 @@ gravitational pressure of the outside plasma, fusion of hydrogen into deuterium
 and helium happens. Thus converting mass into energy. The pressure of this energy
 counteracts the pressure of gravity and the star is stable.
 
-When the hydrogen at the core runs out no more hydrogen can be fused. For
-stars with masses between $8M_\odot$ and $30M_\odot$ the
-fusion of heavier elements starts, this can't keep going on however as at some
-point the star starts to form the most stable element: iron. 
+When the hydrogen at the core runs out no more hydrogen can be fused. For stars
+with masses between $8M_\odot$ and $30M_\odot$ ($M_\odot$ being the mass of the sun)
+the fusion of heavier elements starts, this can't keep going on however as at
+some point the star starts to form the most stable element: iron. 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Binding_energy_curve.png}
-	\caption{Energy per nucleon i.f.o number of nucleons in the nucleus}
+	\caption{Energy curve showing that iron is the most stable atom}
 	\label{fig:BindingEnergyCurve}
 \end{figure}
 It costs energy
-to both make lighter elements than iron and heavier ones.  As the iron core
-builds up the outside pressure from the core starts to decrease as no new
-energy is released. This goes on until  the treshold of an iron core with a mass of 1.4$M_\odot$ known as the 
-Chandrasekhar limit is reached and the the inwards pressure becomes too large,
-making the electrons surrounding the iron core fuse with the protons (uud),
-creating neutrons (udd) and neutrinos, diagramatically shown in figure
+to both make lighter elements than iron and heavier ones as can be seen on
+figure \label{fig:BindingEnergyCurve}.  As the iron core builds up the outside
+pressure from the core starts to decrease as no new energy is released. This
+goes on until  the treshold of an iron core with a mass of 1.4$M_\odot$ known
+as the Chandrasekhar limit is reached and the the inwards pressure becomes too
+large compared to the outwards pressure, making the electrons surrounding the
+iron core fuse with the protons (uud), creating neutrons (udd) and neutrinos,
+diagramatically shown in figure
 \ref{fig:CoreFusion}.
 \begin{figure}
 	\centering
@@ -604,7 +609,7 @@ matter on the disc gets blown away, this phenomenon is termed a \textit{black ho
 The emission of high energy neutrinos from AGNs rests solely on the premise
 that relativistic protons of sufficiently high energy and energy density in the
 AGN's accretion disc will be present \cite{NASANeutrinos} as they may interact
-to create e.g pions whom decay. A direct consequence of the occurence of these
+to create e.g pions whom decay into neutrinos. A direct consequence of the occurence of these
 relativistic protons is the production of $\gamma$-rays of similar energies to
 those of the neutrinos, thus high energy neutrino- and $\gamma$-ray astronomy are
 closely related.  However, even though $\gamma$-ray photons can be produced
@@ -867,7 +872,7 @@ large ice sheets.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/GreenlandOP.pdf}
-  \caption{orthographic projection of Greenland}
+  \caption{orthographic projection of Greenland with the red star representing the approximate RNO-G location}
   \label{fig:GreenlandOP}
 \end{figure}
 The proposal for RNO-G, which was later funded and now in the construction
@@ -976,13 +981,13 @@ a certain part of the observed frequency spectrum
 \begin{figure}
 	\centering
 	\includegraphics[height=0.9\textheight]{figures/detector.pdf}	
-	\caption{illustration of the detector}
+	\caption{diagram showing the numbering and locations of the various antennae}
 	\label{fig:detector}
 \end{figure}
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{figures/station-map.png}	
-	\caption{map of the station}
+	\caption{planned station layout}
 	\label{fig:station map}
 \end{figure}
 \chapter{Ray tracing}
@@ -1484,35 +1489,29 @@ gets returned is the new "global best" originating from the secondary, if there 
 
 \chapter{Weather Balloon}
 \label{chap:WB}
-In this chapter we'll simulate radio signals coming from a weather
-balloon flying over the stations. Our goal is to use the plane waves 
-method to reconstruct the position of the weather balloon with the
-timing information inferred from the detected radio signals in the
-detectors.
-If this is somewhat succesfull it can be used (as we'll get to
-shortly) to find out the local index of refraction in the ice.
+In this chapter we'll infer information about the ice the detectors reside in
+using radio signals coming from a weather balloon flying over the stations. 
+We'll go about this by first finding the difference in timing between  
+channels by fitting the balloon's sinusoidal signal to the data, and
+then doing a plane wave reconstruction for different indices of refraction
+until we find one where the reconstructed signal gets close to the balloon.
+This procedure will be explained more in depth over the following sections.
 
-There are 2 changes that need to happen first to our algorithm for us to
-be able to simulate this: The air observers needs to be hard removed
-as to make a ray tracing possible from within the air to the
-detector and second off, we'll need to implement secondaries.
-The problem is essentially that a ray coming from the balloon 
-propagates to the ice, refracting and reflecting and then one 
-of the refracted rays hits the detector. 
-The "primary" ray is concidered the reflected one 
-so we adjusted the algorithm to look at the secondary that ends
-closest to the detector and return that ray. What this has as
-a consequence is that the "path" you get back is only the path
-from when it "became" a secondary (so only the part below the ice)
-but this can be easily fixed as the radio wave just propagates
-straight from the balloon to the beginning of that ray,  making 
-the full ray reconstructable by just assuming a line from the 
-balloon to the "start" of the ray.
+For us to find the timing we'll first make an educated guess, this can be done
+using our \textit{hybrid minimizer} algorithm, there is one change that need to
+happen first to our algorithm for us to be able to simulate this: The air
+observers needs to be hard removed as to make a ray tracing possible from
+within the air into the ice and onto the detector.
 
-From this information the propagation time from the balloon to the ice $t$ 
-can later be added to the time of the path in the ice by measuring the 
-length $d$ of the drawn line from the balloon to the beginning of the recorded path, 
-setting the speed of radio waves in air to c and then just adding $t = d/c$.
+Due to the way our algorithm works the time the ray took is only from when it
+became a secondary\footnote{This might get fixed in the future but as
+secondaries weren't needed for most applications we deemed it fine for the
+moment}, this information is insufficient as we want the full travel time.  The
+propagation time from the balloon to the ice $t$ can later be added to the time
+of the path in the ice by measuring the length $d$ of the drawn line from the
+balloon to the beginning of the recorded path, setting the speed of radio waves
+in air to the speed of light c and then just adding $t = d/c$ to the time found
+from the algorithm.
 \section{Plane Wave Reconstruction}
 Now having modified our ray tracer, the first problem we'll consider is
 plane wave reconstruction of the original position, an example path
@@ -1560,12 +1559,12 @@ information, so we'll perform a scan by minimizing something we define here as
 	- \frac{\cos\theta \Delta z}{v}
   \label{eqn:PlaneWave}
 \end{equation}
-If we have more than 1 detector however (which of course will be the case in RNO-G),
-we'll need to specifiy various correlation functions.
-E.g if we have four detectors labeled 0 to 3 we'll have to construct
-correlation functions between detectors 0\&1, 0\&2, 0\&3, 1\&2, 1\&3 and 2\&3 .
-As all of these correlation functions will have different
-sizes we'll norm them as follows:
+If we want to use more than 2 detectors at once however (which can be done in
+the case of RNO-G), we'll need to specifiy various correlation functions.  E.g
+if we have four detectors labeled 0 to 3 we'll have to construct correlation
+functions between detectors 0\&1, 0\&2, 0\&3, 1\&2, 1\&3 and 2\&3 .  As all of
+these correlation functions will have different sizes we'll norm them as
+follows:
 \begin{equation}
 	Correlation_{Normed}(\theta) =
 	\frac{Correlation(\theta)}{\int Correlation(\theta)\Delta
@@ -1587,7 +1586,7 @@ because of the hybrid ray tracer having that high of a precision.
 	\label{fig:SummedCorrelation}
 \end{figure}
 After this we can sum them, as shown in figure \ref{fig:SummedCorrelation}, and look
-where it reaches it's minimum. Using this angle we can then reconstruct a ray and guess 
+at which angle it reaches it's minimum. Using this angle we can then reconstruct a ray and guess 
 where the weather balloon is approximately, this is illustrated in figure 
 \ref{fig:WeatherBalloonPositionReconstruction}. 
 \section{Is the goal feasible?}
@@ -1603,9 +1602,7 @@ plane wave reconstruction with the recorded timing and the positional data from
 the weather balloon as the plane wave reconstruction is heavily dependent on
 the index of refraction (as can be seen in equation \ref{eqn:PlaneWave}). As
 was already established we'll consider the index of refraction in the middle of
-all the detectors (instead of a different one for every pair of detectors),
-after experimenting this doesn't seem to have an impact on the accuracy of the
-plane wave reconstruction. 
+all the detectors.
 
 Now let's ask ourselves the question, within which angles should the
 weather balloon fly for the data to be useful?  As was previously stated, the
@@ -1615,7 +1612,7 @@ which angles are acceptable? Note that not only angle but also height will event
 play a role in the accuracy, the angle however gives a good starting point.
 To determine this our method works as follows: 
 
-we vary the position of the weather balloon in the x direction (keeping the
+We vary the position of the weather balloon in the x direction (keeping the
 height constant at 500m), simulate the ray path to the channels 0 to 3 and then fit n
 such that the difference between the reconstructed angle (from the plane wave
 method) and the direct angle (angle between the middle of channels 0-3 and the
@@ -1642,11 +1639,10 @@ to be less than 10°.
   \caption{Height data viewed in ROOT}
   \label{fig:BobsWeatherBalloonHeight}
 \end{figure}
-An example path of a weather balloon is shown in figure
-\ref{fig:ExampleBalloonPath}, looking specifically at the height information
-recorded by the weather balloon in a .root file using
-ROOT\footnote{\url{https://root.cern/}} we get what is shown in figure
-\ref{fig:BobsWeatherBalloonHeight}. It can be seen that the elevation varies
+An example path of a weather balloon is shown in figure (???), looking
+specifically at the height information recorded by the weather balloon in a
+.root file using ROOT\footnote{\url{https://root.cern/}} (figure
+\ref{fig:BobsWeatherBalloonHeight}), it can be seen that the elevation varies
 between 3228m (read the graph as: Over a 1000 data entries at that height) and
 22755m (entries go to zero after that height).  This is relative to sea-level,
 looking at the height map of greenland as shown in figure
@@ -1657,11 +1653,12 @@ looking at the height map of greenland as shown in figure
   \caption{Height map of greenland}
   \label{fig:HeightMapGreenland}
 \end{figure}
-this is obvious.  It's quite difficult to work directly with the global geographic
-coordinate system (longitudinal, latitude and elevation coordinates),
-that's why we convert them to local ENU coordinates (north, east, up)
-relative to the 'DISC' which is located at 72.58279265212887 latitude,
--38.45581495328228 longitude and 3251.9489147560234 elevation.
+this is obvious.  It's quite difficult to work directly with the global
+geographic coordinate system (longitudinal, latitude and elevation
+coordinates), that's why we convert them to local ENU coordinates (north, east,
+up) relative to the 'DISC' which is a point in the base camp located at
+72.58279265212887 latitude, -38.45581495328228 longitude and 3251.9489147560234
+elevation.
 
 Now what would our $<$10° policy entail? And is it even possible? 
 Say we take a look at station Terianniaq (station 12)
@@ -1676,7 +1673,7 @@ entry (there are $>$12000 entries) individually and compute the angle the
 balloon makes with the detector by first converting the location of the balloon
 in ENU coordinates, then calculating the horizontal distance ($\sqrt{(x-x')^2 +
 (y-y')^2}$) then the relative vertical distance $|z - z'|$ and then from those
-compute the angle ($tan(\theta) = \frac{Hor.}{Vert.}$) doing this and recording
+compute the angle ($\tan(\theta) = \frac{Hor.}{Vert.}$) doing this and recording
 when the balloon gets close enough to get below the 10° mark we get figure
 \ref{fig:ExampleBalloonPathCrossing12LessThan10}. We thus see that in this
 example the $<10$° policy is viable.
@@ -1686,8 +1683,8 @@ We'll be looking at the data recorded over the summer of
 2022, more particularly 15/06/2022 - 30/09/2022.
 The positional data of the weather balloons was obtained from the
 \url{ftp1.esrl.noaa.gov} website using the rno-g-sonde script of the official
-RNO-G github page .After looping through every weather
-balloon gpx file recorded in the summer of 2022 and seeing where it get's
+RNO-G github page. After looping through every weather
+balloon gpx file recorded in the summer of 2022 and seeing where it gets
 within 10 degrees we get the data shown in appendix \ref{app:10Deg}, even
 though this is quite a lot of data there's still another step that we could do
 to broaden the amount of usable data.
@@ -1702,7 +1699,8 @@ n=1 and we'll need to minimize the horizontal distance from the ray at the
 height of the balloon and the balloon, not the angle.  
 The full algorithm thus goes as follows: We first reconstruct the
 plane wave launch angle $\theta_1$ by minimizing the correlation function
-previously defined, this gives us a function
+previously defined, we can use this angle and the height of the middle of the
+concerned detectors to derive the function
 \begin{equation}
 	z = a_{InIce}*x + b_{InIce}
 	\label{eqn:InIcePlaneWave}
@@ -1740,7 +1738,7 @@ plane\_wave\_with\_snell.py}
 	\caption{epsilon IFO possible angles from channels 0-3 with refraction at the surface}
 	\label{fig:EpsilonIFODirectSnell}
 \end{figure}
-As you can see we can now go up to 15° and still have less than 1\% error!  The
+As you can see we can now go up to 15° and still have a relative accuracy of less than 1\%!  The
 only drawback of this method is that we need to assume the index of refraction
 to be 1.27 at the surface of the ice, if this isn't the case in some places our
 predictions won't be accurate.
@@ -1758,13 +1756,6 @@ predictions won't be accurate.
   \caption{Path traced out by a weather balloon released at 20/08/2022}
   \label{fig:ExampleBalloonPathCrossing12}
 \end{figure}
-\begin{figure}
-  \centering
-	\includegraphics[width=0.7\textwidth]{WeatherBalloonPath.png}
-  \caption{Path traced out by a weather balloon released by Bob Oeyen, the checkmark indicating the start and the house mark
-  the end}
-  \label{fig:ExampleBalloonPath}
-\end{figure}
 
 \begin{figure}
 	\centering
@@ -1779,8 +1770,10 @@ predictions won't be accurate.
 	\label{fig:WeatherBalloonClosePositionReconstruction}
 \end{figure}
 \subsection{Influence of height on Epsilon}
-In the previous sections we've assumed the height to be 500m, does changing this influence the behaviour of $\epsilon$ in some way?
-The answer is, at first surprisingly, yes. As can be seen in figure \ref{fig:EpsWithHeight}.
+In the previous sections we've assumed the height of the weather balloon to be
+500m, does changing this height influence the behaviour of $\epsilon$ in some
+way?  The answer is, at first surprisingly, yes. As can be seen in figure
+\ref{fig:EpsWithHeight} the relative accuracy can vary with height for the same angles.
 \begin{figure}
 	\centering
 	\includegraphics[height=0.5\textheight]{figures/EpsilonWithHeight.pdf}
@@ -1788,13 +1781,14 @@ The answer is, at first surprisingly, yes. As can be seen in figure \ref{fig:Eps
 	\label{fig:EpsWithHeight}
 \end{figure}
 This has, as a consequence, that if we manage to get a hold on some
-usable data (say the balloon's angle is less than 5°) the $\epsilon$
+usable data the $\epsilon$
 might still be quite large (if the height is really large).
+Because of this we'll have to re-compute $\epsilon$ exactly for 
+every measurement we do.
 \newpage
 \section{Error on prediction}
 Running ahead on the actual measurements, let's estimate how accurate our
-predictions will be.  For the moment we're only
-interested in the deep channels 0-3. Let's label the vertical spatial accuracy,
+predictions will be. Let's label the vertical spatial accuracy,
 i.e how accurately we know the height of these channels, $\delta z$\footnote{meaning if we have a measurement $z_i$ the true value is within $z_i
 \pm \delta z$ with 95\% certainty}. And the timely accuracy, or how accurate the
 vpol timing characteristics are, $\delta t$. If we want to fit n, we first
@@ -1844,8 +1838,8 @@ $\vec{r}$ the position of the balloon.  Our final error on n is thus:
   \frac{\mathcal{C}_i^2}{{\Delta z_i}^2}{\delta t}^2\right)}
   \label{eqn:total error}
 \end{equation}
-If we assume the $\epsilon$ to overestimate the index of refraction the same way in real
-life as in the simulation however, our estimated $n$ can be corrected as
+If we \textbf{assume the $\epsilon$ to overestimate the index of refraction the same way in real
+life as in the simulation} however, our estimated $n$ can be corrected as
 \begin{equation}
   n_{\text{corrected}} (\vec{r})= \frac{n(\vec{r})}{\epsilon(\vec{r}) + 1}
 \end{equation}
@@ -1883,15 +1877,14 @@ determined by the sample rate of the antenna).
 \newpage
 \section{Fitting the index: Channels 0 and 3}
 Now that we know our goal to be feasible, let's analyse some data.  As we'll
-start by just analysing one event, let's take one of the best events possible
-for our analysis.  A close look at graph \ref{fig:EpsilonIFODirect} shows that
-events under 5° at a height of 500m produce an $\epsilon$ of less than 0.22\%,
-implying that if we measure n to be 1.7407 our $\epsilon$ will only be 0.0038.
-A good start will thus be finding moments when the balloon gets to within a 5\%
-angle, note that $\epsilon$ is height dependent so we'll have to calculate it
-afterwards.  After looping through all the balloon positional files and only
-outputting the $<5°$ ones we get some timeframes where balloons were actually
-close enough (note that $<5°$ almost never happens at low heights).
+start by just analysing one event, let's take a very good one for our analysis.
+A close look at graph \ref{fig:EpsilonIFODirect} shows that events under 5° at
+a height of 500m produce an $\epsilon$ of less than 0.22\%, implying that if we
+measure n to be 1.7407 our $\epsilon$ will only be 0.0038.  A good start will
+thus be finding moments when the balloon gets to within a 5\% angle, note that
+$\epsilon$ is height dependent so we'll have to calculate it afterwards.  After
+looping through all the balloon positional files and only outputting the $<5°$
+ones we get the timeframes shown in appendix \ref{app:5Deg}.
 
 If we search in the DESY database
 \footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within the calculated
@@ -1899,8 +1892,8 @@ timeframes for the particular detectors where the balloon gets close enough to,
 AND where the 403MHz signal coming from the Ballon (see figure
 \ref{fig:BalloonFreq}) is detected in the deep channels, the events of the 7th
 of september stands out; at 11:28:10,  just before the $<5°$ passby between
-11:28:47 and 11:28:49,the balloon gets quite close to detector 23 and shows a
-clear 403MHz signal at the phased array, as shown in figure (???).
+11:28:47 and 11:28:49, the balloon gets quite close to detector 23 and shows a
+clear 403MHz signal at the phased array, as shown in figure \ref{fig:freqs03}.
 
 Now to calculate the differences in timing for this received signal, the code
 we built for this is called FitN.py and stored at the repository
@@ -1941,9 +1934,9 @@ origin.  i.e our new balloon position will be
 	\textit{RelBalloon} = \textit{BalloonPosition} - \textit{StationPosition}
 \end{equation}
 
-And as we might want to plot this later, due to the cylindrical symmetry, we
-can rotate the coordinates to get rid of our y-axis. We can do this by defining
-the radius:
+And as we might want to plot this later, due to the cylindrical symmetry of the
+ice model, we can rotate the coordinates to get rid of our y-axis. We can do
+this by defining the radius:
 
 \begin{equation}
 	r := \sqrt{\textit{RelBalloon}_x^2 + \textit{RelBalloon}_y^2}
@@ -1968,7 +1961,7 @@ get\_frequencies() and the recorded spectrum corresponding to these frequencies
 with get\_frequency\_spectrum() , note that the last two do a FFT on our data.
 We know that the signal sent out by the weather balloon is a sine wave with a frequency of 403MHz; as the data is measured in nanoseconds the frequency is:
 \begin{equation}
-	f = 403.125\text{MHz} = 403.125\times 10^{-3} \frac{1}{\text{ns}}
+	f = 403\text{MHz} = 403\times 10^{-3} \frac{1}{\text{ns}}
 \end{equation}
 The recorded spectrum of both channels is given in figure \ref{fig:freqs03}, we
 observe a clear spike at 0.403GHz.
@@ -2029,7 +2022,9 @@ with
 Herein $t$ is an array going from 0 to $3/f$ as to be able to fit 3 periods
 with intervals of 0.1ns.  This template gets automatically shifted by the radiotools
 correlation module with steps of 0.1ns and each time the correlation with the
-data gets computed. After this
+data gets computed as is illustrated in figure (???)
+
+. After this
 we get what's (partially) shown in figure \ref{fig:CorrCh0}.
 \begin{figure}
 	\centering
