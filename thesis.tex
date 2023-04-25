@@ -677,9 +677,6 @@ sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously
 measure gravitational waves with the Einstein telescope, neutrinos with RNO-G,
 photons with various telescopes and muons with a muon detector.
 \newpage
-\section{Current research}
-Talk about first IceCUBE something?
-\newpage
 \chapter{Radio neutrino detection}
 Neutrinos on their own aren't detectable, unlike say protons we can't expect
 them to produce brehmsstrallung or any other kind of directly observable
@@ -1503,7 +1500,7 @@ are presented below:
 \end{itemize}
 The hybrid ray tracer is thus 33.7\% faster than the iterative ray tracer, the speed of the analytic ray tracer
 has a difference to the other two that might seem quite overwhelming but this might get mitigated in the future if 
-part of the hybrid ray tracer gets re-written in a compiled language.
+part of the hybrid ray tracer gets re-written in a compiled language (like c++).
 
 \begin{figure*}
 	\centering
@@ -1575,30 +1572,34 @@ trajectory}
 	\label{fig:Plane Wave}
 \end{figure}
 The plane wave reconstruction can easily be understood using figure
-\ref{fig:Plane Wave}, the waves coming in are drawn in blue and
-make a certain angle with the detectors. the top detector (top box)
-detects the wave at a certain time $t_1$, the bottom detector
-detects it at a time $t_2$. In our database, after decoding the
-signal we'd thus see that these two detectors got a signal $\Delta t
-= t_1 - t_2$ seconds apart from eachother. Now ideally this is
-equal to the time $\Delta t'$ which is the time it took the wave
-to propagate that distance which we can calculate from 
-basic trigonometry and dimensional analysis:
+\ref{fig:Plane Wave}, the radio waves coming from the weather balloon are drawn
+in blue and make a certain angle with the detectors. the top detector (top box)
+detects the wave at a certain time $t_1$, the bottom detector detects it at a
+time $t_2$. In our database, after decoding the signal we'd thus see that these
+two detectors got a signal $\Delta t = t_1 - t_2$ seconds apart from eachother.
+Now ideally this is equal to the time $\Delta t'$ which is the time it took the
+wave to propagate that distance which we can calculate from basic trigonometry
+and dimensional analysis:
 \begin{equation}
 	\Delta t' = \frac{m}{(m/s)} = (s/m)*m = v^{-1} * m = v^{-1} \cos\theta \Delta z
+	\label{eqn:deltataccent}
 \end{equation}
-With $v = c/n$ the local speed of light. As previously discussed this n is
-depth-dependent and for comparison with the fitted index we'll be using the
-models local index of refraction. Say we have 4 detectors at depths -94,-95,-96,-97,
-this then would mean that we'll set the index of refraction at a depth of -95.5, 
-exactly inbetween:
-\begin{mintedbox}{python}
-ice = medium.greenland_simple()
-n_exact = ice.get_index_of_refraction(np.array[0,0,-95.5])
-\end{mintedbox}
-Now in reality we don't know the angle a priori, we'll only have the timing
-information, so we'll perform a scan by minimizing something we define here as 
-\textit{the correlation function}:
+With $v = c/n$ the local speed of light and n the index of refraction at the depth inbetween
+the considered channels. 
+Thus if we know the angle $\theta$, the time $\Delta t'$ and the distance between the channels $\Delta z$
+we could infer the index of refraction at a certain depth as can be seen by reforming equation \ref{eqn:deltataccent}:
+\begin{equation}
+	n = \frac{\Delta t'}{\Delta z} \frac{c}{\cos\theta}
+	\label{eqn:deltataccent}
+\end{equation}
+%\begin{mintedbox}{python}
+%ice = medium.greenland_simple()
+%n_exact = ice.get_index_of_refraction(np.array[0,0,-95.5])
+%\end{mintedbox}
+In reality we don't know the angle a priori, we'll only have the recorded
+timing information $\Delta t$ and the difference in channel height $\Delta z$.
+So to this end we'll perform a scan by choosing some index of refraction $n_1$ and
+minimizing the \textit{correlation function}:
 \begin{equation}
 	Correlation(\theta) := \Delta t - \Delta t' = \Delta t
 	- \frac{\cos\theta \Delta z}{v}
@@ -1626,7 +1627,7 @@ because of the hybrid ray tracer having that high of a precision.
 \end{figure}
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{SummedCorrelation.pdf}
+	\includegraphics[width=0.8\textwidth]{SummedCorrelation.pdf}
 	\caption{Example sum of the normed correlation functions}
 	\label{fig:SummedCorrelation}
 \end{figure}
@@ -1634,20 +1635,26 @@ After this we can sum them, as shown in figure \ref{fig:SummedCorrelation}, and 
 at which angle it reaches it's minimum. Using this angle we can then reconstruct a ray and guess 
 where the weather balloon is approximately, this is illustrated in figure 
 \ref{fig:WeatherBalloonPositionReconstruction}. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{WeatherBalloonPositionReconstruction.pdf}
+	\caption{Example plane wave reconstruction of weather balloon position}
+	\label{fig:WeatherBalloonPositionReconstruction}
+\end{figure}
+We can calculate the difference in distance between the weather balloon and the plane wave at the same height
+and label this $d_1$, then we can choose another index of refraction $n_2$ which again corresponds to a difference
+$d_2$ and so forth. At the end we take the index of refraction $n_i$ which corresponds to the minimal distance $d_i$
+as the fitted index of refraction.
+
 \section{Is the goal feasible?}
+\subsection{No assumptions}
 In the example reconstruction illustrated in figure
 \ref{fig:WeatherBalloonPositionReconstruction} the difference in angle between
 direct to balloon and plane wave reconstruction is already quite small
 (0.65329617\%) but as the balloon gets closer to the detector this reduces
-significantly as is shown in figure
-\ref{fig:WeatherBalloonClosePositionReconstruction} where the difference in
-angle between direct to balloon and plane wave reconstruction is only
-0.06788141\%. Our goal is to find the local index of refraction n by using the
+significantly. As previously layed out, our goal is to find the local index of refraction n by using the
 plane wave reconstruction with the recorded timing and the positional data from
-the weather balloon as the plane wave reconstruction is heavily dependent on
-the index of refraction (as can be seen in equation \ref{eqn:PlaneWave}). As
-was already established we'll consider the index of refraction in the middle of
-all the detectors.
+the weather balloon.
 
 Now let's ask ourselves the question, within which angles should the
 weather balloon fly for the data to be useful?  As was previously stated, the
@@ -1659,9 +1666,8 @@ To determine this our method works as follows:
 
 We vary the position of the weather balloon in the x direction (keeping the
 height constant at 500m), simulate the ray path to the channels 0 to 3 and then fit n
-such that the difference between the reconstructed angle (from the plane wave
-method) and the direct angle (angle between the middle of channels 0-3 and the
-balloon) is the smallest possible.  Then we compare the n we have fit to the
+such that the difference between the balloon position and the plane wave at the same
+height is as small as possible.  Then we compare the n we have fit to the
 one we know from the model at that position.  We quantise the discrepency
 between these two indices of refraction using what we here define as the
 \textit{relative accuracy}:
@@ -1678,49 +1684,28 @@ to be less than 10°.
 	\caption{Epsilon in function of the direct angle}
 	\label{fig:EpsilonIFODirect}
 \end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{BobsWeatherBalloonHeight.pdf}
-  \caption{Height data viewed in ROOT}
-  \label{fig:BobsWeatherBalloonHeight}
-\end{figure}
-An example path of a weather balloon is shown in figure \ref{fig:ExampleBalloonPathCrossing12}, looking
-specifically at the height information recorded by the weather balloon in a
-.root file using ROOT\footnote{\url{https://root.cern/}} (figure
-\ref{fig:BobsWeatherBalloonHeight}), it can be seen that the elevation varies
-between 3228m (read the graph as: Over a 1000 data entries at that height) and
-22755m (entries go to zero after that height).  This is relative to sea-level,
-looking at the height map of greenland as shown in figure
-\ref{fig:HeightMapGreenland}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.4\textwidth]{GreenlandHeight.png}
-  \caption{Height map of greenland}
-  \label{fig:HeightMapGreenland}
-\end{figure}
-this is obvious.  It's quite difficult to work directly with the global
-geographic coordinate system (longitudinal, latitude and elevation
-coordinates), that's why we convert them to local ENU coordinates (north, east,
-up) relative to the 'DISC' which is a point in the base camp located at
-72.58279265212887 latitude, -38.45581495328228 longitude and 3251.9489147560234
-elevation.
+Now what would our $<$10° policy entail? And is it even possible?  Say we take
+a look at station Terianniaq (station 12) and see what our policy entails,
+it is located at 72.6000868058195° N -38.4962265332872° W in the global geographic
+coordinate system (longitudinal, latidude and elevation), this is quite
+difficult to work with directly. For this reason we first convert the station's location to 
+local ENU coordinates (east, north, up) relative to the the 'DISC' which is a point in the base camp located at
+72.58279265212887 latitude, -38.45581495328228 longitude and 3251.9489147560234 elevation.  
 
-Now what would our $<$10° policy entail? And is it even possible? 
-Say we take a look at station Terianniaq (station 12)
-it's located at 72.6000868058195° N -38.4962265332872° W.
-converting this into ENU coordinates we get -137.67250176003688N
-1727.5184983294744E, we then set our "up" to be -95.5m as this is the
-approximate location of the middle of channels 0-3.  Now looking at e.g the
-Balloon path recorded on the 20th of august 2022 (figure
+After having converted station 12's position into ENU coordinates we get
+-137.67250176003688N 1727.5184983294744E, we then set our "up" to be -95.5m as
+this is the approximate location of the middle of channels 0-3.  Now looking at
+e.g the Balloon path recorded on the 20th of august 2022 (figure
 \ref{fig:ExampleBalloonPathCrossing12}) we see that the balloon crosses paths
-closely with detector 12, but how close was this encounter? To quantize this we can take a look at every data
-entry (there are $>$12000 entries) individually and compute the angle the
-balloon makes with the detector by first converting the location of the balloon
-in ENU coordinates, then calculating the horizontal distance ($\sqrt{(x-x')^2 +
-(y-y')^2}$) then the relative vertical distance $|z - z'|$ and then from those
-compute the angle ($\tan(\theta) = \frac{Hor.}{Vert.}$) doing this and recording
-when the balloon gets close enough to get below the 10° mark we get figure
-\ref{fig:ExampleBalloonPathCrossing12LessThan10}. We thus see that in this
+closely with detector 12, but how close was this encounter? To quantize this we
+can take a look at every balloon positional data entry (there are $>$12000
+entries) individually and compute the angle the balloon makes with the detector
+by first converting the location of the balloon into ENU coordinates, then
+calculating the lateral distance ($\sqrt{(x-x')^2 + (y-y')^2}$) then the
+relative vertical distance $|z - z'|$ and then from those compute the angle
+($\tan(\theta) = \frac{Hor.}{Vert.}$) doing this and recording when the balloon
+gets close enough to get below the 10° mark we get the yellow part of figure
+\ref{fig:ExampleBalloonPathCrossing12}. We thus see that in this
 example the $<10$° policy is viable.
 
 Now how much data do we have that way? 
@@ -1729,8 +1714,8 @@ We'll be looking at the data recorded over the summer of
 The positional data of the weather balloons was obtained from the
 \url{ftp1.esrl.noaa.gov} website using the rno-g-sonde script of the official
 RNO-G github page. After looping through every weather
-balloon gpx file recorded in the summer of 2022 and seeing where it gets
-within 10 degrees we get the data shown in appendix \ref{app:10Deg}, even
+balloon gpx file recorded in the summer of 2022 and seeing when it gets
+within 10 degrees from any detector we get the data shown in appendix \ref{app:10Deg}, even
 though this is quite a lot of data there's still another step that we could do
 to broaden the amount of usable data.
 \subsection{Refraction at the surface}
@@ -1740,8 +1725,8 @@ surface for our plane wave reconstruction. This would mean that we'd follow
 analogous steps as our previous analysis, i.e doing a plane wave reconstruction
 from the difference in timing and trying to fit the index of refraction, only
 now the plane wave abides with snell's law at the surface, going from n=1.27 to
-n=1 and we'll need to minimize the horizontal distance from the ray at the
-height of the balloon and the balloon, not the angle.  
+n=1. 
+
 The full algorithm thus goes as follows: We first reconstruct the
 plane wave launch angle $\theta_1$ by minimizing the correlation function
 previously defined, we can use this angle and the height of the middle of the
@@ -1796,12 +1781,6 @@ predictions won't be accurate.
   \label{fig:ExampleBalloonPathCrossing12}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{WeatherBalloonPositionReconstruction.pdf}
-	\caption{Example plane wave reconstruction of weather balloon position}
-	\label{fig:WeatherBalloonPositionReconstruction}
-\end{figure}
 
 \subsection{Influence of height on Epsilon}
 In the previous sections we've assumed the height of the weather balloon to be
@@ -1810,7 +1789,7 @@ way?  The answer is, at first surprisingly, yes. As can be seen in figure
 \ref{fig:EpsWithHeight} the relative accuracy can vary with height for the same angles.
 \begin{figure}
 	\centering
-	\includegraphics[height=0.5\textheight]{figures/EpsilonWithHeight.pdf}
+	\includegraphics[height=0.4\textheight]{figures/EpsilonWithHeight.pdf}
 	\caption{How varying the height influences $\epsilon$ over the same angles}
 	\label{fig:EpsWithHeight}
 \end{figure}
@@ -1819,7 +1798,6 @@ usable data the $\epsilon$
 might still be quite large (if the height is really large).
 Because of this we'll have to re-compute $\epsilon$ exactly for 
 every measurement we do.
-\newpage
 \section{Error on prediction}
 Running ahead on the actual measurements, let's estimate how accurate our
 predictions will be. Let's label the vertical spatial accuracy,
@@ -1879,10 +1857,12 @@ life as in the simulation} however, our estimated $n$ can be corrected as
 \end{equation}
 and our error becomes only the second part of equation \ref{eqn:total error}.
 As the error on the position of the channels is not yet fully known most of
-this section mainly serves as a future reference to calculate the additional
-errors on the indices of refraction that will be calculated in the next
-sections within this chapter. However the error on timing can be estimated from
-the sampling rate, as if we have a sampling rate of e.g 3.2GHz then the antenna
+this section mainly serves as a future reference when people continue this
+work, however it can be safely assumed that the timely error will be of much
+higher importance than the positional error, as we'll get to in section (???).  
+
+The error on timing can be estimated, contrary to the positional error, from the
+sampling rate, as if we have a sampling rate of e.g 3.2GHz then the antenna
 will take a measurement every 
 \begin{equation}
 	\delta t = \frac{1}{3.2\text{GHz}} = 0.3125\text{ns}
@@ -1923,8 +1903,7 @@ ones we get the timeframes shown in appendix \ref{app:5Deg}.
 If we search in the DESY database
 \footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within the calculated
 timeframes for the particular detectors where the balloon gets close enough to,
-AND where the 403MHz signal coming from the Ballon (see figure
-\ref{fig:BalloonFreq}) is detected in the deep channels, the events of the 7th
+AND where the 403MHz signal coming from the Ballon is detected in the deep channels, the events of the 7th
 of september stands out; at 11:28:10,  just before the $<5°$ passby between
 11:28:47 and 11:28:49, the balloon gets quite close to detector 23 and shows a
 clear 403MHz signal at the phased array, as shown in figure \ref{fig:freqs03}.
@@ -1979,12 +1958,12 @@ this by defining the radius:
 and just setting this equal to $\textit{Balloon}_x$ and setting $\textit{Balloon}_y$ to
 zero (equivalent to setting $\theta= 0$ in a rotation).
 
-Now we don't have the position of our individual channels yet, only of the
+We don't have the position of our individual channels yet, only of the
 station itself, these can however easily be obtained using the
 get\_relative\_position module on our detector object, as we chose our station
 to be the center of the coordinate system, these relative positions are
 absolute positions of the channels in our frame of reference. Using
-these it thus doesn't matter where position of the station was defined.
+these it thus doesn't matter where the position of the station was defined.
 
 \subsection{Signal analysis and initial guesses}
 Now that we have our geometry, let's analyse the data for the channels 0 and 3,
@@ -1993,7 +1972,8 @@ object we can get the recorded voltages with the get\_trace() module, the
 recorded times with the get\_times() module, the recorded frequencies with the
 get\_frequencies() and the recorded spectrum corresponding to these frequencies
 with get\_frequency\_spectrum() , note that the last two do a FFT on our data.
-We know that the signal sent out by the weather balloon is a sine wave with a frequency of 403MHz; as the data is measured in nanoseconds the frequency is:
+We know that the signal sent out by the weather balloon is a sine wave with a
+frequency of 403MHz; as the data is measured in nanoseconds the frequency is:
 \begin{equation}
 	f = 403\text{MHz} = 403\times 10^{-3} \frac{1}{\text{ns}}
 \end{equation}
@@ -2014,18 +1994,12 @@ this is all non-physical noise as the Vpol antenna's range only goes from
 0.15GHz to 0.6GHz \cite{Aguilar_2021} that's why we'll first pass this signal
 trough a virtual butterworth bandpass filter.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{Frequencies.pdf}
-  \caption{Frequencies sent out by the weather balloon}
-  \label{fig:BalloonFreq}
-\end{figure}
 After passing the signal through the filter we'd also like to upsample the
 signal as to increase the resolution, this can be done using the resample()
 module and we'll upsample towards 10GHz increasing our timely accuracy from
 0.3125ns to 0.1ns.  After filtering and upsampling we have some voltage
 response as shown in figure \ref{fig:VoltageAfterFilter}, we wish to find a
-sine wave in this signal.
+sine wave coming from the weather balloon in this signal.
 
 \begin{figure}
 	\centering
@@ -2114,8 +2088,8 @@ In full all possibilities are (in order of increasing depth)
 \footnote{In all calculations the channel 1 had the least good
 signal, as such if these calculations ever get revised try to take
 this into account}\footnote{we also left out the possibility of
-combinations as 0\&1\&2\&3 as the error would be too large
-but these are possible with the program}:
+combinations as 0\&1\&2\&3 as the error would be quite large
+and there would be no additional value but these are possible with the program}:
 \begin{center}
 \begin{tabular}{||c c c c c c c c||}
  \hline
@@ -2130,6 +2104,7 @@ but these are possible with the program}:
  \hline
 \end{tabular}
 \end{center}
+Note that all the corrected fits have the exponential model's value within the margin of error.
 \section{Channels 6 and 7}
 A very interesting depth is between channels 5 and 7  as, looking at
 the density profile shown in figure \ref{fig:DensityMeasurements}
@@ -2147,6 +2122,8 @@ july 11:18:41 and falls within the $<5$° mark:
  \hline
 \end{tabular}
 \end{center}
+Note that none of the indices whom are found have the exponential model's index
+within them.
 Let's use Schytt's equation \ref{eqn:Schytt} to see where
 on the density vs depth curve these values lie:
 \begin{align}
@@ -2176,30 +2153,82 @@ If we plot this we get what's shown in figure
 \ref{fig:BalloonDensity6And7}.
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{DensityBalloonWithZoom.pdf}
+	\includegraphics[width=0.9\textwidth]{DensityBalloonWithZoom.pdf}
 	\caption{graph showing where the balloon data density is with
 	respect to the other measurements and the exponential model}
 	\label{fig:BalloonDensity6And7}
 \end{figure}
-
+Note that the calculated values neither line up with the density measurements nor with the exponential model,
+but somewhere inbetween. This might be caused by one of the following reasons:
+\begin{itemize}
+	\item The error bar is too small
+	\item Schytts law isn't fully correct
+	\item The density measurements aren't correct
+	\item You cannot correct the index of refraction the same way in real life
+		with $\epsilon$ as in the simulation
+\end{itemize}
+Up until now the error on the height of the individual channels hasn't been
+taken into account, let's see how big the expected error is. A fair anecdotal
+estimate for the positional accuracy is 0.005m, how would this influence the
+accuracy estimate? For this let's take a look at equation \ref{eqn:total
+error}, for channels 6 and 7 the factor containing $\delta z$ has an order of magnitude of
+($c^2$ is added to make the value dimensionless):
+\begin{equation}
+	c^2\frac{\Delta t_i^2}{\Delta z_i^4}\delta z^2 \sim \mathcal{O}(10^{-7}) 
+\end{equation}
+whilst
+\begin{equation}
+	c^2\frac{\delta t^2}{\Delta z_i^2} \sim \mathcal{O}(10^{-6}) 
+\end{equation}
+This is an order of magnitude difference, so if the error estimate is wrong it
+is probably not caused by spatial inaccuracy.  The density measurements do
+actually show quite a spread for nearly the same values so there might be a
+problem there.  As for the Schytt's equation, wheter it is a valid
+approximation or not will be descided when enough reliable data is available.
+Lastly the $\epsilon$ can't be used argument also has its flaws, as if the 
+density profile would scale exactly exponentially then the $\epsilon$ corrected
+index would exactly fall on the exponentially expected index.
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
+The hybrid ray tracer developed over the course of this thesis and reported in
+chapter \ref{chapter:hybrid} was a succes, not only is it more accurate than
+it's predecessors but it's also faster.  The accuracy of the ray tracer also
+makes it perfectly suitable for very fine precision simulations as used within
+the Balloon radio wave measurements.
+
+The use of weather balloons to estimate the index of refraction as was 
+reported in \ref{chap:WB} was also 
+done succesfully even though it yielded quite unexpected results, not
+only were the index of refraction measured via this method deviating
+from the model (with more than $2\sigma$) but also deviating from
+the theoretically expected indices using the measured density and Schytts equation
+\begin{equation}
+	n(z) = 1+ 0.78\rho/\rho_0
+\end{equation}
+moreso lying somewhere inbetween. A conversion using the inverse of Schytts equation
+to arrive at the density makes this especially clear as shown on figure \ref{fig:BalloonDensity6And7}.
+
+As there are a multitude of events (as can be found in appendices
+\ref{app:5Deg} and \ref{app:10Deg} but only finite time to analyse each and
+every one, this code is made public
+\href{https://github.com/arthuradriaens-code/projects-mt.git}{here} as to make
+it easy to improve on this work.  Especially interesting might be events where
+$\epsilon$ is negligable (the balloon is really close) at the phased array and
+as such is the plane wave reconstruction a near perfect representation of the
+actual wave.
 \section*{Proposal of improved measurements}
 As this method seems to be a viable way of measuring the index of refraction,
 it might be a good idea to have a more controllable radio wave source fly
 closer to the detectors to make more accurate measurements, e.g an
-autonomous\footnote{as to not have it need a radio controller, causing RF interference 
-and also as autonomous GNSS positioning are always more accurate than humans} drone with an
-antenna strapped to it.  Assuming Schytt's equation to hold completely, ideally
-we'd like data inbetween the depths of 20-100m as density measurements are few
-there as depicted on figure \ref{fig:DensityMeasurements} which is possible to
-achieve using this method as detectors span this range.
-
-It would also help in the fitting of the AM signal is the message signal had a longer frequency
-making it less difficult to fit.
+autonomous\footnote{as to not have it need a radio controller, causing RF
+interference and also as autonomous GNSS positioning are always more
+accurate than humans} drone with an antenna strapped to it.  Assuming Schytt's
+equation to hold completely, ideally we'd like data inbetween the depths of
+20-100m as this is where the biggest discrepencies might be observed between
+the single exponential model and the measured density data as is depicted on
+figure \ref{fig:DensityMeasurements} 
 
 \appendix
-%\pagenumbering{Roman}
 \chapter{List of abbreviations}
 \begin{itemize}
 \item \textbf{AM}: \textbf{A}mplitude \textbf{M}odulated
@@ -2210,6 +2239,7 @@ making it less difficult to fit.
 \item \textbf{GRBs}: \textbf{G}amma-\textbf{R}ay \textbf{B}ursts
 \item \textbf{RADIANT}: \textbf{RA}dio \textbf{DI}gitizer and \textbf{A}uxiliary \textbf{N}eutrino \textbf{T}rigger
 \item \textbf{RNO-G}: \textbf{R}adio \textbf{N}eutrino \textbf{O}bservatory in \textbf{G}reenland
+\item \textbf{RF}: \textbf{R}adio \textbf{F}requency
 \item \textbf{UHE}: \textbf{U}ltra \textbf{H}igh \textbf{E}nergy 
 \end{itemize}
 \chapter{Balloon passbys under 5°\\ in the summer of 2022}
