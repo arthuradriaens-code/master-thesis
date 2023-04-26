@@ -3,6 +3,10 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
 The style file: plain.bst
 Database file #1: sources.bib
+Repeated entry---line 559 of file sources.bib
+ : @book{grabe2005measurement
+ :                           ,
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in elasticity_y
 Warning--empty author in elasticity_y
 You've used 32 entries,
@@ -46,4 +50,4 @@ warning$ -- 2
 while$ -- 84
 width$ -- 34
 write$ -- 341
-(There were 2 warnings)
+(There was 1 error message)

@@ -1543,7 +1543,8 @@ For us to find the timing we'll first make an educated guess, this can be done
 using our \textit{hybrid minimizer} algorithm, there is one change that need to
 happen first to our algorithm for us to be able to simulate this: The air
 observers needs to be hard removed as to make a ray tracing possible from
-within the air into the ice and onto the detector.
+within the air into the ice and onto the detector. The modified
+version of the hybrid ray tracer can be found \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the branch radiopropa/BaLLooN.
 
 Due to the way our algorithm works the time the ray took is only from when it
 became a secondary\footnote{This might get fixed in the future but as
@@ -1889,7 +1890,7 @@ detectors and $\delta t$ is the \textbf{accuracy} in timing (which gets
 determined by the sample rate of the antenna).
 
 \newpage
-\section{Fitting the index: Channels 0 and 3}
+\section{Fitting the index: Phased array}
 Now that we know our goal to be feasible, let's analyse some data.  As we'll
 start by just analysing one event, let's take a very good one for our analysis.
 A close look at graph \ref{fig:EpsilonIFODirect} shows that events under 5° at
@@ -1906,7 +1907,8 @@ timeframes for the particular detectors where the balloon gets close enough to,
 AND where the 403MHz signal coming from the Ballon is detected in the deep channels, the events of the 7th
 of september stands out; at 11:28:10,  just before the $<5°$ passby between
 11:28:47 and 11:28:49, the balloon gets quite close to detector 23 and shows a
-clear 403MHz signal at the phased array, as shown in figure \ref{fig:freqs03}.
+clear 403MHz signal at the phased array, as shown for the channels 0 and 3 in
+figure \ref{fig:freqs03}.
 
 Now to calculate the differences in timing for this received signal, the code
 we built for this is called FitN.py and stored at the repository
@@ -1966,7 +1968,7 @@ absolute positions of the channels in our frame of reference. Using
 these it thus doesn't matter where the position of the station was defined.
 
 \subsection{Signal analysis and initial guesses}
-Now that we have our geometry, let's analyse the data for the channels 0 and 3,
+Now that we have our geometry, let's analyse the data for the channels,
 the data for a particulal channel is stored in a channel object. From this
 object we can get the recorded voltages with the get\_trace() module, the
 recorded times with the get\_times() module, the recorded frequencies with the
@@ -1977,8 +1979,8 @@ frequency of 403MHz; as the data is measured in nanoseconds the frequency is:
 \begin{equation}
 	f = 403\text{MHz} = 403\times 10^{-3} \frac{1}{\text{ns}}
 \end{equation}
-The recorded spectrum of both channels is given in figure \ref{fig:freqs03}, we
-observe a clear spike at 0.403GHz.
+The recorded spectrum of channels 0 and 3 is given in figure \ref{fig:freqs03}, for 
+which we previously mentioned the spike at 0.403GHz.
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{figures/23-800-0-freq.pdf}
@@ -1989,7 +1991,7 @@ observe a clear spike at 0.403GHz.
 	\caption{recorded frequencies on detector 23 at 2022/08/29 11:18:32}
 	\label{fig:freqs03}
 \end{figure}
-Now note that there are a bunch of peaks both below 0.15GHz and above 0.6GHz,
+Now note that there are peaks both below 0.15GHz and above 0.6GHz,
 this is all non-physical noise as the Vpol antenna's range only goes from
 0.15GHz to 0.6GHz \cite{Aguilar_2021} that's why we'll first pass this signal
 trough a virtual butterworth bandpass filter.
@@ -1998,8 +2000,8 @@ After passing the signal through the filter we'd also like to upsample the
 signal as to increase the resolution, this can be done using the resample()
 module and we'll upsample towards 10GHz increasing our timely accuracy from
 0.3125ns to 0.1ns.  After filtering and upsampling we have some voltage
-response as shown in figure \ref{fig:VoltageAfterFilter}, we wish to find a
-sine wave coming from the weather balloon in this signal.
+response as shown for channel 0 in figure \ref{fig:VoltageAfterFilter}, we wish
+to find a sine wave coming from the weather balloon in this signal.
 
 \begin{figure}
 	\centering
@@ -2057,17 +2059,65 @@ one is the right one we'll do a simple simulation using our modified hybrid ray
 tracer from which we know what the approximate time difference is and search in
 this neighbourhood.
 
-Carrying out the full calculation we get the results which are presented below
-(note that the error on the epsilon corrected n was estimated using equation \ref{eqn:errorcorr})
+\subsection{Fitting n and finding it's error}
+Now that we have the differences in timing between the individual channels we'll loop
+over the local (middle of the detectors) indices of refraction, each time doing a plane
+wave reconstruction (also using Snell's law at the surface) and recording the distance
+from the reconstructed wave to the balloon at the height of the balloon.
+Doing this we have a list \textbf{n} and a list \textbf{differences}, if we'd select
+the minimal difference in the \textbf{differences} list however we'd find an incorrect
+n. We'll first need to rescale the indices using $\epsilon$ as:
+\begin{equation}
+	n_{corr} = \frac{n}{1+\frac{\epsilon}{100}}
+\end{equation}
+If we now plot these corrected indices of refraction (which we'll from now on
+just call "the fitted indices of refraction") on the x axis and on the y axis
+the inverse of the the differences we get figure \ref{fig:2PeakFit}. As you can
+see there are 2 equally probable answers, this could be caused by the plane
+wave landing left and equally distant right from the balloon. From looking at
+the exponential model and the density data however we don't expect an index of
+refraction as high as the second peak. We'll thus only concern ourselves with
+the first peak located between 1.73 and 1.75, now we want to know what is the
+exact peak value and it's error?
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{TryingToFindn.pdf}
+	\caption{2 possible values for n are found whilst fitting}
+	\label{fig:2PeakFit}
+\end{figure}
+
+To find the peak value and it's error we'll first cut the data from 1.73 to 1.75 and than
+proceed to fit a gaussian to this curve of the form
+\begin{equation}
+	g(x) = \frac{1}{\sigma \sqrt{2\pi}} exp\left\{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}\right\}
+\end{equation}
+the fit is shown on figure \ref{fig:GaussFit}, $\mu$ is the value of n we're
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{GaussianFit.pdf}
+	\caption{gaussian fit doesn't perfectly align with the data}
+	\label{fig:GaussFit}
+\end{figure}
+after and we'll take $2\sigma$ as the error on this n\cite{grabe2005measurement}, carrying
+this out we get what's shown in the table below:
 \begin{center}
-\begin{tabular}{||c c c c c c c c||}
+\begin{tabular}{||c c c c c c c||}
  \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exp}$ & n$_\text{fit}$ & $\epsilon$ & n$_\text{corr}$\\ [0.5ex]
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fitted}$\\ [0.5ex]
  \hline\hline
- -93.231 & 23 & 0\&3 & 800:1867 & 1.738 & 1.8188 & 4.6166\% & 1.739 $\pm$ 0.024 \\
+ -93.237 & 23 & phased array & 800:1867 & 1.7383 & 4.6166\% & 1.7393 $\pm$ 0.0006 \\
  \hline
 \end{tabular}
 \end{center}
+For this fitted index of refraction the plane wave gets to 0.31m from the
+balloon.  Note that the fitted index of refraction doesn't contain the
+exponential model's value within it's error but is also higher than the
+exponential model's whilst we would actually, following the density
+measurements, expect it to be lower.  This might be caused by $\epsilon$ being
+higher in real life than in the simulation, a closer fly-by is thus needed to
+predict with higher certainty.
+If $\epsilon$ isn't the culprit then there might either be something wrong with
+the analysis or with Schytt's equation.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/crosscorrelation.pdf}
@@ -2083,32 +2133,10 @@ Carrying out the full calculation we get the results which are presented below
 in timing between the peaks which can be found from correlating the two}
 	\label{fig:CorrIllu}
 \end{figure}
-Analogously we can use channels 0,1,2 and 3 in various combinations.
-In full all possibilities are (in order of increasing depth)
-\footnote{In all calculations the channel 1 had the least good
-signal, as such if these calculations ever get revised try to take
-this into account}\footnote{we also left out the possibility of
-combinations as 0\&1\&2\&3 as the error would be quite large
-and there would be no additional value but these are possible with the program}:
-\begin{center}
-\begin{tabular}{||c c c c c c c c||}
- \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exp}$ & n$_\text{fit}$ & $\epsilon$ & n$_\text{corr}$\\ [0.5ex]
- \hline\hline
- -92.24 & 23 & 2\&3 & 800:1867 & 1.737 & 1.867 & 4.605\% & 1.784 $\pm$ 0.071 \\
- -92.75 & 23 & 1\&3 & 800:1867 & 1.738 & 1.800 & 4.611\% & 1.721 $\pm$ 0.036 \\
- -93.23 & 23 & 0\&3 & 800:1867 & 1.738 & 1.819 & 4.617\% & 1.739 $\pm$ 0.024 \\
- -93.24 & 23 & 1\&2 & 800:1867 & 1.738 & 1.735 & 4.616\% & 1.659 $\pm$ 0.074 \\
- -93.73 & 23 & 0\&2 & 800:1867 & 1.739 & 1.845 & 4.621\% & 1.763 $\pm$ 0.036 \\
- -94.23 & 23 & 0\&1 & 800:1867 & 1.739 & 1.858 & 4.626\% & 1.776 $\pm$ 0.073 \\
- \hline
-\end{tabular}
-\end{center}
-Note that all the corrected fits have the exponential model's value within the margin of error.
-\section{Channels 6 and 7}
-A very interesting depth is between channels 5 and 7  as, looking at
+\section{Channels 5,6 and 7}
+A very interesting depth is inbetween channels 5 and 7 as, looking at
 the density profile shown in figure \ref{fig:DensityMeasurements}
-this is where the actual density deviates the most from the models.
+this is where the actual density deviates the most from the theoretical models.
 The event we'll be using is recorded in detector 21 at the 26th of
 july 11:18:41 and falls within the $<5$° mark:
 \begin{center}
@@ -2242,6 +2270,13 @@ figure \ref{fig:DensityMeasurements}
 \item \textbf{RF}: \textbf{R}adio \textbf{F}requency
 \item \textbf{UHE}: \textbf{U}ltra \textbf{H}igh \textbf{E}nergy 
 \end{itemize}
+%\renewcommand{\DOTI}[1]{% numbered chapters
+%    \vspace*{-20pt} % adjust space before title <<<<<<<<<<<<<<<<<<<<< added
+%    \raggedright
+%    \CTV\FmTi{#1}\par\nobreak
+%    \vspace*{25pt} % adjust space after title <<<<<<
+%}
+\chapter{Extra figures}
 \chapter{Balloon passbys under 5°\\ in the summer of 2022}
 \label{app:5Deg}
 \csvautotabular{tables/EventsBelow5DegPart1.csv}

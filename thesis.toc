@@ -36,16 +36,18 @@
 \contentsline {section}{\numberline {4.4}Expansion}{32}{section.4.4}%
 \contentsline {chapter}{\numberline {5}Weather Balloon}{33}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Plane Wave Reconstruction}{33}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Is the goal feasible?}{37}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}No assumptions}{37}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.2}Is the goal feasible?}{35}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}No assumptions}{35}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Refraction at the surface}{38}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Influence of height on Epsilon}{40}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Error on prediction}{40}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Fitting the index: Channels 0 and 3}{43}{section.5.4}%
+\contentsline {subsection}{\numberline {5.2.3}Influence of height on Epsilon}{39}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Error on prediction}{41}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Fitting the index: Phased array}{43}{section.5.4}%
 \contentsline {subsection}{\numberline {5.4.1}Spatial data}{43}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Signal analysis and initial guesses}{44}{subsection.5.4.2}%
-\contentsline {section}{\numberline {5.5}Channels 6 and 7}{48}{section.5.5}%
-\contentsline {chapter}{Conclusion}{50}{chapter*.6}%
-\contentsline {chapter}{\numberline {A}List of abbreviations}{51}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Balloon passbys under 5°\\ in the summer of 2022}{52}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Balloon passbys under 10°\\ in the summer of 2022}{55}{appendix.C}%
+\contentsline {subsection}{\numberline {5.4.3}Fitting n and finding it's error}{45}{subsection.5.4.3}%
+\contentsline {section}{\numberline {5.5}Channels 5,6 and 7}{49}{section.5.5}%
+\contentsline {chapter}{Conclusion}{52}{chapter*.6}%
+\contentsline {chapter}{\numberline {A}List of abbreviations}{53}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Extra figures}{54}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Balloon passbys under 5°\\ in the summer of 2022}{55}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Balloon passbys under 10°\\ in the summer of 2022}{58}{appendix.D}%
