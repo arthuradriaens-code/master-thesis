@@ -40,14 +40,13 @@
 \contentsline {subsection}{\numberline {5.2.1}No assumptions}{35}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Refraction at the surface}{38}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}Influence of height on Epsilon}{39}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Error on prediction}{41}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Fitting the index: Phased array}{43}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Spatial data}{43}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Signal analysis and initial guesses}{44}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Fitting n and finding it's error}{45}{subsection.5.4.3}%
-\contentsline {section}{\numberline {5.5}Channels 5,6 and 7}{49}{section.5.5}%
-\contentsline {chapter}{Conclusion}{52}{chapter*.6}%
-\contentsline {chapter}{\numberline {A}List of abbreviations}{53}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Extra figures}{54}{appendix.B}%
+\contentsline {section}{\numberline {5.3}Fitting the index: Phased array}{41}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Spatial data}{41}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Signal analysis and initial guesses}{42}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Fitting n and finding it's error}{45}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Channels 5,6 and 7}{46}{section.5.4}%
+\contentsline {chapter}{Conclusion}{50}{chapter*.6}%
+\contentsline {chapter}{\numberline {A}List of abbreviations}{51}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Extra figures}{52}{appendix.B}%
 \contentsline {chapter}{\numberline {C}Balloon passbys under 5°\\ in the summer of 2022}{55}{appendix.C}%
 \contentsline {chapter}{\numberline {D}Balloon passbys under 10°\\ in the summer of 2022}{58}{appendix.D}%

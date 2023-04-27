@@ -214,8 +214,21 @@ detectors. By looking at the difference in arrival time of the signal, the diffe
 which a plane wave reconstruction can be done. As the accuracy of this plane wave reconstruction is heavily dependent
 on the local index of refraction in the ice, it can be indirectly measured through this reconstruction.
 After this analysis the following data was found:
-(???)
-These all show a discrepency with the exponential model as is shown in figure (???). 
+\begin{center}
+\begin{tabular}{||c c c c c c c||}
+ \hline
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fitted}$\\ [0.5ex]
+ \hline\hline
+-48.155 & 21 & 6\&7 & 1441:117 & 1.6400 & -0.02\% & 1.6310 $\pm$ 0.001 \\
+ -58.38 & 21 & 5\&7 & 1441:117 & 1.6736 & -0.23\% & 1.6688 $\pm$ 0.0006 \\
+ -68.2 & 21 & 5\&6 & 1441:117 & 1.6983 & 0.02\% & 1.6916 $\pm$ 0.0003 \\
+ -93.237 & 23 & phased array & 800:1867 & 1.7383 & 4.6166\% & 1.7393 $\pm$ 0.0013 \\
+ \hline
+\end{tabular}
+\end{center}
+
+As can be seen all of the undeep channels show a discrepency with
+the exponential model. 
 
 \newpage
 \chapter*{Samenvatting}
@@ -282,11 +295,45 @@ dicht bij een detector komt zal dit signaal kunnen gedetecteerd worden. Door een
 van dit signaal en gebruik te maken van de positie van de ballon kunnen we infereren wat de locale refractieve index
 is in het ijs. Deze procedure wordt volledig uitgelegd in hoofdstuk \ref{chap:WB}.
 Na deze procedure op enkele evenementen toe te passen werd de volgende data gevonden:
-(???)
-Hier is een duidelijke tekortkoming van het exponentieel model te zien.
+\begin{center}
+\begin{tabular}{||c c c c c c c||}
+ \hline
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fitted}$\\ [0.5ex]
+ \hline\hline
+-48.155 & 21 & 6\&7 & 1441:117 & 1.6400 & -0.02\% & 1.6310 $\pm$ 0.001 \\
+ -58.38 & 21 & 5\&7 & 1441:117 & 1.6736 & -0.23\% & 1.6688 $\pm$ 0.0006 \\
+ -68.2 & 21 & 5\&6 & 1441:117 & 1.6983 & 0.02\% & 1.6916 $\pm$ 0.0003 \\
+ -93.237 & 23 & phased array & 800:1867 & 1.7383 & 4.6166\% & 1.7393 $\pm$ 0.0013 \\
+ \hline
+\end{tabular}
+\end{center}
+Hier is een duidelijk verschil met het exponentieel model te
+zien.
 \newpage
 \chapter*{Dankwoord}
 \addcontentsline{toc}{chapter}{Dankwoord}
+Ik zou Prof.Dr.em. Dirk Ryckbosch wensen te bedanken voor daar te
+zijn doorheen heel mijn studiecarriëre, eerst wanneer hij de
+voorstelling van de richting deed in Ledeganck. Dan wanneer ik
+buisde op mechanica maar hij zij dat, aangezien mijn oefeningen goed
+waren, ik er duidelijk wel talent voor had en gewoon meer moest
+studeren met als afsluiter "tot in de master". En finaal hier
+wanneer ik een thesis doe met hem als promotor.
+
+Ik zou Bob Oeyen willen bedanken om mij altijd te helpen wanneer ik
+vragen had. Ook heeft hij mij veel geholpen door critisch te zijn op
+mijn werk en mij zo vooruit te helpen in beide mijn presentaties en
+mijn schrijfwerk.
+
+Ik wens mijn ouders te bedanken voor altijd daar te zijn voor mij.
+Ik appreciëer het nog altijd enorm om te kunnen jetskïen of
+tennissen met mijn vader en (en binnenkort ook met mijn moeder).
+Ook zijn vele inzichten in deze thesis gekomen na even te wandelen
+met mijn moeder en mijn hond Mickey.  Zonder hun zou ik hier
+waarschijnlijk nooit geraakt zijn.
+
+Als laatste wens ik mijn lief Polina te bedanken, zij heeft me
+meer dan wie dan ook gesteund en verdient heel mijn hart.
 \newpage
 % ------------ TABLE OF CONTENTS ---------
 {\hypersetup{hidelinks}\tableofcontents} % hide link color in toc
@@ -1799,97 +1846,6 @@ usable data the $\epsilon$
 might still be quite large (if the height is really large).
 Because of this we'll have to re-compute $\epsilon$ exactly for 
 every measurement we do.
-\section{Error on prediction}
-Running ahead on the actual measurements, let's estimate how accurate our
-predictions will be. Let's label the vertical spatial accuracy,
-i.e how accurately we know the height of these channels, $\delta z$\footnote{meaning if we have a measurement $z_i$ the true value is within $z_i
-\pm \delta z$ with 95\% certainty}. And the timely accuracy, or how accurate the
-vpol timing characteristics are, $\delta t$. If we want to fit n, we first
-minimize the summed correlation function to construct the plane wave. One
-correlation function is given by 
-\begin{equation}
-	Correlation(\theta) := \Delta t - \Delta t' = \Delta t
-	- \frac{\cos\theta \Delta z}{v}
-\end{equation}
-Say the minimum occurs at $Correlation(\theta) = Correlation(\theta_{min}) := \mathcal{C}$, we can then re-write 
-this equation for n:
-\begin{equation}
-  n = \frac{c(\Delta t - \mathcal{C})}{\cos \theta_{min} \Delta z} = \frac{c}{\cos{\theta_{min}}}\left[\frac{\Delta t}{\Delta z} - \frac{\mathcal{C}}{\Delta z}\right]
-\end{equation}
-The $\Delta z$ is the vertical distance between two channels and thus has an error of $2\delta z$ and $\Delta t$ is the time
-difference between two channels, implying an error $2\delta t$. 
-Let's look at the two terms seperately (assuming the error on $\theta_{min}$ to be negligable),
-the first quotient $\phi_1 := \Delta t/\Delta z$ has a variance \cite{grabe2005measurement} of
-\begin{equation}
-	s_{\phi_1}^2 = \frac{1}{{\Delta z}^2}s_{\Delta t}^2 - 2 \frac{{\Delta t}}{{\Delta z}^3}s_{\Delta t \Delta z} + \frac{{\Delta t}^2}{{\Delta z}^4}s_{\Delta z}^2
-\end{equation}
-Assuming $\Delta t$ and $\Delta z$ to be independent:
-\begin{align}
-	s_{\phi_1}^2 &= \frac{1}{{\Delta z}^2}s_{\Delta t}^2 + \frac{{\Delta t}^2}{{\Delta z}^4}s_{\Delta z}^2\\
-	&= 4\left(\frac{1}{{\Delta z}^2}{\delta t}^2 + \frac{{\Delta t}^2}{{\Delta z}^4}{\delta z}^2\right)
-\end{align}
-And the second term ($\phi_2 := -\mathcal{C}/\Delta z$):
-\begin{align}
-	s_{\phi_2}^2 &= \frac{\mathcal{C}^2}{{\Delta z}^2}s_{\Delta t}^2\\
-		     &= 4\frac{\mathcal{C}^2}{{\Delta z}^2}{\delta t}^2\\
-\end{align}
-Our squared variance on the index of refraction is thus (neglecting unknown systematic errors):
-\begin{equation}
-	\delta n^2 =: s_n^2 = 4\left(\frac{c}{\cos{\theta_{min}}}\right)^2 \left( \frac{1}{{\Delta z}^2}{\delta t}^2 + \frac{{\Delta t}^2}{{\Delta z}^4}{\delta z}^2 + 
-\frac{\mathcal{C}^2}{{\Delta z}^2}{\delta t}^2\right)
-\end{equation}
-If we have more than 2 detectors, say N then the uncertainty on the fit can be assumed to be the
-RMS of the individual uncertainties:
-\begin{equation}
-  \delta n =\sqrt{\sum_{i=0}^N \delta n _i^2}
-\end{equation}
-Let's assume $\epsilon$ to be an absolute error.  Now due to this inherent
-inaccuracy, the "global" uncertainty on n also has an additional error of $\pm \epsilon(\vec{r})n$ with
-$\vec{r}$ the position of the balloon.  Our final error on n is thus:
-\begin{equation}
-  \delta n(\vec{r})=  \epsilon(\vec{r})n + \sqrt{\sum_{i=0}^N 4\left(\frac{c}{\cos{\theta_{min}}}\right)^2 \left( \frac{1}{{\Delta z_i}^2}{\delta t}^2 + \frac{{\Delta t_i}^2}{{\Delta z_i}^4}{\delta z}^2 + 
-  \frac{\mathcal{C}_i^2}{{\Delta z_i}^2}{\delta t}^2\right)}
-  \label{eqn:total error}
-\end{equation}
-If we \textbf{assume the $\epsilon$ to overestimate the index of refraction the same way in real
-life as in the simulation} however, our estimated $n$ can be corrected as
-\begin{equation}
-  n_{\text{corrected}} (\vec{r})= \frac{n(\vec{r})}{\epsilon(\vec{r}) + 1}
-\end{equation}
-and our error becomes only the second part of equation \ref{eqn:total error}.
-As the error on the position of the channels is not yet fully known most of
-this section mainly serves as a future reference when people continue this
-work, however it can be safely assumed that the timely error will be of much
-higher importance than the positional error, as we'll get to in section (???).  
-
-The error on timing can be estimated, contrary to the positional error, from the
-sampling rate, as if we have a sampling rate of e.g 3.2GHz then the antenna
-will take a measurement every 
-\begin{equation}
-	\delta t = \frac{1}{3.2\text{GHz}} = 0.3125\text{ns}
-\end{equation}
-So we can predict a measurement of the index of refraction, assuming $\epsilon$
-to be a correction and $\delta z \ll$, to have an error of
-\begin{align}
-	\delta n(\vec{r})_{\text{corrected}}&=  (1+\epsilon)\times\sqrt{\sum_{i=0}^N 4\left(\frac{c}{\cos{\theta_{min}}}\right)^2 \left( \frac{1}{{\Delta z_i}^2}{\delta t}^2 +
-  \frac{\mathcal{C}_i^2}{{\Delta z_i}^2}{\delta t}^2\right) }\\
-					    &=  2(1+\epsilon){\delta t} \times\sqrt{\sum_{i=0}^N \left(\frac{c}{\cos{\theta_{min}}}\right)^2 \left( \frac{1}{{\Delta z_i}^2}+
-  \frac{\mathcal{C}_i^2}{{\Delta z_i}^2}\right) }\\
-					    &=  2(1+\epsilon){\delta t} \times\sqrt{\sum_{i=0}^N \left(\frac{c}{\Delta z_i\cos{\theta_{min}}}\right)^2 \left(1 +
-  \mathcal{C}_i^2\right)}
-  \label{eqn:errorcorr}
-\end{align}
-And if we only consider 2 detectors (which we will in most cases) this reduces
-to
-\begin{equation}
-	\delta n(\vec{r})_{\text{corrected}} = 2(1+\epsilon)\times c\left(\frac{\delta t}{\Delta z}\right) \times\left[\frac{\sqrt{1 +
-	\mathcal{C}^2}}{\cos{\theta_{min}}}\right]
-\end{equation}
-Note again that $\Delta z$ is the \textbf{difference} in height between the two
-detectors and $\delta t$ is the \textbf{accuracy} in timing (which gets
-determined by the sample rate of the antenna).
-
-\newpage
 \section{Fitting the index: Phased array}
 Now that we know our goal to be feasible, let's analyse some data.  As we'll
 start by just analysing one event, let's take a very good one for our analysis.
@@ -2086,38 +2042,39 @@ exact peak value and it's error?
 	\label{fig:2PeakFit}
 \end{figure}
 
-To find the peak value and it's error we'll first cut the data from 1.73 to 1.75 and than
-proceed to fit a gaussian to this curve of the form
+To find the peak value and it's error we'll first cut the data from
+1.73 to 1.75, the value for n can be found as the middle of the
+peak. To find the error on this value a first idea was to gaussian
+to this curve of the
+form\cite{grabe2005measurement}
 \begin{equation}
 	g(x) = \frac{1}{\sigma \sqrt{2\pi}} exp\left\{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}\right\}
 \end{equation}
-the fit is shown on figure \ref{fig:GaussFit}, $\mu$ is the value of n we're
+the fit is shown on figure \ref{fig:GaussFit}, but as this fit
+obviously isn't that great and would underestimate the error we'll
+need to find another way to find the error.  To estimate the error
+we think that using integration might give a good estimate, i.e we
+integrate over the full data and then again symmetrically outwards
+from $\mu$, if the ratio of these two is 68\% then the interval this
+corersponds to is the one sigma error on our fit, analogously for
+95\%. If we carry this out we get what's shown on figure
+\ref{fig:PhasedArrayFit}, our final fit is thus:
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{GaussianFit.pdf}
-	\caption{gaussian fit doesn't perfectly align with the data}
-	\label{fig:GaussFit}
+	\includegraphics[width=0.9\textwidth]{PhasedArrayFit.pdf}
+	\caption{Fit to the phased array data showing various confidence intervals}
+	\label{fig:PhasedArrayFit}
 \end{figure}
-after and we'll take $2\sigma$ as the error on this n\cite{grabe2005measurement}, carrying
-this out we get what's shown in the table below:
 \begin{center}
 \begin{tabular}{||c c c c c c c||}
  \hline
  Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fitted}$\\ [0.5ex]
  \hline\hline
- -93.237 & 23 & phased array & 800:1867 & 1.7383 & 4.6166\% & 1.7393 $\pm$ 0.0006 \\
+ -93.237 & 23 & phased array & 800:1867 & 1.7383 & 4.6166\% & 1.7393 $\pm$ 0.0013 \\
  \hline
 \end{tabular}
 \end{center}
-For this fitted index of refraction the plane wave gets to 0.31m from the
-balloon.  Note that the fitted index of refraction doesn't contain the
-exponential model's value within it's error but is also higher than the
-exponential model's whilst we would actually, following the density
-measurements, expect it to be lower.  This might be caused by $\epsilon$ being
-higher in real life than in the simulation, a closer fly-by is thus needed to
-predict with higher certainty.
-If $\epsilon$ isn't the culprit then there might either be something wrong with
-the analysis or with Schytt's equation.
+Here we clearly see the index of refraction from the exponential model fall within our fit.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/crosscorrelation.pdf}
@@ -2134,26 +2091,28 @@ in timing between the peaks which can be found from correlating the two}
 	\label{fig:CorrIllu}
 \end{figure}
 \section{Channels 5,6 and 7}
-A very interesting depth is inbetween channels 5 and 7 as, looking at
-the density profile shown in figure \ref{fig:DensityMeasurements}
-this is where the actual density deviates the most from the theoretical models.
-The event we'll be using is recorded in detector 21 at the 26th of
-july 11:18:41 and falls within the $<5$° mark:
+A very interesting depth is inbetween channels 5 and 7 as, looking
+at the density profile shown in figure \ref{fig:DensityMeasurements}
+this is where the actual density deviates the most from the
+theoretical models.  The event we'll be using is recorded in
+detector 21 at the 26th of july 11:18:41 and falls within the $<5$°
+mark, doing analogous analyses as in the previous section we get
+figures \ref{fig:Ch5And6}-\ref{fig:Ch5And7} which can be summerized in a table as shown below:
+	\label{fig:Ch5And7}
 \begin{center}
-\begin{tabular}{||c c c c c c c c||}
+\begin{tabular}{||c c c c c c c||}
  \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exp}$ & n$_\text{fit}$ & $\epsilon$ & n$_\text{corr}$\\ [0.5ex]
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fit}$\\ [0.5ex]
  \hline\hline
- -48.16 & 21 & 6\&7 & 1441:117 & 1.640 & 1.631 & -0.02\% & 1.631 $\pm$ 0.004 \\
- -58.38 & 21 & 5\&7 & 1441:117 & 1.674 & 1.665 & -0.23\% & 1.669 $\pm$ 0.002 \\
- -68.2 & 21 & 5\&6 & 1441:117 & 1.698 & 1.692 & 0.02\% & 1.692 $\pm$ 0.003 \\
+ -48.155 & 21 & 6\&7 & 1441:117 & 1.6400 & -0.02\% & 1.6310 $\pm$ 0.001 \\
+ -58.38 & 21 & 5\&7 & 1441:117 & 1.6736 & -0.23\% & 1.6688 $\pm$ 0.0006 \\
+ -68.2 & 21 & 5\&6 & 1441:117 & 1.6983 & 0.02\% & 1.6916 $\pm$ 0.0003 \\
  \hline
 \end{tabular}
 \end{center}
-Note that none of the indices whom are found have the exponential model's index
-within them.
-Let's use Schytt's equation \ref{eqn:Schytt} to see where
-on the density vs depth curve these values lie:
+Note that all of the indices whom are found have a value below the
+exponential model's.  Let's use Schytt's equation \ref{eqn:Schytt}
+to see where on the density vs depth curve these values lie:
 \begin{align}
 	n(z) &\approx 1 + 0.78\rho/\rho_0\\
 	\rho_0(n(z) - 1) &\approx 0.78\rho\\
@@ -2171,9 +2130,9 @@ correspond to the densities:
  \hline
  Depth (m) & $\rho_\text{corr}$\\ [0.5ex]
  \hline\hline
- -48.16 & 741.830 $\pm$ 4.703 \\
- -58.38 & 786.504 $\pm$ 2.351 \\
- -68.2 & 813.544 $\pm$ 3.527 \\
+ -48.16 & 741.830 $\pm$ 1.176 \\
+ -58.38 & 786.269 $\pm$ 0.705 \\
+ -68.2 & 813.073 $\pm$ 0.3527 \\
  \hline
 \end{tabular}
 \end{center}
@@ -2186,36 +2145,19 @@ If we plot this we get what's shown in figure
 	respect to the other measurements and the exponential model}
 	\label{fig:BalloonDensity6And7}
 \end{figure}
-Note that the calculated values neither line up with the density measurements nor with the exponential model,
-but somewhere inbetween. This might be caused by one of the following reasons:
+Note that the calculated values neither line up with the density
+measurements nor with the exponential model, but somewhere
+inbetween. This might be caused by one of the following reasons:
 \begin{itemize}
-	\item The error bar is too small
+	\item The channels 5-7 are too far apart to use the plane
+		wave reconstruction.
 	\item Schytts law isn't fully correct
 	\item The density measurements aren't correct
-	\item You cannot correct the index of refraction the same way in real life
-		with $\epsilon$ as in the simulation
 \end{itemize}
-Up until now the error on the height of the individual channels hasn't been
-taken into account, let's see how big the expected error is. A fair anecdotal
-estimate for the positional accuracy is 0.005m, how would this influence the
-accuracy estimate? For this let's take a look at equation \ref{eqn:total
-error}, for channels 6 and 7 the factor containing $\delta z$ has an order of magnitude of
-($c^2$ is added to make the value dimensionless):
-\begin{equation}
-	c^2\frac{\Delta t_i^2}{\Delta z_i^4}\delta z^2 \sim \mathcal{O}(10^{-7}) 
-\end{equation}
-whilst
-\begin{equation}
-	c^2\frac{\delta t^2}{\Delta z_i^2} \sim \mathcal{O}(10^{-6}) 
-\end{equation}
-This is an order of magnitude difference, so if the error estimate is wrong it
-is probably not caused by spatial inaccuracy.  The density measurements do
-actually show quite a spread for nearly the same values so there might be a
-problem there.  As for the Schytt's equation, wheter it is a valid
-approximation or not will be descided when enough reliable data is available.
-Lastly the $\epsilon$ can't be used argument also has its flaws, as if the 
-density profile would scale exactly exponentially then the $\epsilon$ corrected
-index would exactly fall on the exponentially expected index.
+The density measurements do actually show quite a spread for nearly
+the same values so there might be a problem there.  As for the
+Schytt's equation, wheter it is a valid approximation or not will be
+descided when enough reliable data is available.  
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 The hybrid ray tracer developed over the course of this thesis and reported in
@@ -2224,26 +2166,27 @@ it's predecessors but it's also faster.  The accuracy of the ray tracer also
 makes it perfectly suitable for very fine precision simulations as used within
 the Balloon radio wave measurements.
 
-The use of weather balloons to estimate the index of refraction as was 
-reported in \ref{chap:WB} was also 
-done succesfully even though it yielded quite unexpected results, not
-only were the index of refraction measured via this method deviating
-from the model (with more than $2\sigma$) but also deviating from
-the theoretically expected indices using the measured density and Schytts equation
+The use of weather balloons to estimate the index of refraction as
+was reported in \ref{chap:WB} was also done succesfully even though
+it yielded quite unexpected results, not only were the index of
+refraction measured via this method deviating from the model but
+also deviating from the theoretically expected indices using the
+measured density in combination with Schytts equation
 \begin{equation}
 	n(z) = 1+ 0.78\rho/\rho_0
 \end{equation}
-moreso lying somewhere inbetween. A conversion using the inverse of Schytts equation
-to arrive at the density makes this especially clear as shown on figure \ref{fig:BalloonDensity6And7}.
+moreso lying somewhere inbetween. A conversion using the inverse of
+Schytts equation to arrive at the density makes this especially
+clear as shown on figure \ref{fig:BalloonDensity6And7}.
 
 As there are a multitude of events (as can be found in appendices
-\ref{app:5Deg} and \ref{app:10Deg} but only finite time to analyse each and
-every one, this code is made public
-\href{https://github.com/arthuradriaens-code/projects-mt.git}{here} as to make
-it easy to improve on this work.  Especially interesting might be events where
-$\epsilon$ is negligable (the balloon is really close) at the phased array and
-as such is the plane wave reconstruction a near perfect representation of the
-actual wave.
+\ref{app:5Deg} and \ref{app:10Deg} but only finite time to analyse
+each and every one, this code is made public
+\href{https://github.com/arthuradriaens-code/projects-mt.git}{here}
+as to make it easy to improve on this work.  Especially interesting
+might be events where $\epsilon$ is negligable (the balloon is
+really close) at the phased array and as such is the plane wave
+reconstruction a near perfect representation of the actual wave.
 \section*{Proposal of improved measurements}
 As this method seems to be a viable way of measuring the index of refraction,
 it might be a good idea to have a more controllable radio wave source fly
@@ -2277,6 +2220,31 @@ figure \ref{fig:DensityMeasurements}
 %    \vspace*{25pt} % adjust space after title <<<<<<
 %}
 \chapter{Extra figures}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{GaussianFit.pdf}
+	\caption{gaussian fit doesn't perfectly align with the data}
+	\label{fig:GaussFit}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Ch5And6Fit.pdf}
+	\caption{Fit of channels 5 and 6}
+	\label{fig:Ch5And6}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Ch6And7Fit.pdf}
+	\caption{Fit of channels 6 and 7}
+	\label{fig:Ch6And7}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Ch5And7Fit.pdf}
+	\caption{Fit of channels 5 and 7}
+	\label{fig:Ch5And7}
+\end{figure}
+
 \chapter{Balloon passbys under 5°\\ in the summer of 2022}
 \label{app:5Deg}
 \csvautotabular{tables/EventsBelow5DegPart1.csv}
