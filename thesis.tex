@@ -186,7 +186,7 @@ distances in there before interacting than visible light, it was previously
 descided in experiments like ARA and ARIANNA to detect on the principle of
 radio waves. The Radio Neutrino Observatory in Greenland or RNO-G wich is
 currently under construction and the subject of this thesis builds on the
-knowledge of these two experiments to make a quite complex detector which
+knowledge of these experiments to make a quite complex detector which
 should be capable of detecting UHE neutrinos.
 
 The ice properties have an impact on how radiowaves propagate. As mentioned before, RNO-G is a detector built
@@ -202,16 +202,16 @@ develop a new algorithm to find the paths the radio waves could take with more c
 The software used within this thesis to figure out the path radiowaves take is called \textit{radiopropa}.
 Even though this software can be used to work with most kinds of ice models, it still needs to be used within
 some kind of algorithm to be useful. Such an algorithm has already been developed called the \textit{Iterative
-ray tracer} as will be explained in section \ref{sec:Iterative} but it had its shortcomings,
+ray tracer} as is explained in section \ref{sec:Iterative} but it had its shortcomings,
 that's why in this thesis a new algorithm was developed called the \textit{hybrid ray tracer} which is explained
-in chapter \ref{chapter:hybrid}. This algorithm makes it possible to both find a more accurate solution and find it faster.
+in chapter \ref{chapter:hybrid}. The hybrid ray tracer makes it possible to both find a more accurate solution and find it faster.
 
 It is, however, crucial to make sure we actually need a new kind of ice model. The measuring of the index of refraction
 can be accomplished indirectly through weather balloon fly-bys as is explained in chapter \ref{chap:WB}. Every day
 in the summer, two times per day a weather balloon is launched from the base camp. This weather balloon is equiped with
 an antenna which sends out a 403MHz sinusoidal signal, upon close fly-bys with detectors this signal can be observed in the
-detectors. By looking at the difference in arrival time of the signal, the difference in timing can be made out from 
-which a plane wave reconstruction can be done. As the accuracy of this plane wave reconstruction is heavily dependent
+detectors (as is visualized on the cover). By looking at the difference in arrival time of the signal, the difference in timing can be made out from 
+which a plane wave reconstruction can be done. As this plane wave reconstruction is heavily dependent
 on the local index of refraction in the ice, it can be indirectly measured through this reconstruction.
 After this analysis the following data was found:
 \begin{center}
@@ -234,10 +234,10 @@ the exponential model.
 \chapter*{Samenvatting}
 \addcontentsline{toc}{chapter}{Samenvatting}
 Er vinden verscheidene gebeurtenissen plaats in het heelal waarover we
-meer wensen te weten zoals Black hole outbursts, supernovae, cosmic jets, ...
+meer wensen te weten zoals Black hole outbursts, supernovae, cosmic jets,...
 Al deze gebeurtenissen produceren vormen van informatie dewelke we kunnen
 infereren door hun op een manier te detecteren zoals de protonen en fotonen
-maar ook verscheidene andere zoals zwaartekracht golven.
+maar ook meer exotische bronnen van informatie zoals zwaartekracht golven.
 Maar één bepaald deeltje vinden wij bijzonder interresant: de neutrino.
 
 De neutrino heeft als erg unieke eigenschap dat het terugwijst naar het event
@@ -245,15 +245,15 @@ waar ze gecreëerd werd. In tegenstelling tot andere deeltjes zoals protonen
 heeft de neutrino geen lading, bijna geen massa en interageert ze zeer zwakjes.
 Door deze eigenschappen zal ze op de weg naar de aarde niet afgebogen worden 
 door magneetvelden en hoogstwaardschijnlijk niet interageren met tussenmedia zoals
-gaswolken, wat impliceert dat als we erin slagen een neutrino the detecteren, de 
+gaswolken. Deze eigenschappen impliceren dat, als we erin slagen een neutrino the detecteren, de 
 richting waarin ze gedetecteerd wordt hoogstwaarschijnlijk eenzelfde richting is als
 waar ze vandaan komt.
 
-Neutrinos komen in verschijdene energieën maar wij zijn geïnteresseert in één bepaald gebied,
+Neutrinos komen in verschijdene energieën voor maar wij zijn geïnteresseert in één bepaald gebied,
 boven de 3 PeV oftewel de ultra hoge energie (UHE) neutrino. In de verscheidene experimenten die 
 neutrinos hebben gedetecteerd is er nog geen een in geslaagd neutrinos te observeren met 
 energieën boven de 3 PeV, dit is het regime waar zogenaamde \textit{cosmogenic neutrinos} zouden
-leven en dus uiterst interessant om te bestuderen. Maar, om zo'n hoge neutrino energie waar te nemen
+leven en dus uiterst interessant om te bestuderen. Maar, om zo'n hoge neutrino energie waar te nemen,
 blijkt een zeer grote detector nodig te zijn.
 
 Aangezien het zeer rap zeer duur zou zijn om een groot genoege detector te bouwen om deze neutrinos 
@@ -262,7 +262,7 @@ Werd besloten om te leunen op het Askaryan effect, dit is het effect die zorgt v
 van radiogolven bij interactie van een neutrino in ijs. Aangezien radio golven verder vrij kunnen
 propageren in ijs dan zichtbaar licht maakt dit het mogelijk om de verscheidene antennes verder
 van elkaar te plaatsen. Enkele experimenten zijn op dit principe gebouwd zoals ARA en ARIANNA,
-uit de expertise van deze experimenten werd dan de Radio Neutrino Observatory in Greenland of RNO-G gemaakt.
+uit de expertise van deze en soortgelijke experimenten werd dan de Radio Neutrino Observatory in Greenland of RNO-G gemaakt.
 RNO-G moet het mogelijk maken om UHE neutrinos te observeren en deze thesis wenst bij te dragen aan de ontwikkeling
 van deze detector.
 
@@ -288,7 +288,7 @@ meer accurate oplossing te vinden maar deze ook sneller te vinden.
 
 Maar om over te schakelen op een nieuw ijsmodel met een anders algoritme is het nodig aan te tonen dat er effectief
 een groot verschil is tussen het theoretische exponentiële model en de echte refractieindex, om dit aan te tonen 
-kunnen we gebruik maken van weerballonnen. Elke dag in de zomer, 2 keer per dag, wordt een weerballon gelanceerd 
+kunnen we gebruik maken van weerballonnen. Elke dag in de zomer, 2 maal per dag, wordt een weerballon gelanceerd 
 op de RNO-G basis. 
 Deze weerballon beschikt over een antenne dewelke een sinusoïdaal signaal uitstuurt aan 403MHz, als zo'n ballon toevallig
 dicht bij een detector komt zal dit signaal kunnen gedetecteerd worden. Door een plane wave reconstructie te doen
@@ -307,8 +307,7 @@ Na deze procedure op enkele evenementen toe te passen werd de volgende data gevo
  \hline
 \end{tabular}
 \end{center}
-Hier is een duidelijk verschil met het exponentieel model te
-zien.
+Hier is een duidelijk verschil tussen de gemeten index van refractie ($n_{fitted}$) en die uit het exponentieel model ($n_{exponential}$) te zien.
 \newpage
 \chapter*{Dankwoord}
 \addcontentsline{toc}{chapter}{Dankwoord}
@@ -415,12 +414,15 @@ Neutrinos can serve as unique clues
 about what’s happening elsewhere in the universe including the cosmic
 collisions, galaxies, supernovae, Gamma-ray bursts (GRBs),... where they are created.
 
+In this chapter we'll give an overview of neutrinos and the various kinds of energies we expect
+to see them in when coming from outside our earth.
+
 \section{Discovery}
 When researching $\beta^-$ decay, the decay of a neutron, researcher
 detected a proton and an electron coming from the neutron. However
 on closer inspection it became apparent that energy was lost
 somewhere in violation with the conservation law of energy, and
-angular momentum wasn't conserved.  The solution postulated by
+angular momentum wasn't conserved either.  The solution postulated by
 Wolfgang Pauli was to introduce a new, really hard to detect
 particle with no charge and a very small mass: the neutrino.  The neutrino comes in three flavours:
 electron, muon and tau neutrinos, each corresponding to their respective lepton denoted as
@@ -566,15 +568,17 @@ When the hydrogen at the core runs out no more hydrogen can be fused. For stars
 with masses between $8M_\odot$ and $30M_\odot$ ($M_\odot$ being the mass of the sun)
 the fusion of heavier elements starts, this can't keep going on however as at
 some point the star starts to form the most stable element: iron. 
+
+It costs energy
+to both make lighter elements than iron and heavier ones as can be seen on
+figure \ref{fig:BindingEnergyCurve}.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Binding_energy_curve.png}
 	\caption{Energy curve showing that iron is the most stable atom}
 	\label{fig:BindingEnergyCurve}
 \end{figure}
-It costs energy
-to both make lighter elements than iron and heavier ones as can be seen on
-figure \label{fig:BindingEnergyCurve}.  As the iron core builds up the outside
+  As the iron core builds up the outside
 pressure from the core starts to decrease as no new energy is released. This
 goes on until  the treshold of an iron core with a mass of 1.4$M_\odot$ known
 as the Chandrasekhar limit is reached and the the inwards pressure becomes too
@@ -582,7 +586,7 @@ large compared to the outwards pressure, making the electrons surrounding the
 iron core fuse with the protons (uud), creating neutrons (udd) and neutrinos,
 diagramatically shown in figure
 \ref{fig:CoreFusion}.
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
 	\begin{feynman}
@@ -605,7 +609,7 @@ diagramatically shown in figure
 	};
 	\end{feynman}
 	\end{tikzpicture}
-	\caption{fusion of protons with surrounding electrons into neutrons via the weak force}
+	\caption{fusion of protons with surrounding electrons into neutrons via charged current exchange}
 	\label{fig:CoreFusion}
 \end{figure}\\
 This last part happens in a split second as the collapse goes at 25\% the speed
@@ -706,7 +710,7 @@ neutrinos whom are generated through the interaction of ultra-high energy
 cosmic rays during propagation with the cosmic microwave or other photon
 backgrounds termed \textit{cosmogenic neutrinos}.  The mechanism by which these
 get created is quite simple, if a proton has sufficiently high energy the cross
-section to interact with CMB (Cosmic Microwave Background) photons becomes
+section to interact with the CMB (Cosmic Microwave Background) becomes
 non-negligable.  These protons can scatter off the photons to resonantly
 produce a $\Delta^+$ baryon.  This resonance has enough mass to dominantly
 decay to a pion and a nucleon:
@@ -715,7 +719,7 @@ decay to a pion and a nucleon:
 	\Delta^+ &\rightarrow \pi^+ + n \ (1/3)
 \end{align}
 Of which the charged pion decays to neutrinos as previously mentioned in 
-\ref{sec:AtmosphericNeutrinos}.
+\ref{sec:AtmosphericNeutrinos}, these neutrinos carry most of the original energy.
 \subsection{How do they fit into the full detector spectrum?}
 The origin of the most energetic cosmic rays is still not conclusively
 identified. One approach to solving this problem is \textit{multi-messenger
@@ -919,15 +923,15 @@ Now this explains how the signals get generated but logically, from only knowing
 we'd expect radio waves to almost be non-existent 
 due to the "in blue" nature of Cherenkov radiation. 
 
-This isn't the full story however as we'll need to talk about coherent overlap
-to fully understand the Askaryan effect. This can be intuitively explained as
+To understand why this isn't the case we'll need another piece of the puzzle: coherent overlap.
+Coherent overlap in the radiowave spectrum range can be intuitively explained as
 follows: generally the shower is of length
 $\mathcal{O}$(10cm)\cite{Huege_2017}, over this length the radiation gets
 emitted, most frequencies decoherently interfering, but radio waves with wavelengths of 
 $\approx$ 10cm coherently interfere, and it's these waves we then wish to detect.
+The radiation generated trough this Askaryan effect is called \textit{Askaryan radiation}.
 
-
-The generated electromagnetic radiation is polarized perpendicular to the
+The Askaryan radiation is polarized perpendicular to the
 cherenkov cone, this can be useful to discern between different cherenkov cones whom,
 timely, would generate the same response. This concept is illustrated below in 2D where
 two neutrinos from different directions would generate the same signal in the detector.
@@ -977,7 +981,7 @@ phase, is for it to be an array of autonomous radio stations each of which havin
 surface channels and various deep channels resulting in a total of 24 channels
 per station. The whole project builds heavily on the knowledge obtained through
 previous radio based neutrino detectors like the NuMoon\cite{numoon} project,
-ANITA\cite{ANITA}, ARA\cite{ARA} and RICE\cite{RICE}.
+ANITA\cite{ANITA}, ARA\cite{ARA},ARIANNA\cite{Barwick_2015} and RICE\cite{RICE}.
 \subsection{Hardware}
 One such detector is illustrated in figure \ref{fig:detector}, the plan is to
 build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
@@ -1001,11 +1005,13 @@ of polarized antennae.
 
 The power string (the leftmost vertical cable) is more densely instrumented
 than the helper strings: At the bottom it houses a set of four Vpol and two
-Hpol antennas with a spacing of 1m called the \textit{phased array} and further
-up the string, with a spacing of 20m, are three more Vpol antennas.
+Hpol antennas with a spacing of 1m called the \textit{phased array}, arguably
+the most important channels in a station as it's spaced closely together and
+can thus use the principle of phasing the channels to get higher precision.
+Further up the string, with a spacing of 20m, are three more Vpol antennas.
 \begin{figure}
   \centering
-  \copyrightbox[r]{\includegraphics[width=0.9\textwidth]{SysDiagRNOG.png}}{\textcopyright Design and Sensitivity of the Radio Neutrino Observatory in Greenland (RNO-G) by J.A. Aguilar et. al}
+  \copyrightbox[r]{\includegraphics[width=0.85\textwidth]{SysDiagRNOG.png}}{\textcopyright Design and Sensitivity of the Radio Neutrino Observatory in Greenland (RNO-G) by J.A. Aguilar et. al}
   \caption{System diagram for a RNO-G station}
   \label{fig:SysDiag}
 \end{figure}
@@ -1019,11 +1025,11 @@ signals coming from the surface antennae are first passed through a Bandpass
 filter of 80-750MHz\footnote{i.e a filter that only lets frequencies in this
 range pass} prior to both them and the deep component signal ending up in the
 RAdio DIgitizer and Auxiliary Neutrino Trigger (RADIANT), there it's again
-amplified, digitized and saved onto an SD card. This data is then transmitted
-via a Long Term Evolution (LTE) telecommunications network to a local
-server\footnote{There is additionally a Long Range Wide Area Network (LoRaWAN)
-antenna as backup in case of problems with the LTE network}, from where it is
-sent via a sattelite link.
+amplified, digitized and, if a trigger treshold is reached, saved onto an SD
+card. This data is then transmitted via a Long Term Evolution (LTE)
+telecommunications network to a local server\footnote{There is additionally a
+Long Range Wide Area Network (LoRaWAN) antenna as backup in case of problems
+with the LTE network}, from where it is sent via a sattelite link.
 
 As a power source, battery banks are used whom are charged via solar panels.
 But as there is't enough light during the Greenland winters, there're plans to
@@ -1073,8 +1079,7 @@ detector response to the simulated detector responses, thus finding the origin.
 
 \chapter{Ray tracing}
 As previously hinted it is necessary to be able to simulate how radio waves
-propagate through the ice to build up a database or just simulate how actual
-events would look like.
+propagate through the ice for various reasons like building up a database, calibrating channels,...
 
 It will also become necessary in the last chapter for doing actual measurements,
 that's why in this chapter we'll give a brief introduction to the way radiowave
@@ -1161,7 +1166,7 @@ As the volume scales inversely with the density let's assume the relation $V \pr
 $\rho_i$ the density of pure ice, this yields\cite{herron_langway_1980}:
 \begin{align}
 	\frac{d\rho}{\rho_i - \rho} &\propto \rho dz\\
-	\frac{d\rho}{\rho(\rho_i - \rho)} &\propto \rho dz \label{eqn:SchyttEnd}\\
+	\frac{d\rho}{\rho(\rho_i - \rho)} &\propto dz \label{eqn:SchyttEnd}\\
 	\frac{\ln\left(\frac{\rho}{\rho_i-\rho}\right)}{\rho_i} + C &= Az\\
 	\ln\left(\frac{\rho}{\rho_i-\rho}\right) &= A\rho_iz + C\\
 	\frac{\rho}{\rho_i-\rho} &= e^{A\rho_iz + C} := Ae^{z/z_0}\\
@@ -1195,7 +1200,7 @@ on density for ice can approximately be given by the Schytt equation\cite{Barwic
 Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the
 density for solid ice (917 kg/m³).  For the development of the simulation
 software equation \ref{eqn:myderiexp} was taken and after assuming Schytt's
-equation to hold we find that the index of refraction abides by
+equation (equation \ref{eqn:Schytt}) to hold we find that the index of refraction abides by
 \begin{equation}
 	\label{eqn:expn}
 	n(z) = n_{ice} - \Delta n e^{z/z_0}
@@ -1262,10 +1267,13 @@ One such observer is placed
 just above the ice surface as a ray that escapes the ice won't be able to make it back, and one
 is placed just behind the detector looking from the point of the interaction vertex $\mathbf{X}_i$ as
 a ray is not able to reach the detector anymore after it has passed it in the
-lateral direction. Finally it's noted that due to the way the ice's index of refraction
+lateral direction. 
+
+Finally it's noted that due to the way the ice's index of refraction
 continuously increases with depth, rays can't propagate upwards, this means that we only 
 have to look for solutions within the angle $\Omega$ which is just the zenith angle the detector
 makes with the bottom of the observer sphere.
+
 Now that we have our setup we'll just iteratively shoot rays from the neutrino
 interaction point starting at an angle $\Delta \theta_1$ then at an angle
 $2\Delta \theta_1$, $3\Delta \theta_1$,... Until we have reached $\Omega$. This
@@ -1317,7 +1325,8 @@ radiopropa/hybrid\_minimizer branch.
 It succeeds in more rapidly finding the path from the event to the detector, is
 more accurate and also arrives closer to the detector as the final result is
 not limited by the final drawn sphere size but by a given tolerence making it
-useful for plane wave reconstruction as we'll get to in the next chapter.
+useful for simulations in which high time and space precision is needed like
+plane wave reconstruction, which we'll do in the next chapter.
 
 \section{How it works}
 The hybrid minimizer can be seen as an extension of the iterative raytracer as
@@ -1326,8 +1335,8 @@ $\mathbf{X}_1$ and our detector is located at position $\mathbf{X}_2$, we start
 by defining the vector $\mathbf{v} = \mathbf{X}_2 - \mathbf{X}_1$, then we
 clone it as a new vector $\mathbf{u}$ and set it's z coordinate to 0, making it a normal
 vector of a plane parallel to the z direction in the lateral direction of the detector. 
-We now want to constrain the search to where solutions are actually possible
-, looking at figure \ref{fig:PathIllu}
+We now want to constrain the search to where solutions are actually possible, 
+looking at figure \ref{fig:PathIllu}
 we see that no solutions below the direct path are possible as there would need
 to be upwards reflection, so we convert our vector $\mathbf{v}$ representing
 the path from the source to the detector to spherical coordinates, giving us a
@@ -1344,7 +1353,7 @@ this can't be done.
 
 The algorithm of finding the possible paths is then as follows: We define a
 spherical observer at the location of the detector, with a radius of fair
-size\footnote{We'll get back to this}.  We place an observer plane directly
+size\footnote{We'll get back to how this "fair size" gets chosen}.  We place an observer plane directly
 behind the detector with normal vector $\mathbf{u}$ (as no rays can propagate
 back after passing the detector) and an observer above the surface (as no rays
 could make it back after escaping the ice) our full setup is then what's
@@ -1371,7 +1380,9 @@ detector, this process is illustrated in figure \ref{figure:First step hybrid}.
 	\caption{First step of the hybrid ray tracer}
 	\label{figure:First step hybrid}
 \end{figure}
-if 2 distinct launch regions are found, the so called \textit{minimization}
+
+If 2 distinct launch regions are found, say in the regions $[\theta_1,\theta_2]$ and $[\theta_3,\theta_4]$ the
+rays end up on the sphere (drawn in green), then the so called \textit{minimization}
 procedure will start. Using scipy's module optimize.minimize the optimal
 solution will be found. First we get rid of the spherical observer and place
 the vertical observer \textbf{exactly} at the detector, now to be able to use the
@@ -1410,7 +1421,7 @@ around issues concerning events that won't even trigger in a full simulation}.
 Every simulated point shown in the following subsections consists of at least
 500 random initial positions.  As the speed of the algorithm is computer
 dependent the algorithm's speed is always plotted relative to the iterative ray
-tracer's speed, simulated with the same coordinates equal computer load.
+tracer's speed, simulated with the same coordinates and under equal computer load.
 
 Now we don't want to just achieve higher speed in our algorithm, we also want
 to at least have the same accuracy as the iterative ray tracer, if not even better.
@@ -1504,24 +1515,31 @@ the second optimization conclusion: take ztol to be 0.05 m.
 
 \subsection{Sphere Size \& Step Size}
 The initial rays are sent out in steps of a certain angle and with a sphere
-around the detector of a certain size, varying this first step of the algorithm
-might thus have an effect on both the accuracy and the computational time. 
-As this initial search for launch angle
-regions is also the slowest step in the hybrid ray tracer it's also the most important
-step to optimize. The optimization procedure is as follows: change the sphere size and loop over various
-step sizes, recording the speed. Note that, as we have to vary 2 parameters, we can't really look at accuracy 
-here. This isn't needed however as we'll see that after finding the optimal solution the accuracy is still superb,
-apart from one part where it is needed: \textbf{if insufficient solutions are found}, as we wish this algorithm to
-best the iterative ray tracer, it'll need to at least find as many solutions as the iterative ray tracer does. 
-If, for a particular random interaction vertex location, less solutions are found by the hybrid ray tracer
-than for the iterative ray tracer, this parameter choice will be thrown away (and colored differently).
-The results of going through this are shown in figure \ref{fig:SphereStepInfl}, the points colored red 
-are inusable as previously discussed.
+around the detector of a certain size, varying the parameters of this first
+step of the algorithm (e.g the step size and sphere size) might thus have an
+effect on both the accuracy and the computational time.  As this initial search
+for launch angle regions is also the slowest step in the hybrid ray tracer it's
+also the most important step to optimize. The optimization procedure is as
+follows: change the sphere size and loop over various step sizes, recording the
+speed. Note that, as we have to vary 2 parameters, we can't really look at
+accuracy here. This isn't needed however as we'll see that after finding the
+optimal solution the accuracy is still superb, apart from one part where it is
+needed: \textbf{if insufficient solutions are found}, as we wish this algorithm
+to best the iterative ray tracer, it'll need to at least find as many solutions
+as the iterative ray tracer does.  If, for a particular random interaction
+vertex location, less solutions are found by the hybrid ray tracer than for the
+iterative ray tracer, this parameter choice will be thrown away (and colored
+differently).  The results of going through this are shown in figure
+\ref{fig:SphereStepInfl}, the points colored red are inusable as previously
+discussed.
 
 The lower on the graph the points lie, the better. If we combine all the green points into a single plot
 we get what is shown on figure \ref{fig:SphereStepFinal},
 zooming in onto the lowest point , we see that an optimal sphere size seems to be at 45m accompanied
 by a stepsize of 0.7°.
+
+The programs used in making these plots can be found \href{https://github.com/arthuradriaens-code/projects-mt}{here}
+under the folder "testhybrid".
 \begin{figure}
 	\includegraphics[width=\textwidth]{figures/subplotofallstepsphere.pdf}
 	\caption{Variation in Sphere and angle step size with report on relative time.}
@@ -1529,7 +1547,7 @@ by a stepsize of 0.7°.
 \end{figure}
 \begin{figure}
 	\includegraphics[width=\textwidth]{figures/SphereAndStepFinal.pdf}
-	\caption{Green values in variation in sphere and angle step size with report on relative time.}
+	\caption{Green values in variation in sphere and angle step size, max speed (minimum on figure) at 0.7° as stepsize and 45m spheresize}
 	\label{fig:SphereStepFinal}
 \end{figure}
 \newpage
@@ -1546,7 +1564,7 @@ are presented below:
 	\item analytic (c++ compiled version): 10289 computations/s
 \end{itemize}
 The hybrid ray tracer is thus 33.7\% faster than the iterative ray tracer, the speed of the analytic ray tracer
-has a difference to the other two that might seem quite overwhelming but this might get mitigated in the future if 
+has a difference of the other two which might seem quite overwhelming but this can get mitigated in the future if 
 part of the hybrid ray tracer gets re-written in a compiled language (like c++).
 
 \begin{figure*}
@@ -1564,17 +1582,24 @@ part of the hybrid ray tracer gets re-written in a compiled language (like c++).
 \end{figure*}
 
 \section{Expansion}
-Using the ray tracer as it is now defined makes us unable to calculate paths by \textit{secondaries}.
-When your ice model has some kind of added complexity like a reflective bottom or a discontinuity layer 
-(like what will be the case for our air-bourne balloon in the next chapter)
-you'll need to account for secondaries, these are additional rays like an extra refracted or reflected rays that get generated at this discontinuity. How the algorithm is now it will follow one ray from the source to the discontinuity and 
-only consider say the reflected ray, whilst a refracted ray generated at such a discontinuity might actually end
-up closer to the detector.
+Using the ray tracer as it is now defined makes us unable to calculate paths by
+\textit{secondaries}.  When your ice model has some kind of added complexity
+like a reflective bottom or a discontinuity layer (like what will be the case
+for our air-bourne balloon in the next chapter) you'll need to account for
+secondaries, these are additional rays like an extra refracted or reflected
+rays that get generated at this discontinuity. How the algorithm is now it will
+follow one ray from the source to the discontinuity and only consider, say, the
+reflected ray. Whilst a refracted ray generated at such a discontinuity might
+actually end up closer to the detector.
 
-To implement secondaries, we'll just check if there are any found at the delta\_z algorithm and if so loop over them,
-keeping the original ray's $\Delta z$ in mind as the "global best" and looking if any of the secondary rays' $\Delta z$ is 
-lower than the "global best" if so this will be considered the new final ray which gets returned and the $\Delta z$ that
-gets returned is the new "global best" originating from the secondary, if there is no secondary ending closer than the "original" ray than the original ray with it's $\Delta z$ is returned.
+To implement secondaries, we'll just check if there are any found at the
+delta\_z algorithm and if so loop over them, keeping the original ray's $\Delta
+z$ in mind as the "global best" and looking if any of the secondary rays'
+$\Delta z$ is lower than the "global best" if so this will be considered the
+new final ray which gets returned and the $\Delta z$ that gets returned is the
+new "global best" originating from the secondary. If there is no secondary
+ending closer than the "original" ray than the original ray with it's $\Delta
+z$ is returned.
 
 \chapter{Weather Balloon}
 \label{chap:WB}
@@ -1594,7 +1619,8 @@ within the air into the ice and onto the detector. The modified
 version of the hybrid ray tracer can be found \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the branch radiopropa/BaLLooN.
 
 Due to the way our algorithm works the time the ray took is only from when it
-became a secondary\footnote{This might get fixed in the future but as
+became a secondary\footnote{This is a problem which also seems to hold in the 
+iterative ray tracer, it might get fixed in the future but as
 secondaries weren't needed for most applications we deemed it fine for the
 moment}, this information is insufficient as we want the full travel time.  The
 propagation time from the balloon to the ice $t$ can later be added to the time
@@ -1638,7 +1664,6 @@ Thus if we know the angle $\theta$, the time $\Delta t'$ and the distance betwee
 we could infer the index of refraction at a certain depth as can be seen by reforming equation \ref{eqn:deltataccent}:
 \begin{equation}
 	n = \frac{\Delta t'}{\Delta z} \frac{c}{\cos\theta}
-	\label{eqn:deltataccent}
 \end{equation}
 %\begin{mintedbox}{python}
 %ice = medium.greenland_simple()
@@ -1653,8 +1678,8 @@ minimizing the \textit{correlation function}:
 	- \frac{\cos\theta \Delta z}{v}
   \label{eqn:PlaneWave}
 \end{equation}
-If we want to use more than 2 detectors at once however (which can be done in
-the case of RNO-G), we'll need to specifiy various correlation functions.  E.g
+If we want to use more than 2 detectors at once however (which we'll do for the phased array), 
+we'll need to specifiy various correlation functions.  E.g
 if we have four detectors labeled 0 to 3 we'll have to construct correlation
 functions between detectors 0\&1, 0\&2, 0\&3, 1\&2, 1\&3 and 2\&3 .  As all of
 these correlation functions will have different sizes we'll norm them as
@@ -1664,7 +1689,7 @@ follows:
 	\frac{Correlation(\theta)}{\int Correlation(\theta)\Delta
 	\theta}
 \end{equation}
-An example of these correlation functions is shown in figure \ref{fig:NormedCorrelation}, 
+An example simulation of these correlation functions is shown in figure \ref{fig:NormedCorrelation}, 
 notice how you can't differentiate between the correlation functions, this is only possible
 because of the hybrid ray tracer having that high of a precision.
 \begin{figure}
@@ -1718,20 +1743,24 @@ such that the difference between the balloon position and the plane wave at the 
 height is as small as possible.  Then we compare the n we have fit to the
 one we know from the model at that position.  We quantise the discrepency
 between these two indices of refraction using what we here define as the
-\textit{relative accuracy}:
+\textit{correction factor}:
 \begin{equation}
   \varepsilon\ (\%) = \frac{n_\text{fit} - n_{\text{exact}}}{n_{\text{exact}}} \times 100
 \end{equation}
-Carrying this out\footnote{The code for this can be found in projects-mt/BaLLooN/simulations as plane\_wave.py} we get figure \ref{fig:EpsilonIFODirect}, i.e it gets
-exponentially shifted towards higher n as the balloon moves further away. If we wish our
-accuracy to be within 1\%, the angle the balloon makes with the middle of channels 0 to 3 needs
-to be less than 10°.
+Carrying this out\footnote{The code for this can be found in
+projects-mt/BaLLooN/simulations as plane\_wave.py} we get figure
+\ref{fig:EpsilonIFODirect}, i.e it gets exponentially shifted towards higher n
+as the balloon moves further away. If we wish our correction factor to be
+within 1\%\footnote{we want this as small as possible as to not rely on the
+simulation}, the angle the balloon makes with the middle of channels 0 to 3
+needs to be less than 10°.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{EpsilonIFODirect.pdf}
 	\caption{Epsilon in function of the direct angle}
 	\label{fig:EpsilonIFODirect}
 \end{figure}
+
 Now what would our $<$10° policy entail? And is it even possible?  Say we take
 a look at station Terianniaq (station 12) and see what our policy entails,
 it is located at 72.6000868058195° N -38.4962265332872° W in the global geographic
@@ -1816,7 +1845,7 @@ plane\_wave\_with\_snell.py}
 	\caption{epsilon IFO possible angles from channels 0-3 with refraction at the surface}
 	\label{fig:EpsilonIFODirectSnell}
 \end{figure}
-As you can see we can now go up to 15° and still have a relative accuracy of less than 1\%!  The
+As you can see we can now go up to 15° and still have a correction factor of less than 1\%!  The
 only drawback of this method is that we need to assume the index of refraction
 to be 1.27 at the surface of the ice, if this isn't the case in some places our
 predictions won't be accurate.
@@ -1834,7 +1863,7 @@ predictions won't be accurate.
 In the previous sections we've assumed the height of the weather balloon to be
 500m, does changing this height influence the behaviour of $\epsilon$ in some
 way?  The answer is, at first surprisingly, yes. As can be seen in figure
-\ref{fig:EpsWithHeight} the relative accuracy can vary with height for the same angles.
+\ref{fig:EpsWithHeight} the correction factor can vary with height for the same angles.
 \begin{figure}
 	\centering
 	\includegraphics[height=0.4\textheight]{figures/EpsilonWithHeight.pdf}
@@ -1851,17 +1880,17 @@ Now that we know our goal to be feasible, let's analyse some data.  As we'll
 start by just analysing one event, let's take a very good one for our analysis.
 A close look at graph \ref{fig:EpsilonIFODirect} shows that events under 5° at
 a height of 500m produce an $\epsilon$ of less than 0.22\%, implying that if we
-measure n to be 1.7407 our $\epsilon$ will only be 0.0038.  A good start will
+measure n to be 1.7407 our correction factor will only be 0.0038\%.  A good start will
 thus be finding moments when the balloon gets to within a 5\% angle, note that
-$\epsilon$ is height dependent so we'll have to calculate it afterwards.  After
-looping through all the balloon positional files and only outputting the $<5°$
+the correction factor is height dependent so we'll have to calculate it afterwards.  After
+looping through all the balloon positional files and only outputting the $<5$°
 ones we get the timeframes shown in appendix \ref{app:5Deg}.
 
 If we search in the DESY database
 \footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within the calculated
 timeframes for the particular detectors where the balloon gets close enough to,
 AND where the 403MHz signal coming from the Ballon is detected in the deep channels, the events of the 7th
-of september stands out; at 11:28:10,  just before the $<5°$ passby between
+of september stands out; at 11:28:10,  just before the $<5$° passby between
 11:28:47 and 11:28:49, the balloon gets quite close to detector 23 and shows a
 clear 403MHz signal at the phased array, as shown for the channels 0 and 3 in
 figure \ref{fig:freqs03}.
@@ -1879,7 +1908,7 @@ positions of everything. The balloon data file and the time when the event took
 place are given, from these two both the latitudinal and longitudinal position
 and the elevation of the balloon at the given time are determined. We convert
 these three measurements to the ENU coordinate frame (x,y,z with respect to
-refrence) and store it in the array \textit{BalloonPosition}. The next step is
+reference) and store it in the array \textit{BalloonPosition}. The next step is
 to get the location of the detector, for this we first instantiate a detector
 object 
 
@@ -2022,7 +2051,7 @@ wave reconstruction (also using Snell's law at the surface) and recording the di
 from the reconstructed wave to the balloon at the height of the balloon.
 Doing this we have a list \textbf{n} and a list \textbf{differences}, if we'd select
 the minimal difference in the \textbf{differences} list however we'd find an incorrect
-n. We'll first need to rescale the indices using $\epsilon$ as:
+n. We'll first need to rescale the indices using the correction factor $\epsilon$ as:
 \begin{equation}
 	n_{corr} = \frac{n}{1+\frac{\epsilon}{100}}
 \end{equation}
@@ -2050,14 +2079,13 @@ form\cite{grabe2005measurement}
 \begin{equation}
 	g(x) = \frac{1}{\sigma \sqrt{2\pi}} exp\left\{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}\right\}
 \end{equation}
-the fit is shown on figure \ref{fig:GaussFit}, but as this fit
-obviously isn't that great and would underestimate the error we'll
-need to find another way to find the error.  To estimate the error
-we think that using integration might give a good estimate, i.e we
-integrate over the full data and then again symmetrically outwards
-from $\mu$, if the ratio of these two is 68\% then the interval this
-corersponds to is the one sigma error on our fit, analogously for
-95\%. If we carry this out we get what's shown on figure
+the fit is shown on figure \ref{fig:GaussFit}, but as this fit obviously isn't
+that great and would underestimate the error we'll need another way to find the
+error.  To estimate the error we think that using integration might give a good
+estimate, i.e we integrate over the full data and then again symmetrically
+outwards from the middle of the peak, if the ratio of these two is 68\% then
+the interval this corersponds to is the one sigma error on our fit, analogously
+for 95\%. If we carry this out we get what's shown on figure
 \ref{fig:PhasedArrayFit}, our final fit is thus:
 \begin{figure}
 	\centering
@@ -2119,7 +2147,7 @@ to see where on the density vs depth curve these values lie:
 	\frac{\rho_0}{0.78}(n(z) - 1) &\approx \rho\\
 	\rho &\approx 1175.641(n(z) - 1)\frac{\text{kg}}{\text{m}^3}\\
 \end{align}
-The error propagation is also quite easily found:
+The error propagation is also quite straightforward:
 \begin{equation}
 	\delta \rho = 1175.641\delta n
 \end{equation}
@@ -2154,9 +2182,11 @@ inbetween. This might be caused by one of the following reasons:
 	\item Schytts law isn't fully correct
 	\item The density measurements aren't correct
 \end{itemize}
-The density measurements do actually show quite a spread for nearly
-the same values so there might be a problem there.  As for the
-Schytt's equation, wheter it is a valid approximation or not will be
+The density measurements do actually show quite a lot of spread for nearly
+the same values so there might be a problem there (there are also not that many
+recorded measurements).  
+
+As for the Schytt's equation, wheter it is a valid approximation or not will be
 descided when enough reliable data is available.  
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
@@ -2203,15 +2233,18 @@ figure \ref{fig:DensityMeasurements}
 \chapter{List of abbreviations}
 \begin{itemize}
 \item \textbf{AM}: \textbf{A}mplitude \textbf{M}odulated
+\item \textbf{AGN}: \textbf{A}ctive \textbf{G}alactic \textbf{N}ucleus
 \item \textbf{CMB}: \textbf{C}osmic \textbf{M}icrowave \textbf{B}ackground
 \item \textbf{DAQ}: \textbf{D}ata \textbf{AQ}uisition system
 \item \textbf{DnR}: \textbf{D}irect a\textbf{N}d \textbf{R}efracted
+\item \textbf{DSNB}: \textbf{D}iffuse \textbf{S}upernova \textbf{N}eutrino \textbf{B}ackground
 \item \textbf{FFT} \textbf{F}ast \textbf{F}ourrier \textbf{T}ransform
 \item \textbf{GRBs}: \textbf{G}amma-\textbf{R}ay \textbf{B}ursts
 \item \textbf{RADIANT}: \textbf{RA}dio \textbf{DI}gitizer and \textbf{A}uxiliary \textbf{N}eutrino \textbf{T}rigger
 \item \textbf{RNO-G}: \textbf{R}adio \textbf{N}eutrino \textbf{O}bservatory in \textbf{G}reenland
 \item \textbf{RF}: \textbf{R}adio \textbf{F}requency
 \item \textbf{UHE}: \textbf{U}ltra \textbf{H}igh \textbf{E}nergy 
+\item \textbf{UHECRs}: \textbf{U}ltra \textbf{H}igh \textbf{E}nergy \textbf{C}osmic \textbf{R}ay\textbf{s}
 \end{itemize}
 \chapter{Extra figures}
 \begin{figure}[h!]

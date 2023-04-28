@@ -7,9 +7,9 @@
 \contentsline {section}{\numberline {1.1}Discovery}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Charged and neutral currents}{4}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Neutrino sources}{4}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Cosmological/Primordial neutrinos}{4}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Solar neutrinos}{5}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}Supernovae}{6}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.1}Cosmological/Primordial neutrinos}{5}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Solar neutrinos}{6}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Supernovae}{7}{subsection.1.3.3}%
 \contentsline {subsection}{\numberline {1.3.4}Background from old supernovae}{8}{subsection.1.3.4}%
 \contentsline {subsection}{\numberline {1.3.5}Atmospheric neutrinos}{8}{subsection.1.3.5}%
 \contentsline {subsection}{\numberline {1.3.6}neutrinos from AGNs}{8}{subsection.1.3.6}%
@@ -29,9 +29,9 @@
 \contentsline {section}{\numberline {4.1}Shortcomings of the exponential ice model}{24}{section.4.1}%
 \contentsline {section}{\numberline {4.2}How it works}{24}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Performance Optimalisation}{27}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Length of the normal vector}{27}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.1}Length of the normal vector}{28}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}ztol}{28}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Sphere Size \& Step Size}{28}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.3}Sphere Size \& Step Size}{30}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}Conclusion of optimization}{32}{subsection.4.3.4}%
 \contentsline {section}{\numberline {4.4}Expansion}{32}{section.4.4}%
 \contentsline {chapter}{\numberline {5}Weather Balloon}{33}{chapter.5}%
