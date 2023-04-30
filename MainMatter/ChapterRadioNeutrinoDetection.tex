@@ -1,6 +1,6 @@
 \chapter{Radio neutrino detection}
 Neutrinos on their own aren't detectable, unlike say protons we can't expect
-them to produce brehmsstrallung or any other kind of directly observable
+them to produce Brehmsstrallung or any other kind of directly observable
 radiation as they aren't charged and thus don't couple to photons. We'll need
 to convert them to charged particles first which then can generate some kind of
 detectable signal.  
@@ -99,9 +99,9 @@ currents\cite{NuRadioMc} as is also depicted in figure
 	\label{fig:NeutrinoNucleusInteraction}
 \end{figure}\\
 With the produced leptons in the W boson mediated interaction being either electrons,
-resulting in an electromagnetic shower, muons wich typically go undetected as they live
+resulting in an electromagnetic shower, muons which typically go undetected as they live
 too long or
-tauons wich will decay via
+tauons which will decay via
 \begin{equation}
 	\tau^- \rightarrow e^- + \bar{\nu}_e + \nu_\tau
 \end{equation}
@@ -113,7 +113,7 @@ In both of the possible interactions (W or Z exchange) the resulting nucleus
 will result in an hadronic shower, for the neutral current interaction (mediated
 by the Z boson) the fraction of the neutrino energy that gets transferred to
 the nucleon is described by the inelasticity $y$ and is heavily shifted towards
-small values of $y$\cite{elasticity_y}. This causes a big, irreducable
+small values of $y$\cite{elasticity_y}. This causes a big, irreducible
 uncertainty when trying to estimate the original neutrino energy from these
 kinds of events.  With the charged current interaction (mediated by the $W^\pm$
 bosons) this isn't a problem however as the full neutrino energy ends up in the
@@ -194,7 +194,7 @@ we'd expect radio waves to almost be non-existent
 due to the "in blue" nature of Cherenkov radiation. 
 
 To understand why this isn't the case we'll need another piece of the puzzle: coherent overlap.
-Coherent overlap in the radiowave spectrum range can be intuitively explained as
+Coherent overlap in the radio wave spectrum range can be intuitively explained as
 follows: generally the shower is of length
 $\mathcal{O}$(10cm)\cite{Huege_2017}, over this length the radiation gets
 emitted, most frequencies decoherently interfering, but radio waves with wavelengths of 
@@ -202,7 +202,7 @@ $\approx$ 10cm coherently interfere, and it's these waves we then wish to detect
 The radiation generated trough this Askaryan effect is called \textit{Askaryan radiation}.
 
 The Askaryan radiation is polarized perpendicular to the
-cherenkov cone, this can be useful to discern between different cherenkov cones whom,
+Cherenkov cone, this can be useful to discern between different Cherenkov cones whom,
 timely, would generate the same response. This concept is illustrated below in 2D where
 two neutrinos from different directions would generate the same signal in the detector.
 
@@ -212,9 +212,9 @@ two neutrinos from different directions would generate the same signal in the de
 \end{figure}
 
 If the detector has a way to differentiate between polarization however, there would be no
-doubt where the neutrino originated from as the one producing the yellow cherenkov cone
-would have a downwards polarization and the one producing a green cherenkov cone would have
-an upwards polarization, note that in 3D infinite different cherenkov cones could generate
+doubt where the neutrino originated from as the one producing the yellow Cherenkov cone
+would have a downwards polarization and the one producing a green Cherenkov cone would have
+an upwards polarization, note that in 3D infinite different Cherenkov cones could generate
 the same timely signal (think of rotating the cone around a line on the cone) so both vertical
 and horizontal polarization information is needed.
 
@@ -228,14 +228,14 @@ scale like IceCube\cite{IceCubeTechnical} which works on the principle of
 detection neutrinos with visible light.  But even IceCube has it's limitations,
 it's still too small to observe neutrino events above the 10 PeV
 scale\cite{IceCubeGen2}, that's why a new detector was needed which was even
-bigger and able to observe Cosmogenic neutrinos.  We could just make IceCube
+bigger and able to observe cosmogenic neutrinos.  We could just make IceCube
 bigger but this would cost a lot of money as the individual detectors need to
 be spaced closely as the attenuation length is quite short for light in the
 visible spectrum propagating through ice.  
 
-The proposed solution was to work with radiowave detectors, leveraging the
+The proposed solution was to work with radio wave detectors, leveraging the
 previously discussed Askaryan effect (see section \ref{sec:Askaryan}).  Besides
-the advantage radiowaves have due to their abundance, they can also propagate
+the advantage radio waves have due to their abundance, they can also propagate
 way further in ice than visible light making it possible to space the
 individual detectors further apart. The proposed location was Greenland, an
 island country in North America and part of the Kingdom of Denmark which has
@@ -256,9 +256,9 @@ ANITA\cite{ANITA}, ARA\cite{ARA},ARIANNA\cite{Barwick_2015} and RICE\cite{RICE}.
 One such detector is illustrated in figure \ref{fig:detector}, the plan is to
 build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
 that all the individual detectors are numbered but also named after various species living in
-greenland (in the native tongue)}. Looking closely at one such detector we see
+Greenland (in the native tongue)}. Looking closely at one such detector we see
 just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are used
-to detect air shower muon signals as muons will also generate cherenkov
+to detect air shower muon signals as muons will also generate Cherenkov
 radiation in the ice whose signals can then be filtered out.  Aside form these
 surface detectors there are also deep components of the detector which can be
 split up in three parts: Two \textit{helper strings} and the \textit{power
@@ -269,8 +269,8 @@ The helper strings are the 2 vertical cables shown on the right of figure
 quadslot antenna for the horizontal polarization component (Hpol) and one radio
 pulser on each helper string which can be used to generate calibration signals.
 As was previously mentioned the polarization can be used to
-distinguish between possible cherenkov cones generating the same resulting
-pulse, that's why both the helper and power string are equiped with both kinds
+distinguish between possible Cherenkov cones generating the same resulting
+pulse, that's why both the helper and power string are equipped with both kinds
 of polarized antennae.
 
 The power string (the leftmost vertical cable) is more densely instrumented
@@ -287,7 +287,7 @@ Further up the string, with a spacing of 20m, are three more Vpol antennas.
 \end{figure}
 
 A full system diagram for a RNO-G station is shown in figure \ref{fig:SysDiag}, I'll
-give a walktrough of how data gets collected.
+give a walk trough of how data gets collected.
 The signal from each of the deep antennae are fed into a low-noise amplifier
 directly above it, from there the signal is send to the data acquisition (DAQ)
 system at the surface via a Radio Frequency over Fiber (RFoF) cable.  The
@@ -295,11 +295,11 @@ signals coming from the surface antennae are first passed through a Bandpass
 filter of 80-750MHz\footnote{i.e a filter that only lets frequencies in this
 range pass} prior to both them and the deep component signal ending up in the
 RAdio DIgitizer and Auxiliary Neutrino Trigger (RADIANT), there it's again
-amplified, digitized and, if a trigger treshold is reached, saved onto an SD
+amplified, digitized and, if a trigger threshold is reached, saved onto an SD
 card. This data is then transmitted via a Long Term Evolution (LTE)
 telecommunications network to a local server\footnote{There is additionally a
 Long Range Wide Area Network (LoRaWAN) antenna as backup in case of problems
-with the LTE network}, from where it is sent via a sattelite link.
+with the LTE network}, from where it is sent via a satellite link.
 
 As a power source, battery banks are used whom are charged via solar panels.
 But as there is't enough light during the Greenland winters, there're plans to
@@ -320,7 +320,7 @@ source. The two helper strings are needed for a full direction reconstruction.
 Three independent measurements are needed for azimuthal information, which is
 provided by the Vpol (Vertical polarization) antennas and placing the Hpol
 (Horizontal polarization) antennas at different depths on every string, both
-zentih and azimuth information will be provided for those signals. The helper
+zenith and azimuth information will be provided for those signals. The helper
 strings' calibration pulsers, as well as one on the surface, will ensure
 regular monitoring of the performance of the station and provide information
 useful for precise calibration of the antenna geometry.
@@ -330,7 +330,7 @@ NuRadioMC\cite{Glaser_2020} and NuRadioReco\cite{Glaser_2019}. NuRadioMC uses
 Monte Carlo simulations to generate neutrino events in the ice and simulates
 how they propagate to the various channels, which will be covered more in-depth
 in the next chapter. NuRadioReco is reconstruction software, it simulates how
-the various detectors would respond to the detected radiowaves. This simulation
+the various detectors would respond to the detected radio waves. This simulation
 software is needed as the plan is to simulate a lot of neutrino events and
 record the detector responses in a giant database, then, when an actual neutrino
 event occurs, we'll only have to look in the database and match the actual

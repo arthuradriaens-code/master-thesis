@@ -44,10 +44,10 @@ trajectory}
 \end{figure}
 The plane wave reconstruction can easily be understood using figure
 \ref{fig:Plane Wave}, the radio waves coming from the weather balloon are drawn
-in blue and make a certain angle with the detectors. the top detector (top box)
+in blue and make a certain angle with the detectors. The top detector (top box)
 detects the wave at a certain time $t_1$, the bottom detector detects it at a
 time $t_2$. In our database, after decoding the signal we'd thus see that these
-two detectors got a signal $\Delta t = t_1 - t_2$ seconds apart from eachother.
+two detectors got a signal $\Delta t = t_1 - t_2$ seconds apart from each other.
 Now ideally this is equal to the time $\Delta t'$ which is the time it took the
 wave to propagate that distance which we can calculate from basic trigonometry
 and dimensional analysis:
@@ -55,7 +55,7 @@ and dimensional analysis:
 	\Delta t' = \frac{m}{(m/s)} = (s/m)*m = v^{-1} * m = v^{-1} \cos\theta \Delta z
 	\label{eqn:deltataccent}
 \end{equation}
-With $v = c/n$ the local speed of light and n the index of refraction at the depth inbetween
+With $v = c/n$ the local speed of light and n the index of refraction at the depth in between
 the considered channels. 
 Thus if we know the angle $\theta$, the time $\Delta t'$ and the distance between the channels $\Delta z$
 we could infer the index of refraction at a certain depth as can be seen by reforming equation \ref{eqn:deltataccent}:
@@ -76,7 +76,7 @@ minimizing the \textit{correlation function}:
   \label{eqn:PlaneWave}
 \end{equation}
 If we want to use more than 2 detectors at once however (which we'll do for the phased array), 
-we'll need to specifiy various correlation functions.  E.g
+we'll need to specify various correlation functions.  E.g
 if we have four detectors labeled 0 to 3 we'll have to construct correlation
 functions between detectors 0\&1, 0\&2, 0\&3, 1\&2, 1\&3 and 2\&3 .  As all of
 these correlation functions will have different sizes we'll norm them as
@@ -138,7 +138,7 @@ We vary the position of the weather balloon in the x direction (keeping the
 height constant at 500m), simulate the ray path to the channels 0 to 3 and then fit n
 such that the difference between the balloon position and the plane wave at the same
 height is as small as possible.  Then we compare the n we have fit to the
-one we know from the model at that position.  We quantise the discrepency
+one we know from the model at that position.  We quantify the discrepancy
 between these two indices of refraction using what we here define as the
 \textit{correction factor}:
 \begin{equation}
@@ -161,9 +161,9 @@ needs to be less than 10°.
 Now what would our $<$10° policy entail? And is it even possible?  Say we take
 a look at station Terianniaq (station 12) and see what our policy entails,
 it is located at 72.6000868058195° N -38.4962265332872° W in the global geographic
-coordinate system (longitudinal, latidude and elevation), this is quite
+coordinate system (longitudinal, latitude and elevation), this is quite
 difficult to work with directly. For this reason we first convert the station's location to 
-local ENU coordinates (east, north, up) relative to the the 'DISC' which is a point in the base camp located at
+local ENU coordinates (east, north, up) relative to the 'DISC' which is a point in the base camp located at
 72.58279265212887 latitude, -38.45581495328228 longitude and 3251.9489147560234 elevation.  
 
 After having converted station 12's position into ENU coordinates we get
@@ -171,7 +171,7 @@ After having converted station 12's position into ENU coordinates we get
 this is the approximate location of the middle of channels 0-3.  Now looking at
 e.g the Balloon path recorded on the 20th of august 2022 (figure
 \ref{fig:ExampleBalloonPathCrossing12}) we see that the balloon crosses paths
-closely with detector 12, but how close was this encounter? To quantize this we
+closely with detector 12, but how close was this encounter? To quantify this we
 can take a look at every balloon positional data entry (there are $>$12000
 entries) individually and compute the angle the balloon makes with the detector
 by first converting the location of the balloon into ENU coordinates, then
@@ -198,7 +198,7 @@ we didn't want to assume anything, now say that we include refraction at the
 surface for our plane wave reconstruction. This would mean that we'd follow
 analogous steps as our previous analysis, i.e doing a plane wave reconstruction
 from the difference in timing and trying to fit the index of refraction, only
-now the plane wave abides with snell's law at the surface, going from n=1.27 to
+now the plane wave abides with Snell's law at the surface, going from n=1.27 to
 n=1. 
 
 The full algorithm thus goes as follows: We first reconstruct the
@@ -209,7 +209,7 @@ concerned detectors to derive the function
 	z = a_{InIce}*x + b_{InIce}
 	\label{eqn:InIcePlaneWave}
 \end{equation}
-The outgoing zenith angle at the surface $\theta_2$ can be calculated from snell's law:
+The outgoing zenith angle at the surface $\theta_2$ can be calculated from Snell's law:
 \begin{equation}
 n_1 \sin{\theta_1} = n_2 \sin{\theta_2} \implies  \theta_2 = \sin^{-1}\left(\frac{n_1}{n_2}\sin{\theta_1}\right)
 \end{equation}
@@ -258,7 +258,7 @@ predictions won't be accurate.
 
 \subsection{Influence of height on Epsilon}
 In the previous sections we've assumed the height of the weather balloon to be
-500m, does changing this height influence the behaviour of $\epsilon$ in some
+500m, does changing this height influence the behavior of $\epsilon$ in some
 way?  The answer is, at first surprisingly, yes. As can be seen in figure
 \ref{fig:EpsWithHeight} the correction factor can vary with height for the same angles.
 \begin{figure}
@@ -273,21 +273,21 @@ might still be quite large (if the height is really large).
 Because of this we'll have to re-compute $\epsilon$ exactly for 
 every measurement we do.
 \section{Fitting the index: Phased array}
-Now that we know our goal to be feasible, let's analyse some data.  As we'll
-start by just analysing one event, let's take a very good one for our analysis.
+Now that we know our goal to be feasible, let's analyze some data.  As we'll
+start by just analyzing one event, let's take a very good one for our analysis.
 A close look at graph \ref{fig:EpsilonIFODirect} shows that events under 5° at
 a height of 500m produce an $\epsilon$ of less than 0.22\%, implying that if we
 measure n to be 1.7407 our correction factor will only be 0.0038\%.  A good start will
 thus be finding moments when the balloon gets to within a 5\% angle, note that
 the correction factor is height dependent so we'll have to calculate it afterwards.  After
 looping through all the balloon positional files and only outputting the $<5$°
-ones we get the timeframes shown in appendix \ref{app:5Deg}.
+ones we get the time frames shown in appendix \ref{app:5Deg}.
 
 If we search in the DESY database
 \footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within the calculated
-timeframes for the particular detectors where the balloon gets close enough to,
-AND where the 403MHz signal coming from the Ballon is detected in the deep channels, the events of the 7th
-of september stands out; at 11:28:10,  just before the $<5$° passby between
+time frames for the particular detectors where the balloon gets close enough to,
+AND where the 403MHz signal coming from the balloon is detected in the deep channels, the events of the 7th
+of September stands out; at 11:28:10,  just before the $<5$° pass by between
 11:28:47 and 11:28:49, the balloon gets quite close to detector 23 and shows a
 clear 403MHz signal at the phased array, as shown for the channels 0 and 3 in
 figure \ref{fig:freqs03}.
@@ -325,7 +325,7 @@ get\_absolute\_position module:
 Where at the specific station this position is doesn't matter as we'll explains
 shortly.  Now that we have both the position of our balloon and station in ENU
 coordinates, let's simplify the calculations by setting the detector as the
-origin.  i.e our new balloon position will be
+origin.  I.e our new balloon position will be
 
 \begin{equation}
 	\textit{RelBalloon} = \textit{BalloonPosition} - \textit{StationPosition}
@@ -339,7 +339,7 @@ this by defining the radius:
 	r := \sqrt{\textit{RelBalloon}_x^2 + \textit{RelBalloon}_y^2}
 \end{equation}
 
-and just setting this equal to $\textit{Balloon}_x$ and setting $\textit{Balloon}_y$ to
+And just setting this equal to $\textit{Balloon}_x$ and setting $\textit{Balloon}_y$ to
 zero (equivalent to setting $\theta= 0$ in a rotation).
 
 We don't have the position of our individual channels yet, only of the
@@ -350,8 +350,8 @@ absolute positions of the channels in our frame of reference. Using
 these it thus doesn't matter where the position of the station was defined.
 
 \subsection{Signal analysis and initial guesses}
-Now that we have our geometry, let's analyse the data for the channels,
-the data for a particulal channel is stored in a channel object. From this
+Now that we have our geometry, let's analyze the data for the channels,
+the data for a particular channel is stored in a channel object. From this
 object we can get the recorded voltages with the get\_trace() module, the
 recorded times with the get\_times() module, the recorded frequencies with the
 get\_frequencies() and the recorded spectrum corresponding to these frequencies
@@ -378,17 +378,17 @@ this is all non-physical noise as the Vpol antenna's range only goes from
 0.15GHz to 0.6GHz \cite{Aguilar_2021} that's why we'll first pass this signal
 trough a virtual butterworth bandpass filter.
 
-After passing the signal through the filter we'd also like to upsample the
+After passing the signal through the filter we'd also like to up sample the
 signal as to increase the resolution, this can be done using the resample()
-module and we'll upsample towards 10GHz increasing our timely accuracy from
-0.3125ns to 0.1ns.  After filtering and upsampling we have some voltage
+module and we'll up sample towards 10GHz increasing our timely accuracy from
+0.3125ns to 0.1ns.  After filtering and up sampling we have some voltage
 response as shown for channel 0 in figure \ref{fig:VoltageAfterFilter}, we wish
 to find a sine wave coming from the weather balloon in this signal.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{figures/VoltageAfterFilter.pdf}
-	\caption{Recorded voltage i.f.o time in vpol antenna 0 after upsampling and passing through the butterworth filter}
+	\caption{Recorded voltage i.f.o time in vpol antenna 0 after up sampling and passing through the butterworth filter}
 	\label{fig:VoltageAfterFilter}
 \end{figure}
 
@@ -396,10 +396,10 @@ To find a sine wave herein we'll radiotools' helper module get\_normalized\_xcor
 which indirectly uses scipys signal correlation function but before using that we'll
 need a template to correlate with the data. The template we'll be choosing is
 of course the sine function but it's important to notice that the channel has a
-certain sampling rate, namely now after upsampling, 10GHz. 
+certain sampling rate, namely now after up sampling, 10GHz. 
 
 Our template sine which we'll correlate to the data will also need to have this
-sampling rate, meaning that it needs to be stepwise defined with spaces of
+sampling rate, meaning that it needs to be step wise defined with spaces of
 0.1ns. Next we'll also need to give the sine a certain amplitude, as we don't
 have a system for finding this yet let's for now assume an amplitude $A =
 0.007$ (this shouldn't impact the correlation).  Our template thus looks like
@@ -432,14 +432,14 @@ procedure on the real data we get what's (partially) shown in figure
 \end{figure}
 Herein the peaks represent the maximal correlation, if we now do the same for
 channel 3 we have two correlation functions, if we correlate these with
-eachother we'll get the difference in timing between the channels.  This is
+each other we'll get the difference in timing between the channels.  This is
 easy to comprehend after taking a look at the illustration shown in figure
 \ref{fig:CorrIllu}. This cross correlation is shown in figure
 \ref{fig:CrossCorr}, the negative offset is caused by accounting for cable
 delay. Note that multiple peak correlations are present, to thus find out which
 one is the right one we'll do a simple simulation using our modified hybrid ray
 tracer from which we know what the approximate time difference is and search in
-this neighbourhood.
+this neighborhood.
 
 \subsection{Fitting n and finding it's error}
 Now that we have the differences in timing between the individual channels we'll loop
@@ -454,7 +454,7 @@ n. We'll first need to rescale the indices using the correction factor $\epsilon
 \end{equation}
 If we now plot these corrected indices of refraction (which we'll from now on
 just call "the fitted indices of refraction") on the x axis and on the y axis
-the inverse of the the differences we get figure \ref{fig:2PeakFit}. As you can
+the inverse of the differences we get figure \ref{fig:2PeakFit}. As you can
 see there are 2 equally probable answers, this could be caused by the plane
 wave landing left and equally distant right from the balloon. From looking at
 the exponential model and the density data however we don't expect an index of
@@ -470,7 +470,7 @@ exact peak value and it's error?
 
 To find the peak value and it's error we'll first cut the data from
 1.73 to 1.75, the value for n can be found as the middle of the
-peak. To find the error on this value a first idea was to gaussian
+peak. To find the error on this value a first idea was to Gaussian
 to this curve of the
 form\cite{grabe2005measurement}
 \begin{equation}
@@ -481,7 +481,7 @@ that great and would underestimate the error we'll need another way to find the
 error.  To estimate the error we think that using integration might give a good
 estimate, i.e we integrate over the full data and then again symmetrically
 outwards from the middle of the peak, if the ratio of these two is 68\% then
-the interval this corersponds to is the one sigma error on our fit, analogously
+the interval this corresponds to is the one sigma error on our fit, analogously
 for 95\%. If we carry this out we get what's shown on figure
 \ref{fig:PhasedArrayFit}, our final fit is thus:
 \begin{figure}
@@ -503,7 +503,7 @@ Here we clearly see the index of refraction from the exponential model fall with
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/crosscorrelation.pdf}
-	\caption{correlation of the previously, with sine, correlated dataset
+	\caption{correlation of the previously, with sine, correlated data set
 	of channels 0 and 3, the orange marks indicate the peaks}
 	\label{fig:CrossCorr}
 \end{figure}
@@ -516,14 +516,13 @@ in timing between the peaks which can be found from correlating the two}
 	\label{fig:CorrIllu}
 \end{figure}
 \section{Channels 5,6 and 7}
-A very interesting depth is inbetween channels 5 and 7 as, looking
+A very interesting depth is in between channels 5 and 7 as, looking
 at the density profile shown in figure \ref{fig:DensityMeasurements}
 this is where the actual density deviates the most from the
 theoretical models.  The event we'll be using is recorded in
-detector 21 at the 26th of july 11:18:41 and falls within the $<5$°
+detector 21 at the 26th of July 11:18:41 and falls within the $<5$°
 mark, doing analogous analyses as in the previous section we get
-figures \ref{fig:Ch5And6}-\ref{fig:Ch5And7} which can be summerized in a table as shown below:
-	\label{fig:Ch5And7}
+figures \ref{fig:Ch5And6}-\ref{fig:Ch5And7} which can be summarized in a table as shown below:
 \begin{center}
 \begin{tabular}{||c c c c c c c||}
  \hline
@@ -572,7 +571,7 @@ If we plot this we get what's shown in figure
 \end{figure}
 Note that the calculated values neither line up with the density
 measurements nor with the exponential model, but somewhere
-inbetween. This might be caused by one of the following reasons:
+in between. This might be caused by one of the following reasons:
 \begin{itemize}
 	\item The channels 5-7 are too far apart to use the plane
 		wave reconstruction.
@@ -583,8 +582,8 @@ The density measurements do actually show quite a lot of spread for nearly
 the same values so there might be a problem there (there are also not that many
 recorded measurements).  
 
-As for the Schytt's equation, wheter it is a valid approximation or not will be
-descided when enough reliable data is available.  
+As for the Schytt's equation, whether it is a valid approximation or not will be
+decided when enough reliable data is available.  
 
 As for the first statement, this might actually be the true fault, as if you try
 to do the same procedure but with ch7 and a surface channel like ch13 the answer

@@ -15,7 +15,7 @@ solvable but for a general ice model you'll somehow have to find where to
 rays would trace out in more complex ice models called the \textit{iterative
 ray tracer} \cite{2022icrc.confE1027O}, which was discussed in section
 \ref{sec:Iterative}. The way this algorithm works is however a sub-optimal
-solution in python as an optimalisation library will generally work faster and
+solution in python as an optimization library will generally work faster and
 more accurate, work had been done on trying to implement such an algorithm
 deemed the "minimizer" but this attempt failed.  As we saw this work the idea
 came to mind to combine the iterative ray tracer and the code using the
@@ -27,12 +27,12 @@ radiopropa/hybrid\_minimizer branch.
 
 It succeeds in more rapidly finding the path from the event to the detector, is
 more accurate and also arrives closer to the detector as the final result is
-not limited by the final drawn sphere size but by a given tolerence making it
+not limited by the final drawn sphere size but by a given tolerance making it
 useful for simulations in which high time and space precision is needed like
 plane wave reconstruction, which we'll do in the next chapter.
 
 \section{How it works}
-The hybrid minimizer can be seen as an extension of the iterative raytracer as
+The hybrid minimizer can be seen as an extension of the iterative ray tracer as
 it starts out the same way: Say our source of radiation is at position
 $\mathbf{X}_1$ and our detector is located at position $\mathbf{X}_2$, we start
 by defining the vector $\mathbf{v} = \mathbf{X}_2 - \mathbf{X}_1$, then we
@@ -73,7 +73,7 @@ Here the red cross is the radio source, the blue horizontal line is the ice-air
 boundary surface, the blue dot to the right is the detector and the green
 $\Omega$ indicates the range over which solutions to the problem are possible.
 
-We start off by just iteratively guessing: given a certain angle stepsize
+We start off by just iteratively guessing: given a certain angle step size
 $\Delta \theta$ shoot rays at the angles $\{0,\Delta \theta, 2\Delta
 \theta,...,\Omega\}$ And see which ones get detected at the sphere around the
 detector, this process is illustrated in figure \ref{figure:First step hybrid}.
@@ -89,7 +89,7 @@ rays end up on the sphere (drawn in green), then the so called \textit{minimizat
 procedure will start. Using scipy's module optimize.minimize the optimal
 solution will be found. First we get rid of the spherical observer and place
 the vertical observer \textbf{exactly} at the detector, now to be able to use the
-minimize module we'll need a function to minimze, for this reason we first define the
+minimize module we'll need a function to minimize, for this reason we first define the
 function \textit{delta\_z} as, given a certain launch angle, propagating the ray
 onto the vertical observer and returning the
 distance from the point where it lands on the plane to the detector, as
@@ -111,14 +111,14 @@ interval. With this our algorithm is done, it does have a fail-safe as well for
 if the first step, finding the launch regions, doesn't find the 2 launch
 regions.  Namely it reverts back to being the iterative ray tracer.
 
-\section{Performance Optimalisation} 
+\section{Performance Optimization} 
 We wish to optimize this algorithm to make
 it as fast as possible.  To consistently test the algorithm after every
 particular change in a parameter we'll be randomly generating vertex
 interaction positions, keeping the detector at the fixed (0,-100) value.  To
-this end the numpy random module was used to generate random coördinates, the
+this end the numpy random module was used to generate random coordinates, the
 considered square (as there is only a z component to the ice model the 3D
-problem is cilindrically symmetric and thus essentially only a 2D problem) is
+problem has cylindrical symmetry and thus essentially only a 2D problem) is
 x:0.1km,4km and z:-0.1km,-3km\footnote{This start at 100m depth was to get
 around issues concerning events that won't even trigger in a full simulation}.
 Every simulated point shown in the following subsections consists of at least
@@ -143,7 +143,7 @@ ray tracer is more accurate than the iterative ray tracer.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/PrincipleNormIllu.pdf}
-	\caption{how normal vector size influences the stepsize}
+	\caption{how normal vector size influences the step size}
 	\label{fig:normexpl}
 \end{figure}
 Whilst figuring out what was wrong with the initial \textit{minimizer} we
@@ -158,7 +158,7 @@ iterative ray tracer, are shown in figures \ref{fig:norminfl} and
 normally be rather obvious but is interesting nonetheless, first optimization
 conclusion: take the normal vector length to be 1 meter.
 We can conclude this as the calculation speed seems to be minimal there (after zooming
-in on the graph) and the accurace dropping rapidly after 1 meter.
+in on the graph) and the accuracy dropping rapidly after 1 meter.
 
 \begin{figure}
 	\centering
@@ -200,7 +200,7 @@ the second optimization conclusion: take ztol to be 0.05 m.
 	\begin{minipage}{\textwidth}
 		\includegraphics[width=0.8\textwidth]{figures/ZtolVsSigmaTime.pdf}
 	\end{minipage}
-\caption{influence of the tolerence on vertical distance}
+\caption{influence of the tolerance on vertical distance}
 \label{fig:ztolinfl}
 \end{figure}
 
@@ -212,7 +212,7 @@ the second optimization conclusion: take ztol to be 0.05 m.
 	\begin{minipage}{\textwidth}
 		\includegraphics[width=0.8\textwidth]{figures/ZtolVsSigmaAZ.pdf}
 	\end{minipage}
-\caption{influence of the tolerence on vertical distance}
+\caption{influence of the tolerance on vertical distance}
 \label{fig:ztolinfl2}
 \end{figure}
 
@@ -233,13 +233,13 @@ as the iterative ray tracer does.  If, for a particular random interaction
 vertex location, less solutions are found by the hybrid ray tracer than for the
 iterative ray tracer, this parameter choice will be thrown away (and colored
 differently).  The results of going through this are shown in figure
-\ref{fig:SphereStepInfl}, the points colored red are inusable as previously
+\ref{fig:SphereStepInfl}, the points colored red are unusable as previously
 discussed.
 
 The lower on the graph the points lie, the better. If we combine all the green points into a single plot
 we get what is shown on figure \ref{fig:SphereStepFinal},
 zooming in onto the lowest point , we see that an optimal sphere size seems to be at 45m accompanied
-by a stepsize of 0.7°.
+by a step size of 0.7°.
 
 The programs used in making these plots can be found \href{https://github.com/arthuradriaens-code/projects-mt}{here}
 under the folder "testhybrid".
@@ -250,7 +250,7 @@ under the folder "testhybrid".
 \end{figure}
 \begin{figure}
 	\includegraphics[width=\textwidth]{figures/SphereAndStepFinal.pdf}
-	\caption{Green values in variation in sphere and angle step size, max speed (minimum on figure) at 0.7° as stepsize and 45m spheresize}
+	\caption{Green values in variation in sphere and angle step size, max speed (minimum on figure) at 0.7° as step size and 45m sphere size}
 	\label{fig:SphereStepFinal}
 \end{figure}
 \newpage
@@ -288,7 +288,7 @@ part of the hybrid ray tracer gets re-written in a compiled language (like c++).
 Using the ray tracer as it is now defined makes us unable to calculate paths by
 \textit{secondaries}.  When your ice model has some kind of added complexity
 like a reflective bottom or a discontinuity layer (like what will be the case
-for our air-bourne balloon in the next chapter) you'll need to account for
+for our air-borne balloon in the next chapter) you'll need to account for
 secondaries, these are additional rays like an extra refracted or reflected
 rays that get generated at this discontinuity. How the algorithm is now it will
 follow one ray from the source to the discontinuity and only consider, say, the

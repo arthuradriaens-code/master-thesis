@@ -28,14 +28,14 @@ much as we'd like a really big detector working in the visible spectrum, it
 would cost way to much. As neutrinos can produce radio waves upon interacting
 in ice through the Askaryan effect and as radio waves can travel for way longer
 distances in there before interacting than visible light, it was previously
-descided in experiments like ARA and ARIANNA to detect on the principle of
-radio waves. The Radio Neutrino Observatory in Greenland or RNO-G wich is
+decided in experiments like ARA and ARIANNA to detect on the principle of
+radio waves. The Radio Neutrino Observatory in Greenland or RNO-G which is
 currently under construction and the subject of this thesis builds on the
 knowledge of these experiments to make a quite complex detector which
 should be capable of detecting UHE neutrinos.
 
-The ice properties have an impact on how radiowaves propagate. As mentioned before, RNO-G is a detector built
-in the Greenland icecap. As the radiowaves get produced in the ice we need to figure out how
+The ice properties have an impact on how radio waves propagate. As mentioned before, RNO-G is a detector built
+in the Greenland icecap. As the radio waves get produced in the ice we need to figure out how
 they propagate towards our detector. An important part in figuring out how they propagate is 
 the local index of refraction which seems to be linearly related to the density of the ice. 
 The density of the ice seems to vary continuously with depth, a function describing
@@ -44,7 +44,7 @@ and it is crucial for future studies to understand this ice model.
 
 Due to the ice model seeming to deviate from the theoretically expected single exponential, it was necessary to 
 develop a new algorithm to find the paths the radio waves could take with more complex ice models. 
-The software used within this thesis to figure out the path radiowaves take is called \textit{radiopropa}.
+The software used within this thesis to figure out the path radio waves take is called \textit{radiopropa}.
 Even though this software can be used to work with most kinds of ice models, it still needs to be used within
 some kind of algorithm to be useful. Such an algorithm has already been developed called the \textit{Iterative
 ray tracer} as is explained in section \ref{sec:Iterative} but it had its shortcomings,
@@ -52,9 +52,9 @@ that's why in this thesis a new algorithm was developed called the \textit{hybri
 in chapter \ref{chapter:hybrid}. The hybrid ray tracer makes it possible to both find a more accurate solution and find it faster.
 
 It is, however, crucial to make sure we actually need a new kind of ice model. The measuring of the index of refraction
-can be accomplished indirectly through weather balloon fly-bys as is explained in chapter \ref{chap:WB}. Every day
-in the summer, two times per day a weather balloon is launched from the base camp. This weather balloon is equiped with
-an antenna which sends out a 403MHz sinusoidal signal, upon close fly-bys with detectors this signal can be observed in the
+can be accomplished indirectly through weather balloon fly-byes as is explained in chapter \ref{chap:WB}. Every day
+in the summer, two times per day a weather balloon is launched from the base camp. This weather balloon is equipped with
+an antenna which sends out a 403MHz sinusoidal signal, upon close fly-byes with detectors this signal can be observed in the
 detectors (as is visualized on the cover). By looking at the difference in arrival time of the signal, the difference in timing can be made out from 
 which a plane wave reconstruction can be done. As this plane wave reconstruction is heavily dependent
 on the local index of refraction in the ice, it can be indirectly measured through this reconstruction.
@@ -72,7 +72,7 @@ After this analysis the following data was found:
 \end{tabular}
 \end{center}
 
-As can be seen all of the undeep channels show a discrepency with
+As can be seen all of the channels between the phased array and the surface channels show a discrepancy with
 the exponential model. 
 
 \newpage
