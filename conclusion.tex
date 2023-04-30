@@ -1,0 +1,34 @@
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+The hybrid ray tracer developed over the course of this thesis and reported in
+chapter \ref{chapter:hybrid} was a succes, not only is it more accurate than
+it's predecessors but it's also faster.  The accuracy of the ray tracer also
+makes it perfectly suitable for very fine precision simulations as used within
+the Balloon radio wave measurements.
+
+The use of weather balloons to estimate the index of refraction as
+was reported in \ref{chap:WB} was also done succesfully even though
+it yielded quite unexpected results, not only were the index of
+refraction measured via this method for channels 5-7 deviating from the model but
+also deviating from the theoretically expected indices using the
+measured density in combination with Schytts equation
+\begin{equation}
+	n(z) = 1+ 0.78\rho/\rho_0
+\end{equation}
+moreso lying somewhere inbetween. A conversion using the inverse of
+Schytts equation to arrive at the density makes this especially
+clear as shown on figure \ref{fig:BalloonDensity6And7}.
+These results are thus probably incorrect as the plane wave
+reconstruction cannot be used for channels lying that far 
+away from eachother. It can be used however to estimate
+the index of refraction at the phased array.
+
+As there are a multitude of events (as can be found in appendices
+\ref{app:5Deg} and \ref{app:10Deg} but only finite time to analyse
+each and every one, this code is made public
+\href{https://github.com/arthuradriaens-code/projects-mt.git}{here}
+as to make it easy to improve on this work.  Especially interesting
+might be events where $\epsilon$ is negligable (the balloon is
+really close) at the phased array and as such is the plane wave
+reconstruction a near perfect representation of the actual wave.
+

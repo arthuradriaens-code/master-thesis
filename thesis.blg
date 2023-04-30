@@ -1,13 +1,23 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: preface.aux
+A level-1 auxiliary file: ChapterIntroduction.aux
+A level-1 auxiliary file: ChapterNeutrino.aux
+A level-1 auxiliary file: ChapterRadioNeutrinoDetection.aux
+A level-1 auxiliary file: ChapterRayTracing.aux
+A level-1 auxiliary file: ChapterHybrid.aux
+A level-1 auxiliary file: ChapterWB.aux
+A level-1 auxiliary file: conclusion.aux
+A level-1 auxiliary file: proposal.aux
+A level-1 auxiliary file: appendices.aux
 The style file: plain.bst
 Database file #1: sources.bib
 Warning--to sort, need author or key in elasticity_y
 Warning--empty author in elasticity_y
 You've used 33 entries,
             2118 wiz_defined-function locations,
-            718 strings with 13014 characters,
+            728 strings with 13191 characters,
 and the built_in function-call counts, 16373 in all, are:
 = -- 1351
 > -- 1526
