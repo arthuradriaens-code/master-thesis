@@ -2188,6 +2188,14 @@ recorded measurements).
 
 As for the Schytt's equation, wheter it is a valid approximation or not will be
 descided when enough reliable data is available.  
+
+As for the first statement, this might actually be the true fault, as if you try
+to do the same procedure but with ch7 and a surface channel like ch13 the answer
+you get is completely wrong (note that epsilon is then 8\%), instead of something 
+close to 1.477 you get 1.08 as an index of refraction.
+
+This might imply that the plane wave method can only be used for close-lying detectors
+like what's the case in the phased array.
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 The hybrid ray tracer developed over the course of this thesis and reported in
@@ -2199,7 +2207,7 @@ the Balloon radio wave measurements.
 The use of weather balloons to estimate the index of refraction as
 was reported in \ref{chap:WB} was also done succesfully even though
 it yielded quite unexpected results, not only were the index of
-refraction measured via this method deviating from the model but
+refraction measured via this method for channels 5-7 deviating from the model but
 also deviating from the theoretically expected indices using the
 measured density in combination with Schytts equation
 \begin{equation}
@@ -2208,6 +2216,10 @@ measured density in combination with Schytts equation
 moreso lying somewhere inbetween. A conversion using the inverse of
 Schytts equation to arrive at the density makes this especially
 clear as shown on figure \ref{fig:BalloonDensity6And7}.
+These results are thus probably incorrect as the plane wave
+reconstruction cannot be used for channels lying that far 
+away from eachother. It can be used however to estimate
+the index of refraction at the phased array.
 
 As there are a multitude of events (as can be found in appendices
 \ref{app:5Deg} and \ref{app:10Deg} but only finite time to analyse
