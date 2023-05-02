@@ -588,3 +588,35 @@ decided when enough reliable data is available.
 The first possible reason, which is the most probable, would imply that the
 plane wave method can only be used for close-lying detectors like what's the
 case in the phased array.
+
+\section{For future reference}
+Here I'll give a quick guide on how to continue this work, as a phased array
+measurement with small error hasn't been found yet.  First off you'll need to
+install the NuRadioMC fork from my github located
+\href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} and checkout
+the branch radiopropa/BaLLooN. Then go to
+\url{https://rnog-monitor.zeuthen.desy.de/} and search for events mentioned in
+appendix \ref{app:5Deg} (within those time frames), looking at the frequency
+spectrum of the phased array to see if the 0.403GHz signal gets detected. If
+such an event gets found write the run and event number down and also the exact
+date and time.
+
+Now download this run file, the exact procedure is explained on the rno-g
+internal wiki under "analysis" but after you have installed everything my
+"getrnorun.sh" script located
+\href{https://github.com/arthuradriaens-code/Scripts.git}{here} might come in
+handy.
+
+Now download all the balloon positional files (.gpx files) with the rno-g-sonde
+script located \href{https://github.com/RNO-G/rno-g-sonde.git}{here} and in
+this find the balloon file relevant for the event time, e.g a file named
+"SMT\_20230315\_111501.gpx" was launched the 15th of march in 2023 at 11:15:01. 
+
+Now the preparations are done, download the program used for fitting called
+"FitN.py" located
+\href{https://github.com/arthuradriaens-code/projects-mt.git}{here} under
+BaLLooN. If you take a look at it's source code the first few variables
+(station\_id, event\_id, gpx\_file,...) are what need to be changed to the
+previously found values. Run this with n\_cut=None and then look at a good cut
+for the index of refraction (over which range you want to do the error
+analysis, examples are shown in appendix \ref{app:EF}) and rerun the program.
