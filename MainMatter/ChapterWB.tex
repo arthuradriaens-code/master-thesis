@@ -9,9 +9,9 @@ until we find one where the reconstructed signal gets close to the balloon.
 This procedure will be explained more in depth over the following sections.
 
 For us to find the timing we'll first make an educated guess, this can be done
-using our \textit{hybrid minimizer} algorithm, there is one change that need to
+using our \textit{hybrid minimizer} algorithm. There is one change that needs to
 happen first to our algorithm for us to be able to simulate this: The air
-observers needs to be hard removed as to make a ray tracing possible from
+observer needs to be removed as to make a ray tracing possible from
 within the air into the ice and onto the detector. The modified
 version of the hybrid ray tracer can be found \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the branch radiopropa/BaLLooN.
 
@@ -86,8 +86,8 @@ follows:
 	\frac{Correlation(\theta)}{\int Correlation(\theta)\Delta
 	\theta}
 \end{equation}
-An example simulation of these correlation functions is shown in figure \ref{fig:NormedCorrelation}, 
-notice how you can't differentiate between the correlation functions, this is only possible
+An example simulation of these correlation functions is shown in figure \ref{fig:NormedCorrelation}. 
+Notice how you can't differentiate between the correlation functions, this is only possible
 because of the hybrid ray tracer having that high of a precision.
 \begin{figure}
 	\centering
@@ -174,10 +174,10 @@ e.g the Balloon path recorded on the 20th of august 2022 (figure
 closely with detector 12, but how close was this encounter? To quantify this we
 can take a look at every balloon positional data entry (there are $>$12000
 entries) individually and compute the angle the balloon makes with the detector
-by first converting the location of the balloon into ENU coordinates, then
+by first converting the location of the balloon into ENU coordinates. Then
 calculating the lateral distance ($\sqrt{(x-x')^2 + (y-y')^2}$) then the
 relative vertical distance $|z - z'|$ and then from those compute the angle
-($\tan(\theta) = \frac{Hor.}{Vert.}$) doing this and recording when the balloon
+($\tan(\theta) = \frac{Hor.}{Vert.}$). Doing this and recording when the balloon
 gets close enough to get below the 10° mark we get the yellow part of figure
 \ref{fig:ExampleBalloonPathCrossing12}. We thus see that in this
 example the $<10$° policy is viable.
@@ -273,6 +273,7 @@ might still be quite large (if the height is really large).
 Because of this we'll have to re-compute $\epsilon$ exactly for 
 every measurement we do.
 \section{Fitting the index: Phased array}
+\subsection{Station 23, Run 800 Event number 1867}
 Now that we know our goal to be feasible, let's analyze some data.  As we'll
 start by just analyzing one event, let's take a very good one for our analysis.
 A close look at graph \ref{fig:EpsilonIFODirect} shows that events under 5° at
@@ -286,7 +287,7 @@ ones we get the time frames shown in appendix \ref{app:5Deg}.
 If we search in the DESY database
 \footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within the calculated
 time frames for the particular detectors where the balloon gets close enough to,
-AND where the 403MHz signal coming from the balloon is detected in the deep channels, the events of the 7th
+and where the 403MHz signal coming from the balloon is detected in the deep channels, the events of the 7th
 of September stands out; at 11:28:10,  just before the $<5$° pass by between
 11:28:47 and 11:28:49, the balloon gets quite close to detector 23 and shows a
 clear 403MHz signal at the phased array, as shown for the channels 0 and 3 in
@@ -299,7 +300,7 @@ under BaLLooN/RealData, let's go over the full code step by step:\footnote{I adv
 the people who will continue this work to pull up the code side-by-side with this 
 explanation}
 
-\subsection{Spatial data}
+\subsubsection{Spatial data}
 The first part we'll need to concern ourselves with is determining the relative
 positions of everything. The balloon data file and the time when the event took
 place are given, from these two both the latitudinal and longitudinal position
@@ -325,7 +326,7 @@ get\_absolute\_position module:
 Where at the specific station this position is doesn't matter as we'll explains
 shortly.  Now that we have both the position of our balloon and station in ENU
 coordinates, let's simplify the calculations by setting the detector as the
-origin.  I.e our new balloon position will be
+origin i.e our new balloon position will be
 
 \begin{equation}
 	\textit{RelBalloon} = \textit{BalloonPosition} - \textit{StationPosition}
@@ -344,12 +345,12 @@ zero (equivalent to setting $\theta= 0$ in a rotation).
 
 We don't have the position of our individual channels yet, only of the
 station itself, these can however easily be obtained using the
-get\_relative\_position module on our detector object, as we chose our station
+get\_relative\_position module on our detector object. As we chose our station
 to be the center of the coordinate system, these relative positions are
 absolute positions of the channels in our frame of reference. Using
 these it thus doesn't matter where the position of the station was defined.
 
-\subsection{Signal analysis and initial guesses}
+\subsubsection{Signal analysis and initial guesses}
 Now that we have our geometry, let's analyze the data for the channels,
 the data for a particular channel is stored in a channel object. From this
 object we can get the recorded voltages with the get\_trace() module, the
@@ -392,8 +393,8 @@ to find a sine wave coming from the weather balloon in this signal.
 	\label{fig:VoltageAfterFilter}
 \end{figure}
 
-To find a sine wave herein we'll radiotools' helper module get\_normalized\_xcorr
-which indirectly uses scipys signal correlation function but before using that we'll
+To find a sine wave herein we'll use radiotools' helper module get\_normalized\_xcorr
+which indirectly uses scipys signal correlation function. But before using that we'll
 need a template to correlate with the data. The template we'll be choosing is
 of course the sine function but it's important to notice that the channel has a
 certain sampling rate, namely now after up sampling, 10GHz. 
@@ -441,7 +442,7 @@ one is the right one we'll do a simple simulation using our modified hybrid ray
 tracer from which we know what the approximate time difference is and search in
 this neighborhood.
 
-\subsection{Fitting n and finding it's error}
+\subsubsection{Fitting n and finding it's error}
 Now that we have the differences in timing between the individual channels we'll loop
 over the local (middle of the detectors) indices of refraction, each time doing a plane
 wave reconstruction (also using Snell's law at the surface) and recording the distance
@@ -480,7 +481,7 @@ the fit is shown on figure \ref{fig:GaussFit}, but as this fit obviously isn't
 that great and would underestimate the error we'll need another way to find the
 error.  To estimate the error we think that using integration might give a good
 estimate, i.e we integrate over the full data and then again symmetrically
-outwards from the middle of the peak, if the ratio of these two is 68\% then
+outwards from the middle of the peak. If the ratio of these two is 68\% then
 the interval this corresponds to is the one sigma error on our fit, analogously
 for 95\%. If we carry this out we get what's shown on figure
 \ref{fig:PhasedArrayFit}, our final fit is thus:
@@ -515,14 +516,65 @@ Here we clearly see the index of refraction from the exponential model fall with
 in timing between the peaks which can be found from correlating the two}
 	\label{fig:CorrIllu}
 \end{figure}
+\subsection{Station 11, Run 1034 Event number 12397}
+An event triggering channels 0,2,3 is the one recorded on the 24th of july at 23:21:53,
+if we reconstruct this event we get what's shown in figure \ref{fig:Event12397}.
+This fit thus gives:
+\begin{center}
+\begin{tabular}{||c c c c c c c||}
+ \hline
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fit}$\\ [0.5ex]
+ \hline\hline
+ -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 0.3642\% & 1.6983 $\pm$ 0.0003 \\
+ \hline
+\end{tabular}
+\end{center}
+Which shows a clear discrepency with the exponential model. Note that this
+result contradicts that of the previous run, this one should however be more
+reliable as the correction factor is smaller (and it's thus less dependent on
+the simulation).  
+
+If we take a look at the density data and convert a measurement of
+roughly the same depth to the index using Shytt's equation we'd find an index
+of 1.733 which also isn't in agreement with this result.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/Event12397.pdf}
+  \caption{Fit of the index on Event 12397, the peak is very narrow}
+	\label{fig:Event12397}
+\end{figure}
+This might be caused by one of the following reasons:
+\begin{itemize}
+	\item Schytts law isn't fully correct
+	\item The density measurements aren't correct
+	\item Something went wrong in the analysis
+  \item Something else entirely
+\end{itemize}
+The density measurements do actually show quite a lot of spread for nearly
+the same values so there might be a problem there (there are also not that many
+recorded measurements).  
+
+As for the Schytt's equation, whether it is a valid approximation or not will be
+decided when enough reliable data is available.  
+
+Lastly only careful scruteny of the algorithm and code  used throughout this work will tell
+if something went wrong with the analysis or something else enterily (e.g the importance of birefringence).
+
+We also redid the fit using only the plane wave method, not making use of snell's law at the surface. Doing
+this the only assumption that gets made is that the signal ends up approximately at the same time as in the
+simulation ($\pm$ half the period of the signal) but this gave the same value.
 \section{Channels 5,6 and 7}
 A very interesting depth is in between channels 5 and 7 as, looking
 at the density profile shown in figure \ref{fig:DensityMeasurements}
 this is where the actual density deviates the most from the
-theoretical models.  The event we'll be using is recorded in
-detector 21 at the 26th of July 11:18:41 and falls within the $<5$°
-mark, doing analogous analyses as in the previous section we get
-figures \ref{fig:Ch5And6}-\ref{fig:Ch5And7} which can be summarized in a table as shown below:
+theoretical models. We'll take a look at this depth with channels 5,6 and 7 but note  
+that these will be way less reliable (difficult to quantify how unreliable) as the channels
+are spaced too far apart.
+
+The event we'll be using is recorded in detector 21 at the 26th of July
+11:18:41 and falls within the $<5$° mark, doing analogous analyses as in the
+previous section we get figures \ref{fig:Ch5And6}-\ref{fig:Ch5And7} which can
+be summarized in a table as shown below:
 \begin{center}
 \begin{tabular}{||c c c c c c c||}
  \hline
@@ -534,62 +586,19 @@ figures \ref{fig:Ch5And6}-\ref{fig:Ch5And7} which can be summarized in a table a
  \hline
 \end{tabular}
 \end{center}
-Note that all of the indices whom are found have a value below the
-exponential model's.  Let's use Schytt's equation \ref{eqn:Schytt}
-to see where on the density vs depth curve these values lie:
-\begin{align}
-	n(z) &\approx 1 + 0.78\rho/\rho_0\\
-	\rho_0(n(z) - 1) &\approx 0.78\rho\\
-	\frac{\rho_0}{0.78}(n(z) - 1) &\approx \rho\\
-	\rho &\approx 1175.641(n(z) - 1)\frac{\text{kg}}{\text{m}^3}\\
-\end{align}
-The error propagation is also quite straightforward:
-\begin{equation}
-	\delta \rho = 1175.641\delta n
-\end{equation}
-If we use these equations the corrected indices of refraction
-correspond to the densities:
-\begin{center}
-\begin{tabular}{||c c||}
- \hline
- Depth (m) & $\rho_\text{corr}$\\ [0.5ex]
- \hline\hline
- -48.16 & 741.830 $\pm$ 1.176 \\
- -58.38 & 786.269 $\pm$ 0.705 \\
- -68.2 & 813.073 $\pm$ 0.3527 \\
- \hline
-\end{tabular}
-\end{center}
-If we plot this we get what's shown in figure
-\ref{fig:BalloonDensity6And7}.
+Note that all of the indices that are found have a value below the
+exponential model's.
+
+Now that we have some measurements let's plot out all of our findings, the results
+are given in figure \ref{fig:IndexVSDepth.pdf}.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{DensityBalloonWithZoom.pdf}
-	\caption{graph showing where the balloon data density is with
-	respect to the other measurements and the exponential model}
-	\label{fig:BalloonDensity6And7}
+	\includegraphics[width=0.8\textwidth]{figures/IndexVSDepth.pdf}
+  \caption{Event 12397 shows itself as a clear outlier hinting at the need to investigate the index-depth relation further}
+	\label{fig:IndexVSDepth.pdf}
 \end{figure}
-Note that the calculated values neither line up with the density
-measurements nor with the exponential model, but somewhere
-in between. This might be caused by one of the following reasons:
-\begin{itemize}
-	\item The channels 5-7 are too far apart to use the plane
-		wave reconstruction.
-	\item Schytts law isn't fully correct
-	\item The density measurements aren't correct
-\end{itemize}
-The density measurements do actually show quite a lot of spread for nearly
-the same values so there might be a problem there (there are also not that many
-recorded measurements).  
 
-As for the Schytt's equation, whether it is a valid approximation or not will be
-decided when enough reliable data is available.  
-
-The first possible reason, which is the most probable, would imply that the
-plane wave method can only be used for close-lying detectors like what's the
-case in the phased array.
-
-\section{For future reference}
+\section{Guide for further analysis}
 Here I'll give a quick guide on how to continue this work, as a phased array
 measurement with small error hasn't been found yet.  First off you'll need to
 install the NuRadioMC fork from my github located

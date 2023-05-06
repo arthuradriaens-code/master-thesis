@@ -10,7 +10,7 @@ curve.  The software for radio wave propagation through ice the RNO-G team
 chose is radiopropa\cite{Winchen_2019}, but due to the way it works you'll have
 to know the start point, the end point and the launch angle of your ray to work
 out the path. This isn't difficult for the analytic model as it's exactly
-solvable but for a general ice model you'll somehow have to find where to
+solvable, but for a general ice model you'll somehow have to find where to
 \textit{shoot} the ray. An algorithm was developed to work out the path the
 rays would trace out in more complex ice models called the \textit{iterative
 ray tracer} \cite{2022icrc.confE1027O}, which was discussed in section
@@ -38,8 +38,8 @@ $\mathbf{X}_1$ and our detector is located at position $\mathbf{X}_2$, we start
 by defining the vector $\mathbf{v} = \mathbf{X}_2 - \mathbf{X}_1$, then we
 clone it as a new vector $\mathbf{u}$ and set it's z coordinate to 0, making it a normal
 vector of a plane parallel to the z direction in the lateral direction of the detector. 
-We now want to constrain the search to where solutions are actually possible, 
-looking at figure \ref{fig:PathIllu}
+We now want to constrain the search to where solutions are actually possible. 
+Looking at figure \ref{fig:PathIllu}
 we see that no solutions below the direct path are possible as there would need
 to be upwards reflection, so we convert our vector $\mathbf{v}$ representing
 the path from the source to the detector to spherical coordinates, giving us a
@@ -107,8 +107,8 @@ the boundaries for this minimization algorithm, meaning that if the 2 zenith
 angle intervals $[\theta_1,\theta_2]$ and $[\theta_3,\theta_4]$ were found in
 the first step of the algorithm it will first minimize $\Delta z^2$ within the
 first angle interval and find it's solution and then within the second angle
-interval. With this our algorithm is done, it does have a fail-safe as well for
-if the first step, finding the launch regions, doesn't find the 2 launch
+interval. With this our algorithm is done, it does have a fail-safe as well in case
+that the first step, finding the launch regions, doesn't find the 2 launch
 regions.  Namely it reverts back to being the iterative ray tracer.
 
 \section{Performance Optimization} 
@@ -117,7 +117,7 @@ it as fast as possible.  To consistently test the algorithm after every
 particular change in a parameter we'll be randomly generating vertex
 interaction positions, keeping the detector at the fixed (0,-100) value.  To
 this end the numpy random module was used to generate random coordinates, the
-considered square (as there is only a z component to the ice model the 3D
+considered square (as there is only a z component to the ice model, the 3D
 problem has cylindrical symmetry and thus essentially only a 2D problem) is
 x:0.1km,4km and z:-0.1km,-3km\footnote{This start at 100m depth was to get
 around issues concerning events that won't even trigger in a full simulation}.
@@ -132,9 +132,9 @@ To this end we need to check with an "exact solution". There is only one candida
 that fits this role: \textit{the analytic ray tracer}. The plan is thus to use the
 exponential ice model as a testing ground for the hybrid ray tracer and solving each
 vertex-detector ray tracing problem with both the iterative, analytic and hybrid ray tracer.
-After having solved for the \textbf{propagation time}, meaning the time it takes the ray to
-propagate from the source to the detector. And the \textbf{arrival zenith angle}, the zenith angle
-the ray makes at the detector, for each of the algorithms we can infer the accuracy of a particular
+After having solved for the \textbf{propagation time} (meaning the time it takes the ray to
+propagate from the source to the detector) and the \textbf{arrival zenith angle} (the zenith angle
+the ray makes at the detector) for each of the algorithms we can infer the accuracy of a particular
 algorithm by how much it differs from the solution found through the analytic ray tracer.
 For example, if the hybrid ray tracer finds a particular solution with a propagation time of 
 1001ns, the iterative finds one with 1002ns and the analytic one with 1000ns then the hybrid
@@ -154,8 +154,8 @@ detector.  This thus influences the accuracy and total computational time
 taken. The results of varying the length of this normal vector, comparing the
 accuracy (in timing and arrival zenith) with the analytic ray tracer and the computational time with the
 iterative ray tracer, are shown in figures \ref{fig:norminfl} and
-\ref{fig:norminfl2}.  Looking at these figures we can conclude a, what would
-normally be rather obvious but is interesting nonetheless, first optimization
+\ref{fig:norminfl2}.  Looking at these figures we can make, what would
+normally be rather obvious but is interesting nonetheless, a first optimization
 conclusion: take the normal vector length to be 1 meter.
 We can conclude this as the calculation speed seems to be minimal there (after zooming
 in on the graph) and the accuracy dropping rapidly after 1 meter.
@@ -218,7 +218,7 @@ the second optimization conclusion: take ztol to be 0.05 m.
 
 \subsection{Sphere Size \& Step Size}
 The initial rays are sent out in steps of a certain angle and with a sphere
-around the detector of a certain size, varying the parameters of this first
+around the detector of a certain size. Varying the parameters of this first
 step of the algorithm (e.g the step size and sphere size) might thus have an
 effect on both the accuracy and the computational time.  As this initial search
 for launch angle regions is also the slowest step in the hybrid ray tracer it's
@@ -244,13 +244,13 @@ by a step size of 0.7°.
 The programs used in making these plots can be found \href{https://github.com/arthuradriaens-code/projects-mt}{here}
 under the folder "testhybrid".
 \begin{figure}
-	\includegraphics[width=\textwidth]{figures/subplotofallstepsphere.pdf}
-	\caption{Variation in Sphere and angle step size with report on relative time.}
-	\label{fig:SphereStepInfl}
+\includegraphics[width=\textwidth]{figures/subplotofallstepsphere.pdf}
+\caption{Variation in Sphere and angle step size with report on relative time.}
+\label{fig:SphereStepInfl}
 \end{figure}
 \begin{figure}
-	\includegraphics[width=\textwidth]{figures/SphereAndStepFinal.pdf}
-	\caption{Green values in variation in sphere and angle step size, max speed (minimum on figure) at 0.7° as step size and 45m sphere size}
+\includegraphics[width=\textwidth]{figures/SphereAndStepFinal.pdf}
+\caption{Green values in variation in sphere and angle step size, the lower the better. Max speed (lowest point on the figure) at 0.7° as step size and 45m sphere size}
 	\label{fig:SphereStepFinal}
 \end{figure}
 \newpage
@@ -266,7 +266,7 @@ are presented below:
 	\item hybrid: 0.82 computations/s
 	\item analytic (c++ compiled version): 10289 computations/s
 \end{itemize}
-The hybrid ray tracer is thus 33.7\% faster than the iterative ray tracer, the speed of the analytic ray tracer
+The hybrid ray tracer is thus 33.7\% faster than the iterative ray tracer. The speed of the analytic ray tracer
 has a difference of the other two which might seem quite overwhelming but this can get mitigated in the future if 
 part of the hybrid ray tracer gets re-written in a compiled language (like c++).
 
@@ -289,7 +289,7 @@ Using the ray tracer as it is now defined makes us unable to calculate paths by
 \textit{secondaries}.  When your ice model has some kind of added complexity
 like a reflective bottom or a discontinuity layer (like what will be the case
 for our air-borne balloon in the next chapter) you'll need to account for
-secondaries, these are additional rays like an extra refracted or reflected
+secondaries. These are additional rays like an extra refracted or reflected
 rays that get generated at this discontinuity. How the algorithm is now it will
 follow one ray from the source to the discontinuity and only consider, say, the
 reflected ray. Whilst a refracted ray generated at such a discontinuity might

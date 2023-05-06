@@ -1,5 +1,5 @@
 \chapter{Radio neutrino detection}
-Neutrinos on their own aren't detectable, unlike say protons we can't expect
+Neutrinos on their own aren't detectable. Unlike say protons we can't expect
 them to produce Brehmsstrallung or any other kind of directly observable
 radiation as they aren't charged and thus don't couple to photons. We'll need
 to convert them to charged particles first which then can generate some kind of
@@ -7,13 +7,13 @@ detectable signal.
 
 To this end we'll need a big volume in which they can interact to produce
 charged particles, we'll be choosing ice for this.  Even though there are a lot
-of volumes such as the water or rock the ice has a few particular properties
-which make it more usable:
+of large volumes such as water or solid rock, we prefer ice as it has a few particular properties
+which makes it more usable:
 \begin{itemize}
   \item contrary to some kind of sediment, ice is mostly see-through for electromagnetic radiation but it's still possible
     to differentiate between neutrino signals and other particles
   \item contrary to water as a medium which is used e.g in the Super-Kamiokande detector\cite{SuperKamio}, ice
-    was naturally formed and it isn't needed to construct some kind of dome
+    was naturally formed and there is no need to construct some kind of dome
 \end{itemize}
 \section{Neutrino interactions in ice}
 As neutrinos propagate through ice they can interact weakly with the nuclei.
@@ -110,7 +110,7 @@ or, less ideally
 	\tau^- \rightarrow \mu^- + \bar{\nu}_\mu + \nu_\tau
 \end{equation}
 In both of the possible interactions (W or Z exchange) the resulting nucleus
-will result in an hadronic shower, for the neutral current interaction (mediated
+will result in an hadronic shower. For the neutral current interaction (mediated
 by the Z boson) the fraction of the neutrino energy that gets transferred to
 the nucleon is described by the inelasticity $y$ and is heavily shifted towards
 small values of $y$\cite{elasticity_y}. This causes a big, irreducible
@@ -136,7 +136,7 @@ with shower positrons.  In the end you have a moving charge anisotropy,
 propagating faster than the speed of light in the medium, creating Cherenkov
 radiation.  
 
-Cherenkov radiation is like the electromagnetic equivalent of a sonic boom, a
+Cherenkov radiation is like the electromagnetic equivalent of a sonic boom. A
 sonic boom happens when something goes faster than the speed of sound in the
 medium; A particle emits Cherenkov radiation if it goes faster than the speed
 of light in the medium.  Choosing the particle trajectory to lie along the z
@@ -163,7 +163,7 @@ dividing by the time interval we get:
 \end{equation}
 We see that the energy is proportional to $\omega$, so we expect that most
 radiation will be emitted "in blue" with a cut-off frequency above which the
-equation $\cos\theta = 1/(n\beta)$ can no longer be satisfied, this "in blue"
+equation $\cos\theta = 1/(n\beta)$ can no longer be satisfied. This "in blue"
 characteristic is responsible for the blue glow seen in nuclear reactors as
 seen in figure \ref{figure: Cherenkov reactor} .  For ice the index of
 refraction is roughly 1.78 in deep ice, so we expect an ultra-relativistic
@@ -225,9 +225,9 @@ highest energies: the steeply falling flux (as was previously seen in figure
 \ref{figure:Neutrino fluxes}) requires large effective areas, which leads to
 the construction of neutrino detectors with volumes on the cubic kilometer
 scale like IceCube\cite{IceCubeTechnical} which works on the principle of
-detection neutrinos with visible light.  But even IceCube has it's limitations,
+detecting neutrinos with visible light.  But even IceCube has it's limitations,
 it's still too small to observe neutrino events above the 10 PeV
-scale\cite{IceCubeGen2}, that's why a new detector was needed which was even
+scale\cite{IceCubeGen2}. That's why a new detector was needed which was even
 bigger and able to observe cosmogenic neutrinos.  We could just make IceCube
 bigger but this would cost a lot of money as the individual detectors need to
 be spaced closely as the attenuation length is quite short for light in the
@@ -275,7 +275,7 @@ of polarized antennae.
 
 The power string (the leftmost vertical cable) is more densely instrumented
 than the helper strings: At the bottom it houses a set of four Vpol and two
-Hpol antennas with a spacing of 1m called the \textit{phased array}, arguably
+Hpol antennas with a spacing of 1m called the \textit{phased array}. Arguably
 the most important channels in a station as it's spaced closely together and
 can thus use the principle of phasing the channels to get higher precision.
 Further up the string, with a spacing of 20m, are three more Vpol antennas.
@@ -286,21 +286,20 @@ Further up the string, with a spacing of 20m, are three more Vpol antennas.
   \label{fig:SysDiag}
 \end{figure}
 
-A full system diagram for a RNO-G station is shown in figure \ref{fig:SysDiag}, I'll
-give a walk trough of how data gets collected.
-The signal from each of the deep antennae are fed into a low-noise amplifier
-directly above it, from there the signal is send to the data acquisition (DAQ)
-system at the surface via a Radio Frequency over Fiber (RFoF) cable.  The
-signals coming from the surface antennae are first passed through a Bandpass
-filter of 80-750MHz\footnote{i.e a filter that only lets frequencies in this
-range pass} prior to both them and the deep component signal ending up in the
-RAdio DIgitizer and Auxiliary Neutrino Trigger (RADIANT), there it's again
-amplified, digitized and, if a trigger threshold is reached, saved onto an SD
-card. This data is then transmitted via a Long Term Evolution (LTE)
+A full system diagram for a RNO-G station is shown in figure \ref{fig:SysDiag},
+I'll give a walk trough of how data gets collected.  The signal from each of
+the deep antennae are fed into a low-noise amplifier directly above it, from
+there the signal is send to the data acquisition (DAQ) system at the surface
+via a Radio Frequency over Fiber (RFoF) cable.  The signals coming from the
+surface antennae are first passed through a Bandpass filter of
+80-750MHz\footnote{i.e a filter that only lets frequencies in this range pass}
+after which both the resulting signals and the deep component signals get sent
+up to the RAdio DIgitizer and Auxiliary Neutrino Trigger (RADIANT). There it's
+again amplified, digitized and, if a trigger threshold is reached, saved onto
+an SD card. This data is then transmitted via a Long Term Evolution (LTE)
 telecommunications network to a local server\footnote{There is additionally a
 Long Range Wide Area Network (LoRaWAN) antenna as backup in case of problems
 with the LTE network}, from where it is sent via a satellite link.
-
 As a power source, battery banks are used whom are charged via solar panels.
 But as there is't enough light during the Greenland winters, there're plans to
 build wind turbines (with one of the problems being the possibly detectable RF

@@ -38,7 +38,7 @@ How do we know how the waves propagate in a medium?  The software we'll be
 using to simulate how the radio waves behave is called \textit{Radiopropa}
 \cite{Winchen_2019}. As  simulations of the wave propagation in full detail
 with the finite-differences-time-domain (FDTD) technique \cite{1138693} are,
-even though they are more accurate, too time consuming. Have the authors of
+even though they are more accurate, too time consuming. The authors of
 radiopropa opted to build their program on geometrical optics, i.e ray
 tracing. A path of a ray $\mathbf{r}(s)$ with path parameter s in a medium
 with index of refraction n($\mathbf{r}$) is described by the eikonal
@@ -58,7 +58,7 @@ Which is then iteratively solved using the Cash–Karp method.  The way you woul
 go about using this program is thus find a start and end point (e.g a supposed
 neutrino interaction point and a detector respectively), "shoot" your ray in a
 certain direction for which the path will then be iteratively solved using
-radiopropa and if you chose your direction right you have the path a ray might
+radiopropa. And if you chose your direction right you have the path a ray might
 take from your start to the end point.  The difficulty is this direction
 choosing which we'll get to later.  If there are boundaries (such as defects or
 the surface) these are treated separately using Snell's law. 
@@ -101,8 +101,8 @@ following function:
 	\rho = \rho_0 e^{z/z_0} + B
 \end{equation}
 Figure \ref{fig:DensityMeasurements} shows how both of these
-functions fit the density curve.  There is one big downside however,
-it seems that the ice actually doesn't follow these exponential
+functions fit the density curve.  There is one big downside however.
+It seems that the ice actually doesn't follow these exponential
 curves perfectly but would more closely follow some kind of higher
 order function.
 \begin{figure}
@@ -133,13 +133,13 @@ index of refraction on depth is called the \textit{single exponential model}.
 This single exponential model has a huge advantage as it's analytically
 solvable, meaning that we can know which direction we'll have to shoot our ray
 in (as mentioned previously) after the location of the neutrino interaction and
-the detector are specified, the ray tracing algorithm developed using this
+the detector are specified. The ray tracing algorithm developed using this
 exponential index is called the \textit{analytic ray tracer}.
 
 The discrepancy between the single exponential model and the actual data for
 the density implies that the analytic ray tracer will make the wrong
 predictions.  This is why the development of a different ray tracer was needed
-which will be able to handle more complex ice models, one such ray tracer will
+which will be able to handle more complex ice models. One such ray tracer will
 be explained in section \ref{sec:Iterative} but this ray tracer has it's
 shortcomings. That's why the development of a new ray tracer was needed which
 is the partial work of this thesis and we'll get to that ray tracer in chapter
@@ -152,7 +152,7 @@ is the partial work of this thesis and we'll get to that ray tracer in chapter
   \label{fig:Fresnel}
 \end{figure}
 Lastly there is an effect which might become important in the future:
-birefringence.  Up until now have implicitly assumed that ice is isotropic
+birefringence.  Up until now we have implicitly assumed that ice is isotropic
 meaning that both it's permittivity $\varepsilon$ and it's permeability $\mu$
 are scalars but these could very well be tensorial in nature for radio waves in
 ice. In general, after calculating this tensorial nature through you'd find
@@ -206,7 +206,7 @@ process is illustrated on the left side of figure \ref{fig:IterativeWorkings}.
   \label{fig:IterativeWorkings}
 \end{figure}
 After we have gone over all the different launch angles we'll have some
-solutions (marked in green) and some whom don't end up on the detector (marked
+solutions (marked in green) and some that don't end up on the detector (marked
 in red) we can now make the observer sphere's radius smaller ($r_2 < r_1$) and
 the step size of the angle smaller ($\Delta \theta_2 < \Delta \theta_1$).  And
 again iteratively find the rays which end up on the sphere, only this time

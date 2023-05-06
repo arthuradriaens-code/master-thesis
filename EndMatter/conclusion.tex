@@ -8,27 +8,30 @@ the Balloon radio wave measurements.
 
 The use of weather balloons to estimate the index of refraction as
 was reported in \ref{chap:WB} was also done successfully even though
-it yielded quite unexpected results, not only were the index of
-refraction measured via this method for channels 5-7 deviating from the model but
-also deviating from the theoretically expected indices using the
-measured density in combination with Schytts equation
-\begin{equation*}
-	n(z) = 1+ 0.78\rho/\rho_0
-\end{equation*}
-More so lying somewhere in between. A conversion using the inverse of
-Schytts equation to arrive at the density makes this especially
-clear as shown on figure \ref{fig:BalloonDensity6And7}.
-These results are thus probably incorrect as the plane wave
-reconstruction cannot be used for channels lying that far 
-away from each other. It can be used however to estimate
-the index of refraction at the phased array.
+it yielded quite unexpected results as shown below:
+\begin{center}
+\begin{tabular}{||c c c c c c c||}
+ \hline
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fitted}$\\ [0.5ex]
+ \hline\hline
+-48.155 & 21 & 6\&7 & 1441:117 & 1.6400 & -0.02\% & 1.6310 $\pm$ 0.001 \\
+ -58.38 & 21 & 5\&7 & 1441:117 & 1.6736 & -0.23\% & 1.6688 $\pm$ 0.0006 \\
+ -68.2 & 21 & 5\&6 & 1441:117 & 1.6983 & 0.02\% & 1.6916 $\pm$ 0.0003 \\
+ -93.237 & 23 & phased array & 800:1867 & 1.7383 & 4.6166\% & 1.7393 $\pm$ 0.0013 \\
+ -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 0.3642\% & 1.6983 $\pm$ 0.0003 \\
+ \hline
+\end{tabular}
+\end{center}
+Herein the most accurate and trustworthy measurements is the last one which
+also shows the biggest discrepancy with the exponential model. Further
+analysis is thus needed.
 
 As there are a multitude of events (as can be found in appendices
-\ref{app:5Deg} and \ref{app:10Deg} but only finite time to analyze
-each and every one, this code is made public
-\href{https://github.com/arthuradriaens-code/projects-mt.git}{here}
-as to make it easy to improve on this work.  Especially interesting
-might be events where $\epsilon$ is negligible (the balloon is
-really close) at the phased array and as such is the plane wave
-reconstruction a near perfect representation of the actual wave.
+\ref{app:5Deg} and \ref{app:10Deg} but only finite time to analyze each and
+every one, this code is made public
+\href{https://github.com/arthuradriaens-code/projects-mt.git}{here} as to make
+it easy to improve on this work.  Especially interesting might be events where
+$\epsilon$ is negligible (the balloon is really close) at the phased array and
+as such is the plane wave reconstruction a near perfect representation of the
+actual wave.
 
