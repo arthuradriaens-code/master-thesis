@@ -42,42 +42,78 @@ The density of the ice seems to vary continuously with depth. A function describ
 this overall relation of the index of refraction with the depth is called an \textit{ice model}
 and it is crucial for future studies to understand this ice model.
 
-Due to the ice model seeming to deviate from the theoretically expected single exponential, it was necessary to 
-develop a new algorithm to find the paths the radio waves could take with more complex ice models. 
-The software used within this thesis to figure out the path radio waves take is called \textit{radiopropa}.
-Even though this software can be used to work with most kinds of ice models, it still needs to be used within
-some kind of algorithm to be useful. Such an algorithm has already been developed called the \textit{Iterative
-ray tracer} as is explained in section \ref{sec:Iterative} but it had its shortcomings,
-that's why in this thesis a new algorithm was developed called the \textit{hybrid ray tracer} which is explained
-in chapter \ref{chapter:hybrid}. The hybrid ray tracer makes it possible to both find a more accurate solution and find it faster.
+As previously said index of refraction in ice has been assumed to follow a linear relationship with 
+the density through Schytts equation:
+\begin{equation*}
+  n(z) \approx 1 + 0.78\frac{\rho(z)}{\rho_0}
+\end{equation*}
+The indices of refraction vs depth that got computed this way are shown in figure \ref{fig:SumFinRes}
+in gray, throughout the RNO-G project the ice model that got used was the one single exponential shown in 
+green.
 
-It is, however, crucial to make sure we actually need a new kind of ice model. The measuring of the index of refraction
-can be accomplished indirectly through weather balloon fly-byes as is explained in chapter \ref{chap:WB}. Every day
-in the summer, two times per day a weather balloon is launched from the base camp. This weather balloon is equipped with
-an antenna which sends out a 403MHz sinusoidal signal, upon close fly-byes with detectors this signal can be observed in the
-detectors (as is visualized on the cover). By looking at the difference in arrival time of the signal, the difference in timing can be made out from 
-which a plane wave reconstruction can be done. As this plane wave reconstruction is heavily dependent
-on the local index of refraction in the ice, it can be indirectly measured through this reconstruction.
-After this analysis the following data was found:
+Due to the ice model seeming to deviate from the theoretically expected single
+exponential, it was necessary to develop a new algorithm to find the paths the
+radio waves could take with more complex ice models.  The software used within
+this thesis to figure out the path radio waves take is called
+\textit{radiopropa}.  Even though this software can be used to work with most
+kinds of ice models, it still needs to be used within some kind of algorithm to
+be useful. Such an algorithm has already been developed called the
+\textit{Iterative ray tracer} as is explained in section \ref{sec:Iterative}
+but it had its shortcomings, that's why in this thesis a new algorithm was
+developed called the \textit{hybrid ray tracer} which is explained in chapter
+\ref{chapter:hybrid}. The hybrid ray tracer makes it possible to both find a
+more accurate solution and find it faster. The accuracy of the ray tracer
+is showcased in figure \ref{fig:SumHyb}, the Iterative ray tracer can
+be considered it's predecessor and it's accuracy is shown in figure \ref{fig:Sumit}
+showcasing the clear improvement.
+
+\begin{figure*}
+	\centering
+\begin{minipage}{0.49\textwidth}
+	\includegraphics[width=1.1\textwidth]{figures/hybrid_comparison_N_1000.pdf}
+	\caption{Hybrid}
+	\label{fig:SumHyb}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+	\includegraphics[width=1.1\textwidth]{figures/iterative_comparison_N_1000.pdf}
+	\caption{Iterative}
+	\label{fig:Sumit}
+\end{minipage}
+\end{figure*}
+
+\newpage
+It is, however, crucial to make sure we actually need a new kind of ice model.
+The measuring of the index of refraction can be accomplished indirectly through
+weather balloon fly-byes as is explained in chapter \ref{chap:WB}. Every day in
+the summer, two times per day a weather balloon is launched from the base camp.
+This weather balloon is equipped with an antenna which sends out a 403MHz
+sinusoidal signal, upon close fly-byes with detectors this signal can be
+observed in the detectors (as is visualized on the cover). By looking at the
+difference in arrival time of the signal, the difference in timing can be made
+out from which a plane wave reconstruction can be done. As this plane wave
+reconstruction is heavily dependent on the local index of refraction in the
+ice, it can be indirectly measured through this reconstruction.  After this
+analysis the following data was found:
 \begin{center}
-\begin{tabular}{||c c c c c c c||}
+\begin{tabular}{||c c c c c c||}
  \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fitted}$\\ [0.5ex]
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit}$\\ [0.5ex]
  \hline\hline
--48.155 & 21 & 6\&7 & 1441:117 & 1.6400 & -0.02\% & 1.6310 $\pm$ 0.001 \\
- -58.38 & 21 & 5\&7 & 1441:117 & 1.6736 & -0.23\% & 1.6688 $\pm$ 0.0006 \\
- -68.2 & 21 & 5\&6 & 1441:117 & 1.6983 & 0.02\% & 1.6916 $\pm$ 0.0003 \\
- -93.237 & 23 & phased array & 800:1867 & 1.7383 & 4.6166\% & 1.7393 $\pm$ 0.0013 \\
- -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 0.3642\% & 1.6983 $\pm$ 0.0003 \\
+ -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.7045 $\pm$ 0.006 \\
  \hline
 \end{tabular}
 \end{center}
-As can be seen all of the fitted indices show a discrepancy with the index from
-the exponential model. Out of these measurements the last one that's listed (the one
-based on station 11) is the most reliable as it has a small $\epsilon$ and uses
-the closely spaced phased array. But this fit also shows the largest discrepency to
-the exponential model, it can be argued that this shows a shortcoming in the currently
-used exponential model.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Event12397NoCorr.pdf}
+  \caption{Event 12397 shows itself as a clear outlier hinting at the need to investigate the index-depth relation further}
+  \label{fig:SumFinRes}
+\end{figure}
+And visually shown as the data in blue on figure \ref{fig:SumFinRes}, 
+it clearly shows a big discrepancy with the exponential model.
+We reason that this clearly shows that there's a need to investigate
+the index-depth relation further as the wave propagation, and thus
+neutrino reconstruction, are heavily dependent on the ice model.
 \newpage
 \chapter*{Samenvatting}
 \addcontentsline{toc}{chapter}{Samenvatting}
@@ -133,7 +169,23 @@ algoritme uit te vinden dewelke steunt op dat algoritme genaamd de
 \textit{hybrid ray tracer}, de werking van dit algoritme kan gevonden worden in
 hoofdstuk \ref{chapter:hybrid}. Dit algoritme maakt het mogelijk om beide een
 meer accurate oplossing te vinden en deze eveneens sneller te vinden.
-
+De accuraatheid van de ray tracer wordt geillustreerd in figuur \ref{fig:SamHyb}
+. Hiernaast, in figuur \ref{fig:Samit}, wordt zijn voorganger de iterative ray tracer
+getoond. Er is een duidelijke verbetering te zien bij vergelijking van de twee.
+\begin{figure*}
+	\centering
+\begin{minipage}{0.49\textwidth}
+	\includegraphics[width=1.1\textwidth]{figures/hybrid_comparison_N_1000.pdf}
+	\caption{Hybrid}
+	\label{fig:SamHyb}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+	\includegraphics[width=1.1\textwidth]{figures/iterative_comparison_N_1000.pdf}
+	\caption{Iterative}
+	\label{fig:Samit}
+\end{minipage}
+\end{figure*}
+\newpage
 Maar om over te schakelen op een nieuw ijs model met een ander algoritme is het nodig aan te tonen dat er effectief
 een groot verschil is tussen het theoretische exponentiële model en de echte refractieindex. Om dit aan te tonen 
 kunnen we gebruik maken van weerballonnen. Elke dag in de zomer, 2 maal per dag, wordt een weerballon gelanceerd 
@@ -142,27 +194,28 @@ Deze weerballon beschikt over een antenne dewelke een sinusoïde signaal uitstuu
 dicht bij een detector komt zal dit signaal kunnen gedetecteerd worden. Door een plane wave reconstructie te doen
 van dit signaal en gebruik te maken van de positie van de ballon kunnen we infereren wat de locale refractieve index
 is in het ijs. Deze procedure wordt volledig uitgelegd in hoofdstuk \ref{chap:WB}.
-Na deze procedure op enkele evenementen toe te passen werd de volgende data gevonden:
+Na deze procedure toe te passen werd de volgende data gevonden:
 \begin{center}
-\begin{tabular}{||c c c c c c c||}
+\begin{tabular}{||c c c c c c||}
  \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fitted}$\\ [0.5ex]
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit}$\\ [0.5ex]
  \hline\hline
--48.155 & 21 & 6\&7 & 1441:117 & 1.6400 & -0.02\% & 1.6310 $\pm$ 0.001 \\
- -58.38 & 21 & 5\&7 & 1441:117 & 1.6736 & -0.23\% & 1.6688 $\pm$ 0.0006 \\
- -68.2 & 21 & 5\&6 & 1441:117 & 1.6983 & 0.02\% & 1.6916 $\pm$ 0.0003 \\
- -93.237 & 23 & phased array & 800:1867 & 1.7383 & 4.6166\% & 1.7393 $\pm$ 0.0013 \\
- -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 0.3642\% & 1.6983 $\pm$ 0.0003 \\
+ -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.7045 $\pm$ 0.006 \\
  \hline
 \end{tabular}
 \end{center}
-Hier is een duidelijk verschil tussen de gemeten index van refractie ($n_{fitted}$) en die uit het exponentieel model ($n_{exponential}$) te zien.
-
-Uit deze 5 metingen is de laatste de meest betrouwbare, deze heeft de kleinste correctiefactor $\epsilon$ en
-gebruikt de dich bij elkaar gelegen channels van de phased array.
-Hoewel dit het geval is toont deze het grootste verschil met het exponentieel model, wat toont
-dat er mogelijk iets scheelt aan dat model.
-
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Event12397NoCorr.pdf}
+  \caption{Event 12397 shows itself as a clear outlier hinting at the need to investigate the index-depth relation further}
+  \label{fig:SamFinRes}
+\end{figure}
+Dewelke ook visueel wordt weergegeven in figuur \ref{fig:SamFinRes}, er is een
+duidelijk verschil tussen de gemeten index van refractie ($n_{fitted}$) en die
+uit het exponentieel model ($n_{exponential}$) te zien.
+Wij concluderen dat dit duidelijk toont dat er een nood is om de refractieve index-diepte
+relatie verder te onderzoeken aangezien deze de concusies uit neutrino metingen sterk
+zal beïnvloeden.
 \newpage
 \chapter*{Dankwoord}
 \addcontentsline{toc}{chapter}{Dankwoord}

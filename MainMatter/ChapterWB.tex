@@ -275,10 +275,10 @@ every measurement we do.
 \section{Fitting the index: Phased array}
 \subsection{Station 23, Run 800 Event number 1867}
 Now that we know our goal to be feasible, let's analyze some data.  As we'll
-start by just analyzing one event, let's take a very good one for our analysis.
+start by just analyzing one event, let's take a reasonably good one for our analysis.
 A close look at graph \ref{fig:EpsilonIFODirect} shows that events under 5° at
 a height of 500m produce an $\epsilon$ of less than 0.22\%, implying that if we
-measure n to be 1.7407 our correction factor will only be 0.0038\%.  A good start will
+measure n to be 1.7407 our correction factor will only be 0.0038.  A good start will
 thus be finding moments when the balloon gets to within a 5\% angle, note that
 the correction factor is height dependent so we'll have to calculate it afterwards.  After
 looping through all the balloon positional files and only outputting the $<5$°
@@ -487,7 +487,7 @@ for 95\%. If we carry this out we get what's shown on figure
 \ref{fig:PhasedArrayFit}, our final fit is thus:
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{PhasedArrayFit.pdf}
+	\includegraphics[width=0.7\textwidth]{PhasedArrayFit.pdf}
 	\caption{Fit to the phased array data showing various confidence intervals}
 	\label{fig:PhasedArrayFit}
 \end{figure}
@@ -500,7 +500,23 @@ for 95\%. If we carry this out we get what's shown on figure
  \hline
 \end{tabular}
 \end{center}
-Here we clearly see the index of refraction from the exponential model fall within our fit.
+Here we see the index of refraction from the exponential model fall within our
+fit, but note that this data isn't that reliable as the correction factor
+$\epsilon$ is quite large, if we assume the correction factor to be an error on
+the measured value instead of a correction we get:
+\begin{center}
+\begin{tabular}{||c c c c c c||}
+ \hline
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fitted}$\\ [0.5ex]
+ \hline\hline
+ -93.237 & 23 & phased array & 800:1867 & 1.7383 & 1.82 $\pm$ 0.09 \\
+ \hline
+\end{tabular}
+\end{center}
+The error on the fitted index is too large to conclude anything definitively, if we try to do 
+the same reconstruction but without using snell's law at the surface a fit isn't even possible
+as the index of refraction that gets found is way above 1.78 which isn't physical.
+Showing just how unreliable (due to the high correction factor) this measurement is.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/crosscorrelation.pdf}
@@ -529,17 +545,17 @@ This fit thus gives:
  \hline
 \end{tabular}
 \end{center}
-Which shows a clear discrepency with the exponential model. Note that this
-result contradicts that of the previous run, this one should however be more
-reliable as the correction factor is smaller (and it's thus less dependent on
-the simulation).  
-
+Which shows a very small correction factor and a clear discrepency with the
+exponential model. Note that this result is less dependent on the assumptions
+inherent to the ice model used in the simulation due to the small correction
+factor.  
+\newpage
 If we take a look at the density data and convert a measurement of
 roughly the same depth to the index using Shytt's equation we'd find an index
 of 1.733 which also isn't in agreement with this result.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/Event12397.pdf}
+	\includegraphics[width=0.7\textwidth]{figures/Event12397.pdf}
   \caption{Fit of the index on Event 12397, the peak is very narrow}
 	\label{fig:Event12397}
 \end{figure}
@@ -548,28 +564,47 @@ This might be caused by one of the following reasons:
 	\item Schytts law isn't fully correct
 	\item The density measurements aren't correct
 	\item Something went wrong in the analysis
+  \item Too many assumptions
   \item Something else entirely
 \end{itemize}
 The density measurements do actually show quite a lot of spread for nearly
 the same values so there might be a problem there (there are also not that many
-recorded measurements).  
+recorded measurements and no reported uncertainties).  
 
 As for the Schytt's equation, whether it is a valid approximation or not will be
 decided when enough reliable data is available.  
 
-Lastly only careful scruteny of the algorithm and code  used throughout this work will tell
+Only careful scruteny of the algorithm and code  used throughout this work will tell
 if something went wrong with the analysis or something else enterily (e.g the importance of birefringence).
 
-We also redid the fit using only the plane wave method, not making use of snell's law at the surface. Doing
-this the only assumption that gets made is that the signal ends up approximately at the same time as in the
-simulation ($\pm$ half the period of the signal) but this gave the same value.
+To do away with some assumptions made, we also redid the fit using only the
+plane wave method, not making use of snell's law at the surface. Doing this the
+only assumptions that gets made is that the signal ends up approximately at the
+same time as in the simulation ($\pm$ half the period of the signal) and that
+the index gets corrected the same way but this gave the same value.
+
+Let's lastly consider the case where we see the correction factor as an error on the measurement, this would give
+\begin{center}
+\begin{tabular}{||c c c c c c||}
+ \hline
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit}$\\ [0.5ex]
+ \hline\hline
+ -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.7045 $\pm$ 0.006 \\
+ \hline
+\end{tabular}
+\end{center}
+This value is the most trustworthy we have as it doesn't assume \textbf{anything} about the
+ice, note how it \textbf{still disagrees with the exponential model}, how much it disagrees
+is clearly shown in figure \ref{fig:IndexVSDepth.pdf}.
 \section{Channels 5,6 and 7}
-A very interesting depth is in between channels 5 and 7 as, looking
-at the density profile shown in figure \ref{fig:DensityMeasurements}
-this is where the actual density deviates the most from the
-theoretical models. We'll take a look at this depth with channels 5,6 and 7 but note  
-that these will be way less reliable (difficult to quantify how unreliable) as the channels
-are spaced too far apart.
+A very interesting depth is in between channels 5 and 7 as, looking at the
+difference between the index computed from the density and the single
+exponential model as shown in figure \ref{fig:IndexVSDepth.pdf} this is where
+the largest deviations between both is observed. We'll take a look at this
+depth with channels 5,6 and 7 but note  that these will be way less reliable
+(difficult to quantify how unreliable) than the phased array as the channels
+are spaced too far apart. \textbf{This is thus only performed as a test and
+the data shouldn't be taken seriously}.
 
 The event we'll be using is recorded in detector 21 at the 26th of July
 11:18:41 and falls within the $<5$° mark, doing analogous analyses as in the
@@ -588,16 +623,12 @@ be summarized in a table as shown below:
 \end{center}
 Note that all of the indices that are found have a value below the
 exponential model's.
-
-Now that we have some measurements let's plot out all of our findings, the results
-are given in figure \ref{fig:IndexVSDepth.pdf}.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/IndexVSDepth.pdf}
+	\includegraphics[width=0.8\textwidth]{figures/Event12397NoCorr.pdf}
   \caption{Event 12397 shows itself as a clear outlier hinting at the need to investigate the index-depth relation further}
 	\label{fig:IndexVSDepth.pdf}
 \end{figure}
-
 \section{Guide for further analysis}
 Here I'll give a quick guide on how to continue this work, as a phased array
 measurement with small error hasn't been found yet.  First off you'll need to

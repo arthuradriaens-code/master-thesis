@@ -4,14 +4,18 @@ As this method seems to be a viable way of measuring the index of refraction,
 it might be a good idea to have a more controllable radio wave source fly
 closer to the detectors to make more accurate measurements, e.g an
 autonomous\footnote{as to not have it need a radio controller, causing RF
-interference and also as autonomous GNSS positioning is always more
-accurate than human steering} drone with an antenna strapped to it.  Assuming Schytt's
-equation to hold completely, ideally we'd like data in between the depths of
-20-100m as this is where the biggest discrepancies might be observed between
-the single exponential model and the measured density data as is depicted on
-figure \ref{fig:DensityMeasurements}. 
+interference on top of the one coming from the engine and also as autonomous
+GNSS positioning is always more accurate than human steering} drone with an
+antenna strapped to it or just some form of stationed antenna.  Assuming
+Schytt's equation to hold completely, ideally we'd like data in between the
+depths of 20-100m as this is where the biggest discrepancies might be observed
+between the single exponential model and the converted density data as is
+depicted on figure \ref{fig:IndexVSDepth.pdf}. 
 
-In the super ideal case we'd want some immobile close source and a phased array which we'll
+It might also be a good idea to make the signal easier to fit, thus reducing the possible 
+error on timing, e.g by making the signal a known AM signal.
+
+In the ideal case we'd want some immobile close source and a phased array which we'll
 move down every couple of measurements, thus obtaining an index-depth profile
 using direct measurements.
 
