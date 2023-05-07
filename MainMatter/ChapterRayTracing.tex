@@ -22,7 +22,7 @@ The amount of solutions and how the waves are bent are consequences of the
 properties of the ice we work in.  In a dielectric medium a ray propagates with
 it's signal wave-speed determined by the local index of refraction as $v =
 c/n$.   The effect on speed isn't the only effect the index of refraction has
-which we'll need to concern ourselves with however, if a ray propagates towards
+which we'll need to concern ourselves with. However, if a ray propagates towards
 a boundary dividing 2 media with different indexes of refraction, the ray will
 refract and the refracted angle can be found from Snell's law:
 \begin{equation}
@@ -55,7 +55,7 @@ the equation as:
 	\label{eqn:radiopropaformula}
 \end{equation}
 Which is then iteratively solved using the Cash–Karp method.  The way you would
-go about using this program is thus find a start and end point (e.g a supposed
+go about using this program is thus: find a start and end point (e.g a supposed
 neutrino interaction point and a detector respectively), "shoot" your ray in a
 certain direction for which the path will then be iteratively solved using
 radiopropa. And if you chose your direction right you have the path a ray might
@@ -101,7 +101,7 @@ following function:
 	\rho = \rho_0 e^{z/z_0} + B
 \end{equation}
 Figure \ref{fig:DensityMeasurements} shows how both of these
-functions fit the density curve.  There is one big downside however.
+functions fit the density curve\footnote{The density with depth data can be found \href{https://github.com/cozzyd/iceprop/tree/master/data}{here}}.  There is one big downside however.
 It seems that the ice actually doesn't follow these exponential
 curves perfectly but would more closely follow some kind of higher
 order function.

@@ -11,7 +11,7 @@ This procedure will be explained more in depth over the following sections.
 For us to find the timing we'll first make an educated guess, this can be done
 using our \textit{hybrid minimizer} algorithm. There is one change that needs to
 happen first to our algorithm for us to be able to simulate this: The air
-observer needs to be removed as to make a ray tracing possible from
+observer has to be removed as to make a ray tracing possible from
 within the air into the ice and onto the detector. The modified
 version of the hybrid ray tracer can be found \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the branch radiopropa/BaLLooN.
 
@@ -571,8 +571,9 @@ The density measurements do actually show quite a lot of spread for nearly
 the same values so there might be a problem there (there are also not that many
 recorded measurements and no reported uncertainties).  
 
-As for the Schytt's equation, whether it is a valid approximation or not will be
-decided when enough reliable data is available.  
+As for Schytt's equation, whether it is a valid approximation or not will be
+decided when enough reliable data is available. But note that there is no particular
+reason, neither theoretical nor observational, why it should be true.
 
 Only careful scruteny of the algorithm and code  used throughout this work will tell
 if something went wrong with the analysis or something else enterily (e.g the importance of birefringence).
