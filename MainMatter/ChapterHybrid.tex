@@ -3,25 +3,16 @@
 %----------------------------------------------------------------------------------------
 %	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
-\section{Shortcomings of the exponential ice model}
-As mentioned in section \ref{section:Ice Model}, complex ice models will be
-necessary moving forward as the exponential ice model fails to fit the density
-curve.  The software for radio wave propagation through ice the RNO-G team
-chose is radiopropa\cite{Winchen_2019}, but due to the way it works you'll have
-to know the start point, the end point and the launch angle of your ray to work
-out the path. This isn't difficult for the analytic model as it's exactly
-solvable, but for a general ice model you'll somehow have to find where to
-\textit{shoot} the ray. An algorithm was developed to work out the path the
-rays would trace out in more complex ice models called the \textit{iterative
-ray tracer} \cite{2022icrc.confE1027O}, which was discussed in section
-\ref{sec:Iterative}. The way this algorithm works is however a sub-optimal
-solution in python as an optimization library will generally work faster and
-more accurate, work had been done on trying to implement such an algorithm
-deemed the "minimizer" but this attempt failed.  As we saw this work the idea
-came to mind to combine the iterative ray tracer and the code using the
-optimization libraries. This way we built the algorithm which will be discussed in
-this chapter: The hybrid ray tracer, in the source code called the "hybrid
-minimizer" which can be found
+An algorithm was developed to work out the path the rays would trace out in
+more complex ice models called the \textit{iterative ray tracer}
+\cite{2022icrc.confE1027O}, which was discussed in section \ref{sec:Iterative}.
+The way this algorithm works is however a sub-optimal solution in python as an
+optimization library will generally work faster and more accurate, work had
+been done on trying to implement such an algorithm deemed the "minimizer" but
+this attempt failed.  As we saw this work the idea came to mind to combine the
+iterative ray tracer and the code using the optimization libraries. This way we
+built the algorithm which will be discussed in this chapter: The hybrid ray
+tracer, in the source code called the "hybrid minimizer" which can be found
 \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the
 radiopropa/hybrid\_minimizer branch.
 
@@ -31,7 +22,7 @@ not limited by the final drawn sphere size but by a given tolerance making it
 useful for simulations in which high time and space precision is needed like
 plane wave reconstruction, which we'll do in the next chapter.
 
-\section{How it works}
+\section{How the hybrid ray tracer works}
 The hybrid minimizer can be seen as an extension of the iterative ray tracer as
 it starts out the same way: Say our source of radiation is at position
 $\mathbf{X}_1$ and our detector is located at position $\mathbf{X}_2$, we start
@@ -80,24 +71,26 @@ detector, this process is illustrated in figure \ref{figure:First step hybrid}.
 \begin{figure}
 	\centering
 	\copyrightbox[r]{\includegraphics[width=0.5\textwidth]{begin_explanation.png}}{\textcopyright Effects of firn ice models on radio neutrino simulations using a RadioPropa ray tracer by B. Oeyen et. al}
-	\caption{First step of the hybrid ray tracer}
+	\caption{Iterative searches to find where the ray tracer ends up at the sphere, shown in green}
 	\label{figure:First step hybrid}
 \end{figure}
 
-If 2 distinct launch regions are found, say in the regions $[\theta_1,\theta_2]$ and $[\theta_3,\theta_4]$ the
-rays end up on the sphere (drawn in green), then the so called \textit{minimization}
-procedure will start. Using scipy's module optimize.minimize the optimal
-solution will be found. First we get rid of the spherical observer and place
-the vertical observer \textbf{exactly} at the detector, now to be able to use the
-minimize module we'll need a function to minimize, for this reason we first define the
-function \textit{delta\_z} as, given a certain launch angle, propagating the ray
-onto the vertical observer and returning the
-distance from the point where it lands on the plane to the detector, as
-illustrated on figure \ref{fig:PrincipleHybridIllu} (i.e it returns the value $\Delta z$).
+If 2 distinct launch regions are found, say in the regions
+$[\theta_1,\theta_2]$ and $[\theta_3,\theta_4]$ the rays end up on the sphere
+(drawn in green), then the so called \textit{minimization} procedure will
+start. Using scipy's module optimize.minimize the optimal solution will be
+found by using the Nelder-Mead method\cite{10.1093/comjnl/7.4.308}. First we
+get rid of the spherical observer and place the vertical observer at the
+detector, now to be able to use the minimize module we'll need a function to
+minimize, for this reason we first define the function \textit{delta\_z} as,
+given a certain launch angle, propagating the ray onto the vertical observer
+and returning the distance from the point where it lands on the plane to the
+detector, as illustrated on figure \ref{fig:PrincipleHybridIllu} (i.e it
+returns the value $\Delta z$).
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{PrincipleHybridIllu.pdf}
-  \caption{Principle behind the minimization in the hybrid ray tracer}
+  \caption{The scipy algorithm shoots rays in a direction within the blue cone angle intervals and minimizes the $\Delta z$ that gets returned}
   \label{fig:PrincipleHybridIllu}
 \end{figure}
 The function we'll minimize is then delta\_z\_squared which just squares the
@@ -136,14 +129,12 @@ After having solved for the \textbf{propagation time} (meaning the time it takes
 propagate from the source to the detector) and the \textbf{arrival zenith angle} (the zenith angle
 the ray makes at the detector) for each of the algorithms we can infer the accuracy of a particular
 algorithm by how much it differs from the solution found through the analytic ray tracer.
-For example, if the hybrid ray tracer finds a particular solution with a propagation time of 
-1001ns, the iterative finds one with 1002ns and the analytic one with 1000ns then the hybrid
-ray tracer is more accurate than the iterative ray tracer.
 \subsection{Length of the normal vector}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/PrincipleNormIllu.pdf}
-	\caption{how normal vector size influences the step size}
+	\caption{the steps taken are illustrated with the dots, the spacing reduces close to the detector. changing
+	the normal vector changes the spacing}
 	\label{fig:normexpl}
 \end{figure}
 Whilst figuring out what was wrong with the initial \textit{minimizer} we
@@ -156,7 +147,7 @@ accuracy (in timing and arrival zenith) with the analytic ray tracer and the com
 iterative ray tracer, are shown in figures \ref{fig:norminfl} and
 \ref{fig:norminfl2}.  Looking at these figures we can make, what would
 normally be rather obvious but is interesting nonetheless, a first optimization
-conclusion: take the normal vector length to be 1 meter.
+conclusion: take the normal vector length to be 1 unit in radiopropa.
 We can conclude this as the calculation speed seems to be minimal there (after zooming
 in on the graph) and the accuracy dropping rapidly after 1 meter.
 
@@ -168,7 +159,7 @@ in on the graph) and the accuracy dropping rapidly after 1 meter.
 	\begin{minipage}{\textwidth}
 		\includegraphics[width=0.8\textwidth]{figures/NormVsSigmaTime.pdf}
 	\end{minipage}
-\caption{influence of the length of the normal vector}
+\caption{The speed lowers with larger normal vector length but the accuracy on timing gets worse after a length of 1}
 \label{fig:norminfl}
 \end{figure}
 \begin{figure}
@@ -179,17 +170,17 @@ in on the graph) and the accuracy dropping rapidly after 1 meter.
 	\begin{minipage}{\textwidth}
 		\includegraphics[width=0.8\textwidth]{figures/NormVsSigmaAZ.pdf}
 	\end{minipage}
-\caption{influence of the length of the normal vector}
+\caption{The speed lowers with larger normal vector length but accuracy stays roughly the same after 0.1}
 \label{fig:norminfl2}
 \end{figure}
 
 \subsection{ztol}
-We'll now change the \textit{tolerance} on the vertical distance away from the
-detector which is deemed accepted i.e in figure \ref{fig:normexpl} if $\Delta
-z$ is below this threshold, the minimization procedure is stopped and the last
-found answer is the accepted answer.  The results from analogous comparisons as
+We'll now change the \textit{tolerance}, with this we mean when 
+the minimization algorithm returns a $\Delta z$ smaller than a certain
+treshold "ztol" the ray will be accepted as the solution.  
+The results from analogous comparisons as
 previously discussed are shown in figures \ref{fig:ztolinfl} and
-\ref{fig:ztolinfl2}.  There seems to be a minimum at 0.05m, looking at the
+\ref{fig:ztolinfl2}.  There seems to be a minimum around 0.05m, looking at the
 accuracy for this tolerance it seems sufficient to be used.  We can thus infer
 the second optimization conclusion: take ztol to be 0.05 m.
 \begin{figure}
@@ -200,7 +191,7 @@ the second optimization conclusion: take ztol to be 0.05 m.
 	\begin{minipage}{\textwidth}
 		\includegraphics[width=0.8\textwidth]{figures/ZtolVsSigmaTime.pdf}
 	\end{minipage}
-\caption{influence of the tolerance on vertical distance}
+\caption{the solution seems to reach a minimal time at a tolerance of 5cm whilst the accuracy on timing stays roughly the same}
 \label{fig:ztolinfl}
 \end{figure}
 
@@ -212,7 +203,7 @@ the second optimization conclusion: take ztol to be 0.05 m.
 	\begin{minipage}{\textwidth}
 		\includegraphics[width=0.8\textwidth]{figures/ZtolVsSigmaAZ.pdf}
 	\end{minipage}
-\caption{influence of the tolerance on vertical distance}
+\caption{the solution seems to reach a minimal time at a tolerance of 5cm whilst the accuracy on the angle stays roughly the same}
 \label{fig:ztolinfl2}
 \end{figure}
 
@@ -221,31 +212,33 @@ The initial rays are sent out in steps of a certain angle and with a sphere
 around the detector of a certain size. Varying the parameters of this first
 step of the algorithm (e.g the step size and sphere size) might thus have an
 effect on both the accuracy and the computational time.  As this initial search
-for launch angle regions is also the slowest step in the hybrid ray tracer it's
-also the most important step to optimize. The optimization procedure is as
+for launch angle regions is also the slowest step in the hybrid ray tracer (takes
+$\approx 57\%$ of the total computation time)
+it's also the most important step to optimize. The optimization procedure is as
 follows: change the sphere size and loop over various step sizes, recording the
 speed. Note that, as we have to vary 2 parameters, we can't really look at
 accuracy here. This isn't needed however as we'll see that after finding the
-optimal solution the accuracy is still superb, apart from one part where it is
+optimal solution the accuracy is still sufficient, apart from one part where it is
 needed: \textbf{if insufficient solutions are found}, as we wish this algorithm
-to best the iterative ray tracer, it'll need to at least find as many solutions
+to be better the iterative ray tracer, it'll need to at least find as many solutions
 as the iterative ray tracer does.  If, for a particular random interaction
 vertex location, less solutions are found by the hybrid ray tracer than for the
 iterative ray tracer, this parameter choice will be thrown away (and colored
-differently).  The results of going through this are shown in figure
+differently).  The results are shown in figure
 \ref{fig:SphereStepInfl}, the points colored red are unusable as previously
 discussed.
 
 The lower on the graph the points lie, the better. If we combine all the green points into a single plot
 we get what is shown on figure \ref{fig:SphereStepFinal},
 zooming in onto the lowest point , we see that an optimal sphere size seems to be at 45m accompanied
-by a step size of 0.7°.
+by a step size of 0.7°, this is in contrast to the iterative ray tracer where a sphere size of 25m and stepsize
+of 0.5° is used. Note that changing these values for the iterative ray tracer doesn't change it's speed nor accuracy.
 
 The programs used in making these plots can be found \href{https://github.com/arthuradriaens-code/projects-mt}{here}
 under the folder "testhybrid".
 \begin{figure}
 \includegraphics[width=\textwidth]{figures/subplotofallstepsphere.pdf}
-\caption{Variation in Sphere and angle step size with report on relative time.}
+\caption{The data in green is acceptable, at high sphere size the geometric effects start to play a role and staggering is observed}
 \label{fig:SphereStepInfl}
 \end{figure}
 \begin{figure}
@@ -256,19 +249,20 @@ under the folder "testhybrid".
 \newpage
 \subsection{Conclusion of optimization}
 How does the hybrid ray tracer perform relative to the iterative ray tracer if we use 
-the previously optimized variables? After doing a simulation of 1000 random source locations with
+the previously optimized variables? After doing a simulation of 1000 random source locations (double the previous amount) with
 the iterative, analytic and hybrid ray tracer and comparing both the iterative to the analytic and the hybrid to the analytic
 we get what's shown in figures \ref{fig:acchyb} and \ref{fig:accit}. Where we can clearly see that the hybrid
-ray tracer is more accurate, now during this simulation we also recorded the computational speed, the results
-are presented below:
+ray tracer is more accurate, now during this simulation we also recorded the computational speed, the fractional
+speeds relative to the analytic ray tracer are presented below:
 \begin{itemize}
-	\item iterative: 0.61 computations/s
-	\item hybrid: 0.82 computations/s
-	\item analytic (c++ compiled version): 10289 computations/s
+	\item iterative: $5.93 \times 10^{-5}$ computations/analytic computation
+	\item hybrid: $7.97 \times 10^{-5}$ computations/analytic computation
 \end{itemize}
-The hybrid ray tracer is thus 33.7\% faster than the iterative ray tracer. The speed of the analytic ray tracer
-has a difference of the other two which might seem quite overwhelming but this can get mitigated in the future if 
-part of the hybrid ray tracer gets re-written in a compiled language (like c++).
+The hybrid ray tracer is thus 33.7\% faster than the iterative ray
+tracer. The speed difference with the analytic ray tracer might seem
+quite overwhelming but this can get mitigated in the future if part
+of the hybrid ray tracer gets re-written in a compiled language
+(like c++) just like the analytic ray tracer.
 
 \begin{figure*}
 	\centering
@@ -283,25 +277,5 @@ part of the hybrid ray tracer gets re-written in a compiled language (like c++).
 	\label{fig:accit}
 \end{minipage}
 \end{figure*}
-
-\section{Expansion}
-Using the ray tracer as it is now defined makes us unable to calculate paths by
-\textit{secondaries}.  When your ice model has some kind of added complexity
-like a reflective bottom or a discontinuity layer (like what will be the case
-for our air-borne balloon in the next chapter) you'll need to account for
-secondaries. These are additional rays like an extra refracted or reflected
-rays that get generated at this discontinuity. How the algorithm is now it will
-follow one ray from the source to the discontinuity and only consider, say, the
-reflected ray. Whilst a refracted ray generated at such a discontinuity might
-actually end up closer to the detector.
-
-To implement secondaries, we'll just check if there are any found at the
-delta\_z algorithm and if so loop over them, keeping the original ray's $\Delta
-z$ in mind as the "global best" and looking if any of the secondary rays'
-$\Delta z$ is lower than the "global best" if so this will be considered the
-new final ray which gets returned and the $\Delta z$ that gets returned is the
-new "global best" originating from the secondary. If there is no secondary
-ending closer than the "original" ray than the original ray with it's $\Delta
-z$ is returned.
 
 

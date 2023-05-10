@@ -27,7 +27,12 @@ When researching $\beta^-$ decay, the decay of a neutron, researchers
 detected a proton and an electron coming from the neutron. However
 on closer inspection it became apparent that energy was lost
 somewhere in violation with the conservation law of energy, and
-angular momentum wasn't conserved either.  The solution postulated by
+angular momentum wasn't conserved either\cite{Bilenky_2012}.  
+In particular, in the proton-electron model for the $\beta^-$-decay
+of a nucleus (A,Z) you would expect the final result to be (A,Z+1) + $e^-$.
+But in the experiment the sum of the measured final energies
+didn't equal the initial energy of the nucleus.
+The solution postulated by
 Wolfgang Pauli was to introduce a new, really hard to detect
 particle with no charge and a very small mass: the neutrino.  The neutrino comes in three flavors:
 electron, muon and tau neutrinos, each corresponding to their respective lepton denoted as
@@ -45,17 +50,18 @@ becomes
 \end{equation}
 The inverse can then also be used to detect neutrinos:
 \begin{equation}
-	n \rightarrow p^+ + e^- + \nu_e
+	p^+ + e^- + \nu_e \rightarrow n
 \end{equation}
 Which is called beta capture and was first experimentally detected in 1956
 \cite{BetaCapture} also making it the first experimental detection of a
 neutrino.
 \section{The weak interaction}
+\label{sec:WeakInt}
 As with the strong and electromagnetic interaction which interact via gluons
 and photons respectively, the weak interaction which is the primary way
 neutrinos interact, is also mediated by the exchange of elementary spin-1
 bosons.  Namely the charged bosons $W^+$ and $W^-$ and the neutral $Z^0$ boson.
-Contrary to the gluons and photons however, these bosons are very massive:
+Contrary to the gluons and photons however, these bosons are massive:
 \begin{equation}
   M_W = 80.40\text{ GeV }\quad M_Z = 91.19\text{ GeV }
 \end{equation}
@@ -78,21 +84,17 @@ A simple interaction is sketched below
 \begin{equation}
   \mu^- \rightarrow e^- + \bar{\nu}_e + \nu_\mu
 \end{equation}
-Here the muon decays via a charged current reaction, note that lepton number
-needs to be conserved.  This means that, as on the left side of the reaction we
-have 1 muon and no electrons we get $\ell_\mu = 1$ and $\ell_e = 0$. This also needs
-to be the case on the right side. The lepton number is conserved as a muon
-neutrino counts for $\ell_\mu = 1$ and an electron anti-neutrino counts for
-$\ell_e = -1$, so on the right we have $\ell_\mu =1$ and $\ell_e = 1-1 = 0$.
+Here the muon decays via a charged current reaction.
 \section{Neutrino sources}
-As shown in figure \ref{figure:Neutrino fluxes} there are various kinds of
+As shown in figure \ref{figure:Neutrino fluxes}\cite{NeutrinoFlux} there are various kinds of
 neutrino sources. We'll discuss these one by one in order, leaving out the
 reactor anti-neutrinos and the terrestrial anti-neutrinos as we're only
-interested in neutrinos of astrophysical nature.
+interested in neutrinos of astrophysical nature. The ones we'll
+thus discuss are the cosmological, solar, supernova, background from old supernovae, atmospheric, AGN and cosmogenic neutrinos.
 \begin{figure}
 	\centering
-	\copyrightbox[r]{\includegraphics[height = 0.5\textwidth]{neutrinofluxes.pdf}}{\textcopyright Abhik Jash, Studies on the Physics of Resistive Plate Chambers in Relation to the INO Experiment}
-	\caption{Predicted neutrino flux for various sources both natural and man-made}
+	\copyrightbox[r]{\includegraphics[height = 0.5\textwidth]{neutrinofluxes.pdf}}{\textcopyright Abhik Jash}
+	\caption{Less neutrinos will be observed for higher energies}
 	\label{figure:Neutrino fluxes}
 \end{figure}
 \subsection{Cosmological/Primordial neutrinos}
@@ -130,7 +132,7 @@ low in energy.
 \subsection{Solar neutrinos}
 The sun fuses elements to release energy and thus keeping itself from collapsing in 
 on itself, with most of the various ways particles get fused, neutrinos get released as 
-is shown in figure \ref{fig:SunFusion} where the neutrinos are electron neutrinos.
+is shown in figure \ref{fig:SunFusion}\cite{FusionIllu} where the neutrinos are electron neutrinos.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/SunFusion.png}
@@ -177,7 +179,7 @@ some point the star starts to form the most stable element: iron.
 
 It costs energy
 to both make lighter elements than iron and heavier ones as can be seen on
-figure \ref{fig:BindingEnergyCurve}.
+figure \ref{fig:BindingEnergyCurve}\cite{IronIllu}.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Binding_energy_curve.png}
@@ -326,7 +328,7 @@ decay to a pion and a nucleon:
 \end{align}
 Of which the charged pion decays to neutrinos as previously mentioned in 
 \ref{sec:AtmosphericNeutrinos}, these neutrinos carry most of the original energy.
-\subsection{How do they fit into the full detector spectrum?}
+\section{How do they fit into the full detector spectrum?}
 The origin of the most energetic cosmic rays is still not conclusively
 identified. One approach to solving this problem is \textit{multi-messenger
 astrophysics}, where several types of cosmic particles are used to identify the

@@ -6,7 +6,7 @@ Outside our earth various kinds of events take place which we wish to
 observe: Black hole outbursts, supernovae, cosmic jets, ...
 These events produce various kinds of messengers which are useful to obtain
 information on the event: Gravitational waves, gamma rays, protons,...
-But one particle within this set of particles is quite unique and
+But one particle within this set of messengers is quite unique and
 the subject of our study: The neutrino. 
 
 The neutrino is unique in that it points back to the event itself.
@@ -16,22 +16,21 @@ on it's way to us unlike, say, the proton. This means that if we observe
 a neutrino back here on earth it's very likely that the direction we observe
 it in is the direction it came from.
 
-We wish to detect a particular type of neutrinos: The ultra high energy (UHE)
+We wish to detect neutrinos in a specific energy range: The ultra high energy (UHE)
 neutrino.  There have been lots of neutrino detectors around but none of them
 have been able to observe \textit{cosmogenic neutrinos} which would live past
 the 3 PeV energy range. This is probably caused by the exponentially falling
 flux with increasing energy, implying that a really big detector volume is
 required to detect neutrinos with such high energies. 
 
-Due to cost requirements, it was necessary to work in the radio regime.  As
-much as we'd like a really big detector working in the visible spectrum, it
-would cost way too much. As neutrinos can produce radio waves upon interacting
-in ice through the Askaryan effect and as radio waves can travel for way longer
-distances in there before interacting than visible light, it was previously
-decided in experiments like ARA and ARIANNA to detect on the principle of
-radio waves. The Radio Neutrino Observatory in Greenland or RNO-G which is
-currently under construction and the subject of this thesis builds on the
-knowledge of these experiments to make a quite complex detector which
+Due to cost requirements, it was necessary to work in the radio regime.  A
+really big detector working in the visible spectrum would cost way too much. As
+neutrinos can produce radio waves upon interacting in ice through the Askaryan
+effect and as radio waves can travel for way longer distances in there before
+interacting than visible light, it was previously decided in experiments like
+ARA and ARIANNA to detect on the principle of radio waves. The Radio Neutrino
+Observatory in Greenland or RNO-G which is currently under construction builds
+on the knowledge of these experiments to make a quite complex detector which
 should be capable of detecting UHE neutrinos.
 
 The ice properties have an impact on how radio waves propagate. As mentioned before, RNO-G is a detector built
@@ -41,15 +40,6 @@ the local index of refraction which seems to be linearly related to the density 
 The density of the ice seems to vary continuously with depth. A function describing
 this overall relation of the index of refraction with the depth is called an \textit{ice model}
 and it is crucial for future studies to understand this ice model.
-
-As previously said, the index of refraction in ice has been assumed to follow a linear relationship with 
-the density through Schytts equation:
-\begin{equation*}
-  n(z) \approx 1 + 0.78\frac{\rho(z)}{\rho_0}
-\end{equation*}
-The indices of refraction vs depth that got computed this way are shown in figure \ref{fig:SumFinRes}
-in gray, throughout the RNO-G project the ice model that got used was the one single exponential shown in 
-green.
 
 Due to the ice model seeming to deviate from the theoretically expected single
 exponential, it was necessary to develop a new algorithm to find the paths the
@@ -62,30 +52,11 @@ be useful. Such an algorithm has already been developed called the
 but it had its shortcomings, that's why in this thesis a new algorithm was
 developed called the \textit{hybrid ray tracer} which is explained in chapter
 \ref{chapter:hybrid}. The hybrid ray tracer makes it possible to both find a
-more accurate solution and find it faster. The accuracy of the ray tracer
-is showcased in figure \ref{fig:SumHyb}, the Iterative ray tracer can
-be considered it's predecessor and it's accuracy is shown in figure \ref{fig:Sumit}
-showcasing the clear improvement.
+more accurate solution and find it faster.
 
-\begin{figure*}
-	\centering
-\begin{minipage}{0.49\textwidth}
-	\includegraphics[width=1.1\textwidth]{figures/hybrid_comparison_N_1000.pdf}
-	\caption{Hybrid}
-	\label{fig:SumHyb}
-\end{minipage}
-\begin{minipage}{0.49\textwidth}
-	\includegraphics[width=1.1\textwidth]{figures/iterative_comparison_N_1000.pdf}
-	\caption{Iterative}
-	\label{fig:Sumit}
-\end{minipage}
-\end{figure*}
-
-\newpage
 It is, however, crucial to make sure we actually need a new kind of ice model.
 The measuring of the index of refraction can be accomplished indirectly through
-weather balloon fly-byes as is explained in chapter \ref{chap:WB}. Every day in
-the summer, two times per day a weather balloon is launched from the base camp.
+weather balloon fly-byes as is explained in chapter \ref{chap:WB}. 
 This weather balloon is equipped with an antenna which sends out a 403MHz
 sinusoidal signal, upon close fly-byes with detectors this signal can be
 observed in the detectors (as is visualized on the cover). By looking at the
@@ -95,25 +66,17 @@ reconstruction is heavily dependent on the local index of refraction in the
 ice, it can be indirectly measured through this reconstruction.  After this
 analysis the following data was found:
 \begin{center}
-\begin{tabular}{||c c c c c c||}
+\begin{tabular}{||c c c||}
  \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit}$\\ [0.5ex]
+ Depth (m) & n$_\text{exponential}$ & n$_\text{fit}$\\ [0.5ex]
  \hline\hline
- -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.7045 $\pm$ 0.006 \\
+ -94.518 & 1.7397 & 1.7045 $\pm$ 0.006 \\
  \hline
 \end{tabular}
 \end{center}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Event12397NoCorr.pdf}
-  \caption{Event 12397 shows itself as a clear outlier hinting at the need to investigate the index-depth relation further}
-  \label{fig:SumFinRes}
-\end{figure}
-And visually shown as the data in blue on figure \ref{fig:SumFinRes}, 
-it shows a big discrepancy with the exponential model.
+It shows a big discrepancy with the exponential model.
 We reason that this clearly shows that there's a need to investigate
-the index-depth relation further as the wave propagation, and thus
-neutrino reconstruction, are heavily dependent on the ice model.
+the index-depth relation further.
 \newpage
 \chapter*{Samenvatting}
 \addcontentsline{toc}{chapter}{Samenvatting}
@@ -147,7 +110,7 @@ van radiogolven bij interactie van een neutrino in ijs. Aangezien radio golven v
 propageren in ijs dan zichtbaar licht maakt dit het mogelijk om de verscheidene antennes verder
 van elkaar te plaatsen. Enkele experimenten zijn op dit principe gebouwd zoals ARA en ARIANNA.
 Uit de expertise van deze en soortgelijke experimenten werd dan de Radio Neutrino Observatory in Greenland of RNO-G gemaakt.
-RNO-G moet het mogelijk maken om UHE neutrino's te observeren en deze thesis wenst bij te dragen tot de ontwikkeling
+RNO-G moet het mogelijk maken om UHE neutrino's te observeren en deze thesis wenst bij te dragen tot het gebruik
 van deze detector.
 
 Het blijkt dat de eigenschappen van het ijs een effect hebben op hoe radiogolven zich propageren door het ijs.
@@ -169,53 +132,29 @@ algoritme uit te vinden dewelke steunt op dat algoritme genaamd de
 \textit{hybrid ray tracer}, de werking van dit algoritme kan gevonden worden in
 hoofdstuk \ref{chapter:hybrid}. Dit algoritme maakt het mogelijk om beide een
 meer accurate oplossing te vinden en deze eveneens sneller te vinden.
-De accuraatheid van de ray tracer wordt geillustreerd in figuur \ref{fig:SamHyb}
-. Hiernaast, in figuur \ref{fig:Samit}, wordt zijn voorganger de iterative ray tracer
-getoond. Er is een duidelijke verbetering te zien bij vergelijking van de twee.
-\begin{figure*}
-	\centering
-\begin{minipage}{0.49\textwidth}
-	\includegraphics[width=1.1\textwidth]{figures/hybrid_comparison_N_1000.pdf}
-	\caption{Hybrid}
-	\label{fig:SamHyb}
-\end{minipage}
-\begin{minipage}{0.49\textwidth}
-	\includegraphics[width=1.1\textwidth]{figures/iterative_comparison_N_1000.pdf}
-	\caption{Iterative}
-	\label{fig:Samit}
-\end{minipage}
-\end{figure*}
-\newpage
+
 Maar om over te schakelen op een nieuw ijs model met een ander algoritme is het nodig aan te tonen dat er effectief
 een groot verschil is tussen het theoretische exponentiële model en de echte refractieindex. Om dit aan te tonen 
-kunnen we gebruik maken van weerballonnen. Elke dag in de zomer, 2 maal per dag, wordt een weerballon gelanceerd 
-op de RNO-G basis. 
+kunnen we gebruik maken van weerballonnen. 
 Deze weerballon beschikt over een antenne dewelke een sinusoïde signaal uitstuurt aan 403MHz, als zo'n ballon toevallig
 dicht bij een detector komt zal dit signaal kunnen gedetecteerd worden. Door een plane wave reconstructie te doen
 van dit signaal en gebruik te maken van de positie van de ballon kunnen we infereren wat de locale refractieve index
 is in het ijs. Deze procedure wordt volledig uitgelegd in hoofdstuk \ref{chap:WB}.
 Na deze procedure toe te passen werd de volgende data gevonden:
 \begin{center}
-\begin{tabular}{||c c c c c c||}
+\begin{tabular}{||c c c||}
  \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit}$\\ [0.5ex]
+ Depth (m) & n$_\text{exponential}$ & n$_\text{fit}$\\ [0.5ex]
  \hline\hline
- -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.7045 $\pm$ 0.006 \\
+ -94.518 & 1.7397 & 1.7045 $\pm$ 0.006 \\
  \hline
 \end{tabular}
 \end{center}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Event12397NoCorr.pdf}
-  \caption{Event 12397 shows itself as a clear outlier hinting at the need to investigate the index-depth relation further}
-  \label{fig:SamFinRes}
-\end{figure}
-Dewelke ook visueel wordt weergegeven in figuur \ref{fig:SamFinRes}, er is een
-duidelijk verschil tussen de gemeten index van refractie ($n_{fitted}$) en die
-uit het exponentieel model ($n_{exponential}$) te zien.
-Wij concluderen dat dit duidelijk toont dat er een nood is om de refractieve index-diepte
-relatie verder te onderzoeken aangezien deze de concusies uit neutrino metingen sterk
-zal beïnvloeden.
+Er is een duidelijk verschil tussen de gemeten index van refractie
+($n_{fitted}$) en die uit het exponentieel model ($n_{exponential}$) te zien.
+Wij concluderen dat dit duidelijk toont dat er een nood is om de refractieve
+index-diepte relatie verder te onderzoeken aangezien deze de concusies uit
+neutrino metingen sterk zal beïnvloeden.
 \newpage
 \chapter*{Dankwoord}
 \addcontentsline{toc}{chapter}{Dankwoord}

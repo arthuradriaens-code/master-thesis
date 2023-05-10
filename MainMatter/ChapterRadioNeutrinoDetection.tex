@@ -16,7 +16,7 @@ which makes it more usable:
     was naturally formed and there is no need to construct some kind of dome
 \end{itemize}
 \section{Neutrino interactions in ice}
-As neutrinos propagate through ice they can interact weakly with the nuclei.
+As neutrinos propagate through ice they can interact weakly with the nuclei (see section \ref{sec:WeakInt}) .
 The main mechanisms of interaction is via charged- and neutral
 currents\cite{NuRadioMc} as is also depicted in figure
 \ref{fig:NeutrinoNucleusInteraction}.
@@ -166,7 +166,7 @@ radiation will be emitted "in blue" with a cut-off frequency above which the
 equation $\cos\theta = 1/(n\beta)$ can no longer be satisfied. This "in blue"
 characteristic is responsible for the blue glow seen in nuclear reactors as
 seen in figure \ref{figure: Cherenkov reactor} .  For ice the index of
-refraction is roughly 1.78 in deep ice, so we expect an ultra-relativistic
+refraction is roughly 1.78 in deep ice\cite{Bogorodsky1985}, so we expect an ultra-relativistic
 particle to produce the most radiation at around 56° opening as 
 \begin{equation}
 	\cos(\theta_c) \approx \frac{1}{n} \implies \cos^{-1}\left(\frac{1}{1.78}\right)\approx 56\text{°}
@@ -204,7 +204,7 @@ The radiation generated trough this Askaryan effect is called \textit{Askaryan r
 The Askaryan radiation is polarized perpendicular to the
 Cherenkov cone, this can be useful to discern between different Cherenkov cones whom,
 timely, would generate the same response. This concept is illustrated below in 2D where
-two neutrinos from different directions would generate the same signal in the detector.
+two neutrinos from different directions would generate the same signal in a non-polarized detector.
 
 \begin{figure}[h!]
 	\centering
@@ -226,20 +226,19 @@ highest energies: the steeply falling flux (as was previously seen in figure
 the construction of neutrino detectors with volumes on the cubic kilometer
 scale like IceCube\cite{IceCubeTechnical} which works on the principle of
 detecting neutrinos with visible light.  But even IceCube has it's limitations,
-it's still too small to observe neutrino events above the 10 PeV
-scale\cite{IceCubeGen2}. That's why a new detector was needed which was even
+it's still too small to observe many neutrino events above the 10 PeV
+scale\cite{IceCubeGen2} in acceptable timescales. That's why a new detector was needed which was even
 bigger and able to observe cosmogenic neutrinos.  We could just make IceCube
 bigger but this would cost a lot of money as the individual detectors need to
 be spaced closely as the attenuation length is quite short for light in the
 visible spectrum propagating through ice.  
 
 The proposed solution was to work with radio wave detectors, leveraging the
-previously discussed Askaryan effect (see section \ref{sec:Askaryan}).  Besides
-the advantage radio waves have due to their abundance, they can also propagate
+previously discussed Askaryan effect (see section \ref{sec:Askaryan}).  Radiowaves can propagate
 way further in ice than visible light making it possible to space the
-individual detectors further apart. The proposed location was Greenland, an
+individual detectors further apart. The proposed location is Greenland, an
 island country in North America and part of the Kingdom of Denmark which has
-large ice sheets.
+large ice sheets as shown in figure \ref{fig:GreenlandOP}\cite{OrthoGreenland}.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/GreenlandOP.pdf}
@@ -253,10 +252,10 @@ per station. The whole project builds heavily on the knowledge obtained through
 previous radio based neutrino detectors like the NuMoon\cite{numoon} project,
 ANITA\cite{ANITA}, ARA\cite{ARA},ARIANNA\cite{Barwick_2015} and RICE\cite{RICE}.
 \subsection{Hardware}
-One such detector is illustrated in figure \ref{fig:detector}, the plan is to
+A station is illustrated in figure \ref{fig:detector}, the plan is to
 build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
 that all the individual detectors are numbered but also named after various species living in
-Greenland (in the native tongue)}. Looking closely at one such detector we see
+Greenland (in the native tongue)} \cite{PlannedLay}. Looking closely at one such detector we see
 just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are used
 to detect air shower muon signals as muons will also generate Cherenkov
 radiation in the ice whose signals can then be filtered out.  Aside form these
@@ -286,7 +285,7 @@ Further up the string, with a spacing of 20m, are three more Vpol antennas.
   \label{fig:SysDiag}
 \end{figure}
 
-A full system diagram for a RNO-G station is shown in figure \ref{fig:SysDiag},
+A full system diagram for a RNO-G station is shown in figure \ref{fig:SysDiag}\cite{Aguilar_2021},
 I'll give a walk trough of how data gets collected.  The signal from each of
 the deep antennae are fed into a low-noise amplifier directly above it, from
 there the signal is send to the data acquisition (DAQ) system at the surface
