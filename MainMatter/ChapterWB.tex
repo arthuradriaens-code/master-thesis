@@ -140,14 +140,14 @@ such that the difference between the balloon position and the plane wave at the 
 height is as small as possible.  Then we compare the n we have fit to the
 one we know from the model at that position.  We quantify the discrepancy
 between these two indices of refraction using what we here define as the
-\textit{correction factor}:
+\textit{systematic error}:
 \begin{equation}
   \varepsilon\ (\%) = \frac{n_\text{fit} - n_{\text{exact}}}{n_{\text{exact}}}
 \end{equation}
 Carrying this out\footnote{The code for this can be found in
 projects-mt/BaLLooN/simulations as plane\_wave.py} we get figure
 \ref{fig:EpsilonIFODirect}, i.e it gets exponentially shifted towards higher n
-as the balloon moves further away. If we wish our correction factor to be
+as the balloon moves further away. If we wish our systematic error to be
 within 1\%\footnote{we want this as small as possible as to not rely on the
 simulation}, the angle the balloon makes with the middle of channels 0 to 3
 needs to be less than 10°.
@@ -241,7 +241,7 @@ plane\_wave\_with\_snell.py}
 	\caption{epsilon IFO possible angles from channels 0-3 with refraction at the surface}
 	\label{fig:EpsilonIFODirectSnell}
 \end{figure}
-As you can see we can now go up to 15° and still have a correction factor of less than 1\%!  The
+As you can see we can now go up to 15° and still have a systematic error of less than 1\%!  The
 only drawback of this method is that we need to assume the index of refraction
 to be 1.27 at the surface of the ice, if this isn't the case in some places our
 predictions won't be accurate.
@@ -259,7 +259,7 @@ predictions won't be accurate.
 In the previous sections we've assumed the height of the weather balloon to be
 500m, does changing this height influence the behavior of $\epsilon$ in some
 way?  The answer is, at first surprisingly, yes. As can be seen in figure
-\ref{fig:EpsWithHeight} the correction factor can vary with height for the same angles.
+\ref{fig:EpsWithHeight} the systematic error can vary with height for the same angles.
 \begin{figure}
 	\centering
 	\includegraphics[height=0.4\textheight]{figures/EpsilonWithHeight.pdf}
@@ -277,9 +277,9 @@ Now that we know our goal to be feasible, let's analyze some data.  As we'll
 start by just analyzing one event, let's take a reasonably good one for our analysis.
 A close look at graph \ref{fig:EpsilonIFODirect} shows that events under 5° at
 a height of 500m produce an $\epsilon$ of less than 0.22\%, implying that if we
-measure n to be 1.7407 our correction factor will only be 0.0038.  A good start will
+measure n to be 1.7407 our systematic error will only be 0.0038.  A good start will
 thus be finding moments when the balloon gets to within a 5\% angle, note that
-the correction factor is height dependent so we'll have to calculate it afterwards.  After
+the systematic error is height dependent so we'll have to calculate it afterwards.  After
 looping through all the balloon positional files and only outputting the $<5$°
 ones we get the time frames shown in appendix \ref{app:5Deg}.
 
@@ -372,14 +372,14 @@ which we previously mentioned the spike at 0.403GHz.
 	\caption{recorded frequencies on detector 23 at 2022/08/29 11:18:32}
 	\label{fig:freqs03}
 \end{figure}
-Now note that there are peaks both below 0.15GHz and above 0.6GHz,
+Now note that on figure \ref{fig:freqs03} there are peaks both below 0.15GHz and above 0.6GHz,
 this is all non-physical noise as the Vpol antenna's range only goes from
 0.15GHz to 0.6GHz \cite{Aguilar_2021} that's why we'll first pass this signal
 trough a virtual butterworth bandpass filter.
 
 After passing the signal through the filter we'd also like to up sample the
-signal as to increase the resolution, this can be done using the resample()
-module and we'll up sample towards 10GHz increasing our timely accuracy from
+signal as to increase the resolution, this can be done using the resample() module. This resamples the trace to a new sampling rate
+, and we'll up sample towards 10GHz increasing our timely accuracy from
 0.3125ns to 0.1ns.  After filtering and up sampling we have some voltage
 response as shown for channel 0 in figure \ref{fig:VoltageAfterFilter}, we wish
 to find a sine wave coming from the weather balloon in this signal.
@@ -445,45 +445,57 @@ this neighborhood.
 \subsubsection{Fitting n and finding it's error}
 Now that we have the differences in timing between the individual channels
 we'll loop over the local (middle of the detectors) indices of refraction, each
-time doing a plane wave reconstruction (also using Snell's law at the surface)
-and recording the distance from the reconstructed wave to the balloon at the
-height of the balloon in an array \textbf{differences}.  Doing this we have a
+yielding a function $\eta'(\theta) = \text{norm}(\Delta t - \Delta t(\theta))$. Every time we minimize this function we find a certain launch angle $\theta$ which we can use to do a plane wave reconstruction (also using Snell's law at the surface) and finally
+recording the distance from the reconstructed wave to the balloon at the
+height of the balloon in an array \textbf{differences}.  Doing this for every index of refraction in our specified range we have a
 list \textbf{n} and a corresponding list \textbf{differences}, if we find the minimal
 difference in the \textbf{differences} list then the corresponding n in the
-list \textbf{n} is our anwser.
+list \textbf{n} is our anwser, note however that there are multiple
+minima, so we'll be choosing the one lying in the middle.
 
-To find the error on this value a first idea was to Gaussian
-to this curve of the
-form\cite{grabe2005measurement}
+We now wish to estimate the error which is additional to the
+\textit{systematic error} $\epsilon$, for this we'll plot the index
+of refraction on the x axis and the inverse difference on the y axis
+as shown in figure \ref{fig:Event12397}. A first idea was to
+Gaussian to this curve of the form\cite{grabe2005measurement}
 \begin{equation}
 	g(x) = \frac{1}{\sigma \sqrt{2\pi}} exp\left\{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}\right\}
 \end{equation}
-but as this fit wasn't
-that great and would underestimate the error we'll need another way to find the
-error.  To estimate the error we think that using integration might give a good
+but as the data isn't really gaussian this fit wasn't great and underestimated the error.
+To estimate the error we think that using integration gives a good
 estimate, i.e we integrate over the full data (defined within a certain interval of the solution) and then again symmetrically
 outwards from the middle of the peak. If the ratio of these two is 68\% then
 the interval this corresponds to is the one sigma error on our fit, analogously
-for 95\%. If we carry this out we get what's shown on figure
-\ref{fig:Event12397}. Let's now add the epsilon which we computed
+for 95\%. If we carry this out we get the orange and red vertical lines which are shown on figure
+\ref{fig:Event12397}. Let's now add the systematic error which we computed
 to the error from this fit as the total error, finally we get:
 \begin{center}
 \begin{tabular}{||c c c c c c||}
  \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit}$\\ [0.5ex]
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit} (68\%)$\\ [0.5ex]
  \hline\hline
  -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.7045 $\pm$ 0.006 \\
  \hline
 \end{tabular}
 \end{center}
-Where the fit lies is visually shown in figure \ref{fig:IndexVSDepth.pdf}.
-This fit shows a clear discrepency with the
+And with 95\% certainty:
+\begin{center}
+\begin{tabular}{||c c c c c c||}
+ \hline
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit} (95\%)$\\ [0.5ex]
+ \hline\hline
+ -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.7045 $\pm$ 0.01 \\
+ \hline
+\end{tabular}
+\end{center}
+Where the 68\% fit lies is visually shown in figure \ref{fig:IndexVSDepth.pdf}.
+In both certainties the fit shows a clear discrepency with the
 exponential model. Note that this result is less dependent on the assumptions
 inherent to the ice model used in the simulation due to the small correction
 factor ($\epsilon \approx 0.36\%$).  
 If we take a look at the density data and convert a measurement of
-roughly the same depth to the index using Shytt's equation we'd find an index
-of 1.733 which also isn't in agreement with this result.
+roughly the same depth to the index using Shytt's equation ($n(z) \approx 1 + 0.845\rho(z)$)
+of roughly 1.733 which also isn't in agreement with this result.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/Event12397.pdf}
@@ -493,22 +505,23 @@ of 1.733 which also isn't in agreement with this result.
 This might be caused by one of the following reasons:
 \begin{itemize}
 	\item The density measurements aren't correct
-	\item Something went wrong in the analysis
-  \item Too many assumptions
-  \item Something else entirely
+	\item The index isn't fully linear at every depth
 \end{itemize}
 The density measurements do actually show quite a lot of spread for
 nearly the same values so there might be a problem there (there are
 also not that many recorded measurements and no reported
 uncertainties).  
 
-This is made even more apparent when looking at the index-depth 
-relation found in the south polar firn\cite{kravchenko_besson_meyers_2004}:
+As for the linearity of the index, if we take a look at the
+index-depth relation found in the south polar
+firn\cite{kravchenko_besson_meyers_2004}:
 \begin{equation}
 	n(z) = 1.324 - 5.2854z - 21.865z^2 - 39.058z^3
 \end{equation}
-which would predict an index of 1.66, in stark disagreement with the
-exponential model. 
+This would predict an index of 1.66, in stark disagreement with the
+exponential model. So either the coupling of the density with the
+index isn't fully linear or the density-depth relation in Greenland
+might be slightly different than in the south pole.
 
 \section{Channels 5,6 and 7}
 A very interesting depth is in between channels 5 and 7 as, looking at the
@@ -526,11 +539,11 @@ be summarized in a table as shown below:
 \begin{center}
 \begin{tabular}{||c c c c c c c||}
  \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fit}$\\ [0.5ex]
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & $\epsilon$ & n$_\text{fit} (68\%)$\\ [0.5ex]
  \hline\hline
- -48.155 & 21 & 6\&7 & 1441:117 & 1.6400 & -0.02\% & 1.6310 $\pm$ 0.001 \\
- -58.38 & 21 & 5\&7 & 1441:117 & 1.6736 & -0.23\% & 1.6688 $\pm$ 0.0006 \\
- -68.2 & 21 & 5\&6 & 1441:117 & 1.6983 & 0.02\% & 1.6916 $\pm$ 0.0003 \\
+ -48.155 & 21 & 6\&7 & 1441:117 & 1.6400 & -0.02\% & 1.631 $\pm$ 0.001 \\
+ -58.38 & 21 & 5\&7 & 1441:117 & 1.6736 & -0.23\% & 1.6650 $\pm$ 0.004 \\
+ -68.2 & 21 & 5\&6 & 1441:117 & 1.6983 & 0.02\% & 1.6919 $\pm$ 0.0006 \\
  \hline
 \end{tabular}
 \end{center}

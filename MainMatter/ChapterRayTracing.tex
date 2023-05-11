@@ -110,12 +110,19 @@ curves perfectly.
 \end{figure}
 
 Equation \ref{eqn:radiopropaformula}, and thus the path, depends on the index
-of refraction on a given location.  The dependence of the index of refraction
-on density for ice can approximately be given by the Schytt equation\cite{Barwick_2018}:
+of refraction on a given location.  The dependence of the dielectric constant
+on density for ice can approximately be given by\cite{KOVACS1995245}:
 \begin{equation} 
-	n(x,y,z) \approx 1 + 0.78\rho(x,y,z)/\rho_0 \label{eqn:Schytt}
+	\epsilon(z) \approx (1 + 0.845\rho(z))^2 
 \end{equation} 
-Where $\rho(x,y,z)$ is the local ice density and $\rho_0$ is the
+Here $\rho$ is called the \textit{specific gravity} as to make the equation dimensionally correct,
+this is the same as the density in g/cm$^3$ but stripped off it's units.
+As the dielectric constant is the square of the index of refraction we can find an approximate index-density relation, which is sometimes
+called Schytts equation\cite{Barwick_2018}:
+\begin{equation} 
+	n(z) \approx 1 + 0.775\frac{\rho(z)}{\rho_0} \approx 1 + 0.78\frac{\rho(z)}{\rho_0} \label{eqn:Schytt}
+\end{equation} 
+Where we introduced $\rho_0$, the
 density for solid ice (917 kg/m³).  For the development of the simulation
 software equation \ref{eqn:myderiexp} was taken and after assuming Schytt's
 equation (equation \ref{eqn:Schytt}) to hold we find that the index of refraction abides by

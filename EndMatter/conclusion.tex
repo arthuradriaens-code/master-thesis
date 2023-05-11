@@ -2,7 +2,8 @@
 \addcontentsline{toc}{chapter}{Conclusion}
 The hybrid ray tracer developed over the course of this thesis and reported in
 chapter \ref{chapter:hybrid} was a success, not only is it more accurate than
-it's predecessors but it's also faster.  The accuracy of the ray tracer also
+it's predecessors, as shown in figures \ref{fig:acchyb} and \ref{fig:accit},
+ but it's also faster by about 34\%.  The accuracy of the ray tracer also
 makes it perfectly suitable for very fine precision simulations as used within
 the Balloon radio wave measurements.
 
@@ -24,12 +25,33 @@ We reason that this clearly shows that there's a need to investigate
 the index-depth relation further as the wave propagation, and thus
 neutrino reconstruction, are heavily dependent on the ice model.
 
+Note that there was only one event in the phased array that was analysed, this 
+is because the occasions of when a balloon passes close enough to a detector
+and when the signal is measurable in the deep array are very few.
+
 As there are a multitude of events (as can be found in appendices
 \ref{app:5Deg} and \ref{app:10Deg} but only finite time to analyze each and
-every one, this code is made public
+every one, this code is also made public
 \href{https://github.com/arthuradriaens-code/projects-mt.git}{here} as to make
 it easy to improve on this work.  Especially interesting might be events where
 $\epsilon$ is negligible (the balloon is really close) at the phased array and
 as such is the plane wave reconstruction a near perfect representation of the
 actual wave.
+\newpage
+As this method seems to be a viable way of measuring the index of refraction,
+it might be a good idea to have a more controllable radio wave source fly
+closer to the detectors to make more accurate measurements, e.g an
+autonomous\footnote{as to not have it need a radio controller, causing RF
+interference on top of the one coming from the engine and also as autonomous
+GNSS positioning is always more accurate than human steering} drone with an
+antenna strapped to it or just some form of stationed antenna.  
 
+It might also be a good idea to make the signal easier to fit, as the currently
+used signal has quite a short wavelength (0.403GHz) we have to guess when the 
+signal roughly arrives. If we have, say an AM signal, we wouldn't have to assume
+the rough arrival time of the signal, thus reducing the possible error on timing.
+
+In the ideal case, as has been done in the South Polar firn\cite{kravchenko_besson_meyers_2004}, we'd want some immobile close source and a phased array which we'll
+move down every couple of measurements, thus obtaining an index-depth profile
+using direct measurements. This might be carried out e.g during deployment
+of a new station's power string.
