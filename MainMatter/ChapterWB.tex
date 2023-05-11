@@ -71,9 +71,17 @@ We can actually roughly guess the angle, as for a balloon flying close to the
 detector this incoming angle will be roughly the same as the observed angle.
 We expect the following function to show a minimum at that angle:
 \begin{equation}
-	\eta(\theta) := \Delta t - \Delta t' = \Delta t
-	- \frac{\cos\theta \Delta z}{v}
-  \label{eqn:PlaneWave}
+	\eta(\theta) := (\Delta t - \Delta t')^2 = \left(\Delta t
+	- \frac{\cos\theta \Delta z}{v}\right)^2
+  	\label{eqn:PlaneWaveInit}
+\end{equation}
+Where the square is to do away with negative values and help in conversion.
+If we conversly want to determine the index of refraction, 
+we need to minimize equation \ref{eqn:PlaneWaveInit} for $\theta=\theta_b$:
+\begin{equation}
+	\eta(n) := (\Delta t - \Delta t')^2 = \left(\Delta t
+	- n\frac{\cos\theta_b \Delta z}{c}\right)^2
+  	\label{eqn:eta}
 \end{equation}
 If we want to use more than 2 detectors at once however (which we'll
 do for the phased array), we'll need to specify various functions to
@@ -94,15 +102,13 @@ timing would be.
 	\label{fig:NormedCorrelation}
 \end{figure}
 \subsection{simple plane wave reconstruction}
-As we assume the plane wave angle and the direct angle between the
-detector and the balloon to be nearly the same (i.e the balloon
-is right overhead the detector) we take
-$\theta=\theta_b$, the function we thus wish to minimize is the sum
-of the previously defined function for various detectors at an
-angle of $\theta_b$:
+\label{seq:SimplePW}
+To take into account all the different channels we take the sum of the
+various eta functions (as defined in equation \ref{eqn:eta} and
+thus minimize the following function with respect the the index:
 \begin{equation}
-	f(n) := \sum_{i=\text{channel pairs}}\left( \Delta t_i - \frac{n\cos\theta_b \Delta z_i}{c}\right) \equiv \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta_b \Delta z_{ij}}{c}\right)
-  \label{eqn:PlaneWave}
+	f(n) := \sum_{i=\text{channel pairs}}\eta_i(n) = \sum_{i=\text{channel pairs}}\left( \Delta t_i - \frac{n\cos\theta_b \Delta z_i}{c}\right) \equiv \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta_b \Delta z_{ij}}{c}\right)
+  	\label{eqn:PlaneWave}
 \end{equation}
 where $\Delta t_{ij}$ denotes the observed time difference between
 channels i and j, similarly $\Delta z_{ij}$ denotes the distance
@@ -113,8 +119,8 @@ the detectors.  To find an expression for the index, let's solve for
 n:
 \begin{align}
 	f(n) &= \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta_b \Delta z_{ij}}{c}\right)\\
-\sum_{i<j}\frac{n\cos\theta_b \Delta z_{ij}}{c}\right)&=\sum_{i<j}\Delta t_{ij} - f(n)\\
-n &= \frac{c}{\cos(\theta_b)}\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}} - \frac{f(n)}{\sum_{i<j} \Delta z_{ij}}\right)
+\sum_{i<j}\frac{n\cos\theta_b \Delta z_{ij}}{c}&=\sum_{i<j}\Delta t_{ij} - f(n)\\
+	n &= \frac{c}{\cos(\theta_b)}\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}} - \frac{f(n)}{\sum_{i<j} \Delta z_{ij}}\right)
 \end{align}
 The error on this result can also be computed quite straightforwardly
 by assuming the observed propagation time to channel i has an error
@@ -127,27 +133,30 @@ The error on the index we'll find is thus:
 	\delta n &= \frac{c}{\cos{\theta_b}}\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}} - \frac{f(n)}{\sum_{i<j} \Delta z_{ij}}\right)\\
 	\delta n &\approx \frac{c}{\cos{\theta_b}}\left(\frac{\sum_{i<j}(\delta t_{i} + \delta t_j)}{\sum_{i<j}\Delta z_{ij}}\right)
 \end{align}
-As it turns out that the contribution to the total error by the
+The approximation in the second step can be made as it turns out that the contribution to the total error by the
 observed time is way bigger than the error on the location of the
 detectors.
 
 \subsection{plane wave reconstruction using snell's law}
+\label{seq:SnellPW}
 This was one way of fitting the index of refraction, another procedure
 that we could do is by implementing breaking of the plane wave at 
-the surface through the use of snell's law. 
-For this we assume the reconstructed plane wave to behave like an actual wave and, encountering the ice-air boundary
-, refracting according to snell's law. This is useful for when the angle with the
-balloon is too big as is illustrated in figure \ref{fig:WeatherBalloonPositionReconstruction},
-here you can clearly see that, even though the plane wave locally matches the incoming
-signal, it ends up really far from the balloon. The reconstructed plane wave follows
-the wave path closely until the air-ice boundary where the wave path got refracted,
+the surface. 
+
+For this we assume the reconstructed plane wave to behave like an actual wave
+and, encountering the ice-air boundary , refracting according to snell's law.
+This is useful for when the angle with the balloon is too big as is illustrated
+in figure \ref{fig:WeatherBalloonPositionReconstruction}, here you can clearly
+see that, even though the plane wave locally matches the incoming signal, it
+ends up really far away from the balloon. The reconstructed plane wave follows the
+wave path closely until the air-ice boundary where the wave path got refracted,
 we thus try doing the same thing by making the plane wave refract as well.
 
-To find the index of refraction this way we can't minimize by taking the incoming plane wave
-to have the same angle as the balloon, we'll need to look at the distance between the 
-plane wave reconstructed ray (after also refracting at the surface) and the balloon,
-both at the height of the balloon.
-The full procedure then goes as follows: We first choose a certain index of refraction n 
+To find the index of refraction this way we can't minimize by taking the
+incoming plane wave to have the same angle as the balloon, we'll need to look
+at the distance between the plane wave reconstructed ray (after also refracting
+at the surface) and the balloon, both at the height of the balloon.  The full
+procedure then goes as follows: We first choose a certain index of refraction n
 , then we reconstruct the plane wave launch angle by minimizing the function
 \begin{equation}
 	f(\theta) := \sum_{i=\text{channel pairs}}\left( \Delta t_i - \frac{n\cos\theta \Delta z_i}{c}\right) \equiv \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta \Delta z_{ij}}{c}\right)\label{eqn:snellmin}
@@ -158,18 +167,23 @@ The full procedure then goes as follows: We first choose a certain index of refr
 	\caption{Example sum of the normed correlation functions}
 	\label{fig:SummedCorrelation}
 \end{figure}
-Such a function is illustrated in figure \ref{fig:SummedCorrelation}.
-This will yield a certain launch angle $\theta_1$, we can use this angle and the height of the middle of the
-concerned detectors to derive the path in the ice,
-the outgoing zenith angle at the surface $\theta_2$ can be calculated from Snell's law:
+Such a function is illustrated in figure \ref{fig:SummedCorrelation}.  This
+will yield a certain launch angle $\theta_1$, we can use this angle and the
+height of the middle of the concerned detectors to derive the path in the ice
+until it encounters the air-ice boundary.  To know the path after this boundary
+we'll need the outgoing zenith angle at the surface $\theta_2$ which can be
+calculated from Snell's law:
 \begin{equation}
 	n_1 \sin{\theta_1} = n_2 \sin{\theta_2} \implies  \theta_2 = \sin^{-1}\left(\frac{n_1}{n_2}\sin{\theta_1}\right)
 \end{equation}
-After doing this we have a linear function describing the path after it passed the ice-air boundary layer.
-If we evaluate this function at the height of the balloon we then get the distance
-the reconstructed ray is away from the balloon.
-To find the index of refraction n we record this distance and redo the procedure starting at the minimization of equation \ref{eqn:snellmin} for a different index of refraction. After iterating through a bunch of indices we then have a corresponding list of distances
-to the balloon. The index corresponding to the minimum in these distances is then the final result.
+After doing this we have a linear function describing the path in air after it
+passed the ice-air boundary layer.  If we evaluate this function at the height
+of the balloon we then get the distance the reconstructed ray is away from the
+balloon.  To find the index of refraction n we record this distance and redo
+the procedure starting at the minimization of equation \ref{eqn:snellmin} for a
+different index of refraction. After iterating through a bunch of indices this way
+we then have a list of corresponding distances to the balloon. The index
+corresponding to the minimum in these distances is then the final result.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{WeatherBalloonPositionReconstruction.pdf}
@@ -187,17 +201,16 @@ plane wave reconstruction with the recorded timing and the positional data from
 the weather balloon.
 
 Now let's ask ourselves the question, within which angles should the
-weather balloon fly for the data to be useful?  As was previously stated, the
+weather balloon fly for the data to be useful?  The
 further the weather balloon is away (in the x direction) the bigger the zenith
-angle with the detector the less accurate the plane wave reconstruction.  So
+angle with the detector, the less accurate the plane wave reconstruction.  So
 which angles are acceptable? Note that not only angle but also height will eventually
 play a role in the accuracy, the angle however gives a good starting point.
-To determine this our method works as follows: 
 
-We vary the position of the weather balloon in the x direction (keeping the
+To determine the accuracy we vary the position of the weather balloon in the x direction (keeping the
 height constant at 500m), simulate the ray path to the channels 0 to 3 and then fit n
-such that the difference between the balloon position and the plane wave at the same
-height is as small as possible.  Then we compare the n we have fit to the
+via the method layed out in section \ref{seq:SimplePW}.
+We then compare the n we have fitted using the simple plane wave method to the
 one we know from the model at that position.  We quantify the discrepancy
 between these two indices of refraction using what we here define as the
 \textit{systematic error}:
@@ -208,8 +221,7 @@ Carrying this out\footnote{The code for this can be found in
 projects-mt/BaLLooN/simulations as plane\_wave.py} we get figure
 \ref{fig:EpsilonIFODirect}, i.e it gets exponentially shifted towards higher n
 as the balloon moves further away. If we wish our systematic error to be
-within 1\%\footnote{we want this as small as possible as to not rely on the
-simulation}, the angle the balloon makes with the middle of channels 0 to 3
+within 1\%, the angle the balloon makes with the middle of channels 0 to 3
 needs to be less than 10°.
 \begin{figure}
 	\centering
@@ -220,7 +232,7 @@ needs to be less than 10°.
 
 Now what would our $<$10° policy entail? And is it even possible?  Say we take
 a look at station Terianniaq (station 12) and see what our policy entails,
-it is located at 72.6000868058195° N -38.4962265332872° W in the global geographic
+the location is given in the global geographic
 coordinate system (longitudinal, latitude and elevation), this is quite
 difficult to work with directly. For this reason we first convert the station's location to 
 local ENU coordinates (east, north, up) relative to the 'DISC' which is a point in the base camp located at
