@@ -4,16 +4,18 @@ In this chapter we'll infer information about the ice the detectors reside in
 using radio signals coming from a weather balloon flying over the stations. 
 We'll go about this by first finding the difference in timing between  
 channels by fitting the balloon's sinusoidal signal to the data, and
-then doing a plane wave reconstruction for different indices of refraction
-until we find one where the reconstructed signal gets close to the balloon.
+then doing a plane wave reconstruction, minimizing the angle the reconstruction
+makes with the balloon, thus finding the local index of refraction.
 This procedure will be explained more in depth over the following sections.
 
-For us to find the timing we'll first make an educated guess, this can be done
-using our \textit{hybrid minimizer} algorithm. There is one change that needs to
-happen first to our algorithm for us to be able to simulate this: The air
-observer has to be removed as to make a ray tracing possible from
-within the air into the ice and onto the detector. The modified
-version of the hybrid ray tracer can be found \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the branch radiopropa/BaLLooN.
+Prior to the measurements we'll need to be able to predict how accurate our
+findings will be, for this we'll need to run a simulation with the hybrid ray
+tracer.  There is one change that needs to happen first to our algorithm for us
+to be able to simulate this: The air observer has to be removed as to make a
+ray tracing possible from within the air into the ice and onto the detector.
+The modified version of the hybrid ray tracer can be found
+\href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the
+branch radiopropa/BaLLooN.
 
 Due to the way our algorithm works the time the ray took is only from when it
 became a secondary\footnote{This is a problem which also seems to hold in the 
@@ -26,10 +28,13 @@ balloon to the beginning of the recorded path, setting the speed of radio waves
 in air to the speed of light c and then just adding $t = d/c$ to the time found
 from the algorithm.
 \section{Plane Wave Reconstruction}
-Now having modified our ray tracer, the first problem we'll consider is
-plane wave reconstruction of the original position, an example path
-to some of the deep sensors is given in figure \ref{fig:Example
-trajectory}
+We want to do a plane wave reconstruction of the original position
+as this will make us able to infer the index of refraction between chosen
+channels. Example paths the weather balloon produce that end up in the deep 
+channels is shown in figure
+\ref{fig:Exampletrajectory}, here the balloon emits a signal which propagates
+straight in the air and then refracts in the ice. Locally in the ice we can assume
+the wave to come in as a plane wave.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{weerballontraject.pdf}
@@ -42,82 +47,137 @@ trajectory}
 	\caption{Illustration of Plane waves}	
 	\label{fig:Plane Wave}
 \end{figure}
-The plane wave reconstruction can easily be understood using figure
-\ref{fig:Plane Wave}, the radio waves coming from the weather balloon are drawn
-in blue and make a certain angle with the detectors. The top detector (top box)
+The arriving plane wave is shown as parallel lines in blue on figure \ref{fig:Plane Wave}. The
+reconstruction can be understood by taking a closer look at this figure, 
+the radio waves coming from the weather balloon make a certain angle with the detectors. The top detector (top box)
 detects the wave at a certain time $t_1$, the bottom detector detects it at a
-time $t_2$. In our database, after decoding the signal we'd thus see that these
+time $t_2$. After deciphering the data RNO-G recorded we'd thus see that these
 two detectors got a signal $\Delta t = t_1 - t_2$ seconds apart from each other.
-Now ideally this is equal to the time $\Delta t'$ which is the time it took the
-wave to propagate that distance which we can calculate from basic trigonometry
-and dimensional analysis:
+Now ideally this observed time is equal to the time it took the
+wave to propagate that distance (termed $\Delta t'$) which we can calculate from the geometry of
+the problem and dimensional analysis:
 \begin{equation}
 	\Delta t' = \frac{m}{(m/s)} = (s/m)*m = v^{-1} * m = v^{-1} \cos\theta \Delta z
 	\label{eqn:deltataccent}
 \end{equation}
-With $v = c/n$ the local speed of light and n the index of refraction at the depth in between
-the considered channels. 
+With $v = c/n$ the local speed of light, n the index of refraction at the depth in between
+the considered channels and $\Delta z$ the distance between the channels. 
 Thus if we know the angle $\theta$, the time $\Delta t'$ and the distance between the channels $\Delta z$
 we could infer the index of refraction at a certain depth as can be seen by reforming equation \ref{eqn:deltataccent}:
 \begin{equation}
 	n = \frac{\Delta t'}{\Delta z} \frac{c}{\cos\theta}
 \end{equation}
-%\begin{mintedbox}{python}
-%ice = medium.greenland_simple()
-%n_exact = ice.get_index_of_refraction(np.array[0,0,-95.5])
-%\end{mintedbox}
-In reality we don't know the angle a priori, we'll only have the recorded
-timing information $\Delta t$ and the difference in channel height $\Delta z$.
-So to this end we'll perform a scan by choosing some index of refraction $n_1$ and
-minimizing the difference between the observed and computed time:
+We can actually roughly guess the angle, as for a balloon flying close to the
+detector this incoming angle will be roughly the same as the observed angle.
+We expect the following function to show a minimum at that angle:
 \begin{equation}
 	\eta(\theta) := \Delta t - \Delta t' = \Delta t
 	- \frac{\cos\theta \Delta z}{v}
   \label{eqn:PlaneWave}
 \end{equation}
-If we want to use more than 2 detectors at once however (which we'll do for the phased array), 
-we'll need to specify various functions to minimize.  E.g
-if we have four detectors labeled 0 to 3 we'll have to construct
-functions between detectors 0\&1, 0\&2, 0\&3, 1\&2, 1\&3 and 2\&3 .  As all of
-these correlation functions will have different sizes, but we want to treat
-them on equal footing, we'll norm them as follows:
-\begin{equation}
-	\eta'(\theta) =
-	\frac{\eta(\theta)}{\int \eta(\theta)\Delta
-	\theta}
-\end{equation}
-An example simulation of these correlation functions is shown in figure \ref{fig:NormedCorrelation}. 
-Notice how you can't differentiate between the correlation functions, this is only possible
-because of the hybrid ray tracer having that high of a precision.
+If we want to use more than 2 detectors at once however (which we'll
+do for the phased array), we'll need to specify various functions to
+minimize.  E.g if we have four detectors labeled 0 to 3 we'll have
+to construct functions between detectors 0\&1, 0\&2, 0\&3, 1\&2,
+1\&3 and 2\&3 . The further apart the detectors lie the larger the
+function values and thus the more they will weigh. This weighing of
+further spaced channels is what we want is these will yield a more
+accurate result.  An example simulation of these $\eta$ functions
+for a particular index of refraction is shown in figure
+\ref{fig:NormedCorrelation}.  For this figure the modified hybrid
+ray tracing algorithm was used to simulate what the difference in
+timing would be.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{NormedCorrelation.pdf}
 	\caption{Example normed correlation functions}
 	\label{fig:NormedCorrelation}
 \end{figure}
+\subsection{simple plane wave reconstruction}
+As we assume the plane wave angle and the direct angle between the
+detector and the balloon to be nearly the same (i.e the balloon
+is right overhead the detector) we take
+$\theta=\theta_b$, the function we thus wish to minimize is the sum
+of the previously defined function for various detectors at an
+angle of $\theta_b$:
+\begin{equation}
+	f(n) := \sum_{i=\text{channel pairs}}\left( \Delta t_i - \frac{n\cos\theta_b \Delta z_i}{c}\right) \equiv \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta_b \Delta z_{ij}}{c}\right)
+  \label{eqn:PlaneWave}
+\end{equation}
+where $\Delta t_{ij}$ denotes the observed time difference between
+channels i and j, similarly $\Delta z_{ij}$ denotes the distance
+between channels i and j.
+If this function $f$ gets minimized, the n leading up to this minimzation
+will be the answer we are seaking: the index of refraction inbetween
+the detectors.  To find an expression for the index, let's solve for
+n:
+\begin{align}
+	f(n) &= \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta_b \Delta z_{ij}}{c}\right)\\
+\sum_{i<j}\frac{n\cos\theta_b \Delta z_{ij}}{c}\right)&=\sum_{i<j}\Delta t_{ij} - f(n)\\
+n &= \frac{c}{\cos(\theta_b)}\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}} - \frac{f(n)}{\sum_{i<j} \Delta z_{ij}}\right)
+\end{align}
+The error on this result can also be computed quite straightforwardly
+by assuming the observed propagation time to channel i has an error
+$\delta t_i$, implying an error of $\delta t_i + \delta t_j$ on the observed difference $\Delta_{ij}$ (which we'll find out later).
+For the positional accuracy we'll assume to know the detectors to 
+within 5cm, this will imply an accuracy on $\Delta z_{ij}$ of 10cm.
+
+The error on the index we'll find is thus:
+\begin{align}
+	\delta n &= \frac{c}{\cos{\theta_b}}\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}} - \frac{f(n)}{\sum_{i<j} \Delta z_{ij}}\right)\\
+	\delta n &\approx \frac{c}{\cos{\theta_b}}\left(\frac{\sum_{i<j}(\delta t_{i} + \delta t_j)}{\sum_{i<j}\Delta z_{ij}}\right)
+\end{align}
+As it turns out that the contribution to the total error by the
+observed time is way bigger than the error on the location of the
+detectors.
+
+\subsection{plane wave reconstruction using snell's law}
+This was one way of fitting the index of refraction, another procedure
+that we could do is by implementing breaking of the plane wave at 
+the surface through the use of snell's law. 
+For this we assume the reconstructed plane wave to behave like an actual wave and, encountering the ice-air boundary
+, refracting according to snell's law. This is useful for when the angle with the
+balloon is too big as is illustrated in figure \ref{fig:WeatherBalloonPositionReconstruction},
+here you can clearly see that, even though the plane wave locally matches the incoming
+signal, it ends up really far from the balloon. The reconstructed plane wave follows
+the wave path closely until the air-ice boundary where the wave path got refracted,
+we thus try doing the same thing by making the plane wave refract as well.
+
+To find the index of refraction this way we can't minimize by taking the incoming plane wave
+to have the same angle as the balloon, we'll need to look at the distance between the 
+plane wave reconstructed ray (after also refracting at the surface) and the balloon,
+both at the height of the balloon.
+The full procedure then goes as follows: We first choose a certain index of refraction n 
+, then we reconstruct the plane wave launch angle by minimizing the function
+\begin{equation}
+	f(\theta) := \sum_{i=\text{channel pairs}}\left( \Delta t_i - \frac{n\cos\theta \Delta z_i}{c}\right) \equiv \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta \Delta z_{ij}}{c}\right)\label{eqn:snellmin}
+\end{equation}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{SummedCorrelation.pdf}
 	\caption{Example sum of the normed correlation functions}
 	\label{fig:SummedCorrelation}
 \end{figure}
-After this we can sum them, as shown in figure \ref{fig:SummedCorrelation}, and look
-at which angle it reaches it's minimum. Using this angle we can then reconstruct a ray and guess 
-where the weather balloon is approximately, this is illustrated in figure 
-\ref{fig:WeatherBalloonPositionReconstruction}. 
+Such a function is illustrated in figure \ref{fig:SummedCorrelation}.
+This will yield a certain launch angle $\theta_1$, we can use this angle and the height of the middle of the
+concerned detectors to derive the path in the ice,
+the outgoing zenith angle at the surface $\theta_2$ can be calculated from Snell's law:
+\begin{equation}
+	n_1 \sin{\theta_1} = n_2 \sin{\theta_2} \implies  \theta_2 = \sin^{-1}\left(\frac{n_1}{n_2}\sin{\theta_1}\right)
+\end{equation}
+After doing this we have a linear function describing the path after it passed the ice-air boundary layer.
+If we evaluate this function at the height of the balloon we then get the distance
+the reconstructed ray is away from the balloon.
+To find the index of refraction n we record this distance and redo the procedure starting at the minimization of equation \ref{eqn:snellmin} for a different index of refraction. After iterating through a bunch of indices we then have a corresponding list of distances
+to the balloon. The index corresponding to the minimum in these distances is then the final result.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{WeatherBalloonPositionReconstruction.pdf}
 	\caption{Example plane wave reconstruction of weather balloon position}
 	\label{fig:WeatherBalloonPositionReconstruction}
 \end{figure}
-We can calculate the difference in distance between the weather balloon and the plane wave at the same height
-and label this $d_1$, then we can choose another index of refraction $n_2$ which again corresponds to a difference
-$d_2$ and so forth. At the end we take the index of refraction $n_i$ which corresponds to the minimal distance $d_i$
-as the fitted index of refraction.
-
 \section{Is the goal feasible?}
-\subsection{No assumptions}
+\subsection{Simple Plane Wave}
 In the example reconstruction illustrated in figure
 \ref{fig:WeatherBalloonPositionReconstruction} the difference in angle between
 direct to balloon and plane wave reconstruction is quite big
@@ -200,36 +260,6 @@ from the difference in timing and trying to fit the index of refraction, only
 now the plane wave abides with Snell's law at the surface, going from n=1.27 to
 n=1. 
 
-The full algorithm thus goes as follows: We first reconstruct the
-plane wave launch angle $\theta_1$ by minimizing the correlation function
-previously defined, we can use this angle and the height of the middle of the
-concerned detectors to derive the function
-\begin{equation}
-	z = a_{InIce}*x + b_{InIce}
-	\label{eqn:InIcePlaneWave}
-\end{equation}
-The outgoing zenith angle at the surface $\theta_2$ can be calculated from Snell's law:
-\begin{equation}
-n_1 \sin{\theta_1} = n_2 \sin{\theta_2} \implies  \theta_2 = \sin^{-1}\left(\frac{n_1}{n_2}\sin{\theta_1}\right)
-\end{equation}
-from this we know the slope of the wave path $a_{InAir} = \tan\left({\frac{\pi}{2} -
-\theta_2}\right)$ but not the offset, but this can easily be found from equation
-\ref{eqn:InIcePlaneWave} as 
-\begin{equation}
-	z = 0 = a_{InIce}*x_{End} + b_{InIce} \implies x_{End} = -\frac{b_{InIce}}{a_{InIce}}
-\end{equation}
-and 
-\begin{align}
-	z = 0 = a_{InAir}*x_{End} + b_{InAir} \implies b_{InAir} &= -a_{InAir}*x_{End}
-	\\&= a_{InAir}* \frac{b_{InIce}}{a_{InIce}}
-\end{align}
-Now that we have the function describing the "path of the plane wave"\footnote{we use double
-quotes as to emphasize that this is a reconstruction method and not an actual wave} in the air 
-we can find out the horizontal position at the height of the balloon as
-\begin{equation}
-	z = z_{Balloon} = a_{InAir}*x_{f} + b_{InAir} \implies x_f = \frac{z_{Balloon} - b_{InAir}}{a_{InAir}}
-\end{equation}
-and iteratively loop over possible indices of refraction, minimizing $|x_{Balloon} - x_f|$.
 
 Doing this whilst looping over possible horizontal balloon positions, we get
 the result shown in figure \ref{fig:EpsilonIFODirectSnell}\footnote{The code
