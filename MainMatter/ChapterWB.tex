@@ -109,8 +109,9 @@ We now want to find the error on the index we fitted this way. To find the error
 \end{align}
 Let's assume an error on the difference in propagation time between channel i and j
 ($\Delta_{ij}$) of $\delta t_{ij}$, which we'll find out later.  For the
-positional accuracy we'll assume to know the detector location to within 5cm,
-this will imply an accuracy on $\Delta z_{ij}$ of 10cm.
+positional accuracy we'll assume to know the detector location to within 1cm\footnote{this
+is a reasonable estimate as this is the accuracy of the reported channel positions},
+this will imply an accuracy on $\Delta z_{ij}$ of 2cm.
 
 Let's now compute the error on our predicted index:
 \begin{align}
@@ -121,14 +122,14 @@ Note here the function $\delta$ denotes the absolute error, let's define the fun
 \begin{align}
   \delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(RE\left(\sum_{i<j}\Delta t_{ij}\right) + RE\left(\sum_{i<j} \Delta z_{ij}\right)\right)\\
 \delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(\frac{\sum_{i<j}\delta t_{ij}}{\sum_{i<j}\Delta t_{ij}} + \frac{\sum_{i<j}\delta z_{ij}}{\sum_{i<j}\Delta z_{ij}}\right)\\
-\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(\frac{\sum_{i<j}\delta t_{ij}}{\sum_{i<j}\Delta t_{ij}} + \frac{\sum_{i<j}0.1m}{\sum_{i<j}\Delta z_{ij}}\right) := E_1\\
+\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(\frac{\sum_{i<j}\delta t_{ij}}{\sum_{i<j}\Delta t_{ij}} + \frac{\sum_{i<j}0.02m}{\sum_{i<j}\Delta z_{ij}}\right) \delequal E_1\\
 \end{align}
 And now the second term:
 \begin{align}
   \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right)\times RE\left(\sum_{i<j}\Delta z_{ij}\right) \\
   \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right)\times \frac{\delta\left(\sum_{i<j}\Delta z_{ij}\right)}{\sum_{i<j}\Delta z_{ij}} \\
   \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &= \frac{\sum_{i<j}\delta z_{ij}}{\left(\sum_{i<j}\Delta z_{ij}\right)^2} \\
-  \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \frac{\sum_{i<j}0.1m}{\left(\sum_{i<j}\Delta z_{ij}\right)^2} := E_2\\
+  \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \frac{\sum_{i<j}0.02m}{\left(\sum_{i<j}\Delta z_{ij}\right)^2} \delequal E_2\\
 \end{align}
 So, finally:
 \begin{align}
@@ -281,10 +282,7 @@ channels 2 and 3 in figure \ref{fig:freqs23}.
 Now to calculate the differences in timing for this received signal, the code
 we built for this is called FitN.py and stored at the repository
 \href{https://github.com/arthuradriaens-code/projects-mt.git}{projects-mt}
-under BaLLooN/RealData, let's go over the full code step by step:\footnote{I advise 
-the people who will continue this work to pull up the code side-by-side with this 
-explanation}
-
+under BaLLooN/RealData, let's go over the full code step by step:
 \subsubsection{Spatial data}
 The first part we'll need to concern ourselves with is determining the relative
 positions of everything. The balloon data file and the time when the event took
@@ -299,22 +297,22 @@ Now that we have both the position of our balloon and station,
 let's simplify the calculations by setting the detector as the
 origin i.e our new balloon position will be
 \begin{equation}
-  \mathbf{r}'_b = \mathbf{r}_b- \mathbf{r}_s
+  \mathbf{r}_{bs} = \mathbf{r}_b- \mathbf{r}_s
 \end{equation}
 With the subscript b denoting "balloon" and s "station".
 As we might want to plot this later, due to the cylindrical symmetry of the
 ice, we can rotate the coordinates to get rid of our y-axis. We can do
 this by defining the radius:
 \begin{equation}
-  r := \sqrt{x'_{b}^2 + y'_{b}^2}
+  r := \sqrt{x_{bs}^2 + y_{bs}^2}
 \end{equation}
 And redefining our relative position as
 \begin{equation}
-  \mathbf{r}''_b = 
+  \mathbf{r} = 
   \begin{bmatrix}
   r \\
   0 \\
-  z'_b
+  z_{bs}
   \end{bmatrix}
 \end{equation}
 We don't have the position of our individual channels yet, only of the station
@@ -358,7 +356,11 @@ Now that we have filtered our data we'd also like to increase the accuracy in
 timing, to this end we'll resample the signal. Resampling is the process of
 changing the sampling rate of a discrete signal to obtain a new discrete
 representation of the underlying continuous signal We'll upsample towards 10GHz
-increasing our timely accuracy from 0.3125ns to 0.1ns.  After this cleaning of
+increasing our timely accuracy from 0.3125ns to 0.1ns.  As the timely accuracy
+is now 0.1ns, the error on a time difference between channels is then 0.2ns. So
+$\delta t_{ij}=0.2$ns as explained in section \ref{seq:SimplePW}.
+
+After this cleaning of
 our data (by filtering and upsampling) we have a voltage response with an example 
 shown for channel 0 in figure \ref{fig:VoltageAfterFilter}, we wish to find a sine
 wave coming from the weather balloon in this signal.
@@ -383,7 +385,7 @@ sampling rate, meaning that it needs to be step wise defined with spaces of
 have a system for finding this let's assume an amplitude $A =0.007$ 
 (this shouldn't impact the result).  Our template thus looks like this:
 \begin{equation}
-	\mathcal{S} = A\cdot\sin(\omega (t + T)) 
+	\mathcal{S} = A\cdot\sin(\omega t) 
 \end{equation}
 with
 \begin{equation}
@@ -391,8 +393,13 @@ with
 \end{equation}
 With f the frequency of the balloon signal, 0.403GHz and $t$ an array going
 from 0 to $3/f$ as to be able to fit 3 periods with intervals of 0.1ns, the
-crosscorrelation is done by move the signal with steps of $\Delta T = 0.1$ns,
-as is illustrated in figure \ref{fig:SineCorrFull}.
+cross-correlation is done by moving the signal with steps of $\Delta t = 0.1$ns,
+as is illustrated in figure \ref{fig:SineCorrFull}. Mathematically this
+amounts to evaluating\cite{Bracewell1966TheFT}:
+\begin{equation}
+  (f\star g)(\tau) \delequal \int_{-\infty}^\infty f(t)g(t+\tau)dt
+\end{equation}
+With f(t) the recorded signal and g(t) the sine wave template.
 
 \begin{figure}
 	\centering
@@ -400,7 +407,7 @@ as is illustrated in figure \ref{fig:SineCorrFull}.
 	\caption{How correlating a sine with data leads to periodic peaks in the correlation function}
 	\label{fig:SineCorrFull}
 \end{figure}
-In real life the data is a bit less perfect and after doing this correlation
+In reality the data is a bit less perfect and after doing this correlation
 procedure on the real data we get what's (partially) shown in figure \ref{fig:CorrCh2}.
 \begin{figure}
 	\centering
@@ -409,77 +416,64 @@ procedure on the real data we get what's (partially) shown in figure \ref{fig:Co
 	\label{fig:CorrCh2}
 \end{figure}
 Herein the peaks represent the maximal correlation, if we now do the same for
-channel 3 we have two correlation functions, if we correlate these with
+channel 3 we have two correlation functions, if we crosscorrelate these with
 each other we'll get the difference in timing between the channels.  This is
 easy to comprehend after taking a look at the illustration shown in figure
-\ref{fig:CorrIllu}. This cross correlation is shown in figure
-\textbf{CHANGE THIS}
-\ref{fig:CrossCorr}, the negative offset is caused by accounting for cable
-delay. Note that multiple peak correlations are present, to thus find out which
-one is the right one we'll do a simple simulation using our modified hybrid ray
-tracer from which we know what the approximate time difference is and search in
-this neighborhood.
+\ref{fig:IlluCorr}. 
+\begin{figure}
+  \centering
+\includegraphics[width=0.8\textwidth]{figures/IlluCorr.pdf}
+\caption{Crosscorrelating two crosscorrelated functions gives peaks at the differences in timing}
+	\label{fig:IlluCorr}
+\end{figure}
+How this cross-correlation of cross-correlated functions then looks like is shown
+in figure \ref{fig:CrossCrossCorr}, the negative offset is caused by us accounting for cable
+delay. Note that multiple peak correlations are present. To find out which peak
+is the actual one, and with that finding out what the difference in arrival time is which we
+need to find our index of refraction, we'll need to analyse the physics of the problem.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{figures/CrossCrossCorr.pdf}
+  \caption{Crosscorrelating two crosscorrelated functions gives peaks at the differences in timing}
+	\label{fig:CrossCrossCorr}
+\end{figure}
+
+Our signal is sinusoidal with a frequency of 0.403GHz, locally our index of refraction should be around 1.7,
+meaning that our wavelenght should be:
+\begin{equation}
+  \lambda = \frac{v}{f} = \frac{c}{nf} \approx 0.44m
+\end{equation}
+This wavelength is longer than the distance between the individual channels, meaning that if the top
+of the sinusoidal wave gets detected in channel 2, then the sinusoidal wave gets detected in
+channel 3 $\frac{1m}{0.44m} \approx 2.3$ wavelengths later. So we expect at least two peaks to 
+have gone by until the same sinusoidal wave as in channel 2 gets detected in channel 3.
+We thus have to search for the third peak (starting from t=0) in this case, similarly for detectors 0 and 3
+which are spaced 3 meters apart we'll need to look at peak number $\lceil\frac{3m}{0.44m}\rceil = 7$.
+And for completeness sake, for channels spaced 2 meters apart we'll need to look at peak 
+$\lceil\frac{2m}{0.44m}\rceil = 5$.
 
 \subsubsection{Fitting n and finding it's error}
-Now that we have the differences in timing between the individual channels
-we'll loop over the local (middle of the detectors) indices of refraction, each
-yielding a function $\eta'(\theta) = \text{norm}(\Delta t - \Delta t(\theta))$. Every time we minimize this function we find a certain launch angle $\theta$ which we can use to do a plane wave reconstruction (also using Snell's law at the surface) and finally
-recording the distance from the reconstructed wave to the balloon at the
-height of the balloon in an array \textbf{differences}.  Doing this for every index of refraction in our specified range we have a
-list \textbf{n} and a corresponding list \textbf{differences}, if we find the minimal
-difference in the \textbf{differences} list then the corresponding n in the
-list \textbf{n} is our anwser, note however that there are multiple
-minima, so we'll be choosing the one lying in the middle.
+Now that we have the differences in timing between the individual channels and their error, the
+angle the balloon makes with the detector and the distance between the individual channels
+all that's left to do is minimize function f as defined in equation \ref{eqn:PlaneWave} and
+calculate the error. Doing the full procedure we get as a result:
+\begin{center}
+\begin{tabular}{||c c c c c c||}
+ \hline
+ Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit}$\\ [0.5ex]
+ \hline\hline
+ -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.724 $\pm$ 0.014 $\pm$ 0.047 \\
+ \hline
+\end{tabular}
+\end{center}
+With the first error indicating the systematic error and the second error the error found through
+error analysis.
 
-We now wish to estimate the error which is additional to the
-\textit{systematic error} $\epsilon$, for this we'll plot the index
-of refraction on the x axis and the inverse difference on the y axis
-as shown in figure \ref{fig:Event12397}. A first idea was to
-Gaussian to this curve of the form\cite{grabe2005measurement}
-\begin{equation}
-	g(x) = \frac{1}{\sigma \sqrt{2\pi}} exp\left\{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}\right\}
-\end{equation}
-but as the data isn't really gaussian this fit wasn't great and underestimated the error.
-To estimate the error we think that using integration gives a good
-estimate, i.e we integrate over the full data (defined within a certain interval of the solution) and then again symmetrically
-outwards from the middle of the peak. If the ratio of these two is 68\% then
-the interval this corresponds to is the one sigma error on our fit, analogously
-for 95\%. If we carry this out we get the orange and red vertical lines which are shown on figure
-\ref{fig:Event12397}. Let's now add the systematic error which we computed
-to the error from this fit as the total error, finally we get:
-\begin{center}
-\begin{tabular}{||c c c c c c||}
- \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit} (68\%)$\\ [0.5ex]
- \hline\hline
- -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.7045 $\pm$ 0.006 \\
- \hline
-\end{tabular}
-\end{center}
-And with 95\% certainty:
-\begin{center}
-\begin{tabular}{||c c c c c c||}
- \hline
- Depth (m) & Station id & channels & Run:Event & n$_\text{exponential}$ & n$_\text{fit} (95\%)$\\ [0.5ex]
- \hline\hline
- -94.518 & 11 & 0\&2\&3 & 1034:12397 & 1.7397 & 1.7045 $\pm$ 0.01 \\
- \hline
-\end{tabular}
-\end{center}
-Where the 68\% fit lies is visually shown in figure \ref{fig:IndexVSDepth.pdf}.
-In both certainties the fit shows a clear discrepency with the
-exponential model. Note that this result is less dependent on the assumptions
-inherent to the ice model used in the simulation due to the small correction
-factor ($\epsilon \approx 0.36\%$).  
-If we take a look at the density data and convert a measurement of
+Where the fit lies is visually shown in figure \ref{fig:IndexVSDepth.pdf}.
+Even though the error is quite big the fit shows some discrepency with the
+exponential model. If we take a look at the density data and convert a measurement of
 roughly the same depth to the index using Shytt's equation ($n(z) \approx 1 + 0.845\rho(z)$)
 of roughly 1.733 which also isn't in agreement with this result.
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\textwidth]{figures/Event12397.pdf}
-  \caption{Fit of the index on Event 12397, the peak is very narrow}
-	\label{fig:Event12397}
-\end{figure}
 This might be caused by one of the following reasons:
 \begin{itemize}
 	\item The density measurements aren't correct
