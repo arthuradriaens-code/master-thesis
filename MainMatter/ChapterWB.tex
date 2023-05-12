@@ -1,12 +1,17 @@
 \chapter{Weather Balloon}
 \label{chap:WB}
-In this chapter we'll infer information about the ice the detectors reside in
+In this chapter we'll infer optical information about the ice the detectors reside in
 using radio signals coming from a weather balloon flying over the stations. 
-We'll go about this by first finding the difference in timing between  
-channels by fitting the balloon's sinusoidal signal to the data, and
-then doing a plane wave reconstruction, minimizing the angle the reconstruction
-makes with the balloon, thus finding the local index of refraction.
-This procedure will be explained more in depth over the following sections.
+Every day in the summer, 2 times a day, a weather balloon gets launched
+from base camp at Summit in Greenland. This weather balloon has an antenna
+strapped to it constantly emitting a sinusoidal signal of 0.403GHz.
+
+We can use this signal to find the index of refraction locally at the phased
+array.  We'll go about this by first finding the difference in timing between
+channels by fitting the balloon's sinusoidal signal to the data, and then doing
+a plane wave reconstruction, minimizing the angle the reconstruction makes with
+the balloon, with that finding the local index of refraction.  This procedure will
+be explained more in depth over the following sections.
 
 Prior to the measurements we'll need to be able to predict how accurate our
 findings will be, for this we'll need to run a simulation with the hybrid ray
@@ -17,24 +22,13 @@ The modified version of the hybrid ray tracer can be found
 \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the
 branch radiopropa/BaLLooN.
 
-Due to the way our algorithm works the time the ray took is only from when it
-became a secondary\footnote{This is a problem which also seems to hold in the 
-iterative ray tracer, it might get fixed in the future but as
-secondaries weren't needed for most applications we deemed it fine for the
-moment}, this information is insufficient as we want the full travel time.  The
-propagation time from the balloon to the ice $t$ can later be added to the time
-of the path in the ice by measuring the length $d$ of the drawn line from the
-balloon to the beginning of the recorded path, setting the speed of radio waves
-in air to the speed of light c and then just adding $t = d/c$ to the time found
-from the algorithm.
 \section{Plane Wave Reconstruction}
-We want to do a plane wave reconstruction of the original position
-as this will make us able to infer the index of refraction between chosen
-channels. Example paths the weather balloon produce that end up in the deep 
-channels is shown in figure
-\ref{fig:Exampletrajectory}, here the balloon emits a signal which propagates
-straight in the air and then refracts in the ice. Locally in the ice we can assume
-the wave to come in as a plane wave.
+We want to do a plane wave reconstruction of the balloon's position as this
+will make us able to infer the index of refraction between chosen channels.
+Example paths the weather balloon produce that end up in the deep channels is
+shown in figure \ref{fig:Example trajectory}, here the balloon emits a signal
+which propagates straight in the air and then refracts in the ice. Locally in
+the ice we can assume the wave to come in as a plane wave.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{weerballontraject.pdf}
@@ -47,14 +41,15 @@ the wave to come in as a plane wave.
 	\caption{Illustration of Plane waves}	
 	\label{fig:Plane Wave}
 \end{figure}
+
 The arriving plane wave is shown as parallel lines in blue on figure \ref{fig:Plane Wave}. The
-reconstruction can be understood by taking a closer look at this figure, 
-the radio waves coming from the weather balloon make a certain angle with the detectors. The top detector (top box)
+plane wave reconstruction method can be understood by taking a closer look at this figure, 
+the radio waves coming from the weather balloon make a certain angle $\theta$ with the detectors. The top detector (top box)
 detects the wave at a certain time $t_1$, the bottom detector detects it at a
 time $t_2$. After deciphering the data RNO-G recorded we'd thus see that these
 two detectors got a signal $\Delta t = t_1 - t_2$ seconds apart from each other.
-Now ideally this observed time is equal to the time it took the
-wave to propagate that distance (termed $\Delta t'$) which we can calculate from the geometry of
+Now ideally this observed time is equal to the time it would take a plane
+wave to propagate that distance ($\Delta t'$) which we can calculate from the geometry of
 the problem and dimensional analysis:
 \begin{equation}
 	\Delta t' = \frac{m}{(m/s)} = (s/m)*m = v^{-1} * m = v^{-1} \cos\theta \Delta z
@@ -69,18 +64,18 @@ we could infer the index of refraction at a certain depth as can be seen by refo
 \end{equation}
 We can actually roughly guess the angle, as for a balloon flying close to the
 detector this incoming angle will be roughly the same as the observed angle.
-We expect the following function to show a minimum at that angle:
+At the actual index of refraction we expect the following function to show a 
+minimum (go to zero) at that angle:
 \begin{equation}
-	\eta(\theta) := (\Delta t - \Delta t')^2 = \left(\Delta t
-	- \frac{\cos\theta \Delta z}{v}\right)^2
+	\eta(\theta,n) := (\Delta t - \Delta t') = \left(\Delta t
+	- n\frac{\cos\theta \Delta z}{c}\right)
   	\label{eqn:PlaneWaveInit}
 \end{equation}
-Where the square is to do away with negative values and help in conversion.
-If we conversly want to determine the index of refraction, 
-we need to minimize equation \ref{eqn:PlaneWaveInit} for $\theta=\theta_b$:
+If we want to determine the index of refraction, 
+we need to minimize equation \ref{eqn:PlaneWaveInit} with $\theta=\theta_b$:
 \begin{equation}
-	\eta(n) := (\Delta t - \Delta t')^2 = \left(\Delta t
-	- n\frac{\cos\theta_b \Delta z}{c}\right)^2
+	\eta(n) = \left(\Delta t
+	- n\frac{\cos\theta_b \Delta z}{c}\right)
   	\label{eqn:eta}
 \end{equation}
 If we want to use more than 2 detectors at once however (which we'll
@@ -88,23 +83,13 @@ do for the phased array), we'll need to specify various functions to
 minimize.  E.g if we have four detectors labeled 0 to 3 we'll have
 to construct functions between detectors 0\&1, 0\&2, 0\&3, 1\&2,
 1\&3 and 2\&3 . The further apart the detectors lie the larger the
-function values and thus the more they will weigh. This weighing of
-further spaced channels is what we want is these will yield a more
-accurate result.  An example simulation of these $\eta$ functions
-for a particular index of refraction is shown in figure
-\ref{fig:NormedCorrelation}.  For this figure the modified hybrid
-ray tracing algorithm was used to simulate what the difference in
-timing would be.
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{NormedCorrelation.pdf}
-	\caption{Example normed correlation functions}
-	\label{fig:NormedCorrelation}
-\end{figure}
+function values and thus the more they will weigh in the sum. This importance to
+further spaced channels is what we want as these will yield a more
+accurate result. 
 \subsection{simple plane wave reconstruction}
 \label{seq:SimplePW}
 To take into account all the different channels we take the sum of the
-various eta functions (as defined in equation \ref{eqn:eta} and
+various eta functions (as defined in equation \ref{eqn:eta}) and
 thus minimize the following function with respect the the index:
 \begin{equation}
 	f(n) := \sum_{i=\text{channel pairs}}\eta_i(n) = \sum_{i=\text{channel pairs}}\left( \Delta t_i - \frac{n\cos\theta_b \Delta z_i}{c}\right) \equiv \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta_b \Delta z_{ij}}{c}\right)
@@ -115,37 +100,49 @@ channels i and j, similarly $\Delta z_{ij}$ denotes the distance
 between channels i and j.
 If this function $f$ gets minimized, the n leading up to this minimzation
 will be the answer we are seaking: the index of refraction inbetween
-the detectors.  To find an expression for the index, let's solve for
-n:
+the detectors.  
+We now want to find the error on the index we fitted this way. To find the error on our result we need an expression for the index, let's solve for n:
 \begin{align}
 	f(n) &= \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta_b \Delta z_{ij}}{c}\right)\\
 \sum_{i<j}\frac{n\cos\theta_b \Delta z_{ij}}{c}&=\sum_{i<j}\Delta t_{ij} - f(n)\\
-	n &= \frac{c}{\cos(\theta_b)}\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}} - \frac{f(n)}{\sum_{i<j} \Delta z_{ij}}\right)
+	n &= \frac{c}{\cos\theta_b}\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}} - \frac{f(n)}{\sum_{i<j} \Delta z_{ij}}\right)
 \end{align}
-The error on this result can also be computed quite straightforwardly
-by assuming the observed propagation time to channel i has an error
-$\delta t_i$, implying an error of $\delta t_i + \delta t_j$ on the observed difference $\Delta_{ij}$ (which we'll find out later).
-For the positional accuracy we'll assume to know the detectors to 
-within 5cm, this will imply an accuracy on $\Delta z_{ij}$ of 10cm.
+Let's assume an error on the difference in propagation time between channel i and j
+($\Delta_{ij}$) of $\delta t_{ij}$, which we'll find out later.  For the
+positional accuracy we'll assume to know the detector location to within 5cm,
+this will imply an accuracy on $\Delta z_{ij}$ of 10cm.
 
-The error on the index we'll find is thus:
+Let's now compute the error on our predicted index:
 \begin{align}
-	\delta n &= \frac{c}{\cos{\theta_b}}\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}} - \frac{f(n)}{\sum_{i<j} \Delta z_{ij}}\right)\\
-	\delta n &\approx \frac{c}{\cos{\theta_b}}\left(\frac{\sum_{i<j}(\delta t_{i} + \delta t_j)}{\sum_{i<j}\Delta z_{ij}}\right)
+  \delta n &= \frac{c}{\cos{\theta_b}}\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}} - \frac{f(n)}{\sum_{i<j} \Delta z_{ij}}\right)\\
+  \delta n &= \frac{c}{\cos{\theta_b}}\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)+ f(n)\frac{c}{\cos{\theta_b}}\delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right)\\
 \end{align}
-The approximation in the second step can be made as it turns out that the contribution to the total error by the
-observed time is way bigger than the error on the location of the
-detectors.
-
+Note here the function $\delta$ denotes the absolute error, let's define the function $RE$ to be the relative error and look at the terms individually:
+\begin{align}
+  \delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(RE\left(\sum_{i<j}\Delta t_{ij}\right) + RE\left(\sum_{i<j} \Delta z_{ij}\right)\right)\\
+\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(\frac{\sum_{i<j}\delta t_{ij}}{\sum_{i<j}\Delta t_{ij}} + \frac{\sum_{i<j}\delta z_{ij}}{\sum_{i<j}\Delta z_{ij}}\right)\\
+\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(\frac{\sum_{i<j}\delta t_{ij}}{\sum_{i<j}\Delta t_{ij}} + \frac{\sum_{i<j}0.1m}{\sum_{i<j}\Delta z_{ij}}\right) := E_1\\
+\end{align}
+And now the second term:
+\begin{align}
+  \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right)\times RE\left(\sum_{i<j}\Delta z_{ij}\right) \\
+  \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right)\times \frac{\delta\left(\sum_{i<j}\Delta z_{ij}\right)}{\sum_{i<j}\Delta z_{ij}} \\
+  \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &= \frac{\sum_{i<j}\delta z_{ij}}{\left(\sum_{i<j}\Delta z_{ij}\right)^2} \\
+  \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \frac{\sum_{i<j}0.1m}{\left(\sum_{i<j}\Delta z_{ij}\right)^2} := E_2\\
+\end{align}
+So, finally:
+\begin{align}
+  \delta n &\approx \frac{c}{\cos\theta_b}\left(E_1 + f(n)E_2\right)
+\end{align}
 \subsection{plane wave reconstruction using snell's law}
 \label{seq:SnellPW}
 This was one way of fitting the index of refraction, another procedure
 that we could do is by implementing breaking of the plane wave at 
 the surface. 
 
-For this we assume the reconstructed plane wave to behave like an actual wave
-and, encountering the ice-air boundary , refracting according to snell's law.
-This is useful for when the angle with the balloon is too big as is illustrated
+We thus assume the reconstructed plane wave to behave like an actual wave
+and, encountering the ice-air boundary, refracting according to snell's law.
+This is useful for when the angle with the balloon is quite big as is illustrated
 in figure \ref{fig:WeatherBalloonPositionReconstruction}, here you can clearly
 see that, even though the plane wave locally matches the incoming signal, it
 ends up really far away from the balloon. The reconstructed plane wave follows the
@@ -156,8 +153,8 @@ To find the index of refraction this way we can't minimize by taking the
 incoming plane wave to have the same angle as the balloon, we'll need to look
 at the distance between the plane wave reconstructed ray (after also refracting
 at the surface) and the balloon, both at the height of the balloon.  The full
-procedure then goes as follows: We first choose a certain index of refraction n
-, then we reconstruct the plane wave launch angle by minimizing the function
+procedure then goes as follows: We first choose a certain index of refraction n, 
+then we reconstruct the plane wave launch angle by minimizing the function
 \begin{equation}
 	f(\theta) := \sum_{i=\text{channel pairs}}\left( \Delta t_i - \frac{n\cos\theta \Delta z_i}{c}\right) \equiv \sum_{i<j}\left( \Delta t_{ij} - \frac{n\cos\theta \Delta z_{ij}}{c}\right)\label{eqn:snellmin}
 \end{equation}
@@ -167,12 +164,14 @@ procedure then goes as follows: We first choose a certain index of refraction n
 	\caption{Example sum of the normed correlation functions}
 	\label{fig:SummedCorrelation}
 \end{figure}
-Such a function is illustrated in figure \ref{fig:SummedCorrelation}.  This
-will yield a certain launch angle $\theta_1$, we can use this angle and the
-height of the middle of the concerned detectors to derive the path in the ice
-until it encounters the air-ice boundary.  To know the path after this boundary
-we'll need the outgoing zenith angle at the surface $\theta_2$ which can be
-calculated from Snell's law:
+Such a function is illustrated in figure \ref{fig:SummedCorrelation}.  For this
+figure the modified hybrid ray tracing algorithm was used to simulate what the
+difference in timing would be. 
+As can be seen on the figure this function is minimal at a certain launch angle
+$\theta_1$, we can use this angle and the height of the middle of the concerned
+detectors to derive the path in the ice until it encounters the air-ice
+boundary.  To know the path after this boundary we'll need the outgoing zenith
+angle at the surface $\theta_2$ which can be calculated from Snell's law:
 \begin{equation}
 	n_1 \sin{\theta_1} = n_2 \sin{\theta_2} \implies  \theta_2 = \sin^{-1}\left(\frac{n_1}{n_2}\sin{\theta_1}\right)
 \end{equation}
@@ -181,13 +180,14 @@ passed the ice-air boundary layer.  If we evaluate this function at the height
 of the balloon we then get the distance the reconstructed ray is away from the
 balloon.  To find the index of refraction n we record this distance and redo
 the procedure starting at the minimization of equation \ref{eqn:snellmin} for a
-different index of refraction. After iterating through a bunch of indices this way
+different index of refraction. After iterating through indices this way
 we then have a list of corresponding distances to the balloon. The index
 corresponding to the minimum in these distances is then the final result.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{WeatherBalloonPositionReconstruction.pdf}
-	\caption{Example plane wave reconstruction of weather balloon position}
+	\caption{The balloon is too far away for a simple plane wave reconstruction, but using
+  snells law at the surface might mitigate the problem.}
 	\label{fig:WeatherBalloonPositionReconstruction}
 \end{figure}
 \section{Is the goal feasible?}
@@ -208,86 +208,42 @@ which angles are acceptable? Note that not only angle but also height will event
 play a role in the accuracy, the angle however gives a good starting point.
 
 To determine the accuracy we vary the position of the weather balloon in the x direction (keeping the
-height constant at 500m), simulate the ray path to the channels 0 to 3 and then fit n
-via the method layed out in section \ref{seq:SimplePW}.
-We then compare the n we have fitted using the simple plane wave method to the
+height constant at 500m), simulate the ray path to channels 0 to 3 and then fit n
+both via the simple plane wave reconstruction method layed out in section \ref{seq:SimplePW} and
+the one using snell's law layed out in section \ref{seq:SnellPW}.
+We then compare the n's we have fitted  to the
 one we know from the model at that position.  We quantify the discrepancy
-between these two indices of refraction using what we here define as the
+between the fitted and known index of refraction via the
 \textit{systematic error}:
 \begin{equation}
   \varepsilon\ (\%) = \frac{n_\text{fit} - n_{\text{exact}}}{n_{\text{exact}}}
 \end{equation}
 Carrying this out\footnote{The code for this can be found in
 projects-mt/BaLLooN/simulations as plane\_wave.py} we get figure
-\ref{fig:EpsilonIFODirect}, i.e it gets exponentially shifted towards higher n
-as the balloon moves further away. If we wish our systematic error to be
-within 1\%, the angle the balloon makes with the middle of channels 0 to 3
-needs to be less than 10°.
+\ref{fig:EpsilonIFODirect}. Both the snell and simple plane wave method get
+exponentially less accurate as the balloon moves further away.  If we wish the
+systematic error to be within 1\% for the simple plane wave, the angle the
+balloon makes with the middle of channels 0 to 3 needs to be less than 10°.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{EpsilonIFODirect.pdf}
-	\caption{Epsilon in function of the direct angle}
+	\includegraphics[width=0.8\textwidth]{EpsilonWithZoom.pdf}
+	\caption{The accuracy of the plane wave reconstruction with the use of snell's law at the surface is more 
+  accurate but the simple plane wave method's accuracy is sufficient to make reliable
+predictions for angles less than 10°. For small angles the simple reconstruction is preferred as no ice 
+parameters need to be assumed.}
 	\label{fig:EpsilonIFODirect}
 \end{figure}
 
-Now what would our $<$10° policy entail? And is it even possible?  Say we take
-a look at station Terianniaq (station 12) and see what our policy entails,
-the location is given in the global geographic
-coordinate system (longitudinal, latitude and elevation), this is quite
-difficult to work with directly. For this reason we first convert the station's location to 
-local ENU coordinates (east, north, up) relative to the 'DISC' which is a point in the base camp located at
-72.58279265212887 latitude, -38.45581495328228 longitude and 3251.9489147560234 elevation.  
-
-After having converted station 12's position into ENU coordinates we get
--137.67250176003688N 1727.5184983294744E, we then set our "up" to be -95.5m as
-this is the approximate location of the middle of channels 0-3.  Now looking at
-e.g the Balloon path recorded on the 20th of august 2022 (figure
-\ref{fig:ExampleBalloonPathCrossing12}) we see that the balloon crosses paths
-closely with detector 12, but how close was this encounter? To quantify this we
-can take a look at every balloon positional data entry (there are $>$12000
-entries) individually and compute the angle the balloon makes with the detector
-by first converting the location of the balloon into ENU coordinates. Then
-calculating the lateral distance ($\sqrt{(x-x')^2 + (y-y')^2}$) then the
-relative vertical distance $|z - z'|$ and then from those compute the angle. Doing this and recording when the balloon
-gets close enough to get below the 10° mark we get the yellow part of figure
-\ref{fig:ExampleBalloonPathCrossing12}. We thus see that in this
-example the $<10$° policy is viable.
-
-Now how much data do we have that way? 
-We'll be looking at the data recorded over the summer of
-2022, more particularly 15/06/2022 - 30/09/2022.
-The positional data of the weather balloons was obtained from the
+Now can we actually find balloon passbys whom make an angle less than 10 degrees?
+To figure this out we looped over all the balloon positions recorded over the summer of
+2022, more particularly 15/06/2022 - 30/09/2022
+\footnote{The positional data of the weather balloons was obtained from the
 \url{ftp1.esrl.noaa.gov} website using the rno-g-sonde script of the official
-RNO-G github page. After looping through every weather
-balloon gpx file recorded in the summer of 2022 and seeing when it gets
-within 10 degrees from any detector we get the data shown in appendix \ref{app:10Deg}, even
-though this is quite a lot of data there's still another step that we could do
-to broaden the amount of usable data.
-\subsection{Refraction at the surface}
-Up until now we have not used the property that waves refract at the surface as
-we didn't want to assume anything, now say that we include refraction at the
-surface for our plane wave reconstruction. This would mean that we'd follow
-analogous steps as our previous analysis, i.e doing a plane wave reconstruction
-from the difference in timing and trying to fit the index of refraction, only
-now the plane wave abides with Snell's law at the surface, going from n=1.27 to
-n=1. 
-
-
-Doing this whilst looping over possible horizontal balloon positions, we get
-the result shown in figure \ref{fig:EpsilonIFODirectSnell}\footnote{The code
-for this can be found in projects-mt/BaLLooN/simulations as
-plane\_wave\_with\_snell.py}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\textwidth]{EpsilonIFODirectSnell.pdf}
-	\caption{epsilon IFO possible angles from channels 0-3 with refraction at the surface}
-	\label{fig:EpsilonIFODirectSnell}
-\end{figure}
-As you can see we can now go up to 15° and still have a systematic error of less than 1\%!  The
-only drawback of this method is that we need to assume the index of refraction
-to be 1.27 at the surface of the ice, if this isn't the case in some places our
-predictions won't be accurate.
-
+RNO-G github page.}, and recorded
+the time intervals when they flew close enough.
+To illustrate such a trajectory, an example path of a balloon passing close enough to a detector is shown in figure
+\ref{fig:ExampleBalloonPathCrossing12}.
+The data shown in appendices \ref{app:10Deg} and \ref{app:5Deg} respectively show $<10°$° and $<5$° encounters.
 \begin{figure}
   \centering
 	\includegraphics[width=0.7\textwidth]{BallonPathAllIllu.pdf}
@@ -295,11 +251,9 @@ predictions won't be accurate.
   gets within 10° of detector 12.}
   \label{fig:ExampleBalloonPathCrossing12}
 \end{figure}
-
-
-\subsection{Influence of height on Epsilon}
+\subsection{Influence of the height on the systematic error}
 In the previous sections we've assumed the height of the weather balloon to be
-500m, does changing this height influence the behavior of $\epsilon$ in some
+500m, does changing this height influence the behavior of the systematic error $\epsilon$ in some
 way?  The answer is, at first surprisingly, yes. As can be seen in figure
 \ref{fig:EpsWithHeight} the systematic error can vary with height for the same angles.
 \begin{figure}
@@ -309,30 +263,20 @@ way?  The answer is, at first surprisingly, yes. As can be seen in figure
 	\label{fig:EpsWithHeight}
 \end{figure}
 This has, as a consequence, that if we manage to get a hold on some
-usable data the $\epsilon$
-might still be quite large (if the height is really large).
-Because of this we'll have to re-compute $\epsilon$ exactly for 
+usable data we'll still have to re-compute $\epsilon$ for 
 every measurement we do.
 \section{Fitting the index: Phased array}
 \subsection{Station 11, Run 1034 Event number 12397}
 Now that we know our goal to be feasible, let's analyze some data.  As we'll
 start by just analyzing one event, let's take a reasonably good one for our analysis.
-A close look at graph \ref{fig:EpsilonIFODirect} shows that events under 5° at
-a height of 500m produce an $\epsilon$ of less than 0.22\%, implying that if we
-measure n to be 1.7407 our systematic error will only be 0.0038.  A good start will
-thus be finding moments when the balloon gets to within a 5\% angle, note that
-the systematic error is height dependent so we'll have to calculate it afterwards.  After
-looping through all the balloon positional files and only outputting the $<5$°
-ones we get the time frames shown in appendix \ref{app:5Deg}.
 
 If we search in the DESY database
 \footnote{\url{https://rnog-monitor.zeuthen.desy.de/}} within the calculated
-time frames for the particular detectors where the balloon gets close enough to,
-and where the 403MHz signal coming from the balloon is detected in the deep channels, the events of the 24th
-of July stands out; at 23:21:53 the balloon gets quite close to detector 11 and shows a
-clear 403MHz signal at the phased array in channels 0,2 and 3, as shown for the channels 0 and 3 in
-figure \ref{fig:freqs03}.
-\textbf{CHANGE THIS}
+time frames as listed in appendix \ref{app:5Deg} where the 403MHz signal coming from the
+balloon is detected in the deep channels, the events of the 24th of July stands
+out; at 23:21:53 the balloon gets quite close to detector 11 and shows a clear
+403MHz signal at the phased array in channels 0,2 and 3, as shown for the
+channels 2 and 3 in figure \ref{fig:freqs23}.
 
 Now to calculate the differences in timing for this received signal, the code
 we built for this is called FitN.py and stored at the repository
@@ -345,117 +289,111 @@ explanation}
 The first part we'll need to concern ourselves with is determining the relative
 positions of everything. The balloon data file and the time when the event took
 place are given, from these two both the latitudinal and longitudinal position
-and the elevation of the balloon at the given time are determined. We convert
-these three measurements to the ENU coordinate frame (x,y,z with respect to
-reference) and store it in the array \textit{BalloonPosition}. The next step is
-to get the location of the detector, for this we first instantiate a detector
-object 
+and the elevation of the balloon at the given time are determined, which we convert
+to ENU (x,y,z) coordinates as to be able to use them. 
 
-\begin{mintedbox}{python}
-det = NuRadioReco.detector.detector.Detector(json_file="RNO_season_2022.json")
-\end{mintedbox}
+The locations of the various stations have also been determined and can be found 
+on the official RNO-G github under "analysis-tools". 
 
-The RNO season 2022 json file can be found on the official RNO-G github under
-"analysis-tools", then we update the detector to the time of the event and get
-the absolute position of our detector (station 23) via the
-get\_absolute\_position module:
-
-\begin{mintedbox}{python}
-	stationlocation = det.get_absolute_position(station_id)
-\end{mintedbox}
-
-Where at the specific station this position is doesn't matter as we'll explains
-shortly.  Now that we have both the position of our balloon and station in ENU
-coordinates, let's simplify the calculations by setting the detector as the
+Now that we have both the position of our balloon and station, 
+let's simplify the calculations by setting the detector as the
 origin i.e our new balloon position will be
-
 \begin{equation}
-	\textit{RelBalloon} = \textit{BalloonPosition} - \textit{StationPosition}
+  \mathbf{r}'_b = \mathbf{r}_b- \mathbf{r}_s
 \end{equation}
-
-And as we might want to plot this later, due to the cylindrical symmetry of the
-ice model, we can rotate the coordinates to get rid of our y-axis. We can do
+With the subscript b denoting "balloon" and s "station".
+As we might want to plot this later, due to the cylindrical symmetry of the
+ice, we can rotate the coordinates to get rid of our y-axis. We can do
 this by defining the radius:
-
 \begin{equation}
-	r := \sqrt{\textit{RelBalloon}_x^2 + \textit{RelBalloon}_y^2}
+  r := \sqrt{x'_{b}^2 + y'_{b}^2}
 \end{equation}
-
-And just setting this equal to $\textit{Balloon}_x$ and setting $\textit{Balloon}_y$ to
-zero. 
-We don't have the position of our individual channels yet, only of the
-station itself, these can however easily be obtained using the
-get\_relative\_position module on our detector object. As we chose our station
-to be the center of the coordinate system, these relative positions are
-absolute positions of the channels in our frame of reference. Using
-these it thus doesn't matter where the position of the station was defined.
+And redefining our relative position as
+\begin{equation}
+  \mathbf{r}''_b = 
+  \begin{bmatrix}
+  r \\
+  0 \\
+  z'_b
+  \end{bmatrix}
+\end{equation}
+We don't have the position of our individual channels yet, only of the station
+itself. The relative position of these can however also be obtained and as we
+chose our station to be the center of the coordinate system, these relative
+positions are absolute positions of the channels in our frame of reference.
+Using these it thus doesn't matter where the position of the station was
+defined.
 
 \subsubsection{Signal analysis and initial guesses}
-Now that we have our geometry, let's analyze the data for the channels,
-the data for a particular channel is stored in a channel object. From this
-object we can get the recorded voltages with the get\_trace() module, the
-recorded times with the get\_times() module, the recorded frequencies with the
-get\_frequencies() and the recorded spectrum corresponding to these frequencies
-with get\_frequency\_spectrum() , note that the last two do a FFT on our data.
-We know that the signal sent out by the weather balloon is a sine wave with a
-frequency of 403MHz; as the data is measured in nanoseconds the frequency is:
+Now that we have our the position of the balloon and of the channels, let's
+analyze the data for the channels. The data for a particular channel from a
+recorded event (here event 12397 of run 1034) is stored in a channel object,
+from this object we can get the recorded voltages and times during this event.
+These recorded voltages can be Fourrier transformed to get the recorded
+frequency spectrum.  We know that the signal sent out by the weather balloon is
+a sine wave with a frequency of 403MHz; as the data is measured in nanoseconds
+the frequency is:
 \begin{equation}
 	f = 403\text{MHz} = 403\times 10^{-3} \frac{1}{\text{ns}}
 \end{equation}
-The recorded spectrum of channels 0 and 3 is given in figure \ref{fig:freqs03}, for 
+The recorded spectrum of channels 2 and 3 is given in figure \ref{fig:freqs23}, for 
 which we previously mentioned the spike at 0.403GHz.
 \begin{figure}
 	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{figures/23-800-0-freq.pdf}
+		\includegraphics[width=\textwidth]{figures/2-freq.pdf}
 	\end{minipage}
 	\begin{minipage}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{figures/23-800-3-freq.pdf}
+		\includegraphics[width=\textwidth]{figures/3-freq.pdf}
 	\end{minipage}
-	\caption{recorded frequencies on detector 23 at 2022/08/29 11:18:32}
-	\label{fig:freqs03}
+	\caption{recorded frequencies on detector 11 at 2022/07/24 23:21:53, clear spikes at 0.403GHz are visible}
+	\label{fig:freqs23}
 \end{figure}
-Now note that on figure \ref{fig:freqs03} there are peaks both below 0.15GHz and above 0.6GHz,
-this is all non-physical noise as the Vpol antenna's range only goes from
-0.15GHz to 0.6GHz \cite{Aguilar_2021} that's why we'll first pass this signal
-trough a virtual butterworth bandpass filter.
+Now note that on this figure it's shown that there are signals with frequencies
+both below 0.15GHz and above 0.6GHz, these can be left out as the Vpol is
+defined to be most responsive only in the range 0.15GHz to 0.6GHz
+\cite{Aguilar_2021}. To filter out these frequencies we'll pass the signal trough a virtual
+butterworth bandpass filter.
 
-After passing the signal through the filter we'd also like to up sample the
-signal as to increase the resolution, this can be done using the resample() module. This resamples the trace to a new sampling rate
-, and we'll up sample towards 10GHz increasing our timely accuracy from
-0.3125ns to 0.1ns.  After filtering and up sampling we have some voltage
-response as shown for channel 0 in figure \ref{fig:VoltageAfterFilter}, we wish
-to find a sine wave coming from the weather balloon in this signal.
-\textbf{CHANGE THIS}
+Now that we have filtered our data we'd also like to increase the accuracy in
+timing, to this end we'll resample the signal. Resampling is the process of
+changing the sampling rate of a discrete signal to obtain a new discrete
+representation of the underlying continuous signal We'll upsample towards 10GHz
+increasing our timely accuracy from 0.3125ns to 0.1ns.  After this cleaning of
+our data (by filtering and upsampling) we have a voltage response with an example 
+shown for channel 0 in figure \ref{fig:VoltageAfterFilter}, we wish to find a sine
+wave coming from the weather balloon in this signal.
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{figures/VoltageAfterFilter.pdf}
-	\caption{Recorded voltage i.f.o time in vpol antenna 0 after up sampling and passing through the butterworth filter}
+	\caption{Recorded voltage i.f.o time in vpol antenna 2 after up sampling and passing through the butterworth filter, hereing we'll need to find a sinusoidal signal}
 	\label{fig:VoltageAfterFilter}
 \end{figure}
+To find a sine wave herein, and thus find out the timing of our signal, we'll
+make use of a method called \textit{cross correlation}, whereby we move a
+template over our data, returning a high value if the data and template line up
+and a low value if they don't.
 
-To find a sine wave herein we'll use radiotools' helper module get\_normalized\_xcorr
-which indirectly uses scipys signal correlation function. But before using that we'll
-need a template to correlate with the data. The template we'll be choosing is
+We thus need a template to correlate with the data. The template we'll be choosing is
 of course the sine function but it's important to notice that the channel has a
 certain sampling rate, namely now after up sampling, 10GHz. 
 
 Our template sine which we'll correlate to the data will also need to have this
 sampling rate, meaning that it needs to be step wise defined with spaces of
 0.1ns. Next we'll also need to give the sine a certain amplitude, as we don't
-have a system for finding this yet let's for now assume an amplitude $A =
-0.007$ (this shouldn't impact the correlation).  Our template thus looks like
-this:
+have a system for finding this let's assume an amplitude $A =0.007$ 
+(this shouldn't impact the result).  Our template thus looks like this:
 \begin{equation}
-	\mathcal{S} = A\cdot\sin(\omega t) 
+	\mathcal{S} = A\cdot\sin(\omega (t + T)) 
 \end{equation}
 with
 \begin{equation}
 	\omega = 2\pi f
 \end{equation}
-Herein $t$ is an array going from 0 to $3/f$ as to be able to fit 3 periods
-with intervals of 0.1ns.  This template gets automatically shifted by the radiotools
-correlation module with steps of 0.1ns and each time the correlation with the
-data gets computed as is illustrated in figure \ref{fig:SineCorrFull}.
+With f the frequency of the balloon signal, 0.403GHz and $t$ an array going
+from 0 to $3/f$ as to be able to fit 3 periods with intervals of 0.1ns, the
+crosscorrelation is done by move the signal with steps of $\Delta T = 0.1$ns,
+as is illustrated in figure \ref{fig:SineCorrFull}.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/SineDataCorrFull.pdf}
@@ -463,14 +401,12 @@ data gets computed as is illustrated in figure \ref{fig:SineCorrFull}.
 	\label{fig:SineCorrFull}
 \end{figure}
 In real life the data is a bit less perfect and after doing this correlation
-procedure on the real data we get what's (partially) shown in figure
-\textbf{CHANGE THIS}
-\ref{fig:CorrCh0}.
+procedure on the real data we get what's (partially) shown in figure \ref{fig:CorrCh2}.
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{figures/CorrelationCh0.pdf}
-	\caption{Zoom on the correlation i.f.o the time for channel 0}
-	\label{fig:CorrCh0}
+	\includegraphics[width=\textwidth]{figures/CorrelationCh2.pdf}
+	\caption{The correlation is less clear than in the illustration but still shows the periodicity of the sinusoidal signal}
+	\label{fig:CorrCh2}
 \end{figure}
 Herein the peaks represent the maximal correlation, if we now do the same for
 channel 3 we have two correlation functions, if we correlate these with
