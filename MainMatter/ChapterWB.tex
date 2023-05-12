@@ -449,7 +449,8 @@ have gone by until the same sinusoidal wave as in channel 2 gets detected in cha
 We thus have to search for the third peak (starting from t=0) in this case, similarly for detectors 0 and 3
 which are spaced 3 meters apart we'll need to look at peak number $\lceil\frac{3m}{0.44m}\rceil = 7$.
 And for completeness sake, for channels spaced 2 meters apart we'll need to look at peak 
-$\lceil\frac{2m}{0.44m}\rceil = 5$.
+$\lceil\frac{2m}{0.44m}\rceil = 5$. In reality however, it is easier to just simulate the time differences
+and look in that neighbourhood.
 
 \subsubsection{Fitting n and finding it's error}
 Now that we have the differences in timing between the individual channels and their error, the
