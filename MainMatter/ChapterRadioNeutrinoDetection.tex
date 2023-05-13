@@ -1,25 +1,34 @@
 \chapter{Radio neutrino detection}
 \label{chap:RND}
-Neutrinos on their own aren't detectable. Unlike say protons we can't expect
-them to produce Brehmsstrallung or any other kind of directly observable
-radiation as they aren't charged and thus don't couple to photons. We'll need
-to convert them to charged particles first which then can generate some kind of
-detectable signal.  
+In this chapter I'll explain how astrophysical neutrinos get detected in the
+context of the Radio Neutrino Observatory in Greenland, or RNO-G.
 
-To this end we'll need a big volume in which they can interact to produce
-charged particles, we'll be choosing ice for this.  Even though there are a lot
-of large volumes such as water or solid rock, we prefer ice as it has a few particular properties
-which makes it more usable:
+Neutrinos are omnipresent in nature but as they interact very weakly we'll need
+a big detector to detect reasonable amounts in finite timespans.  
+To this end we can make use of a detector volume nature has
+built for us: the Greenland icecap.  Even though various detector media
+have been used, like water\cite{SuperKamio}, heavy water\cite{SNO:1999crp} and
+even the moon\cite{numoon}, ice has been chosen as it has a few properties which makes it easy to
+work with, of which some are listed below:
 \begin{itemize}
-  \item contrary to some kind of sediment, ice is mostly see-through for electromagnetic radiation but it's still possible
-    to differentiate between neutrino signals and other particles
-  \item contrary to water as a medium which is used e.g in the Super-Kamiokande detector\cite{SuperKamio}, ice
-    was naturally formed and there is no need to construct some kind of dome
+  \item Ice is mostly see-through for electromagnetic radiation in the radio-frequency range
+  \item The Greenland icecap is a really big continuous volume with little to no background from human activity
+  \item As it's really cold within the ice, the detectors don't have to be made water-tight (contrary
+	  to in-water detectors)
+  \item As ice is a solid the detectors are logistically easy to deploy
 \end{itemize}
+
+To detect a neutrino it has to generate some kind of signal, as will be
+explained, neutrinos can interact with hadronic matter to produce charged
+particles. For cubic-kilometer type in-ice detectors these charged particles can then
+be detected through the Cherenkov effect in the visible spectrum or
+through the Askaryan effect in the radio frequency range.
+For RNO-G the Askaryan effect will be leveraged.
+
 \section{Neutrino interactions in ice}
-As neutrinos propagate through ice they can interact weakly with the nuclei (see section \ref{sec:WeakInt}) .
+As neutrinos propagate through ice they can interact weakly with the nuclei (see section \ref{sec:WeakInt}).
 The main mechanisms of interaction is via charged- and neutral
-currents\cite{NuRadioMc} as is also depicted in figure
+current exchange with the quarks\cite{NuRadioMc} as is also depicted in figure
 \ref{fig:NeutrinoNucleusInteraction}.
 \begin{figure}[h!]
 	\begin{minipage}{\textwidth}
@@ -98,10 +107,11 @@ currents\cite{NuRadioMc} as is also depicted in figure
 	\end{minipage}
 	\caption{Most prominent ways of neutrino-nucleus interaction}
 	\label{fig:NeutrinoNucleusInteraction}
-\end{figure}\\
-With the produced leptons in the W boson mediated interaction being either electrons,
-resulting in an electromagnetic shower, muons which typically go undetected as they live
-too long or
+\end{figure}
+
+The produced leptons in the W boson mediated interaction are either electrons,
+resulting in an electromagnetic shower, muons which typically live
+too long and thus escape before they deposit all their energy in the ice or
 tauons which will decay via
 \begin{equation}
 	\tau^- \rightarrow e^- + \bar{\nu}_e + \nu_\tau
@@ -110,9 +120,9 @@ or, less ideally
 \begin{equation}
 	\tau^- \rightarrow \mu^- + \bar{\nu}_\mu + \nu_\tau
 \end{equation}
-In both of the possible interactions (W or Z exchange) the resulting nucleus
-will result in an hadronic shower. For the neutral current interaction (mediated
-by the Z boson) the fraction of the neutrino energy that gets transferred to
+In both the charged and neutral current interaction, the resulting nucleus
+will result in an hadronic shower. For the neutral current interaction
+the fraction of the neutrino energy that gets transferred to
 the nucleon is described by the inelasticity $y$ and is heavily shifted towards
 small values of $y$\cite{elasticity_y}. This causes a big, irreducible
 uncertainty when trying to estimate the original neutrino energy from these
@@ -121,26 +131,27 @@ bosons) this isn't a problem however as the full neutrino energy ends up in the
 resulting cascades.
 \section{Askaryan effect}
 \label{sec:Askaryan}
-For a particle shower to emit strong radio signals, two conditions have to be met:
+A particle shower formed through the previously described interaction in ice can emit
+strong radio signals if two conditions are met:
 \begin{itemize}
-	\item There needs to be a separation of positive and negative charges in the shower front 
-	\item The signals produced over the length of the shower profile need to overlap coherently.
+	\item There is separation of positive and negative charges in the shower front 
+	\item The signals produced over the length of the shower profile overlap coherently.
 \end{itemize}
 The \textit{Askaryan} \cite{Askaryan} effect, which is responsible for the
 production of Askaryan radiation describes the effect at radio frequencies
-which abides by both of these conditions.  In general it's a quite difficult
-effect but we'll give a crude overview.  The previously described interactions
-of the neutrinos with nuclei create a shower of secondary charged particles
-containing a charge anisotropy.  This charge imbalance is a result of medium
-electrons either Compton scattering into the advancing shower or annihilating
-with shower positrons.  In the end you have a moving charge anisotropy,
-propagating faster than the speed of light in the medium, creating Cherenkov
-radiation.  
+which abides by both of these conditions.  In general it's a quite involved
+effect but we'll give a crude overview. After neutrinos interact in the ice
+they produce a cascade of secondary charged particles containing a net negative
+charge anisotropy\cite{Connolly_2017}.  This charge imbalance is a result of
+medium electrons either Compton scattering into the advancing shower or
+annihilating with shower positrons.  This moving charge anisotropy is
+propagating faster than the speed of light in the dielectric medium, creating
+Cherenkov radiation.  
 
-Cherenkov radiation is like the electromagnetic equivalent of a sonic boom. A
-sonic boom happens when something goes faster than the speed of sound in the
-medium; A particle emits Cherenkov radiation if it goes faster than the speed
-of light in the medium.  Choosing the particle trajectory to lie along the z
+Cherenkov radiation can be considered the electromagnetic equivalent of a sonic boom. 
+A sonic boom happens when an object goes faster than the speed of sound in the
+medium; In the same way a particle emits Cherenkov radiation if it propagates faster than 
+the speed of light in the medium.  Choosing the particle trajectory to lie along the z
 axis an approximate equation can be found\cite{jackson1998classical} for
 $\frac{\text{d}^2 \mathscr{J}}{\text{d}\omega \text{d}\Omega}$, which is the energy
 radiated per elementary unit solid angle and per elementary unit frequency
@@ -177,15 +188,15 @@ particle to produce the most radiation at around 56° opening as
 \begin{minipage}{0.45\textwidth}
 	\centering
 	\includegraphics[height = 0.8\textwidth]{Cherenkov-reactor.jpg}
-	\caption{Cherenkov radiation in a nuclear reactor \citeFig{CherenkovReactor}}
-	\label{The particles coming from the reactor core produce cherenkov radiation as they pass through the water,
-	most of the produced light is "in blue".}
+	\caption{The particles coming from the reactor core produce cherenkov radiation as they pass through the water,
+	most of the produced light is "in blue"\citeFig{CherenkovReactor}}
+	\label{figure: Cherenkov reactor}
 \end{minipage}
 \hspace{0.05\textwidth}
 \begin{minipage}{0.45\textwidth}
 	\centering
 	\includegraphics[height = 0.8\textwidth]{Cherenkov.pdf}
-	\caption{Diagrammatic representation of Cherenkov radiation \citeFig{CherenkovIllu}}
+	\caption{The cone shape is reminiscent of a sonic boom, the signal is the strongest on the cone \citeFig{CherenkovIllu}}
 	\label{figure: Cherenkov illustratie}
 \end{minipage}
 \end{figure}
@@ -258,12 +269,11 @@ A station is illustrated in figure \ref{fig:detector},
 \begin{figure}
 	\centering
 	\includegraphics[height=0.4\textheight]{figures/RNO-G_station_sketch.jpg}	
-	\caption{diagram showing the numbering and locations of the various antennae\citeFig{DetectorIllu}}
+	\caption{The combination of Vpol and Hpol antennae makes it possible to discern the direction of neutrinos whereas
+	the surface LPDA antennae makes it possible to distinguish muons.\citeFig{DetectorIllu}}
 	\label{fig:detector}
 \end{figure}
-the plan is to build 35 of these as is shown in figure \ref{fig:station map}\footnote{note
-that all the individual detectors are numbered but also named after various species living in
-Greenland (in the native tongue)}. 
+the plan is to build 35 of these as is shown in figure \ref{fig:station map}. 
 Looking closely at one such detector we see
 just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are used
 to detect air shower muon signals as muons will also generate Cherenkov
@@ -346,7 +356,8 @@ detector response to the simulated detector responses, thus finding the origin.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.55\textwidth]{figures/station-mapNoComment.png}	
-	\caption{planned station layout \citeFig{PlannedLay}}
+	\caption{All the individual detectors are numbered but also named after various species living in
+Greenland (in the native tongue)\citeFig{PlannedLay}}
 	\label{fig:station map}
 \end{figure}
 
