@@ -24,19 +24,19 @@ In this chapter we'll give an overview of neutrinos and the various kinds of ene
 to see them in when coming from outside our earth.
 
 \section{Discovery}
-When researching $\beta^-$ decay, the decay of a neutron, researchers
-detected a proton and an electron coming from the neutron. However
-on closer inspection it became apparent that energy was lost
-somewhere in violation with the conservation law of energy, and
-angular momentum wasn't conserved either\cite{Bilenky_2012}.  
-In particular, in the proton-electron model for the $\beta^-$-decay
-of a nucleus (A,Z) you would expect the final result to be (A,Z+1) + $e^-$.
-But in the experiment the sum of the measured final energies
-didn't equal the initial energy of the nucleus.
-The solution postulated by
-Wolfgang Pauli was to introduce a new, really hard to detect
-particle with no charge and a very small mass: the neutrino.  The neutrino comes in three flavors:
-electron, muon and tau neutrinos, each corresponding to their respective lepton denoted as
+In the fifties researchers were investigating $\beta^-$ decay, the decay of a neutron. 
+In the proton-electron model for the $\beta^-$-decay of a nucleus (A,Z) you would
+expect the final result to be (A,Z+1) + $e^-$, or
+\begin{equation}
+	n \rightarrow p^+ + e^-
+\end{equation}
+However, after measuring the outgoing proton and electron energies, the researchers
+concluded that energy was lost somewhere and angular momentum wasn't conserved
+\cite{Bilenky_2012}. The solution postulated by Wolfgang Pauli was to introduce
+a new, really hard to detect particle with no charge and a very small mass: the
+neutrino, and his solution stands to this day.  The neutrino comes in three
+flavors: electron, muon and tau neutrinos, each corresponding to their
+respective lepton denoted as
 \begin{equation}
 	\nu_e \quad \nu_\mu \quad \nu_\tau
 \end{equation}
@@ -51,18 +51,18 @@ becomes
 \end{equation}
 The inverse can then also be used to detect neutrinos:
 \begin{equation}
-	p^+ + e^- + \nu_e \rightarrow n
+	\bar{\nu}_e + p^+ \rightarrow n + e^+
 \end{equation}
-Which is called beta capture and was first experimentally detected in 1956
-\cite{BetaCapture} also making it the first experimental detection of a
-neutrino.
+This method was used in the Cowan–Reines neutrino experiment in 1956 with the
+anti-neutrinos coming from a nuclear reactor\cite{BetaCapture}, making it the
+first experimental detection of a neutrino.
 \section{The weak interaction}
 \label{sec:WeakInt}
 As with the strong and electromagnetic interaction which interact via gluons
 and photons respectively, the weak interaction which is the primary way
 neutrinos interact, is also mediated by the exchange of elementary spin-1
 bosons.  Namely the charged bosons $W^+$ and $W^-$ and the neutral $Z^0$ boson.
-Contrary to the gluons and photons however, these bosons are massive:
+Contrary to the gluons and photons however, these bosons are massive\cite{mandl2010quantum}:
 \begin{equation}
   M_W = 80.40\text{ GeV }\quad M_Z = 91.19\text{ GeV }
 \end{equation}
@@ -76,26 +76,28 @@ The very large masses of the "force carriers" imply a very short-range
 interaction, in the order of $10^{-3}$fm and can even be treated as a
 zero-range interaction at low energies.
 
-These bosons can couple to leptons (e.g neutrinos, electrons, tauons and muons)
-but also to quarks. If they couple via the charged bosons then the coupling process
-is called a \textit{charged current} reaction and if they couple via the $Z^0$ boson
-than the process is called a \textit{neutral-current} interaction.
-
-A simple interaction is sketched below
+The charged bosons couple to neutrinos via the \textit{charged current} interaction:
 \begin{equation}
-  \mu^- \rightarrow e^- + \bar{\nu}_e + \nu_\mu
+	\mathcal{L}_{int}^\nu = \sum_\ell -\frac{g}{\sqrt{2}} \bar{\nu}_\ell^L\slashed{W}\ell^L - -\frac{g}{\sqrt{2}} \bar{\ell}^L\slashed{W}^\dagger\nu_\ell^L
 \end{equation}
-Here the muon decays via a charged current reaction.
+With the L denoting left handed, note thus that only left-handed neutrinos interact. For the
+neutral boson we analogously have the \textit{neutral-current} interaction:
+\begin{equation}
+	\mathcal{L}_{int}^\nu = \sum_\ell -\frac{g}{2\cos\theta_W} \bar{\nu}_\ell^L\slashed{Z}\nu_\ell^L
+\end{equation}
+These bosons can also couple to quarks, making it possible to detect neutrinos via their interaction with nuclear matter
+which we'll get to in chapter \ref{chap:RND}. 
 \section{Neutrino sources}
-As shown in figure \ref{figure:Neutrino fluxes}\cite{NeutrinoFlux} there are various kinds of
+As shown in figure \ref{figure:Neutrino fluxes} there are various kinds of
 neutrino sources. We'll discuss these one by one in order, leaving out the
 reactor anti-neutrinos and the terrestrial anti-neutrinos as we're only
-interested in neutrinos of astrophysical nature. The ones we'll
-thus discuss are the cosmological, solar, supernova, background from old supernovae, atmospheric, AGN and cosmogenic neutrinos.
+interested in neutrinos of astrophysical nature. The ones we'll thus discuss
+are the cosmological, solar, supernova, background from old supernovae,
+atmospheric, AGN and cosmogenic neutrinos.
 \begin{figure}
 	\centering
-	\copyrightbox[r]{\includegraphics[height = 0.5\textwidth]{neutrinofluxes.pdf}}{\textcopyright Abhik Jash}
-	\caption{Less neutrinos will be observed for higher energies}
+	\includegraphics[height = 0.5\textwidth]{neutrinofluxes.pdf}
+	\caption{Less neutrinos will be observed for higher energies\cite{NeutrinoFlux}}
 	\label{figure:Neutrino fluxes}
 \end{figure}
 \subsection{Cosmological/Primordial neutrinos}
@@ -131,23 +133,26 @@ As $T_\gamma$ is the CMB temperature which, nowadays, is measured to be around
 is roughly where the peak flux is located.  These primordial neutrinos are thus very
 low in energy.
 \subsection{Solar neutrinos}
-The sun fuses elements to release energy and thus keeping itself from collapsing in 
-on itself, with most of the various ways particles get fused, neutrinos get released as 
-is shown in figure \ref{fig:SunFusion}\cite{FusionIllu} where the neutrinos are electron neutrinos.
+The sun fuses elements via the pp chain reaction to release energy and thus
+keeping itself from collapsing in on itself, in most of the various fusion
+steps, neutrinos get released as is shown in figure
+\ref{fig:SunFusion} where the neutrinos are electron
+neutrinos.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/SunFusion.png}
-	\caption{illustration of the full fusion cycle in the sun}
+	\caption{Two electron neutrinos get released over the full fusion cycle\cite{FusionIllu}}
 	\label{fig:SunFusion}
 \end{figure}
 Now with this and some information about the sun like the pressure and mass,
 the \textit{standard solar model} was made. This model predicted a certain
 amount of electron neutrinos to be hitting the earth from the previously mentioned
 thermonuclear fusion, it was however 3 times higher than the observed amount of
-electron neutrinos back at our planet. This led to a little bit of hysteria as this could've meant
+electron neutrinos back at our planet\cite{Cleveland_1998}, this was called the \textit{Solar neutrino problem}. 
+The solar neutrino problem led to a some hysteria as this could've meant
 that the sun was dying and we'd see the aftermath only in a couple of years.
-Through various experiments however, it became apparent that this was due to
-the different kinds of neutrinos oscillating into each other on their way to
+This phenomenon was theoretically resolved by assuming\cite{Bilenky2013} the 
+different kinds of neutrinos to oscillating into each other on their way to
 earth, i.e 2/3 of the original electron neutrinos had oscillated into mu and
 tau neutrinos. But for them to oscillate into each other, they not
 only require mass but each flavor also should have a different mass as can be seen
@@ -163,11 +168,19 @@ In full generality (3D):
 \begin{equation}
 	\ket{\nu_\alpha} = \sum_iU_{\alpha i} \ket{\nu_i}
 \end{equation}
-With $U_{\alpha i}$ the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix.  This
+With $U_{\alpha i}$ the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix\cite{1962PThPh..28..870M}.  This
 phenomenon has been experimentally verified e.g through the discrepancy from
 the observed and expected neutrino events coming from a nuclear reactor \cite{Eguchi_2003}.
+
+It was later found that the oscillation of the neutrinos was further enhanced
+through the Mikheyev–Smirnov–Wolfenstein effect, whereby neutrinos oscillate
+more in matter of varying density (like the
+sun)\cite{smirnov2019mikheyevsmirnovwolfenstein}.
 \subsection{Supernovae}
 \label{sec:supernovae}
+Supernovae produce a lot of neutrinos, to understand when in a supernovae they get released
+we'll have to go over the current theoretical understanding of how a supernova occurs. 
+
 A star starts its life as a ball of pure hydrogen. At the core, due to the
 gravitational pressure of the outside plasma, fusion of hydrogen into deuterium
 and helium happens. Thus converting mass into energy. The pressure of this energy
@@ -178,19 +191,19 @@ with masses between $8M_\odot$ and $30M_\odot$ ($M_\odot$ being the mass of the 
 the fusion of heavier elements starts, this can't keep going on however as at
 some point the star starts to form the most stable element: iron. 
 
-It costs energy
-to both make lighter elements than iron and heavier ones as can be seen on
-figure \ref{fig:BindingEnergyCurve}\cite{IronIllu}.
+It costs energy to both make lighter elements than iron and heavier ones as can
+be seen on the energy curve shown on figure \ref{fig:BindingEnergyCurve}.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Binding_energy_curve.png}
-	\caption{Energy curve showing that iron is the most stable atom}
+	\caption{Iron is at the top and is thus the most stable atom\cite{IronIllu}}
 	\label{fig:BindingEnergyCurve}
 \end{figure}
-  As the iron core builds up the outside
+As the iron core builds up the outside
 pressure from the core starts to decrease as no new energy is released. This
 goes on until  the treshold of an iron core with a mass of 1.4$M_\odot$ known
-as the Chandrasekhar limit is reached and the inwards pressure becomes too
+as the Chandrasekhar limit\cite{Chandrasekhar}\cite{weinberg1972gravitation} 
+is reached and the inwards pressure becomes too
 large compared to the outward pressure, making the electrons surrounding the
 iron core fuse with the protons (uud), creating neutrons (udd) and neutrinos,
 diagramatically shown in figure
