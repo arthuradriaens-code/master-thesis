@@ -271,10 +271,12 @@ from within our galaxy. The few particles that do come from our solar system can
 linked to violent events on the sun. In contrast to this the particles coming from outside
 our solar system show an anti-correlation with the sun as they can more easily reach the earth
 if solar activity is low.
-It has been observed that they roughly follow a power-law spectrum 
-$N \propto E^{-\gamma}$ \cite{gaisser_engel_resconi_2016}.
-
-Cosmic rays hit the Earth's atmosphere with a flux of about 1000 rays per
+It has been observed that the major components of the cosmic ray elements
+roughly follow an inverse power law in energy, with differential flux \cite{gaisser_engel_resconi_2016}
+\begin{equation}
+	\frac{dN}{dE} \propto E^{-(\gamma+1)}
+\end{equation}
+Cosmic rays particles hit the Earth's atmosphere with a flux of about 1000 rays per
 square meter per second and interact with atomic nuclei in the Earth's
 atmosphere, creating showers of particles. Many of these showers consist of
 particles which are unstable and produce neutrinos when they decay. These
@@ -290,24 +292,48 @@ Neutrinos are subsequently also produced when these muons decay:
 \begin{equation}
 	\mu^\pm \rightarrow e^\pm + \nu_e(\bar{\nu}_e) + \bar{\nu}_\mu(\nu_\mu)
 \end{equation}
-which is a process mainly happening at low energies in the atmosphere.  The
-atmospheric neutrino spectrum shown in figure \ref{figure:Neutrino
+which is a process mainly happening at low energies in the atmosphere.  As the
+Kaons are CP violating particles, a beam of neutral kaons produced by cosmic
+rays will decay in flight making the short-lived $K_S$ (K-Short) disappear and leave a
+pure beam of long-lived $K_L$ (K-Long) \cite{griffiths2008introduction}.  Another decay
+which is therefore important and the dominant source for electron neutrinos for
+energies $E_\nu \geq 1$GeV is the $K_L$  decay
+\begin{equation}
+	K_L \rightarrow \pi^{\pm}e^\pm\nu_e(\bar{\nu}_e)
+\end{equation}
+The atmospheric neutrino spectrum shown in figure \ref{figure:Neutrino
 fluxes} roughly follows a power spectrum as the cosmic ray flux follows a power
 spectrum. But the correspondence isn't one-to-one as, due to the difference in
 kinematics, the contribution from kaons to neutrinos is significantly more
 important than to muons, especially at high energies.
 
+How well can we detect these atmospheric neutrinos coming from cosmic rays?
+The primary way to detect neutrinos is through neutrino-nucleon interactions.
+The cross section for producing a charged lepton
+\cite{gaisser_engel_resconi_2016} in the 1-3000 GeV region is
+\begin{equation}
+	\sigma \approx 0.5\times 10^{-38} cm^2\times E_\nu (GeV)
+\end{equation}
+The neutrino flux at 1 GeV is $\sim$ 1cm$^{-2}$s$^{-1}$ from all directions, the interaction rate for
+atmospheric neutrinos is thus of the order 
+\begin{equation}
+	\sim 100\frac{\nu\text{-interactions}}{kT yr}
+\end{equation}
+With kT denoting kilotons, therefore detectors of a kiloton or more sensitive
+volume are required to study interactions of cosmic ray
+neutrinos\cite{GreisenAndReines}.
+
 \subsection{neutrinos from AGNs}
 An AGN (active galactic nucleus) is deemed to be the reason why several abnormal galaxies exist with
 an extra bright (and mostly variable) light source in their core which even the biggest of telescopes
-can't spatially discern. The general concensus is that this phenomenon is caused by one particular
+can't spatially discern. The general consensus is that this phenomenon is caused by one particular
 kind of object: a supermassive black hole (a black hole with a mass of at least 105M$_\odot$) surrounded with
-a close torus of dust and gas.
+a close torus of dust and gas\cite{Shields_1999}.
 This torus of gas is called an \textit{accretion disc} and is an enormous source of energy. The conversion
 of potential energy of the incoming gas to highly energetic radiation is a very complex physical process
 with which we have to account for various factors like gravitational instabilities, magnetic fields, hydrodynamical
 turbulence,... And thus produces a spectrum that's quite complex.
-It would appear that the luminocity of an AGN would increase indefinitely with incoming mass, but this process is 
+It would appear that the luminosity of an AGN would increase indefinitely with incoming mass, but this process is 
 limited: if too much matter accretes on the black hole the radiative pressure becomes too massive and the 
 matter on the disc gets blown away. This phenomenon is termed a \textit{black hole outburst}.
 
@@ -330,24 +356,20 @@ In contrast to the previous source of UHE neutrinos which was generated at the
 source, called \textit{astrophysical neutrinos} we'll now talk about UHE
 neutrinos whom are generated through the interaction of ultra-high energy
 cosmic rays during propagation with the cosmic microwave or other photon
-backgrounds termed \textit{cosmogenic neutrinos}.  The mechanism by which these
-get created is quite simple, if a proton has sufficiently high energy the cross
+backgrounds termed \textit{cosmogenic neutrinos}.  
+
+If a proton has sufficiently high energy the cross
 section to interact with the CMB (Cosmic Microwave Background) becomes
-non-negligable.  These protons can scatter off the photons to resonantly
-produce a $\Delta^+$ baryon.  This resonance has enough mass to dominantly
-decay to a pion and a nucleon:
+non-negligable and it may scatter off the photons to
+resonantly produce a $\Delta^+$ baryon.  This resonance has enough mass to
+dominantly decay to a pion and a nucleon\cite{M_ller_2019}:
 \begin{align}
 	\Delta^+ &\rightarrow \pi^0 + p \ \ (2/3)\\
 	\Delta^+ &\rightarrow \pi^+ + n \ (1/3)
 \end{align}
 Of which the charged pion decays to neutrinos as previously mentioned in 
-\ref{sec:AtmosphericNeutrinos}, these neutrinos carry most of the original energy.
-\section{How do they fit into the full detector spectrum?}
-The origin of the most energetic cosmic rays is still not conclusively
-identified. One approach to solving this problem is \textit{multi-messenger
-astrophysics}, where several types of cosmic particles are used to identify the
-sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously
-measure gravitational waves with the Einstein telescope, neutrinos with RNO-G,
-photons with various telescopes and muons with a muon detector.
-\newpage
-
+\ref{sec:AtmosphericNeutrinos} whom are very high energy.
+This phenomenon is also predicted to cause the so-called Greisen–Zatsepin–Kuzmin\cite{Zatsepin}\cite{Greisen} 
+limit. As, due to this interaction, there would be a limit to the energy a cosmic ray protons might have
+and still pass the intergalactic medium from another galaxie to our galaxy. This limit is theorized to be
+$5\times10^{19}$eV (50 EeV). 
