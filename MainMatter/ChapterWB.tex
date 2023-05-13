@@ -354,8 +354,9 @@ butterworth bandpass filter.
 Now that we have filtered our data we'd also like to increase the accuracy in
 timing, to this end we'll resample the signal. Resampling is the process of
 changing the sampling rate of a discrete signal to obtain a new discrete
-representation of the underlying continuous signal We'll upsample towards 10GHz
-increasing our timely accuracy from 0.3125ns to 0.1ns.  As the timely accuracy
+representation of the underlying continuous signal we'll upsample towards 10GHz
+increasing our timely accuracy from 0.3125ns to 0.1ns, this is possible as the
+full Nyquist-sampled waveforms are stored\cite{Allison_2019}.  As the timely accuracy
 is now 0.1ns, the error on a time difference between channels is then 0.2ns. So
 $\delta t_{ij}=0.2$ns as explained in section \ref{seq:SimplePW}.
 

@@ -12,6 +12,8 @@
 %---------------------------------------------
 \usepackage{xcolor}
 \usepackage{tcolorbox}
+\usepackage[resetlabels,labeled]{multibib}
+\newcites{Fig}{References of Figures}
 %---------------------------------------------
 
 %------
@@ -35,10 +37,6 @@
 \usepackage[Rejne]{fncychap} %fancy chapters
 %options for chapters: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
 
-% NOTE: because the UGent font Panno is proprietary, it is not possible to use it
-% in Overleaf. But UGent does not suggest to use Panno for documents (or maybe only for
-% the titlepage). For the body, the UGent suggestion is to use a good serif font (for
-% LaTeX this could be libertine or Computer Modern).
 \usepackage{slashed}
 \usepackage{braket}
 
@@ -122,9 +120,13 @@ and the analysis of ice properties using weather balloons}}
 % Front matter
 % =====================================================================
 
-
+\shipout\null
+\newpage
 \include{FrontMatter/Dankwoord}
 \include{FrontMatter/preface}
+% ------------ TABLE OF CONTENTS ---------
+{\hypersetup{hidelinks}\tableofcontents} % hide link color in toc
+\newpage
 \include{FrontMatter/introduction}
 
 % =====================================================================
@@ -143,10 +145,13 @@ and the analysis of ice properties using weather balloons}}
 % =====================================================================
 
 \include{EndMatter/conclusion}
-
 \include{EndMatter/appendices}
 
+\bibliographystyleFig{IEEEtran}
+\bibliographyFig{IEEEabrv,Bibliography/FigureSources}
+
+
 \bibliographystyle{IEEEtran}
-\bibliography{IEEEabrv,EndMatter/sources}
+\bibliography{IEEEabrv,Bibliography/sources}
 
 \end{document}
