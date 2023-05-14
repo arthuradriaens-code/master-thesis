@@ -219,8 +219,7 @@ between the fitted and known index of refraction via the
 \begin{equation}
   \varepsilon\ (\%) = \frac{n_\text{fit} - n_{\text{exact}}}{n_{\text{exact}}}
 \end{equation}
-Carrying this out\footnote{The code for this can be found in
-projects-mt/BaLLooN/simulations as plane\_wave.py} we get figure
+Carrying this out we get figure
 \ref{fig:EpsilonIFODirect}. Both the snell and simple plane wave method get
 exponentially less accurate as the balloon moves further away.  If we wish the
 systematic error to be within 1\% for the simple plane wave, the angle the
@@ -279,9 +278,8 @@ out; at 23:21:53 the balloon gets quite close to detector 11 and shows a clear
 channels 2 and 3 in figure \ref{fig:freqs23}.
 
 Now to calculate the differences in timing for this received signal, the code
-we built for this is called FitN.py and stored at the repository
-\href{https://github.com/arthuradriaens-code/projects-mt.git}{projects-mt}
-under BaLLooN/RealData, let's go over the full code step by step:
+we built for this is called FitN.py\cite{projects-mt}, 
+let's go over the full code step by step:
 \subsubsection{Spatial data}
 The first part we'll need to concern ourselves with is determining the relative
 positions of everything. The balloon data file and the time when the event took
@@ -528,10 +526,14 @@ also not that many recorded measurements in the 40-100m region and no reported
 uncertainties which makes the data less trustworthy.  
 
 As for the linearity relation, it has been extensively studied in the literature
-\cite{KOVACS1995245} and there seem to be multiple linear relationships reported,
-another one is e.g
+\cite{KOVACS1995245} and there seem to be multiple of relationships reported,
+all however were linear. Another one possible relation is e.g
 \begin{equation}
   n(z) \approx 1 + 0.77\rho(z)
 \end{equation}
-How our data correlates with this relation is shown in figure \ref{fig:ResultsOtherLinear}, but this
-doesn't seem to heavily impact the distance from the density converted data and our measurements.
+How our data correlates with this relation is shown in figure
+\ref{fig:ResultsOtherLinear}, but this doesn't seem to heavily impact the
+distance from the density converted data and our measurements.
+
+It might thus be needed to measure the index-depth relation directly and so
+obtain an experiments-based ice model.

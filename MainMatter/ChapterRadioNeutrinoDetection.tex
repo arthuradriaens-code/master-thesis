@@ -18,7 +18,7 @@ work with, of which some are listed below:
   \item As ice is a solid the detectors are logistically easy to deploy
 \end{itemize}
 
-To detect a neutrino it has to generate some kind of signal, as will be
+To detect a neutrino it has to generate some kind of signal. As will be
 explained, neutrinos can interact with hadronic matter to produce charged
 particles. For cubic-kilometer type in-ice detectors these charged particles can then
 be detected through the Cherenkov effect in the visible spectrum or
@@ -26,9 +26,11 @@ through the Askaryan effect in the radio frequency range.
 For RNO-G the Askaryan effect will be leveraged.
 
 \section{Neutrino interactions in ice}
-As neutrinos propagate through ice they can interact weakly with the nuclei (see section \ref{sec:WeakInt}).
-The main mechanisms of interaction is via charged- and neutral
-current exchange with the quarks\cite{NuRadioMc} as is also depicted in figure
+\label{sec:NIII}
+As neutrinos propagate through ice they can interact weakly with the nuclei .
+The main mechanisms of interaction is via charged- and neutral current exchange
+(see section \ref{sec:WeakInt}) with the quarks\cite{NuRadioMc} as is also
+depicted in figure
 \ref{fig:NeutrinoNucleusInteraction}.
 \begin{figure}[h!]
 	\begin{minipage}{\textwidth}
@@ -111,8 +113,8 @@ current exchange with the quarks\cite{NuRadioMc} as is also depicted in figure
 
 The produced leptons in the W boson mediated interaction are either electrons,
 resulting in an electromagnetic shower, muons which typically live
-too long and thus escape before they deposit all their energy in the ice or
-tauons which will decay via
+too long and thus escape the detector volume before they can deposit all of their 
+energy in the ice\cite{PhdthesisWeling} or tauons which will decay via
 \begin{equation}
 	\tau^- \rightarrow e^- + \bar{\nu}_e + \nu_\tau
 \end{equation}
@@ -131,8 +133,8 @@ bosons) this isn't a problem however as the full neutrino energy ends up in the
 resulting cascades.
 \section{Askaryan effect}
 \label{sec:Askaryan}
-A particle shower formed through the previously described interaction in ice can emit
-strong radio signals if two conditions are met:
+A particle shower in ice formed through the interactions described in section
+\ref{sec:NIII} can emit strong radio signals if two conditions are met:
 \begin{itemize}
 	\item There is separation of positive and negative charges in the shower front 
 	\item The signals produced over the length of the shower profile overlap coherently.
@@ -214,24 +216,32 @@ emitted, most frequencies decoherently interfering, but radio waves with wavelen
 $\approx$ 10cm coherently interfere, and it's these waves we then wish to detect.
 The radiation generated trough this Askaryan effect is called \textit{Askaryan radiation}.
 
-The Askaryan radiation is polarized perpendicular to the
-Cherenkov cone, this can be useful to discern between different Cherenkov cones whom,
-timely, would generate the same response. This concept is illustrated below in 2D where
-two neutrinos from different directions would generate the same signal in a non-polarized detector.
-
-\begin{figure}[h!]
+The Askaryan radiation is polarized perpendicular to the Cherenkov cone, this
+concept is illustrated in 2D in figure\ref{fig:illupol}.
+The fact that the radiation is polarized can be useful to discern which
+direction the neutrino came from using both vertically and horizontally
+polarized antennae.
+\begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{illu_polarization.pdf}
+	\caption{The detector receives an upwards polarization for the cherenkov cone in green
+	and a downwards polarization for the one in yellow}
+  	\label{fig:illupol}
 \end{figure}
 
-If the detector has a way to differentiate between polarization however, there would be no
-doubt where the neutrino originated from as the one producing the yellow Cherenkov cone
-would have a downwards polarization and the one producing a green Cherenkov cone would have
-an upwards polarization, note that in 3D infinite different Cherenkov cones could generate
-the same timely signal (think of rotating the cone around a line on the cone) so both vertical
-and horizontal polarization information is needed.
-
-
+The radio signals that get produced by a neutrino interaction in ice always
+travel along two paths, an example path is shown on figure \ref{fig:DnR}.  In
+this figure the pahts are direct and refracted, designated DnR, but not that
+direct and reflected (at the surface) and refracted refracted are also
+possible.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{DnR.pdf}
+  \caption{example simulation showing both direct and refracted path from a neutrino vertex (bottom left) to a detector (top right)}
+  \label{fig:DnR}
+\end{figure}
+This double pulse characteristic would be a smoking-gun signature of an in-ice
+source.
 \section{RNO-G}
 Both cosmic ray and neutrino detectors face the same main problem at the
 highest energies: the steeply falling flux (as was previously seen in figure
@@ -274,6 +284,13 @@ A station is illustrated in figure \ref{fig:detector},
 	\label{fig:detector}
 \end{figure}
 the plan is to build 35 of these as is shown in figure \ref{fig:station map}. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.55\textwidth]{figures/station-mapNoComment.png}	
+	\caption{All the individual detectors are numbered but also named after various species living in
+Greenland (in the native tongue)\citeFig{PlannedLay}}
+	\label{fig:station map}
+\end{figure}
 Looking closely at one such detector we see
 just below the surface 9 Log Periodic Dipole Antennas (LPDAs), these are used
 to detect air shower muon signals as muons will also generate Cherenkov
@@ -286,18 +303,23 @@ The helper strings are the 2 vertical cables shown on the right of figure
 \ref{fig:detector} each housing 2 vertically polarized antennas (Vpols), one
 quadslot antenna for the horizontal polarization component (Hpol) and one radio
 pulser on each helper string which can be used to generate calibration signals.
-As was previously mentioned the polarization can be used to
-distinguish between possible Cherenkov cones generating the same resulting
-pulse, that's why both the helper and power string are equipped with both kinds
-of polarized antennae.
+As was previously mentioned using both the horizontal and vertical polarization of the
+signal, the neutrino direction can be discerned. That's why both the helper and power 
+string are equipped with both kinds of polarized antennae.
 
 The power string (the leftmost vertical cable) is more densely instrumented
 than the helper strings: At the bottom it houses a set of four Vpol and two
-Hpol antennas with a spacing of 1m called the \textit{phased array}\cite{Allison_2019}
-. Arguably
-the most important channels in a station as it's spaced closely together and
-can thus use the principle of phasing the channels to get higher precision.
-Further up the string, with a spacing of 20m, are three more Vpol antennas.
+Hpol antennas with a spacing of 1m called the \textit{phased array}\cite{Allison_2019}. 
+The phased array is an array of closely spaced antennae, due to their close spacing
+their signals can be interfermetrically combined creating a coherent receiver with a 
+larger aperture than the individuals. This technique is frequently used in radio astronomy
+for increasing the angular resolution by combining antennae and is the main
+reason it was possible to observe the black hole Sagittarius A-star\cite{SqrA*}.
+It is called the "phased" array as the radio array is electronically
+steered using beamformers, which is called "phasing".
+The resulting high resolution arguably makes the channels in the phased array the most important 
+antennae of the detector.
+Then finally further up the string, with a spacing of 20m, are three more Vpol antennas.
 \begin{figure}
   \centering
   \includegraphics[width=0.85\textwidth]{SysDiagRNOG.png}
@@ -307,7 +329,7 @@ Further up the string, with a spacing of 20m, are three more Vpol antennas.
 
 A full system diagram for a RNO-G station is shown in figure \ref{fig:SysDiag},
 I'll give a walk trough of how data gets collected.  The signal from each of
-the deep antennae are fed into a low-noise amplifier directly above it, from
+the deep antennae are fed into a low-noise amplifier directly above it\cite{Aguilar_2021}, from
 there the signal is send to the data acquisition (DAQ) system at the surface
 via a Radio Frequency over Fiber (RFoF) cable.  The signals coming from the
 surface antennae are first passed through a Bandpass filter of
@@ -324,17 +346,7 @@ But as there isn't enough light during the Greenland winters, there are plans to
 build wind turbines (with one of the problems being the possibly detectable RF
 noise the 'engine' would produce).
 
-As was previously explained the radio signal from a neutrino often travels
-along both direct and refracted paths, designated DnR, to the deep array (as shown
-on figure \ref{fig:DnR}).
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{DnR.pdf}
-  \caption{example simulation showing both direct and refracted path from a neutrino vertex (bottom left) to a detector (top right)}
-  \label{fig:DnR}
-\end{figure}
-This double pulse characteristic would be a smoking-gun signature of an in-ice
-source. The two helper strings are needed for a full direction reconstruction.
+The two helper strings are needed for a full direction reconstruction.
 Three independent measurements are needed for azimuthal information, which is
 provided by the Vpol (Vertical polarization) antennas and placing the Hpol
 (Horizontal polarization) antennas at different depths on every string, both
@@ -342,7 +354,9 @@ zenith and azimuth information will be provided for those signals. The helper
 strings' calibration pulsers, as well as one on the surface, will ensure
 regular monitoring of the performance of the station and provide information
 useful for precise calibration of the antenna geometry.
-\subsection{Reconstruction: Lookup tables}
+
+\section{Reconstruction}
+Now when such an event gets 
 The main simulation code we'll be using consists of 2 parts:
 NuRadioMC\cite{Glaser_2020} and NuRadioReco\cite{Glaser_2019}. NuRadioMC uses
 Monte Carlo simulations to generate neutrino events in the ice and simulates
@@ -353,13 +367,6 @@ software is needed as the plan is to simulate a lot of neutrino events and
 record the detector responses in a giant database, then, when an actual neutrino
 event occurs, we'll only have to look in the database and match the actual
 detector response to the simulated detector responses, thus finding the origin.
-\begin{figure}
-	\centering
-	\includegraphics[width=0.55\textwidth]{figures/station-mapNoComment.png}	
-	\caption{All the individual detectors are numbered but also named after various species living in
-Greenland (in the native tongue)\citeFig{PlannedLay}}
-	\label{fig:station map}
-\end{figure}
 
 \section{Multi-Messenger Astronomy}
 The origin of the most energetic cosmic rays is still not conclusively
@@ -368,4 +375,3 @@ astrophysics}, where several types of cosmic particles are used to identify the
 sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously
 measure gravitational waves with the Einstein telescope, neutrinos with RNO-G,
 photons with various telescopes and muons with a muon detector.
-

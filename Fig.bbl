@@ -41,12 +41,12 @@ A.~Jash, ``Studies on the physics of resistive plate chambers in relation to the
 \bibitem{DetectorIllu}
 ``Sketch of a rno-g station with in ice detector strings and surface antennas by 14lumiere,'' \url{https://commons.wikimedia.org/wiki/File:RNO-G_station_sketch.jpg#filelinks}.
 
+\bibitem{PlannedLay}
+``Detector deployment,'' \url{https://radio.uchicago.edu/detector.php}.
+
 \bibitem{Aguilar_2021_Fig}
 \BIBentryALTinterwordspacing
 J.~Aguilar, P.~Allison, J.~Beatty \emph{et~al.}, ``Design and sensitivity of the radio neutrino observatory in greenland ({RNO}-g),'' \emph{Journal of Instrumentation}, vol.~16, no.~03, p. P03025, mar 2021. [Online]. Available: \url{https://doi.org/10.1088%2F1748-0221%2F16%2F03%2Fp03025}
 \BIBentrySTDinterwordspacing
-
-\bibitem{PlannedLay}
-``Detector deployment,'' \url{https://radio.uchicago.edu/detector.php}.
 
 \end{thebibliography}

@@ -78,29 +78,29 @@ sheet of ice exerts on the ice just below it is:
 \begin{equation}
 	d\sigma = \frac{dF}{A} = -\frac{gdM}{A} = -g\frac{A\rho(z)dz}{A} = -g\rho(z)dz
 \end{equation}
-with $\rho(z)$ the depth-dependent density. Robin assumed the
-proportional change in air space to be proportional to the change in
+with $\rho(z)$ the depth-dependent density. The proportional change in air
+space is assumed to be proportional to the change in
 pressure\cite{herron_langway_1980}:
 \begin{equation}
 	\frac{dV}{V} \propto d\sigma
 \end{equation}
 As the volume scales inversely with the density let's assume the relation $V \propto (\rho_i - \rho)$ with
 $\rho_i$ the density of pure ice, this yields:
-\begin{align}
+\begin{equation}
 	\frac{d\rho}{\rho_i - \rho} &\propto \rho dz\\
-	\frac{d\rho}{\rho(\rho_i - \rho)} &\propto dz \label{eqn:SchyttEnd}
-\end{align}
+\end{equation}
 Which can be solved to give
 \begin{equation}
 	\rho = \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}}
 \end{equation}
-Schytt also empirically fitted the following function:
+The following function was also empirically fitted:
 \begin{equation}
 	\label{eqn:myderiexp}
 	\rho = \rho_0 e^{z/z_0} + B
 \end{equation}
 Figure \ref{fig:DensityMeasurements} shows how both of these
-functions fit the density curve\footnote{The density with depth data can be found \href{https://github.com/cozzyd/iceprop/tree/master/data}{here}}.  There is one big downside however.
+functions fi density-depth data\cite{alley_koci_1988}\cite{hawley_morris_mcconnell_2008} curve.  
+There is one big downside however.
 It seems that the ice actually doesn't follow these exponential
 curves perfectly.
 \begin{figure}
