@@ -356,16 +356,26 @@ regular monitoring of the performance of the station and provide information
 useful for precise calibration of the antenna geometry.
 
 \section{Reconstruction}
-Now when such an event gets 
-The main simulation code we'll be using consists of 2 parts:
+Now when the channels pick up a signal which has a high enough amplitude to
+cause it to trigger and record the data, how would we know wether it was a neutrino
+and, if so, how would we figure out it's direction?
+
+To know wether a recorded signal was a neutrino can be quite involved but the biggest
+clue is definetely the double pulse characteristic it would produce as 
+a signal. Now from the recorded signal, if we know it is a neutrino,
+how can we know where it came from?
+We can figure this out using simulations, the code that's being used consists of 2 parts:
 NuRadioMC\cite{Glaser_2020} and NuRadioReco\cite{Glaser_2019}. NuRadioMC uses
 Monte Carlo simulations to generate neutrino events in the ice and simulates
 how they propagate to the various channels, which will be covered more in-depth
 in the next chapter. NuRadioReco is reconstruction software, it simulates how
 the various detectors would respond to the detected radio waves. This simulation
-software is needed as the plan is to simulate a lot of neutrino events and
+software can thus be used to figure out how a signal looks like when a neutrino comes from
+a certain direction and interacts at a certain point in the ice. 
+
+A plan is to simulate a lot of neutrino events and
 record the detector responses in a giant database, then, when an actual neutrino
-event occurs, we'll only have to look in the database and match the actual
+event occurs, look in the database and match the actual
 detector response to the simulated detector responses, thus finding the origin.
 
 \section{Multi-Messenger Astronomy}
