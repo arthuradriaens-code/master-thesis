@@ -7,7 +7,8 @@ Neutrinos are omnipresent in nature but as they interact very weakly we'll need
 a big detector to detect reasonable amounts in finite timespans.  
 To this end we can make use of a detector volume nature has
 built for us: the Greenland icecap.  Even though various detector media
-have been used, like water\cite{SuperKamio}, heavy water\cite{SNO:1999crp} and
+have been used, like water\cite{SuperKamio}, heavy water
+\cite{SNO:1999crp} and
 even the moon\cite{numoon}, ice has been chosen as it has a few properties which makes it easy to
 work with, of which some are listed below:
 \begin{itemize}
@@ -180,7 +181,8 @@ radiation will be emitted "in blue" with a cut-off frequency above which the
 equation $\cos\theta = 1/(n\beta)$ can no longer be satisfied. This "in blue"
 characteristic is responsible for the blue glow seen in nuclear reactors as
 seen in figure \ref{figure: Cherenkov reactor} .  For ice the index of
-refraction is roughly 1.78 in deep ice\cite{Bogorodsky1985}, so we expect an ultra-relativistic
+refraction is roughly 1.78 in deep ice\cite{Bogorodsky1985}\cite{indexofrefrvalue}, 
+so we expect an ultra-relativistic
 particle to produce the most radiation at around 56° opening as 
 \begin{equation}
 	\cos(\theta_c) \approx \frac{1}{n} \implies \cos^{-1}\left(\frac{1}{1.78}\right)\approx 56\text{°}
@@ -217,7 +219,7 @@ $\approx$ 10cm coherently interfere, and it's these waves we then wish to detect
 The radiation generated trough this Askaryan effect is called \textit{Askaryan radiation}.
 
 The Askaryan radiation is polarized perpendicular to the Cherenkov cone, this
-concept is illustrated in 2D in figure\ref{fig:illupol}.
+concept is illustrated in 2D in figure \ref{fig:illupol}.
 The fact that the radiation is polarized can be useful to discern which
 direction the neutrino came from using both vertically and horizontally
 polarized antennae.
@@ -231,7 +233,7 @@ polarized antennae.
 
 The radio signals that get produced by a neutrino interaction in ice always
 travel along two paths, an example path is shown on figure \ref{fig:DnR}.  In
-this figure the pahts are direct and refracted, designated DnR, but not that
+this figure the paths are direct and refracted, designated DnR, but note that
 direct and reflected (at the surface) and refracted refracted are also
 possible.
 \begin{figure}
@@ -259,9 +261,9 @@ visible spectrum propagating through ice.
 The proposed solution was to work with radio wave detectors, leveraging the
 previously discussed Askaryan effect (see section \ref{sec:Askaryan}).  Radiowaves can propagate
 way further in ice than visible light making it possible to space the
-individual detectors further apart. The proposed location is Greenland, an
+individual detectors further apart. The proposal was to build the detector in Greenland as shown in figure \ref{fig:GreenlandOP}. Greenand is an
 island country in North America and part of the Kingdom of Denmark which has
-large ice sheets as shown in figure \ref{fig:GreenlandOP}.
+large ice sheets making it a good candidate for radio neutrino detectors.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/GreenlandOP.pdf}
@@ -274,7 +276,7 @@ surface channels and various deep channels resulting in a total of 24 channels
 per station. The whole project builds heavily on the knowledge obtained through
 previous radio based neutrino detectors like the NuMoon\cite{numoon} project,
 ANITA\cite{ANITA}, ARA\cite{ARA},ARIANNA\cite{Barwick_2015} and RICE\cite{RICE}.
-\subsection{Hardware}
+
 A station is illustrated in figure \ref{fig:detector}, 
 \begin{figure}
 	\centering
@@ -310,8 +312,8 @@ string are equipped with both kinds of polarized antennae.
 The power string (the leftmost vertical cable) is more densely instrumented
 than the helper strings: At the bottom it houses a set of four Vpol and two
 Hpol antennas with a spacing of 1m called the \textit{phased array}\cite{Allison_2019}. 
-The phased array is an array of closely spaced antennae, due to their close spacing
-their signals can be interfermetrically combined creating a coherent receiver with a 
+Due to the close spacing of the phased array it is possible to
+interferometrically combine their signals creating a coherent receiver with a 
 larger aperture than the individuals. This technique is frequently used in radio astronomy
 for increasing the angular resolution by combining antennae and is the main
 reason it was possible to observe the black hole Sagittarius A-star\cite{SqrA*}.
@@ -328,13 +330,12 @@ Then finally further up the string, with a spacing of 20m, are three more Vpol a
 \end{figure}
 
 A full system diagram for a RNO-G station is shown in figure \ref{fig:SysDiag},
-I'll give a walk trough of how data gets collected.  The signal from each of
+We'll give a walk trough of how data gets collected.  The signal from each of
 the deep antennae are fed into a low-noise amplifier directly above it\cite{Aguilar_2021}, from
 there the signal is send to the data acquisition (DAQ) system at the surface
 via a Radio Frequency over Fiber (RFoF) cable.  The signals coming from the
 surface antennae are first passed through a Bandpass filter of
-80-750MHz\footnote{i.e a filter that only lets frequencies in this range pass}
-after which both the resulting signals and the deep component signals get sent
+80-750MHz after which both the resulting signals and the deep component signals get sent
 up to the RAdio DIgitizer and Auxiliary Neutrino Trigger (RADIANT). There it's
 again amplified, digitized and, if a trigger threshold is reached, saved onto
 an SD card. This data is then transmitted via a Long Term Evolution (LTE)
@@ -351,32 +352,33 @@ Three independent measurements are needed for azimuthal information, which is
 provided by the Vpol (Vertical polarization) antennas and placing the Hpol
 (Horizontal polarization) antennas at different depths on every string, both
 zenith and azimuth information will be provided for those signals. The helper
-strings' calibration pulsers, as well as one on the surface, will ensure
-regular monitoring of the performance of the station and provide information
+strings' calibration pulsers, as well as the one on the surface, will ensure
+regular performance monitoring of the station and provide information
 useful for precise calibration of the antenna geometry.
 
 \section{Reconstruction}
-Now when the channels pick up a signal which has a high enough amplitude to
-cause it to trigger and record the data, how would we know wether it was a neutrino
-and, if so, how would we figure out it's direction?
+When the channels pick up a signal which has a high enough amplitude to
+cause it to trigger and record the data, how will it be analysed?
 
-To know wether a recorded signal was a neutrino can be quite involved but the biggest
-clue is definetely the double pulse characteristic it would produce as 
-a signal. Now from the recorded signal, if we know it is a neutrino,
-how can we know where it came from?
-We can figure this out using simulations, the code that's being used consists of 2 parts:
-NuRadioMC\cite{Glaser_2020} and NuRadioReco\cite{Glaser_2019}. NuRadioMC uses
-Monte Carlo simulations to generate neutrino events in the ice and simulates
-how they propagate to the various channels, which will be covered more in-depth
-in the next chapter. NuRadioReco is reconstruction software, it simulates how
-the various detectors would respond to the detected radio waves. This simulation
-software can thus be used to figure out how a signal looks like when a neutrino comes from
-a certain direction and interacts at a certain point in the ice. 
+We can figure out wether the event was a neutrino or noise, where it came from
+and it's energy using simulations. The code that's used to unravel the event
+consists of 2 parts: NuRadioMC\cite{Glaser_2020} and
+NuRadioReco\cite{Glaser_2019}. NuRadioMC uses Monte Carlo simulations to
+generate neutrino events in the ice for particular energies and simulates how
+they propagate to the various channels. This propagation will be covered more
+in-depth in the next chapter.  NuRadioReco is reconstruction software, it
+simulates how the various detectors would respond to the simulated incoming
+radio waves.  Combining these two pieces of software thus makes it possible to
+figure out how a signal looks like when a certain neutrino ($\mu$,$\tau$ or
+$e^-$) comes from a certain direction, interacting with the matter trough
+either W or Z-boson exchange at a certain point in the ice with a certain
+energy. 
 
-A plan is to simulate a lot of neutrino events and
+How is this code then used to analyse an event?
+A plan \cite{lookuptable} is to simulate a lot of neutrino events for various energies and
 record the detector responses in a giant database, then, when an actual neutrino
 event occurs, look in the database and match the actual
-detector response to the simulated detector responses, thus finding the origin.
+detector response to the simulated detector responses, thus finding the origin .
 
 \section{Multi-Messenger Astronomy}
 The origin of the most energetic cosmic rays is still not conclusively
@@ -385,3 +387,13 @@ astrophysics}, where several types of cosmic particles are used to identify the
 sources of these ultra-high energy cosmic rays (UHECRs). E.g we simultaneously
 measure gravitational waves with the Einstein telescope, neutrinos with RNO-G,
 photons with various telescopes and muons with a muon detector.
+
+As layed out in section \ref{sec:supernovae}, neutrinos from a supernova can
+get observed on earth $\approx$18h before the visible light escapes the
+supernova. To make use of this the Supernova Early Warning System
+(SNEWS)\cite{SNEWS} was established, it can automatically give early warnings
+to astronomers in the event of a supernova in the Milky Way, or a nearby galaxy
+such as the Large Magellanic Cloud or the Canis Major Dwarf Galaxy.  Using this
+SNEWS system astronomers can prepare by pointing their telescopes at the right
+part of the sky prior to observing the event, thus being able to witness the
+beginning in high resolution.

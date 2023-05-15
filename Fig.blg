@@ -12,48 +12,46 @@ Database file #2: Bibliography/FigureSources.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--missing school in NeutrinoFlux
 
 Done.
 You've used 9 entries,
             4087 wiz_defined-function locations,
-            1389 strings with 19055 characters,
-and the built_in function-call counts, 3061 in all, are:
-= -- 216
-> -- 27
+            1387 strings with 19069 characters,
+and the built_in function-call counts, 3000 in all, are:
+= -- 203
+> -- 24
 < -- 3
-+ -- 17
-- -- 5
-* -- 113
-:= -- 498
++ -- 16
+- -- 4
+* -- 105
+:= -- 469
 add.period$ -- 18
 call.type$ -- 9
 change.case$ -- 9
 chr.to.int$ -- 0
-cite$ -- 10
-duplicate$ -- 286
-empty$ -- 318
-format.name$ -- 6
-if$ -- 684
+cite$ -- 9
+duplicate$ -- 288
+empty$ -- 325
+format.name$ -- 5
+if$ -- 677
 int.to.chr$ -- 0
 int.to.str$ -- 9
 missing$ -- 59
 newline$ -- 52
-num.names$ -- 2
-pop$ -- 163
+num.names$ -- 1
+pop$ -- 171
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 258
+skip$ -- 257
 stack$ -- 0
 substring$ -- 21
-swap$ -- 158
+swap$ -- 150
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 9
-warning$ -- 1
-while$ -- 3
+warning$ -- 0
+while$ -- 2
 width$ -- 10
-write$ -- 86
-(There was 1 warning)
+write$ -- 84
