@@ -3,7 +3,7 @@
 As mentioned in the previous chapter, we want to simulate the signal a neutrino event
 would produce in the detector. The neutrino event generates radiowaves that end
 up at our detector, but as the ice has a continuously varying density, these radiowave
-paths needs to be simulated.
+paths needs to be computed.
 
 In this chapter we'll go more in-depth as to how the radio wave paths get
 simulated in ice within the NuRadioMC framework.
@@ -13,7 +13,7 @@ simulated in ice within the NuRadioMC framework.
 	\includegraphics[width=0.7\textwidth]{DirectNReflected.pdf}
 	\label{fig:PathIllu}
 	\caption{Simulated radio wave paths from a source to a detector, these always come in a pair 
-	if it's an in-ice source due to the density gradient of the ice.}
+	if it's an in-ice source due to the density gradient of the ice and the reflective ice-air boundary.}
 \end{figure}
 There are a multitude of photons coming from our event but only the ones
 in line with the cherenkov cone are strong enough to be detectable.
@@ -28,8 +28,8 @@ and how the waves are bent are consequences of the
 properties of the ice we work in.  In a dielectric medium a ray propagates with
 it's signal wave-speed determined by the local index of refraction as $v =
 c/n$. But the effect on speed isn't the only property the index of refraction has
-which we'll need to concern ourselves with, but to understand that effect we'll first
-need to talk about Snell's law. 
+which we'll need to concern ourselves with, another one is the breaking of the path,
+but to understand that effect in continous media we'll first need to talk about Snell's law. 
 
 If a ray propagates towards a boundary dividing 2 media with different indexes
 of refraction, the ray will refract and the refracted angle can be found from
@@ -63,26 +63,38 @@ the equation as:
 	n(\mathbf{r})\frac{d^2\mathbf{r}}{ds^2} \approx \mathbf{\nabla} n
 	\label{eqn:radiopropaformula}
 \end{equation}
-Which is then iteratively solved using the Cash–Karp method.  The way you would
-go about using this program is thus: find a start and end point (e.g a supposed
-neutrino interaction point and a detector respectively), "shoot" your ray in a
-certain direction for which the path will then be iteratively solved using
-radiopropa. And if you chose your direction right you have the path a ray might
-take from your start to the end point.  The difficulty is this direction
-choosing which we'll get to later.  If there are boundaries (such as defects or
-the surface) these are treated separately using Snell's law. 
+Which is then numerically solved using the Cash–Karp method.  The way you would
+go about using this program is thus: give in a starting point (e.g a supposed
+neutrino interaction point) and "shoot" your ray in a
+certain direction, radiopropa will then compute the path the ray takes. 
+If you chose your direction right, this ray will at some point cross an
+"end point" you gave it (e.g the location of the detector) at which point it will
+stop simulating. Meaning that you now have computed the path from a start point in ice
+to an end point.
+
+The difficulty in this matter is choosing the direction right so the ray
+crosses paths with the end point, for this an algorithm is needed which we'll
+get to later.  If there are boundaries (such as in-ice defects or the ice-air surface) these
+are treated separately within radiopropa using Snell's law. 
 \section{Ice model}
 \label{section:Ice Model}
-Ice has a density gradient which we'll need to account for. Due to the way the
-ice bonds there will be more air trapped in between the molecules closer to the
-surface than at greater depths where the pressure due to the overhead ice
-prevents this.  Due to this air being trapped the density of ice will be
-smaller closer to the surface than at greater depth.  
+Radiopropa, as previously described, is based on solving equation \ref{eqn:radiopropaformula}.
+This equation is dependent on the local index of refraction $n(\mathbf{r})$ for which
+we'll thus need a model. But before we can derive a model we'll need to talk about the
+density-depth relation.
+
+Due to the way the ice bonds there will be more air trapped in between the
+molecules closer to the surface than at greater depths where the pressure due
+to the overhead ice prevents this.  Due to this air being trapped the density
+of ice will be smaller closer to the surface than at greater depth.  The region
+where this air occurs in the ice is called the firn\cite{Firn} as to
+distinguish it from glacial ice which is ice at large depths with nearly no air
+trapped.
 
 Purely from classical gravity and density considerations it can be derived that
 the density scales exponentially. To see this let's consider a sheet of ice in
-the Greenland firn with a surface A and a height dz, the extra pressure this
-sheet of ice exerts on the ice just below it is:
+the Greenland firn with a surface A at a depth z and with a width dz, the extra
+pressure this sheet of ice exerts on the ice just below it is:
 \begin{equation}
 	d\sigma = \frac{dF}{A} = -\frac{gdM}{A} = -g\frac{A\rho(z)dz}{A} = -g\rho(z)dz
 \end{equation}
@@ -106,89 +118,86 @@ The following function was also empirically fitted:
 	\label{eqn:myderiexp}
 	\rho = \rho_0 e^{z/z_0} + B
 \end{equation}
-Figure \ref{fig:DensityMeasurements} shows how both of these
-functions fi density-depth data\cite{alley_koci_1988}\cite{hawley_morris_mcconnell_2008} curve.  
-There is one big downside however.
-It seems that the ice actually doesn't follow these exponential
-curves perfectly.
+Figure \ref{fig:DensityMeasurements} shows how both of these functions fit the
+density-depth data\cite{alley_koci_1988}\cite{hawley_morris_mcconnell_2008}
+curve.  There is one big downside however.  It seems that the ice actually
+doesn't follow these exponential curves perfectly.
 \begin{figure}
   \centering
 	\includegraphics[width=0.5\textwidth]{Density_measurements2.pdf}
 	\caption{Illustration of the shortcomings of the analytical models}
 	\label{fig:DensityMeasurements}
 \end{figure}
-
-Equation \ref{eqn:radiopropaformula}, and thus the path, depends on the index
-of refraction on a given location.  The dependence of the dielectric constant
-on density for ice can approximately be given by\cite{Robin}:
+Now that we have a model for the density-depth curve we can link this to the
+index-depth relation we need for radiopropa.  The dependence of the dielectric
+constant on density for ice can approximately be given by\cite{Robin}:
 \begin{equation} 
 	\epsilon(z) \approx (1 + 0.845\rho(z))^2 
 \end{equation} 
-Here $\rho$ is called the \textit{specific gravity} as to make the equation dimensionally correct,
-this is the same as the density in g/cm$^3$ but stripped off it's units.
-As the dielectric constant is the square of the index of refraction we can find an approximate index-density relation:
+Here $\rho$ is called the \textit{specific gravity} as to make the equation
+dimensionally correct, this is the same as the density in g/cm$^3$ but stripped
+off it's units.  As the dielectric constant is the square of the index of
+refraction we can find an approximate index-density relation:
 \begin{equation} 
 	n(z) \approx 1 + 0.775\frac{\rho(z)}{\rho_0} \approx 1 + 0.78\frac{\rho(z)}{\rho_0} \label{eqn:Schytt}
 \end{equation} 
-Where we introduced $\rho_0$, the
-density for solid ice (917 kg/m³).  For the development of the simulation
-software equation \ref{eqn:myderiexp} was taken and after assuming Schytt's
-equation (equation \ref{eqn:Schytt}) to hold we find that the index of refraction abides by
+Where we introduced $\rho_0$, the density for solid ice (917 kg/m³).  
+Now that we have a linear relation between the index of refraction and the density
+and also a model for the density-depth relation (equation \ref{eqn:myderiexp}) these two can
+be combined to form the \textit{single exponential model}
 \begin{equation}
 	\label{eqn:expn}
 	n(z) = n_{ice} - \Delta n e^{z/z_0}
 \end{equation}
 with $n_{ice}$ the refractive index of solid ice and $\Delta n = n_{ice} - n_s$
-with $n_s$ the index of refraction of snow. This exponential dependency of the
-index of refraction on depth is called the \textit{single exponential model}.  
+with $n_s$ the index of refraction of snow. 
 
-This single exponential model has a huge advantage as it's analytically
-solvable, meaning that we can know which direction we'll have to shoot our ray
-in (as mentioned previously) after the location of the neutrino interaction and
-the detector are specified. The ray tracing algorithm developed using this
+Using this exponential model for radiopropa has the huge advantage as it's
+analytically solvable, meaning that we can know which direction we'll have to
+shoot our ray in after the location of the neutrino interaction and the
+detector are specified. The ray tracing algorithm developed using this
 exponential index is called the \textit{analytic ray tracer}.
 
-The discrepancy between the single exponential model and the actual data for
-the density implies that the analytic ray tracer will make the wrong
-predictions.  This is why the development of a different ray tracer was needed
-which will be able to handle more complex ice models. One such ray tracer will
-be explained in section \ref{sec:Iterative} but this ray tracer has it's
-shortcomings. That's why the development of a new ray tracer was needed which
-is the partial work of this thesis and we'll get to that ray tracer in chapter
-\ref{chapter:hybrid}.
+\section{Shortcomings of the exponential ice model}
+As can be seen from figure \ref{fig:DensityMeasurements}, there is a
+discrepancy between the single exponential fit used for the exponential model
+and the density data, especially between 40 and 120 meters of depth where the
+phased array is located.  This discrepancy could imply that the analytic ray tracer will
+make slightly wrong predictions.  This is why the development of a different
+ray tracer was needed which will be able to handle more complex ice models. One
+such ray tracer will be explained in section \ref{sec:Iterative} but this ray
+tracer has it's shortcomings. That's why the development of a new ray tracer
+was needed which is the partial work of this thesis and we'll get to that ray
+tracer in chapter \ref{chapter:hybrid}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/Fresnel.pdf}
-  \caption{Wave surface of Fresnel with two sheets}
+  \caption{The three unit axes each have 2 possible wave speeds. E.g if a wave would
+  travel along $\mathbf{e}_1$, depending on the polarization it could travel at a speed $C_3$ or
+  at a speed $C_2$. The exponential model assumes all speeds to be the same, i.e $C_1=C_2=C_3=c/n$}
   \label{fig:Fresnel}
 \end{figure}
-Lastly there is an effect which might become important in the future:
-birefringence.  Up until now we have implicitly assumed that ice is isotropic
-meaning that both it's permittivity $\varepsilon$ and it's permeability $\mu$
-are scalars but these could very well be tensorial in nature for radio waves in
-ice. In general, after calculating this tensorial nature through you'd find
-that in every direction two different indices of refraction can be found
-implying two different types of waves each propagating with a different speed
-as illustrated in figure \ref{fig:Fresnel}. Which of the two speeds in a
-certain direction is then dependent on the polarization of the wave, which in
-our case thus depends on the Askaryan effect (see section \ref{sec:Askaryan}).
-The optical property coming from the anisotropic nature of the material is
-what's called \textit{birefringence}.  Birefringence has been
-researched for implementation in the simulation software NuRadioMC used in the
-RNO-G group, e.g in \cite{Heyer2023}.
-\section{Shortcomings of the exponential ice model}
-As mentioned in section \ref{section:Ice Model}, complex ice models will be
-necessary moving forward as the exponential ice model fails to fit the density
-curve.  The software the RNO-G team chose to determine the way radio waves
-propagate through ice is radiopropa\cite{Winchen_2019}, but due to the way it
-works you'll have to know the launch angle of your ray to work out the path it
-will take from a start to an end point. This isn't difficult for the analytic
-model as it's exactly solvable, but for a general ice model you'll somehow have
-to find where to \textit{shoot} the ray, this is where the Iterative ray tracer
-comes in.
+
+There is also another effect worth mentioning that the exponential model
+doesn't account for which might become important in the future: birefringence.
+Up until now we have implicitly assumed that ice is isotropic meaning that both
+it's permittivity $\varepsilon$ and it's permeability $\mu$ are scalars but
+these could very well be tensorial in nature for radio waves in ice. In
+general, after calculating this tensorial nature through you'd find that in
+every direction two different indices of refraction can be found implying two
+different types of waves each propagating with a different speed as illustrated
+in figure \ref{fig:Fresnel}.  Which of the two speeds in a certain direction is
+then dependent on the polarization of the wave, which in our case thus depends
+on the Askaryan effect (see section \ref{sec:Askaryan}).  This optical property
+coming from the anisotropic nature of the material is what's called
+\textit{birefringence}.  Birefringence has been researched for it's
+implementation into the simulation software NuRadioMC\cite{Heyer2023}.
+
 \section{Iterative ray tracer}
 \label{sec:Iterative}
+To work with more complex index-depth relations there's a need for a
+new algorithm which 
 The iterative ray tracer \cite{2022icrc.confE1027O}, as can be derived from
 it's name, iteratively searches the path a ray might take. The workings of the
 first part of the explanation is illustrated in figure \ref{fig:Illustration of
