@@ -4,7 +4,7 @@
 %	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
 Radio waves get simulated within the NuRadioMC framework via geometrical
-optics, also known as ray tracing and layed out in section \ref{sec:WaveProp}.
+optics, also known as ray tracing which we layed out in section \ref{sec:WaveProp}.
 The ray tracing algorithm that's being used is radiopropa and is dependent on
 the ice model. To simulate a path using radiopropa you need a start position 
 and a launch angle, if you only have the initial and final position you'll need
@@ -14,19 +14,19 @@ called the \textit{iterative ray tracer}\cite{2022icrc.confE1027O}, and was
 discussed in section \ref{sec:Iterative}.
 
 The way the iterative ray tracer works is sub-optimal as it uses it's own
-procedure in python which in general will work slowly and less accurate than an
+procedure in python which in general will work slower and less accurate than an
 optimization library. Work had been done on trying to implement an algorithm
 using optimization libraries deemed the "minimizer", but this attempt failed as
 there was no reliable way to determine initial launch angle intervals over
 which to minimize.  As we saw this work the idea came to mind to combine the
-iterative ray tracer and the code used in this minimizer. This way we
+iterative ray tracer and the code used in this minimizer. Inspired, we
 built the algorithm which will be discussed in this chapter: The \textit{hybrid ray
 tracer}, in the source code called the "hybrid minimizer" which can be found
 \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the
 radiopropa/hybrid\_minimizer branch.
 
 The hybrid ray tracer succeeds in more rapidly finding the path from the event
-to the detector than the iterative ray tracer, is more accurate and also
+to the detector than the iterative ray tracer, is also more accurate and
 arrives closer to the detector as the final result is not limited by the final
 drawn sphere size but by a given tolerance making it useful for simulations in
 which high time and space precision is needed like plane wave reconstruction,
@@ -34,60 +34,14 @@ which we'll do in chapter \ref{chap:WB}.
 
 \section{How the hybrid ray tracer works}
 The hybrid minimizer can be seen as an extension of the iterative ray tracer as
-it starts out the same way: Say our source of radiation is at position
-$\mathbf{X}_1$ and our detector is located at position $\mathbf{X}_2$, we start
-by defining the vector $\mathbf{v} = \mathbf{X}_2 - \mathbf{X}_1$, then we
-clone it as a new vector $\mathbf{u}$ and set it's z coordinate to 0, making it a normal
-vector of a plane parallel to the z direction in the lateral direction of the detector. 
-We now want to constrain the search to where solutions are actually possible. 
-Looking at figure \ref{fig:PathIllu}
-we see that no solutions below the direct path are possible as there would need
-to be upwards reflection, so we convert our vector $\mathbf{v}$ representing
-the path from the source to the detector to spherical coordinates, giving us a
-polar angle (zenith angle) "theta-direct". With this we know that from the source
-the ray should propagate with an initial zenith angle lying within the angle interval
-0° to theta-direct° $:= \Omega$ ($\theta \in ]0,\Omega]$).
+it starts out the same way, so to understand the first step I refer to section 
+\ref{sec:Iterative}. Only the leftmost step of the three steps shown in figure
+\ref{fig:IterativeWorkings} is completed, after this step two distinct launch regions
+have been found.
 
-Next we need to define our "observers", if you shoot a ray with the radiopropa
-module from a certain point at a certain angle the ray path will get simulated
-until it interacts with this "observer".  Ideally we would like to a priori
-know where to shoot our ray and have the detector be an infinitesimally small
-observer in our simulation, but as we'll be working with general ice models
-this can't be done.
-
-The algorithm of finding the possible paths is then as follows: We define a
-spherical observer at the location of the detector, with a radius of fair
-size\footnote{We'll get back to how this "fair size" gets chosen}.  We place an observer plane directly
-behind the detector with normal vector $\mathbf{u}$ (as no rays can propagate
-back after passing the detector) and an observer above the surface (as no rays
-could make it back after escaping the ice) our full setup is then what's
-illustrated in figure \ref{fig:Illustration of hybrid algorithm}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{algoillu.pdf}
-  \caption{Illustration of the workings of the hybrid algorithm}
-  \label{fig:Illustration of hybrid algorithm}
-\end{figure}
-
-Here the red cross is the radio source, the blue horizontal line is the ice-air
-boundary surface, the blue dot to the right is the detector and the green
-$\Omega$ indicates the range over which solutions to the problem are possible.
-
-We start off by just iteratively guessing: given a certain angle step size
-$\Delta \theta$ shoot rays at the angles $\{0,\Delta \theta, 2\Delta
-\theta,...,\Omega\}$ And see which ones get detected at the sphere around the
-detector, this process is illustrated in figure \ref{figure:First step hybrid}.
-\begin{figure}
-	\centering
-	\copyrightbox[r]{\includegraphics[width=0.5\textwidth]{begin_explanation.png}}{\textcopyright Effects of firn ice models on radio neutrino simulations using a RadioPropa ray tracer by B. Oeyen et. al}
-	\caption{Iterative searches to find where the ray tracer ends up at the sphere, shown in green}
-	\label{figure:First step hybrid}
-\end{figure}
-
-If 2 distinct launch regions are found, say in the regions
-$[\theta_1,\theta_2]$ and $[\theta_3,\theta_4]$ the rays end up on the sphere
-(drawn in green), then the so called \textit{minimization} procedure will
+After 2 distinct launch regions have been found, say in the regions
+$[\theta_1,\theta_2]$ and $[\theta_3,\theta_4]$, 
+then the so called \textit{minimization} procedure will
 start. Using scipy's module optimize.minimize the optimal solution will be
 found by using the Nelder-Mead method\cite{10.1093/comjnl/7.4.308}. First we
 get rid of the spherical observer and place the vertical observer at the
@@ -99,7 +53,7 @@ detector, as illustrated on figure \ref{fig:PrincipleHybridIllu} (i.e it
 returns the value $\Delta z$).
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{PrincipleHybridIllu.pdf}
+  \includegraphics[width=0.7\textwidth]{PrincipleHybridIllu.pdf}
   \caption{The scipy algorithm shoots rays in a direction within the blue cone angle intervals and minimizes the $\Delta z$ that gets returned}
   \label{fig:PrincipleHybridIllu}
 \end{figure}
@@ -118,7 +72,7 @@ regions.  Namely it reverts back to being the iterative ray tracer.
 We wish to optimize this algorithm to make
 it as fast as possible.  To consistently test the algorithm after every
 particular change in a parameter we'll be randomly generating vertex
-interaction positions, keeping the detector at the fixed (0,-100) value.  To
+interaction positions, keeping the detector at the fixed location of (0,0,-100).  To
 this end the numpy random module was used to generate random coordinates, the
 considered square (as there is only a z component to the ice model, the 3D
 problem has cylindrical symmetry and thus essentially only a 2D problem) is
@@ -142,9 +96,9 @@ algorithm by how much it differs from the solution found through the analytic ra
 \subsection{Length of the normal vector}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/PrincipleNormIllu.pdf}
+	\includegraphics[width=0.6\textwidth]{figures/PrincipleNormIllu.pdf}
 	\caption{the steps taken are illustrated with the dots, the spacing reduces close to the detector. changing
-	the normal vector changes the spacing}
+	the normal vector changes the spacing and thus the accuracy.}
 	\label{fig:normexpl}
 \end{figure}
 Whilst figuring out what was wrong with the initial \textit{minimizer} we
@@ -154,8 +108,8 @@ influence how big radiopropa's ray tracer's step size is taken close to the
 detector.  This thus influences the accuracy and total computational time
 taken. The results of varying the length of this normal vector, comparing the
 accuracy (in timing and arrival zenith) with the analytic ray tracer and the computational time with the
-iterative ray tracer, are shown in figures \ref{fig:norminfl} and
-\ref{fig:norminfl2}.  Looking at these figures we can make, what would
+iterative ray tracer, are shown in figure \ref{fig:norminfl}.  
+Looking at these figures we can make, what would
 normally be rather obvious but is interesting nonetheless, a first optimization
 conclusion: take the normal vector length to be 1 unit in radiopropa.
 We can conclude this as the calculation speed seems to be minimal there (after zooming
@@ -164,24 +118,16 @@ in on the graph) and the accuracy dropping rapidly after 1 meter.
 \begin{figure}
 	\centering
 	\begin{minipage}{\textwidth}
-		\includegraphics[width=0.8\textwidth]{figures/NormVsTime.pdf}
+		\includegraphics[width=0.9\textwidth]{figures/NormVsTime.pdf}
 	\end{minipage}
 	\begin{minipage}{\textwidth}
-		\includegraphics[width=0.8\textwidth]{figures/NormVsSigmaTime.pdf}
+		\includegraphics[width=0.9\textwidth]{figures/NormVsSigmaTime.pdf}
+	\end{minipage}
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=0.9\textwidth]{figures/NormVsSigmaAZ.pdf}
 	\end{minipage}
 \caption{The speed lowers with larger normal vector length but the accuracy on timing gets worse after a length of 1}
 \label{fig:norminfl}
-\end{figure}
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\includegraphics[width=0.8\textwidth]{figures/NormVsTime.pdf}
-	\end{minipage}
-	\begin{minipage}{\textwidth}
-		\includegraphics[width=0.8\textwidth]{figures/NormVsSigmaAZ.pdf}
-	\end{minipage}
-\caption{The speed lowers with larger normal vector length but accuracy stays roughly the same after 0.1}
-\label{fig:norminfl2}
 \end{figure}
 
 \subsection{ztol}
