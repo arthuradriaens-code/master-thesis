@@ -3,24 +3,34 @@
 %----------------------------------------------------------------------------------------
 %	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
-An algorithm was developed to work out the path the rays would trace out in
-more complex ice models called the \textit{iterative ray tracer}
-\cite{2022icrc.confE1027O}, which was discussed in section \ref{sec:Iterative}.
-The way this algorithm works is however a sub-optimal solution in python as an
-optimization library will generally work faster and more accurate, work had
-been done on trying to implement such an algorithm deemed the "minimizer" but
-this attempt failed.  As we saw this work the idea came to mind to combine the
-iterative ray tracer and the code using the optimization libraries. This way we
-built the algorithm which will be discussed in this chapter: The hybrid ray
-tracer, in the source code called the "hybrid minimizer" which can be found
+Radio waves get simulated within the NuRadioMC framework via geometrical
+optics, also known as ray tracing and layed out in section \ref{sec:WaveProp}.
+The ray tracing algorithm that's being used is radiopropa and is dependent on
+the ice model. To simulate a path using radiopropa you need a start position 
+and a launch angle, if you only have the initial and final position you'll need
+a wrapper algorithm for determining the launch angle.  
+A wrapper algorithm that works with complex ice models was developed previously
+called the \textit{iterative ray tracer}\cite{2022icrc.confE1027O}, and was
+discussed in section \ref{sec:Iterative}.
+
+The way the iterative ray tracer works is sub-optimal as it uses it's own
+procedure in python which in general will work slowly and less accurate than an
+optimization library. Work had been done on trying to implement an algorithm
+using optimization libraries deemed the "minimizer", but this attempt failed as
+there was no reliable way to determine initial launch angle intervals over
+which to minimize.  As we saw this work the idea came to mind to combine the
+iterative ray tracer and the code used in this minimizer. This way we
+built the algorithm which will be discussed in this chapter: The \textit{hybrid ray
+tracer}, in the source code called the "hybrid minimizer" which can be found
 \href{https://github.com/arthuradriaens-code/NuRadioMC.git}{here} under the
 radiopropa/hybrid\_minimizer branch.
 
-It succeeds in more rapidly finding the path from the event to the detector, is
-more accurate and also arrives closer to the detector as the final result is
-not limited by the final drawn sphere size but by a given tolerance making it
-useful for simulations in which high time and space precision is needed like
-plane wave reconstruction, which we'll do in the next chapter.
+The hybrid ray tracer succeeds in more rapidly finding the path from the event
+to the detector than the iterative ray tracer, is more accurate and also
+arrives closer to the detector as the final result is not limited by the final
+drawn sphere size but by a given tolerance making it useful for simulations in
+which high time and space precision is needed like plane wave reconstruction,
+which we'll do in chapter \ref{chap:WB}.
 
 \section{How the hybrid ray tracer works}
 The hybrid minimizer can be seen as an extension of the iterative ray tracer as
