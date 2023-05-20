@@ -2,6 +2,7 @@
 \label{chap:WB}
 In this chapter we'll infer optical information about the ice the detectors reside in
 using radio signals coming from a weather balloon flying over the stations. 
+
 Every day in the summer, 2 times a day, a weather balloon gets launched
 from base camp at Summit in Greenland. This weather balloon has an antenna
 strapped to it constantly emitting a sinusoidal signal of 0.403GHz.
@@ -9,13 +10,14 @@ strapped to it constantly emitting a sinusoidal signal of 0.403GHz.
 We can use this signal to find the index of refraction locally at the phased
 array.  We'll go about this by first finding the difference in timing between
 channels by fitting the balloon's sinusoidal signal to the data, and then doing
-a plane wave reconstruction, minimizing the angle the reconstruction makes with
-the balloon, with that finding the local index of refraction.  This procedure will
+a plane wave reconstruction, using the balloon angle in the reconstruction, 
+with that finding the local index of refraction.  This procedure will
 be explained more in depth over the following sections.
 
 Prior to the measurements we'll need to be able to predict how accurate our
 findings will be, for this we'll need to run a simulation with the hybrid ray
-tracer.  There is one change that needs to happen first to our algorithm for us
+tracer (explained in chapter \ref{chapter:hybrid}).  
+There is one change that needs to happen first to our algorithm for us
 to be able to simulate this: The air observer has to be removed as to make a
 ray tracing possible from within the air into the ice and onto the detector.
 The modified version of the hybrid ray tracer can be found
