@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="79.579445mm"
+   height="86.329193mm"
+   viewBox="0 0 79.579445 86.329193"
    version="1.1"
    id="svg5"
    sodipodi:docname="planewave.svg"
@@ -37,37 +37,59 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
-     id="defs2" />
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1"
+       markerWidth="4.0606599"
+       markerHeight="6.7071061"
+       viewBox="0 0 4.0606602 6.7071068"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         id="path5057"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc" />
+    </marker>
+  </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-41.133325,-14.20187)">
     <path
        style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.3"
        d="m 64.137468,28.092135 0.116676,66.792749"
        id="path1114" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="M 64.140368,43.100221 116.8259,11.855614"
+       d="M 64.216788,45.575495 116.90232,14.330888"
        id="path1226" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="M 64.286386,91.108726 116.97192,59.86412"
+       d="M 64.342037,93.425377 117.02757,62.180771"
        id="path1226-5-3" />
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.3"
+       style="fill:none;fill-opacity:1;stroke:#b3b3b3;stroke-width:0.3"
        id="rect954"
        width="16.065683"
        height="14.198812"
-       x="56.156776"
+       x="56.290539"
        y="38.374908" />
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.3"
+       style="fill:none;fill-opacity:1;stroke:#b3b3b3;stroke-width:0.3"
        id="rect954-7"
        width="16.065683"
        height="14.198812"
-       x="55.931973"
-       y="86.46196" />
+       x="56.310177"
+       y="86.182251" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
        d="M 64.370466,70.169209 117.056,38.924602"
@@ -78,53 +100,53 @@
        id="path1272" />
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="m 64.614842,82.17752 c 8.047124,-1.995691 7.320285,4.835083 7.320285,4.835083"
+       d="m 64.259909,84.200168 c 8.047124,-1.995691 7.320285,4.835083 7.320285,4.835083"
        id="path1272-2" />
     <text
        xml:space="preserve"
-       style="font-size:3.175px;font-family:C059;-inkscape-font-specification:C059;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3;opacity:1;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
-       x="69.883263"
-       y="60.205139"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:C059;-inkscape-font-specification:C059;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3"
+       x="68.16452"
+       y="60.394081"
        id="text1328"><tspan
          sodipodi:role="line"
          id="tspan1326"
-         style="stroke-width:0.3;-inkscape-font-specification:C059;font-family:C059;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.175px;fill:#000000;stroke:none"
-         x="69.883263"
-         y="60.205139">θ</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:C059;-inkscape-font-specification:C059;fill:#000000;stroke:none;stroke-width:0.3"
+         x="68.16452"
+         y="60.394081">θ</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:C059;-inkscape-font-specification:C059;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3"
-       x="70.350426"
-       y="80.92923"
+       x="69.590813"
+       y="82.860115"
        id="text1328-3"><tspan
          sodipodi:role="line"
          id="tspan1326-7"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:C059;-inkscape-font-specification:C059;fill:#000000;stroke:none;stroke-width:0.3"
-         x="70.350426"
-         y="80.92923">θ</tspan></text>
+         x="69.590813"
+         y="82.860115">θ</tspan></text>
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.321531"
-       d="m 64.325772,33.102287 c 9.248046,-1.994748 8.412735,4.832796 8.412735,4.832796"
+       d="m 64.325772,35.54347 c 9.248046,-1.994748 8.412735,4.832796 8.412735,4.832796"
        id="path1272-2-1" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.40287px;font-family:C059;-inkscape-font-specification:C059;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.321531"
-       x="64.746552"
-       y="34.421055"
+       x="65.083153"
+       y="36.626404"
        id="text1328-3-2"
        transform="scale(1.0722778,0.93259415)"><tspan
          sodipodi:role="line"
          id="tspan1326-7-9"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.40287px;font-family:C059;-inkscape-font-specification:C059;fill:#000000;stroke:none;stroke-width:0.321531"
-         x="64.746552"
-         y="34.421055">θ</tspan></text>
+         x="65.083153"
+         y="36.626404">θ</tspan></text>
     <path
        style="opacity:1;fill:#0000ff;fill-opacity:1;stroke:#0000ff;stroke-width:0.3"
        d="M 79.347222,28.785144 105.14854,76.834159"
        id="path1488" />
     <path
        style="fill:#0000ff;fill-opacity:1;stroke:#0000ff;stroke-width:0.3"
-       d="M 60.726095,37.86931 86.527412,85.918325"
+       d="M 60.251829,38.210131 86.053146,86.259146"
        id="path1488-2" />
     <path
        style="fill:#0000ff;fill-opacity:1;stroke:#0000ff;stroke-width:0.3"
@@ -146,25 +168,13 @@
          x="74.322083"
          y="93.131149">Δt'</tspan></text>
     <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.3"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.3;marker-start:url(#Arrow1)"
        d="m 67.407165,97.769131 6.37817,-4.894149"
        id="path1812" />
     <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.3"
-       d="m 78.109806,90.58059 7.237558,-4.90828"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.3;marker-end:url(#Arrow1)"
+       d="m 77.907827,90.592349 7.237558,-4.90828"
        id="path1868" />
-    <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.3"
-       d="m 67.614246,96.726279 -0.187523,1.133485"
-       id="path1870" />
-    <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.3"
-       d="M 68.120558,98.188498 67.466622,97.814343"
-       id="path1872" />
-    <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="m 84.41424,85.66342 0.851617,0.07642 -0.145704,0.900895"
-       id="path1874" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:C059;-inkscape-font-specification:C059;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3"
@@ -177,29 +187,13 @@
          x="58.558571"
          y="68.659134">Δz</tspan></text>
     <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="M 60.226418,65.70523 60.596734,45.323601"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.297644;marker-end:url(#Arrow1)"
+       d="M 60.226325,65.705106 60.596827,45.652447"
        id="path1932" />
     <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="m 60.236658,69.937955 0.303463,24.208872"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.294424;marker-end:url(#Arrow1)"
+       d="m 60.236492,69.938208 0.303795,23.291748"
        id="path1934" />
-    <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="m 59.613974,93.125577 0.783929,1.089978"
-       id="path1936" />
-    <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="m 61.316681,93.020802 -0.841039,1.327195"
-       id="path1938" />
-    <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="m 59.760408,46.350541 0.794731,-0.888632"
-       id="path1940" />
-    <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="M 61.297441,46.241504 60.622555,45.375478"
-       id="path1942" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:C059;-inkscape-font-specification:C059;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3"
@@ -212,28 +206,26 @@
          x="52.145569"
          y="68.739693">Δt</tspan></text>
     <path
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="M 53.813415,65.78579 54.183731,45.404161"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.2988;marker-end:url(#Arrow1)"
+       d="M 53.813367,65.785727 54.183779,45.571965"
        id="path1932-2" />
     <path
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="m 53.823655,70.018515 0.303463,24.208872"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.29487;marker-end:url(#Arrow1)"
+       d="m 53.823502,70.018748 0.303769,23.36441"
        id="path1934-8" />
-    <path
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="M 53.200971,93.206137 53.9849,94.296115"
-       id="path1936-9" />
-    <path
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="m 54.903678,93.101362 -0.841039,1.327195"
-       id="path1938-7" />
-    <path
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="m 53.347405,46.431101 0.794731,-0.888632"
-       id="path1940-3" />
-    <path
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3"
-       d="M 54.884438,46.322064 54.209552,45.456038"
-       id="path1942-6" />
+    <ellipse
+       style="fill:#b3b3b3;stroke:none;stroke-width:0.456142"
+       id="path1556"
+       cx="64.233368"
+       cy="45.462883"
+       rx="0.61774343"
+       ry="0.58408636" />
+    <ellipse
+       style="fill:#b3b3b3;stroke:none;stroke-width:0.456142"
+       id="path1556-3"
+       cx="64.317551"
+       cy="93.354286"
+       rx="0.61774343"
+       ry="0.58408636" />
   </g>
 </svg>
