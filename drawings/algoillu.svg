@@ -27,13 +27,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.587745"
-     inkscape:cx="387.98259"
-     inkscape:cy="377.35557"
+     inkscape:zoom="1.2938725"
+     inkscape:cx="469.52076"
+     inkscape:cy="369.04718"
      inkscape:window-width="2536"
-     inkscape:window-height="1416"
+     inkscape:window-height="1380"
      inkscape:window-x="12"
-     inkscape:window-y="12"
+     inkscape:window-y="48"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -154,8 +154,8 @@
        rx="1.4777583"
        ry="1.5303929" />
     <path
-       style="fill:#0000ff;stroke:#000000;stroke-width:0.264583"
-       d="m 161.41659,89.788226 0.15679,48.731734"
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.263441"
+       d="m 161.41658,90.215734 0.15681,48.304196"
        id="path335" />
     <path
        style="fill:#0000ff;stroke:#000000;stroke-width:0.264583"
@@ -244,6 +244,9 @@
        d="m 42.541967,137.73118 c 4.919849,-0.96051 9.839494,-1.92097 14.758932,-2.8814"
        id="path1443"
        inkscape:path-effect="#path-effect1445"
-       inkscape:original-d="m 42.541967,137.73118 c 4.919909,-0.9602 9.839553,-1.92067 14.758932,-2.8814" />
+       inkscape:original-d="m 42.541967,137.73118 c 4.919909,-0.9602 9.839553,-1.92067 14.758932,-2.8814"
+       inkscape:export-filename="../figures/algoillu.pdf"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>

@@ -4,7 +4,7 @@
 %	HYBRID RAY TRACER	
 %----------------------------------------------------------------------------------------
 Radio waves get simulated within the NuRadioMC framework via geometrical
-optics, also known as ray tracing which we layed out in section \ref{sec:WaveProp}.
+optics, also known as ray tracing which we explained in section \ref{sec:WaveProp}.
 The ray tracing algorithm that's being used is radiopropa and is dependent on
 the ice model. To simulate a path using radiopropa you need a start position 
 and a launch angle, if you only have the initial and final position you'll need
@@ -52,7 +52,7 @@ returns the value $\Delta z$).
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{PrincipleHybridIllu.pdf}
-  \caption{The scipy algorithm shoots rays in a direction within the blue cone angle intervals and minimizes the $\Delta z$ that gets returned}
+  \caption{The algorithm shoots rays in a direction within the blue cone angle intervals and minimizes the $\Delta z$ that gets returned}
   \label{fig:PrincipleHybridIllu}
 \end{figure}
 The function we'll minimize is then delta\_z\_squared which just squares the
@@ -95,7 +95,7 @@ algorithm by how much it differs from the solution found through the analytic ra
 \begin{figure}
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/PrincipleNormIllu.pdf}
-	\caption{the steps taken are illustrated with the dots, the spacing reduces close to the detector. changing
+	\caption{the steps taken are illustrated with the dots, the spacing reduces close to the detector. Changing
 	the normal vector changes the spacing and thus the accuracy.}
 	\label{fig:normexpl}
 \end{figure}
@@ -127,7 +127,7 @@ us roughly into the right ballpark.
 	\begin{minipage}{\textwidth}
 		\includegraphics[width=0.9\textwidth]{figures/NormVsSigmaAZ.pdf}
 	\end{minipage}
-\caption{The speed first lowers with larger normal vector lenght, reaching a minimum near 1 but the accuracy on timing gets worse after a length of 1. We thus
+\caption{The speed first lowers with larger normal vector length, reaching a minimum near 1 but the accuracy on timing gets worse after a length of 1. We thus
 conclude to take a normal vector length of 1.}
 \label{fig:norminfl}
 \end{figure}
@@ -178,7 +178,7 @@ particular random interaction vertex location, less solutions are found by the
 hybrid ray tracer than for the iterative ray tracer, this parameter choice will
 be thrown away (and colored differently).  The results are shown in figure
 \ref{fig:SphereStepInfl}, the points colored red are unusable following the previously
-discussed criterium of sufficient solutions.
+discussed criterion of sufficient solutions.
 
 The lower on the graph the points lie, the better. If we combine all the green points into a single plot
 we get what is shown on figure \ref{fig:SphereStepFinal},
