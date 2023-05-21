@@ -67,7 +67,7 @@ makes with the pair of channels ($\theta\approx\theta_b$).
 At the actual index of refraction we thus expect the following function to show a 
 minimum (go to zero):
 \begin{equation}
-	\eta(\theta,n) := (\Delta t - \Delta t') = \left(\Delta t
+	\eta(n) :=  (\Delta t - \Delta t'(\theta_b,n)) = \left(\Delta t
 	- n\frac{\cos\theta_b \Delta z}{c}\right)
   	\label{eqn:eta}
 \end{equation}
@@ -118,14 +118,14 @@ Note here the function $\delta$ denotes the absolute error, let's define the fun
 \begin{align}
   \delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(RE\left(\sum_{i<j}\Delta t_{ij}\right) + RE\left(\sum_{i<j} \Delta z_{ij}\right)\right)\\
 \delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(\frac{\sum_{i<j}\delta t_{ij}}{\sum_{i<j}\Delta t_{ij}} + \frac{\sum_{i<j}\delta z_{ij}}{\sum_{i<j}\Delta z_{ij}}\right)\\
-\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(\frac{\sum_{i<j}\delta t_{ij}}{\sum_{i<j}\Delta t_{ij}} + \frac{\sum_{i<j}0.02m}{\sum_{i<j}\Delta z_{ij}}\right) \delequal E_1\\
+\delta\left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \left(\frac{\sum_{i<j}\Delta t_{ij}}{\sum_{i<j} \Delta z_{ij}}\right)\times\left(\frac{\sum_{i<j}\delta t_{ij}}{\sum_{i<j}\Delta t_{ij}} + \frac{\sum_{i<j}0.02m}{\sum_{i<j}\Delta z_{ij}}\right) =: E_1\\
 \end{align}
 And now the second term:
 \begin{align}
   \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right)\times RE\left(\sum_{i<j}\Delta z_{ij}\right) \\
   \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &= \left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right)\times \frac{\delta\left(\sum_{i<j}\Delta z_{ij}\right)}{\sum_{i<j}\Delta z_{ij}} \\
   \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &= \frac{\sum_{i<j}\delta z_{ij}}{\left(\sum_{i<j}\Delta z_{ij}\right)^2} \\
-  \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \frac{\sum_{i<j}0.02m}{\left(\sum_{i<j}\Delta z_{ij}\right)^2} \delequal E_2\\
+  \delta\left(\frac{1}{\sum_{i<j} \Delta z_{ij}}\right) &\approx \frac{\sum_{i<j}0.02m}{\left(\sum_{i<j}\Delta z_{ij}\right)^2} =: E_2\\
 \end{align}
 So, finally:
 \begin{align}
@@ -381,7 +381,7 @@ amounts to evaluating\cite{Bracewell1966TheFT}:
 \begin{equation}
   (f\star g)(\tau) \delequal \int_{-\infty}^\infty f(t)g(t+\tau)dt
 \end{equation}
-With f(t) the recorded signal and g(t) the sine wave template.
+With f(t) the recorded signal and g(t) the sine wave template\footnote{$\delequal$ means "equal by definition"}.
 
 \begin{figure}
 	\centering
