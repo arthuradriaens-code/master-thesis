@@ -3,7 +3,7 @@
 As mentioned in the previous chapter, we want to simulate the signal a neutrino event
 would produce in the detector. The neutrino event generates radiowaves that end
 up at our detector, but as the ice has a continuously varying density, these radiowave
-paths needs to be computed.
+paths need to be computed.
 
 In this chapter we'll go more in-depth as to how the radio wave paths get
 simulated in ice within the NuRadioMC framework.
@@ -16,7 +16,7 @@ simulated in ice within the NuRadioMC framework.
 	\caption{Simulated radio wave paths from a source to a detector, these always come in a pair 
 	if it's an in-ice source due to the density gradient of the ice and the reflective ice-air boundary.}
 \end{figure}
-There are a multitude of photons coming from our event but only the ones
+There is a multitude of photons coming from our event but only the ones
 in line with the cherenkov cone are strong enough to be detectable.
 We thus only need to concern ourselves with simulating those.
 
@@ -27,10 +27,10 @@ an illustration of the final result of ray tracing is shown in figure \ref{fig:P
 The amount of solutions (i.e how many radio wave paths exist between our source and the detector)
 and how the waves are bent are consequences of the
 properties of the ice we work in.  In a dielectric medium a ray propagates with
-it's signal wave-speed determined by the local index of refraction as $v =
+its signal wave-speed determined by the local index of refraction as $v =
 c/n$. But the effect on speed isn't the only property the index of refraction has
 which we'll need to concern ourselves with, another one is the breaking of the path,
-but to understand that effect in continous media we'll first need to talk about Snell's law. 
+but to understand that effect in continuous media we'll first need to talk about Snell's law. 
 
 If a ray propagates towards a boundary dividing 2 media with different indexes
 of refraction, the ray will refract and the refracted angle can be found from
@@ -48,7 +48,7 @@ How do we know how the waves propagate in such a medium?  The software we'll be
 using to simulate how the radio waves behave is called \textit{Radiopropa}
 \cite{Winchen_2019}. As simulations of the wave propagation in full detail with
 the finite-differences-time-domain (FDTD) technique \cite{1138693} (solving
-maxwells equations on a grid) are, even though they are more accurate, too time
+maxwells equations on a grid) are, even though they are more accurate, quite time
 consuming. The authors of radiopropa opted to build their program on
 geometrical optics, i.e ray tracing. A path of a ray $\mathbf{r}(s)$ with path
 parameter s in a medium with index of refraction n($\mathbf{r}$) is described
@@ -58,23 +58,23 @@ by the eikonal equation\cite{herman2019treatise}:
 \end{equation}
 in radiopropa the local paraxial approximation (small angle approximation) is
 used, i.e if we assume that in any individual step of the algorithm the change
-of the refractive index along the path $ds$ is small it's possible to re-write
+of the refractive index along the path $ds$ is small it's possible to rewrite
 the equation as:
 \begin{equation}
 	n(\mathbf{r})\frac{d^2\mathbf{r}}{ds^2} \approx \mathbf{\nabla} n
 	\label{eqn:radiopropaformula}
 \end{equation}
 Which is then numerically solved using the Cash–Karp method.  The way you would
-go about using this program is thus: give in a starting point (e.g a supposed
-neutrino interaction point) and "shoot" your ray in a
-certain direction, radiopropa will then compute the path the ray takes. 
+go about using this program is thus: given a starting point (e.g a supposed
+neutrino interaction point), "shoot" your ray in a
+certain direction. Radiopropa will then compute the path the ray takes. 
 If you chose your direction right, this ray will at some point cross an
 "end point" you gave it (e.g the location of the detector) at which point it will
 stop simulating. Meaning that you now have computed the path from a start point in ice
 to an end point.
 
 The difficulty in this matter is choosing the direction right so the ray
-crosses paths with the end point, for this an algorithm is needed which we'll
+crosses paths with the end point, for this a wrapper algorithm is needed which we'll
 get to later.  If there are boundaries (such as in-ice defects or the ice-air surface) these
 are treated separately within radiopropa using Snell's law. 
 \section{Ice model}
@@ -86,7 +86,7 @@ density-depth relation.
 
 Due to the way the ice bonds there will be more air trapped in between the
 molecules closer to the surface than at greater depths where the pressure due
-to the overhead ice prevents this.  Due to this air being trapped the density
+to the overhead ice prevents this.  Due to this air being trapped, the density
 of ice will be smaller closer to the surface than at greater depth.  The region
 where this air occurs in the ice is called the firn\cite{Firn} as to
 distinguish it from glacial ice which is ice at large depths with nearly no air
@@ -135,7 +135,7 @@ constant on density for ice can approximately be given by\cite{Robin}:
 \end{equation} 
 Here $\rho$ is called the \textit{specific gravity} as to make the equation
 dimensionally correct, this is the same as the density in g/cm$^3$ but stripped
-off it's units.  As the dielectric constant is the square of the index of
+off its units.  As the dielectric constant is the square of the index of
 refraction we can find an approximate index-density relation:
 \begin{equation} 
 	n(z) \approx 1 + 0.775\frac{\rho(z)}{\rho_0} \approx 1 + 0.78\frac{\rho(z)}{\rho_0} \label{eqn:Schytt}
@@ -165,7 +165,7 @@ phased array is located.  This discrepancy could imply that the analytic ray tra
 make slightly wrong predictions.  This is why the development of a different
 ray tracer was needed which will be able to handle more complex ice models. One
 such ray tracer, called the iterative ray tracer, will be explained in section \ref{sec:Iterative} but this ray
-tracer has it's shortcomings. That's why we found that the development of a new ray tracer
+tracer has its shortcomings. That's why we found that the development of a new ray tracer
 was needed which is the partial work of this thesis and we'll get to that ray
 tracer in chapter \ref{chapter:hybrid}.
 
@@ -181,13 +181,13 @@ tracer in chapter \ref{chapter:hybrid}.
 There is also another effect worth mentioning that the exponential model
 doesn't account for which might become important in the future: birefringence.
 Up until now we have implicitly assumed that ice is isotropic meaning that both
-it's permittivity $\varepsilon$ and it's permeability $\mu$ are scalars but
+its permittivity $\varepsilon$ and its permeability $\mu$ are scalars but
 these could very well be tensorial in nature for radio waves in ice. In
 general, after calculating this tensorial nature through you'd find that in
 every direction two different indices of refraction can be found implying two
 different types of waves each propagating with a different speed as illustrated
-in figure \ref{fig:Fresnel}.  Which of the two speeds in a certain direction is
-then dependent on the polarization of the wave, which in our case thus depends
+in figure \ref{fig:Fresnel}.  Of these two possible speeds in a direction, which the waves actually
+follows is then dependent on the polarization of the wave, which in our case thus depends
 on the Askaryan effect (see section \ref{sec:Askaryan}).  This optical property
 coming from the anisotropic nature of the material is what's called
 \textit{birefringence}.  Birefringence has been researched for it's
@@ -197,12 +197,12 @@ implementation into the simulation software NuRadioMC\cite{Heyer2023}.
 \label{sec:Iterative}
 To work with more complex index-depth relations there's a need for a
 new algorithm which is able to find the angle with which radiopropa should
-shoot it's ray if given the neutrino interaction and detector location.
+shoot its ray if given the neutrino interaction and detector location.
 
 To this end the iterative ray tracer \cite{2022icrc.confE1027O} was developed.
-As can be derived from it's name, it iteratively searches the path a ray might
+As can be derived from its name, it iteratively searches the path a ray might
 take. We'll now explain the workings of the first part of the algorithm, a handy
-accompanying illustrated is given in figure \ref{fig:Illustration of iterative algorithm}.
+accompanying illustration is given in figure \ref{fig:Illustration of iterative algorithm}.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{algoillu.pdf}
