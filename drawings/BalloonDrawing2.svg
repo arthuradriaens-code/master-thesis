@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="2.8144036"
-     inkscape:cx="305.74861"
-     inkscape:cy="157.22692"
+     inkscape:cx="369.70533"
+     inkscape:cy="157.93755"
      inkscape:window-width="2536"
      inkscape:window-height="1380"
      inkscape:window-x="12"
@@ -65,14 +65,6 @@
        height="2.6173706"
        x="41.841396"
        y="151.81541" />
-    <path
-       style="fill:none;stroke:#ff6600;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
-       d="m 104.07646,90.68717 -47.130506,28.9139 c 0,0 -11.792667,5.11852 -14.089002,11.91445"
-       id="path1649" />
-    <path
-       style="fill:none;stroke:#ff6600;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
-       d="M 104.02811,90.691797 65.670309,119.61966 c 0,0 -19.676461,16.4228 -22.516652,33.59363"
-       id="path1759" />
     <path
        style="fill:none;stroke:#0000ff;stroke-width:0.158206;stroke-dasharray:none;stroke-dashoffset:0"
        d="m 42.877706,129.99569 0.0222,-10.26343"
@@ -162,6 +154,17 @@
        id="path13694"
        style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.339404;stroke-linecap:square;paint-order:fill markers stroke"
        d="m 97.2887,79.556665 a 2.1410953,2.1883841 0 0 0 -2.14106,2.188353 2.1410953,2.1883841 0 0 0 0.0146,0.242232 c -0.8075,0.148199 -1.41332,0.814798 -1.41332,1.619622 0,0.914363 0.78194,1.650476 1.75322,1.650476 h 2.48521 0.13598 3.63467 c 0.89461,0 1.61482,-0.684245 1.61482,-1.534149 0,-0.844592 -0.71133,-1.525206 -1.59815,-1.533694 a 1.8541443,1.8950954 0 0 0 -1.839369,-1.656829 1.8541443,1.8950954 0 0 0 -0.764241,0.169746 2.1410953,2.1883841 0 0 0 -1.88235,-1.145757 z"
+       inkscape:export-filename="../figures/BalloonDrawing.pdf"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
+       d="M 104.02811,90.691797 65.670309,119.61966 c 0,0 -19.676461,16.4228 -22.516652,33.59363"
+       id="path1759" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:0.156;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 104.07646,90.68717 -47.130506,28.9139 c 0,0 -11.792667,5.11852 -14.089002,11.91445"
+       id="path1649"
        inkscape:export-filename="../figures/BalloonDrawing.pdf"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
