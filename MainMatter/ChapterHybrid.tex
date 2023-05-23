@@ -16,7 +16,7 @@ discussed in section \ref{sec:Iterative}.
 The way the iterative ray tracer works is sub-optimal as it uses its own
 procedure in python which in general will work slower and less accurate than an
 optimization library. Work had been done on trying to implement an algorithm
-using optimization libraries deemed the "minimizer", but this attempt failed as
+using optimization libraries called the "minimizer", but this attempt failed as
 there was no reliable way to determine initial launch angle intervals over
 which to minimize.  As we saw this work, the idea came to mind to combine the
 iterative ray tracer and the code used in this minimizer. Inspired, we
@@ -32,7 +32,7 @@ which we'll do in chapter \ref{chap:WB}.
 
 \section{How the hybrid ray tracer works}
 The hybrid minimizer can be seen as an extension of the iterative ray tracer as
-it starts out the same way, so to understand the first step I refer to section 
+it starts out in the same way, so to understand the first step we refer to section 
 \ref{sec:Iterative}. Only the leftmost step of the three steps shown in figure
 \ref{fig:IterativeWorkings} is completed, after this step two distinct launch regions
 have been found.
