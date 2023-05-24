@@ -110,21 +110,24 @@ $\rho_i$ the density of pure ice, this yields:
 \begin{equation}
 	\frac{d\rho}{\rho_i - \rho} \propto \rho dz
 \end{equation}
-Which can be solved to give
+Which can be solved to give the sigmoid-like function
 \begin{equation}
 	\rho = \frac{A\rho_i e^{z/z_0}}{1 + Ae^{z/z_0}}
 \end{equation}
-The following function was also empirically fitted:
+The following function was also suggested \cite{Valte-1954}:
 \begin{equation}
 	\label{eqn:myderiexp}
 	\rho = \rho_0 e^{z/z_0} + B
 \end{equation}
 Figure \ref{fig:DensityMeasurements} shows how both of these functions fit the
-density-depth data\cite{alley_koci_1988}\cite{hawley_morris_mcconnell_2008}.  
+density-depth data\cite{alley_koci_1988}\cite{hawley_morris_mcconnell_2008}\cite{gisp}.  
 \begin{figure}
   \centering
-	\includegraphics[width=0.5\textwidth]{Density_measurements2.pdf}
-	\caption{Illustration of the shortcomings of the analytical models}
+	\includegraphics[width=0.65\textwidth]{Density_measurements2.pdf}
+	\caption{Both the single exponential and the sigmoid-like function
+	approach the measurements but are slightly off, especially in the
+	40-120m depth region where important channels for the stations reside like the
+	phased array.}
 	\label{fig:DensityMeasurements}
 \end{figure}
 Now that we have a model for the density-depth curve we can link this to the
@@ -161,13 +164,18 @@ exponential index is called the \textit{analytic ray tracer}.
 As can be seen from figure \ref{fig:DensityMeasurements}, there is a
 discrepancy between the single exponential fit used for the exponential model
 and the density data, especially between 40 and 120 meters of depth where the
-phased array is located.  This discrepancy could imply that the analytic ray tracer will
+phased array is located.  
+Also note that the transition of firn into glacier ice \cite{10.2307/97323} isn't fully smooth and at what depth it occurs depends on the region, introducing
+further complications.
+
+These discrepancies could imply that the analytic ray tracer will
 make slightly wrong predictions.  This is why the development of a different
 ray tracer was needed which will be able to handle more complex ice models. One
 such ray tracer, called the iterative ray tracer, will be explained in section \ref{sec:Iterative} but this ray
 tracer has its shortcomings. That's why we found that the development of a new ray tracer
 was needed which is the partial work of this thesis and we'll get to that ray
 tracer in chapter \ref{chapter:hybrid}.
+
 
 \begin{figure}
   \centering
